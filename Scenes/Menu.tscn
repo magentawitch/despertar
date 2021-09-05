@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Images/BotonJugar.png" type="Texture" id=1]
+[ext_resource path="res://Prefabs/Boton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/SL-071219-21480-07.jpg" type="Texture" id=3]
+[ext_resource path="res://Prefabs/Boton.gd" type="Script" id=4]
+[ext_resource path="res://Images/BotonJugarHover.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 201.12, 55.6386 )
+
+[node name="Menu" type="Node2D"]
+
+[node name="BotonCreditos" parent="." instance=ExtResource( 2 )]
+position = Vector2( 735.211, 405.114 )
+pantallaDestino = "res://Scenes/Credits.tscn"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 514.629, 299.116 )
+scale = Vector2( 0.149951, 0.149951 )
+z_index = -1
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BotonJugar" type="Node2D" parent="."]
+position = Vector2( 735.992, 146.667 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+pantallaDestino = "res://Scenes/PantallaInicial.tscn"
+texturaNormal = ExtResource( 1 )
+texturaHover = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="BotonJugar"]
+position = Vector2( -224.053, 156.45 )
+scale = Vector2( 0.814919, 0.814919 )
+texture = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="BotonJugar"]
+position = Vector2( -215.887, 66.6708 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BotonJugar/Area2D"]
+position = Vector2( -8.39154, 89.3466 )
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="BotonJugar/Area2D" to="BotonJugar" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="BotonJugar/Area2D" to="BotonJugar" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="BotonJugar/Area2D" to="BotonJugar" method="_on_Area2D_mouse_exited"]

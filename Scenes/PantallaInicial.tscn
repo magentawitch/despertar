@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/Background/2609.jpg" type="Texture" id=1]
+[ext_resource path="res://Prefabs/Jade.tscn" type="PackedScene" id=2]
+
+[node name="PantallaInicial" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512.105, 302.135 )
+scale = Vector2( 0.174038, 0.174038 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Jade" parent="." instance=ExtResource( 2 )]
+position = Vector2( 386.988, 52.857 )

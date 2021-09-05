@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="Credits" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 0.337255, 0.141176, 0.529412, 1 )
+self_modulate = Color( 0.309804, 0.0980392, 0.513726, 1 )
+margin_left = 422.0
+margin_top = 274.0
+margin_right = 684.0
+margin_bottom = 308.0
+text = "Game is over. This are credits. Cry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
