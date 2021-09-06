@@ -5,7 +5,7 @@ var espacio_disponible_en_la_ultima_pagina = 100  # Porcentaje, así es facil co
 
 func registrar_evento(evento):
 	var entrada = self._obtener_entrada(evento)
-	if self.espacio_disponible_en_la_ultima_pagina > entrada["tamanio"]:
+	if self.espacio_disponible_en_la_ultima_pagina >= entrada["tamanio"]:
 		self.espacio_disponible_en_la_ultima_pagina -= entrada["tamanio"]
 		self.paginas[-1].append(entrada)
 	else:
@@ -15,7 +15,7 @@ func registrar_evento(evento):
 func _obtener_entrada(evento):
 	if evento["tipo"] == "renglon":
 		return {
-			"tamanio": 10,
+			"tamanio": 50,
 			"tipo": "renglon",
 			"texto": evento["texto"],
 		}

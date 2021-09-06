@@ -5,7 +5,7 @@ script/source = "extends Node2D
 
 # esto está para no exponer el label interno
 func set_text(text):
-	print(\"Seteando texto en EntradaRenglon: \" + text)
+	# print(\"Seteando texto en EntradaRenglon: \" + text)
 	$Label.text = text
 "
 

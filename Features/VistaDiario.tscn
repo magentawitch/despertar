@@ -38,7 +38,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-contenido = NodePath("Contenido")
 
 [node name="Forma" type="CollisionShape2D" parent="PaginaIzquierda"]
 shape = SubResource( 6 )
@@ -54,7 +53,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-contenido = NodePath("Contenido")
 
 [node name="Forma" type="CollisionShape2D" parent="PaginaDerecha"]
 shape = SubResource( 6 )
@@ -103,3 +101,7 @@ shape = SubResource( 5 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="AreaCerrar"]
 position = Vector2( -461.332, 487.149 )
 shape = SubResource( 10 )
+
+[connection signal="input_event" from="AreaIrIzquierda" to="." method="_on_AreaIrIzquierda_input_event"]
+[connection signal="input_event" from="AreaIrDerecha" to="." method="_on_AreaIrDerecha_input_event"]
+[connection signal="input_event" from="AreaCerrar" to="." method="_on_AreaCerrar_input_event"]
