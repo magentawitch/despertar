@@ -12,6 +12,11 @@ func _ready():
 	print(\"Creando pantalla de prueba del diario\")
 	$Diario._interaccion_de_ejemplo($Diario)
 	$VistaDiario.recargar()
+
+
+func _on_VistaDiario_request_close():
+	print(\"Saliendo\")
+	get_tree().quit()
 "
 
 [node name="Node2D" type="Node2D"]
@@ -22,3 +27,5 @@ diario_path = NodePath("../Diario")
 
 [node name="Diario" type="Node" parent="."]
 script = ExtResource( 2 )
+
+[connection signal="request_close" from="VistaDiario" to="." method="_on_VistaDiario_request_close"]

@@ -5,7 +5,7 @@
 [ext_resource path="res://VistaDiarioPagina.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 166.509, 175.169 )
+extents = Vector2( 142.25, 151.285 )
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 33.8256
@@ -33,7 +33,7 @@ position = Vector2( 508.665, 287.249 )
 texture = ExtResource( 1 )
 
 [node name="PaginaIzquierda" type="Area2D" parent="."]
-position = Vector2( 301.987, 286.646 )
+position = Vector2( 295.252, 287.768 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -48,7 +48,7 @@ __meta__ = {
 }
 
 [node name="PaginaDerecha" type="Area2D" parent="."]
-position = Vector2( 717.43, 286.746 )
+position = Vector2( 734.267, 292.358 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true

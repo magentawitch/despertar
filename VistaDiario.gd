@@ -1,5 +1,6 @@
 extends Node2D
 
+signal request_close
 
 var pagina_actual = 0
 
@@ -48,4 +49,4 @@ func _on_AreaIrDerecha_input_event(viewport, event, shape_idx):
 
 func _on_AreaCerrar_input_event(viewport, event, shape_idx):
 	if is_click(event):
-		pass
+		emit_signal("request_close")
