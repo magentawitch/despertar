@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Features/VistaDiario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://VistaDiario.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Diario.gd" type="Script" id=2]
 
 [sub_resource type="GDScript" id=1]
