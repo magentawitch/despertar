@@ -4,22 +4,22 @@
 [ext_resource path="res://VistaDiario.gd" type="Script" id=2]
 [ext_resource path="res://VistaDiarioPagina.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 142.25, 151.285 )
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=2]
 radius = 33.8256
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 36.7832, 213.724 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 440.87, 30.7631 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 34.5385, 206.99 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 339.848, 40.8652 )
 
 [node name="VistaDiario" type="Node2D"]
@@ -40,7 +40,7 @@ __meta__ = {
 }
 
 [node name="Forma" type="CollisionShape2D" parent="PaginaIzquierda"]
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Contenido" type="Node2D" parent="PaginaIzquierda"]
 __meta__ = {
@@ -55,7 +55,7 @@ __meta__ = {
 }
 
 [node name="Forma" type="CollisionShape2D" parent="PaginaDerecha"]
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Contenido" type="Node2D" parent="PaginaDerecha"]
 __meta__ = {
@@ -69,7 +69,7 @@ __meta__ = {
 }
 
 [node name="Forma" type="CollisionShape2D" parent="AreaIrIzquierda"]
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="AreaIrDerecha" type="Area2D" parent="."]
 position = Vector2( 910.665, 482.652 )
@@ -78,7 +78,7 @@ __meta__ = {
 }
 
 [node name="Forma" type="CollisionShape2D" parent="AreaIrDerecha"]
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="AreaCerrar" type="Area2D" parent="."]
 position = Vector2( 968.685, 65.1028 )
@@ -88,11 +88,11 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCerrar"]
 position = Vector2( 2.245, 162.757 )
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AreaCerrar"]
 position = Vector2( -454.597, -16.8369 )
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="AreaCerrar"]
 position = Vector2( -912.562, 161.635 )
@@ -100,7 +100,7 @@ shape = SubResource( 5 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="AreaCerrar"]
 position = Vector2( -461.332, 487.149 )
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 
 [connection signal="input_event" from="AreaIrIzquierda" to="." method="_on_AreaIrIzquierda_input_event"]
 [connection signal="input_event" from="AreaIrDerecha" to="." method="_on_AreaIrDerecha_input_event"]

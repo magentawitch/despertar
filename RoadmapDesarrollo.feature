@@ -15,15 +15,15 @@ Característica: Una forma de visualizar las entradas del diario desde dentro de
 
 Característica: Cola de comandos
 
-  Escenario: Al encolar un comando y avanzar un step se ejecuta ese comando [ ]
-  Escenario: Al agregar dos comandos y avanzar dos steps los comandos se ejecutan en orden [ ]
+  Escenario: Al encolar un comando y avanzar un step se ejecuta ese comando [x]
+  Escenario: Al agregar dos comandos y avanzar dos steps los comandos se ejecutan en orden [x]
   Escenario: El comando recibe un mensaje cuando comienza la ejecución 
-             de un step y responde avisando que terminó [ ]
-  Escenario: Tratar de avanzar un step mientras el anterior no termino es un error [ ]
-  Escenario: Si hay un step en ejecución se puede obtener el comando asociado [ ]
+             de un step y responde avisando que terminó [x]
+  Escenario: Tratar de avanzar un step mientras el anterior no termino es un error [x]
+  Escenario: Si hay un step en ejecución se puede obtener el comando asociado [x]
   Escenario: Cuando se termine de ejecutar un comando y inmediatamente comienza la
-             ejecución del siguiente [ ]
-  Escenario: Salvo que esté pausado [ ]
+             ejecución del siguiente [x]
+  Escenario: Salvo que esté pausado [x]
 
 
 Característica: Interactuar con el diario con comandos
