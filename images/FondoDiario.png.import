@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DiarioBotonCerrar.png-121f5272cf86c1b19e6f0be77cf8711a.stex"
+path="res://.import/FondoDiario.png-9f8bee4d853c07e51ac0c6b7e1fb1e6c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/DiarioBotonCerrar.png"
-dest_files=[ "res://.import/DiarioBotonCerrar.png-121f5272cf86c1b19e6f0be77cf8711a.stex" ]
+source_file="res://images/FondoDiario.png"
+dest_files=[ "res://.import/FondoDiario.png-9f8bee4d853c07e51ac0c6b7e1fb1e6c.stex" ]
 
 [params]
 

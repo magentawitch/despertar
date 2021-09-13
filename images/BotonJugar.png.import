@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jade.png-cb59de8b55253db6c6ecd95e950b261a.stex"
+path="res://.import/BotonJugar.png-a1b81461586b102d4151dc866a8007de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Jade.png"
-dest_files=[ "res://.import/Jade.png-cb59de8b55253db6c6ecd95e950b261a.stex" ]
+source_file="res://images/BotonJugar.png"
+dest_files=[ "res://.import/BotonJugar.png-a1b81461586b102d4151dc866a8007de.stex" ]
 
 [params]
 

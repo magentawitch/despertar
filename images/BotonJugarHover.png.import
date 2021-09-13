@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SL-071219-21480-07.jpg-77d16661eb657cf881eacc32b73491e5.stex"
+path="res://.import/BotonJugarHover.png-edcd8af7246f0b58bfabcda92cdf421c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/SL-071219-21480-07.jpg"
-dest_files=[ "res://.import/SL-071219-21480-07.jpg-77d16661eb657cf881eacc32b73491e5.stex" ]
+source_file="res://images/BotonJugarHover.png"
+dest_files=[ "res://.import/BotonJugarHover.png-edcd8af7246f0b58bfabcda92cdf421c.stex" ]
 
 [params]
 

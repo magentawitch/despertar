@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Images/FondoDiario.png" type="Texture" id=1]
+[ext_resource path="res://images/FondoDiario.png" type="Texture" id=1]
 [ext_resource path="res://VistaDiario.gd" type="Script" id=2]
 [ext_resource path="res://VistaDiarioPagina.gd" type="Script" id=3]
 
