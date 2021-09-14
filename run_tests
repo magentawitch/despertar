@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -ex
+godot --no-window addons/WAT/cli.tscn run=$@

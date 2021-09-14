@@ -9,6 +9,26 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Diario",
+"language": "GDScript",
+"path": "res://herramientas/diario/Diario.gd"
+}, {
+"base": "Node",
+"class": "Scheduler",
+"language": "GDScript",
+"path": "res://herramientas/cola_de_comandos/Scheduler.gd"
+}, {
+"base": "PanelContainer",
+"class": "TestScene",
+"language": "GDScript",
+"path": "res://herramientas/utest/TestScene.gd"
+}, {
+"base": "Node2D",
+"class": "VistaDiario",
+"language": "GDScript",
+"path": "res://herramientas/diario/VistaDiario.gd"
+}, {
 "base": "Reference",
 "class": "WAT",
 "language": "GDScript",
@@ -20,6 +40,10 @@ _global_script_classes=[ {
 "path": "res://addons/WAT/test/test.gd"
 } ]
 _global_script_class_icons={
+"Diario": "res://herramientas/diario/Diario.icon.png",
+"Scheduler": "res://herramientas/cola_de_comandos/Scheduler.icon.png",
+"TestScene": "res://herramientas/utest/TestScene.icon.png",
+"VistaDiario": "res://herramientas/diario/VistaDiario.icon.png",
 "WAT": "",
 "WATTest": ""
 }
@@ -38,7 +62,7 @@ Display=8
 [application]
 
 config/name="Despertar"
-config/icon="res://images/icon.png"
+config/icon="res://assets/images/icon.png"
 
 [editor_plugins]
 

@@ -28,9 +28,9 @@ Característica: Cola de comandos
 
 Característica: Interactuar con el diario con comandos
 
-  Escenario: Al ejecutar el comando Anotar se agrega una entrada de texto en el diario [ ]
-  Escenario: Al ejecutar el comando AbrirDiario se abre el diario [ ]
-  Escenario: Al cerrar un diario abierto por AbrirDiario se termina el step [ ]
+  Escenario: Al ejecutar el comando Anotar se agrega una entrada de texto en el diario [x]
+  Escenario: Al ejecutar el comando AbrirDiario se abre el diario [x]
+  Escenario: Al cerrar un diario abierto por AbrirDiario se termina el step [x]
 
 
 Característica: Los personajes se pueden mover entre regiones

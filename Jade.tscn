@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/images/Jade.png" type="Texture" id=1]
+
+[node name="Jade" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 128.165, 469.563 )
+scale = Vector2( 0.216279, 0.216279 )
+texture = ExtResource( 1 )

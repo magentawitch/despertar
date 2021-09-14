@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
+[ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
+[ext_resource path="res://herramientas/cola_de_comandos/Scheduler.gd" type="Script" id=3]
+[ext_resource path="res://comandos/anotar.gd" type="Script" id=4]
+[ext_resource path="res://pantallas/PantallaPrincipal.gd" type="Script" id=5]
+[ext_resource path="res://comandos/abrir_diario.gd" type="Script" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+export var scheduler_path: NodePath
+func scheduler() -> Scheduler:
+	return get_node(scheduler_path) as Scheduler
+
+func _on_boton_abrir_diario_pressed() -> void:
+	scheduler().encolar(\"abrir_diario\")
+
+
+func _on_boton_escribir_renglon_pressed() -> void:
+	scheduler().encolar(\"anotar\", {\"texto\": \"Quiero ser!\"})
+"
+
+[node name="pantalla_principal" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="props_de_prueba" type="PanelContainer" parent="."]
+margin_left = 462.0
+margin_top = 296.0
+margin_right = 592.0
+margin_bottom = 372.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scheduler_path = NodePath("../scheduler")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="props_de_prueba"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 123.0
+margin_bottom = 69.0
+
+[node name="titulo" type="Label" parent="props_de_prueba/VBoxContainer"]
+margin_right = 116.0
+margin_bottom = 14.0
+text = "Comandos de test"
+
+[node name="boton_abrir_diario" type="Button" parent="props_de_prueba/VBoxContainer"]
+margin_top = 18.0
+margin_right = 116.0
+margin_bottom = 38.0
+text = "Abrir diario"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boton_escribir_renglon" type="Button" parent="props_de_prueba/VBoxContainer"]
+margin_top = 42.0
+margin_right = 116.0
+margin_bottom = 62.0
+text = "Escribir renglon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="diario" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="scheduler" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="anotar" type="Node" parent="scheduler"]
+script = ExtResource( 4 )
+path_al_diario = NodePath("../../diario")
+
+[node name="abrir_diario" type="Node" parent="scheduler"]
+script = ExtResource( 6 )
+path_a_la_vista_del_diario = NodePath("../../vista_diario")
+
+[node name="vista_diario" parent="." instance=ExtResource( 2 )]
+visible = false
+diario_path = NodePath("../diario")
+
+[connection signal="pressed" from="props_de_prueba/VBoxContainer/boton_abrir_diario" to="props_de_prueba" method="_on_boton_abrir_diario_pressed"]
+[connection signal="pressed" from="props_de_prueba/VBoxContainer/boton_escribir_renglon" to="props_de_prueba" method="_on_boton_escribir_renglon_pressed"]
