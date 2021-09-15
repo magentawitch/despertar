@@ -1,8 +1,5 @@
 extends Node
-class_name Scheduler, "./Scheduler.icon.png"
-
-# "El Scheduler" necesita un renombre por algo mejor, pero no se me ocurre bien qué
-# Una posibilidad es "Director" ya que esta dirigiendo que se hace y cuando
+class_name Director, "./Director.icon.png"
 
 var _comandos_conocidos = {}
 var _cola_de_comandos_pendientes = []

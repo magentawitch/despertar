@@ -35,7 +35,9 @@ Característica: Interactuar con el diario con comandos
 
 Característica: Los personajes se pueden mover entre regiones
 
-  Escenario: Al ejecutar el comando ViajarA el protagonista puede cambiar de region [ ]
+  Escenario: Al abrir la pantalla principal se carga en la region actual [ ]
+  Escenario: Al ejecutar el comando ViajarA el protagonista puede cambiar la region actual [ ]
+  Escenario: Al cambiar de región se descarga la actual y se carga la nueva [ ]
   Escenario: Al hacer click en puertas se encola 'ViajarA la región de destino' [ ]
   Escenario: No se puede hacer click en puertas se hay se está ejecutando un step [ ]
   Escenario: Cuando el personaje viene de una región $r aparece en el origen
