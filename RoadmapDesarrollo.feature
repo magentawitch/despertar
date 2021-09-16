@@ -35,7 +35,7 @@ Característica: Interactuar con el diario con acciones
 
 Característica: Los personajes se pueden mover entre regiones
 
-  Escenario: Al abrir la pantalla principal se carga en la region actual [ ]
+  Escenario: Al abrir la pantalla principal se carga en la region actual [x]
   Escenario: Al ejecutar la accion ViajarA el protagonista puede cambiar la region actual [ ]
   Escenario: Al cambiar de región se descarga la actual y se carga la nueva [ ]
   Escenario: Al hacer click en puertas se encola 'ViajarA la región de destino' [ ]
