@@ -15,14 +15,14 @@ _global_script_classes=[ {
 "path": "res://herramientas/diario/Diario.gd"
 }, {
 "base": "Node",
-"class": "Escena",
-"language": "GDScript",
-"path": "res://herramientas/escena/Escena.gd"
-}, {
-"base": "Node",
 "class": "Director",
 "language": "GDScript",
 "path": "res://herramientas/director/Director.gd"
+}, {
+"base": "Node",
+"class": "Escena",
+"language": "GDScript",
+"path": "res://herramientas/escena/Escena.gd"
 }, {
 "base": "PanelContainer",
 "class": "TestScene",
@@ -46,8 +46,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Diario": "res://herramientas/diario/Diario.icon.png",
-"Escena": "",
 "Director": "res://herramientas/director/Director.icon.png",
+"Escena": "",
 "TestScene": "res://herramientas/utest/TestScene.icon.png",
 "VistaDiario": "res://herramientas/diario/VistaDiario.icon.png",
 "WAT": "",
