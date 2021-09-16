@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Director",
 "language": "GDScript",
-"path": "res://herramientas/cola_de_comandos/Director.gd"
+"path": "res://herramientas/director/Director.gd"
 }, {
 "base": "PanelContainer",
 "class": "TestScene",
@@ -47,7 +47,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Diario": "res://herramientas/diario/Diario.icon.png",
 "Escena": "",
-"Director": "res://herramientas/cola_de_comandos/Director.icon.png",
+"Director": "res://herramientas/director/Director.icon.png",
 "TestScene": "res://herramientas/utest/TestScene.icon.png",
 "VistaDiario": "res://herramientas/diario/VistaDiario.icon.png",
 "WAT": "",

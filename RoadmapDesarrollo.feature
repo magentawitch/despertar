@@ -13,30 +13,30 @@ Característica: Una forma de visualizar las entradas del diario desde dentro de
   Escenario: Se pueden navegar las páginas [x]
 
 
-Característica: Cola de comandos
+Característica: Cola de acciones (Director)
 
-  Escenario: Al encolar un comando y avanzar un step se ejecuta ese comando [x]
-  Escenario: Al agregar dos comandos y avanzar dos steps los comandos se ejecutan en orden [x]
-  Escenario: El comando recibe un mensaje cuando comienza la ejecución 
+  Escenario: Al encolar una accion y avanzar un step se ejecuta esa accion [x]
+  Escenario: Al agregar dos acciones y avanzar dos steps las acciones se ejecutan en orden [x]
+  Escenario: La accion recibe un mensaje cuando comienza la ejecución 
              de un step y responde avisando que terminó [x]
   Escenario: Tratar de avanzar un step mientras el anterior no termino es un error [x]
-  Escenario: Si hay un step en ejecución se puede obtener el comando asociado [x]
-  Escenario: Cuando se termine de ejecutar un comando y inmediatamente comienza la
+  Escenario: Si hay un step en ejecución se puede obtener la accion asociada [x]
+  Escenario: Cuando se termine de ejecutar una accion y inmediatamente comienza la
              ejecución del siguiente [x]
   Escenario: Salvo que esté pausado [x]
 
 
-Característica: Interactuar con el diario con comandos
+Característica: Interactuar con el diario con acciones
 
-  Escenario: Al ejecutar el comando Anotar se agrega una entrada de texto en el diario [x]
-  Escenario: Al ejecutar el comando AbrirDiario se abre el diario [x]
+  Escenario: Al ejecutar la accion Anotar se agrega una entrada de texto en el diario [x]
+  Escenario: Al ejecutar la accion AbrirDiario se abre el diario [x]
   Escenario: Al cerrar un diario abierto por AbrirDiario se termina el step [x]
 
 
 Característica: Los personajes se pueden mover entre regiones
 
   Escenario: Al abrir la pantalla principal se carga en la region actual [ ]
-  Escenario: Al ejecutar el comando ViajarA el protagonista puede cambiar la region actual [ ]
+  Escenario: Al ejecutar la accion ViajarA el protagonista puede cambiar la region actual [ ]
   Escenario: Al cambiar de región se descarga la actual y se carga la nueva [ ]
   Escenario: Al hacer click en puertas se encola 'ViajarA la región de destino' [ ]
   Escenario: No se puede hacer click en puertas se hay se está ejecutando un step [ ]
@@ -46,9 +46,9 @@ Característica: Los personajes se pueden mover entre regiones
 
 Característica: Los personajes pueden hablar
   
-  Escenario: Al ejecutar el comando 'Decir un texto' se muestra un cuadro con el
+  Escenario: Al ejecutar la accion 'Decir un texto' se muestra un cuadro con el
              texto y el recuadro del personaje que habló [ ]
-  Escenario: Al ejecutar el comando 'Decir un texto' se muestra un globo con el
+  Escenario: Al ejecutar la accion 'Decir un texto' se muestra un globo con el
              texto arriba del personaje [ ]
   Escenario: Al hacer click en cualquier lado se termina el step [ ]
 
@@ -63,16 +63,16 @@ Característica: Entradas de diario con fotos epigrafeables
 
 Característica: Los personajes se pueden mover por dentro de una región
 
-  Escenario: Al ejecutar el comando 'CaminarHacia una posición' el protagonista se mueve a esa posición [ ]
+  Escenario: Al ejecutar la accion 'CaminarHacia una posición' el protagonista se mueve a esa posición [ ]
   Escenario: Al hacer click sobre un area en la pantalla se encola 'CaminarHacia la posición del click' [ ]
   Escenario: No se puede hacer click si hay se está ejecutando un step [ ]
 
 
-Característica: Las colas de comandos pertenecen a estados de una FSM con pila 
+Característica: Las colas de acciones pertenecen a estados de una FSM con pila 
 
-  Cada estado tiene la oportunidad de definir sus propias reglas y sus propios comandos
-  Hay un par de comandos especiales para manipular la pila (Peek, Push, Pop y Swap)
-  Al pushear un estado nuevo en la pila pausa la ejecución de los comandos del
+  Cada estado tiene la oportunidad de definir sus propias reglas y sus propias acciones
+  Hay un par de acciones especiales para manipular la pila (Peek, Push, Pop y Swap)
+  Al pushear un estado nuevo en la pila pausa la ejecución de las acciones del
   estado anterior hasta que este vuelva a ser el tope de la pila
   Escenario: ???+++>>> Analizar cuales serian los casos de uso de esto [ ]
 

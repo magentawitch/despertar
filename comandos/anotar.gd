@@ -7,4 +7,4 @@ func diario() -> Diario:
 
 func anotar(director: Director, detalles: Dictionary):
 	diario().escribir_renglon(detalles['texto'])
-	director.termino_la_ejecucion_del_comando()
+	director.termino_la_ejecucion_de_la_accion()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://herramientas/cola_de_comandos/tests_del_director.gd" type="Script" id=1]
+[ext_resource path="res://herramientas/director/tests_del_director.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/utest/TestScene.tscn" type="PackedScene" id=2]
 
 [node name="TestScene" instance=ExtResource( 2 )]

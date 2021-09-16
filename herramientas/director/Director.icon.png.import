@@ -9,7 +9,7 @@ metadata={
 
 [deps]
 
-source_file="res://herramientas/cola_de_comandos/Director.icon.png"
+source_file="res://herramientas/director/Director.icon.png"
 dest_files=[ "res://.import/Director.icon.png-83da3816ed5519cc7a675f6a1ee5744d.stex" ]
 
 [params]

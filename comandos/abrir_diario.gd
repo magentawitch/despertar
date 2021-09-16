@@ -13,4 +13,4 @@ func abrir_diario(director: Director, detalles: Dictionary) -> void:
 	yield(vista_diario(), "solicitaron_cerrarme")
 	vista_diario().ocultar()
 	print("Ocultando el diario")
-	director.termino_la_ejecucion_del_comando()
+	director.termino_la_ejecucion_de_la_accion()
