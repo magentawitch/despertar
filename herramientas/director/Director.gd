@@ -40,7 +40,7 @@ func ejecutar_siguiente_accion():
 	var c = _cola_de_acciones_pendientes.pop_front()
 	var accion = c[0]
 	var detalles = c[1]
-	if accion in responsables_de__acciones_conocidas:
+	if accion in _responsables_de_acciones_conocidas:
 		var responsable = _responsables_de_acciones_conocidas[accion]
 		_accion_que_se_esta_ejecutando = accion
 		responsable.call(accion, self, detalles)

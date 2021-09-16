@@ -22,7 +22,7 @@ func sumar_1(director, detalles):
 
 func colgarse(director, detalles):
 	numero += 9000
-    # no avisa
+	# no avisa
 	
 func sumar_x(director, detalles):
 	numero += detalles['valor_de_x']
