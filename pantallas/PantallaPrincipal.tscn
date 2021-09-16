@@ -25,46 +25,6 @@ func _on_boton_escribir_renglon_pressed() -> void:
 [node name="pantalla_principal" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="props_de_prueba" type="PanelContainer" parent="."]
-margin_left = 462.0
-margin_top = 296.0
-margin_right = 592.0
-margin_bottom = 372.0
-script = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-director_path = NodePath("../director")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="props_de_prueba"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 123.0
-margin_bottom = 69.0
-
-[node name="titulo" type="Label" parent="props_de_prueba/VBoxContainer"]
-margin_right = 116.0
-margin_bottom = 14.0
-text = "Acciones de prueba"
-
-[node name="boton_abrir_diario" type="Button" parent="props_de_prueba/VBoxContainer"]
-margin_top = 18.0
-margin_right = 116.0
-margin_bottom = 38.0
-text = "Abrir diario"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="boton_escribir_renglon" type="Button" parent="props_de_prueba/VBoxContainer"]
-margin_top = 42.0
-margin_right = 116.0
-margin_bottom = 62.0
-text = "Escribir renglon"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="diario" type="Node" parent="."]
 script = ExtResource( 1 )
 
@@ -77,11 +37,56 @@ path_al_diario = NodePath("../../diario")
 
 [node name="abrir_diario" type="Node" parent="director"]
 script = ExtResource( 6 )
-path_a_la_vista_del_diario = NodePath("../../vista_diario")
+path_a_la_vista_del_diario = NodePath("../../ui/vista_diario")
 
-[node name="vista_diario" parent="." instance=ExtResource( 2 )]
+[node name="contenedor" type="Node2D" parent="."]
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="props_de_prueba" type="PanelContainer" parent="ui"]
+margin_left = 462.0
+margin_top = 296.0
+margin_right = 602.0
+margin_bottom = 372.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+director_path = NodePath("../../director")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/props_de_prueba"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 133.0
+margin_bottom = 69.0
+
+[node name="titulo" type="Label" parent="ui/props_de_prueba/VBoxContainer"]
+margin_right = 126.0
+margin_bottom = 14.0
+text = "Acciones de prueba"
+
+[node name="boton_abrir_diario" type="Button" parent="ui/props_de_prueba/VBoxContainer"]
+margin_top = 18.0
+margin_right = 126.0
+margin_bottom = 38.0
+text = "Abrir diario"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boton_escribir_renglon" type="Button" parent="ui/props_de_prueba/VBoxContainer"]
 visible = false
-diario_path = NodePath("../diario")
+margin_top = 42.0
+margin_right = 126.0
+margin_bottom = 62.0
+text = "Escribir renglon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="pressed" from="props_de_prueba/VBoxContainer/boton_abrir_diario" to="props_de_prueba" method="_on_boton_abrir_diario_pressed"]
-[connection signal="pressed" from="props_de_prueba/VBoxContainer/boton_escribir_renglon" to="props_de_prueba" method="_on_boton_escribir_renglon_pressed"]
+[node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
+visible = false
+diario_path = NodePath("../../diario")
+
+[connection signal="pressed" from="ui/props_de_prueba/VBoxContainer/boton_abrir_diario" to="ui/props_de_prueba" method="_on_boton_abrir_diario_pressed"]
+[connection signal="pressed" from="ui/props_de_prueba/VBoxContainer/boton_escribir_renglon" to="ui/props_de_prueba" method="_on_boton_escribir_renglon_pressed"]

@@ -16,4 +16,6 @@ __meta__ = {
 }
 
 [node name="Jade" parent="." instance=ExtResource( 3 )]
-position = Vector2( 386.988, 52.857 )
+position = Vector2( 385.988, 52.857 )
+
+[connection signal="me_hicieron_click" from="Jade" to="." method="_on_Jade_me_hicieron_click"]

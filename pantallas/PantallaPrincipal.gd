@@ -1,29 +1,34 @@
 extends Node2D
 
 
-var nombre_de_la_region_actual: String = "patio_de_juegos"
-var region_actual: Region = null
-# Called when the node enters the scene tree for the first time.
+var nombre_de_la_escena_actual: String = "patio_de_juegos"
+
 func _ready() -> void:
-	deployar_region_actual()
+	cargar_escena_actual()
 	
-func escena_de_la_region(nombre_de_la_region):
-	"res://regiones/{}.tres".format(nombre_de_la_region)
-	
-func cargar_region_actual():
+func cargar_escena_actual():
 	assert(
-		ResourceLoader.exists(escena_de_la_region(nombre_de_la_region_actual)),
-		"No existe la escena: " + nombre_de_la_region_actual
+		nombre_de_la_escena_actual != null,
+		"No hay una escena para cargar"
 	)
-	region_actual = load(escena_de_la_region(nombre_de_la_region_actual))
+	var escena = cargar_escena(nombre_de_la_escena_actual)
 	
-	add_child(region_actual, true)
-	call_deferred('cargar_region_actual')
-	region_actual.cargar()
+	escena.inicializar_dependencias($director, $diario)
+	$contenedor.add_child(escena, true)
+	escena.set_name('escena_actual')
+	call_deferred('avisar_que_la_escena_fue_cargada')
 	
-func descargar_region_actual():
+func avisar_que_la_escena_fue_cargada():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func cargar_escena(nombre_de_la_escena) -> Escena:
+	var archivo_de_la_escena = "res://escenas/%s.tscn" % nombre_de_la_escena
+	assert(
+		ResourceLoader.exists(archivo_de_la_escena),
+		"No existe la escena: %s, deberia estar en: %s" % [
+			nombre_de_la_escena_actual, archivo_de_la_escena
+		]
+	)
+	return load(archivo_de_la_escena).instance() as Escena
+
+	
