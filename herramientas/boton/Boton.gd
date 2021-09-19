@@ -23,7 +23,7 @@ func _on_Area2D_mouse_entered():
 	if texturaHover:
 		$Sprite.set_texture(texturaHover)
 	else:
-		 $Sprite.modulate = Color(0, 1, 1, 1)
+		$Sprite.modulate = Color(0, 1, 1, 1)
 
 
 func _on_Area2D_mouse_exited():

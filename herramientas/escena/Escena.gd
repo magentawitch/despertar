@@ -15,3 +15,6 @@ func anotar_en_el_diario(algo):
 
 func protagonista_piensa(algo):
 	print(algo)
+
+func cambiar_escena_a(nombre_de_escena):
+	director.encolar("cambio_de_escena", {"escena": nombre_de_escena})

@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/images/Background/2609.jpg" type="Texture" id=1]
 [ext_resource path="res://Jade.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utileria/puerta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/piso.png" type="Texture" id=5]
@@ -9,52 +8,32 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-func _ready() -> void:
-	protagonista_piensa(\"Que quilombo el patio de juegos!\")
-
-func _on_Jade_me_hicieron_click() -> void:
-	anotar_en_el_diario(\"No lo puedo creer\")
-
-func _on_puerta_izquierda_ocurrio_interaccion() -> void:
-	anotar_en_el_diario('Baje al sotano')
-	cambiar_escena_a(\"el_sotano\")
 
 func _on_puerta_derecha_ocurrio_interaccion() -> void:
-	anotar_en_el_diario('Subi al atico')
-	cambiar_escena_a(\"el_atico\")
+	cambiar_escena_a('patio_de_juegos')
+	anotar_en_el_diario('Subi de regreso al patio de juegos.')
 "
 
-[node name="patio_de_juegos" type="Node2D"]
+[node name="el_sotano" type="Node2D"]
 script = SubResource( 1 )
 
-[node name="Background" type="Sprite" parent="."]
-visible = false
-position = Vector2( 512.105, 302.135 )
-scale = Vector2( 0.174038, 0.174038 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="pared" type="Sprite" parent="."]
+modulate = Color( 0.478431, 0.607843, 0.552941, 1 )
 position = Vector2( 513.704, 252.652 )
 scale = Vector2( 3.44559, 3.32814 )
 texture = ExtResource( 6 )
 
 [node name="piso" type="Sprite" parent="."]
+modulate = Color( 0.384314, 0.666667, 0.627451, 1 )
 position = Vector2( 516.884, 484.812 )
 scale = Vector2( 3.48, 1.68 )
 texture = ExtResource( 5 )
 
 [node name="Jade" parent="." instance=ExtResource( 3 )]
-position = Vector2( 317.952, -47.9367 )
-
-[node name="puerta_izquierda" parent="." instance=ExtResource( 4 )]
-position = Vector2( 747.133, 466.171 )
+position = Vector2( 555.36, -51.5043 )
 
 [node name="puerta_derecha" parent="." instance=ExtResource( 4 )]
-position = Vector2( 257.024, 464.911 )
+position = Vector2( 793.1, 459.659 )
 
 [connection signal="me_hicieron_click" from="Jade" to="." method="_on_Jade_me_hicieron_click"]
-[connection signal="ocurrio_interaccion" from="puerta_izquierda" to="." method="_on_puerta_izquierda_ocurrio_interaccion"]
 [connection signal="ocurrio_interaccion" from="puerta_derecha" to="." method="_on_puerta_derecha_ocurrio_interaccion"]

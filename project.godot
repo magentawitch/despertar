@@ -68,7 +68,12 @@ Display=8
 [application]
 
 config/name="Despertar"
+run/main_scene="res://pantallas/PantallaPrincipal.tscn"
 config/icon="res://assets/images/icon.png"
+
+[display]
+
+window/size/height=576
 
 [editor_plugins]
 

@@ -1,5 +1,7 @@
 extends Node
 
+# TODO: Cambiar nombre de la accion a indicativo
+
 export var path_al_diario: NodePath
 
 func diario() -> Diario:
