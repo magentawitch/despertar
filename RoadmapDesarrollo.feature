@@ -28,17 +28,17 @@ Característica: Cola de acciones (Director)
 
 Característica: Interactuar con el diario con acciones
 
-  Escenario: Al ejecutar la accion Anotar se agrega una entrada de texto en el diario [x]
-  Escenario: Al ejecutar la accion AbrirDiario se abre el diario [x]
-  Escenario: Al cerrar un diario abierto por AbrirDiario se termina el step [x]
+  Escenario: Al ejecutar la accion `anota` se agrega una entrada de texto en el diario [x]
+  Escenario: Al ejecutar la accion `abre_diario` se abre el diario [x]
+  Escenario: Al cerrar un diario abierto por `abre_diario` se termina el step [x]
 
 
 Característica: Los personajes se pueden mover entre regiones
 
-  Escenario: Al abrir la pantalla principal se carga en la region actual [x]
-  Escenario: Al ejecutar la accion ViajarA el protagonista puede cambiar la region actual [ ]
-  Escenario: Al cambiar de región se descarga la actual y se carga la nueva [ ]
-  Escenario: Al hacer click en puertas se encola 'ViajarA la región de destino' [ ]
+  Escenario: Al abrir la pantalla principal se carga la escena actual [x]
+  Escenario: Al ejecutar la accion `cambio_de_escena` el protagonista puede cambiar la escena actual [x]
+  Escenario: Al cambiar de escena se descarga la actual y se carga la nueva [x]
+  Escenario: Al hacer click en puertas se encola `cambio_de_escena` con la escena de destino [x]
   Escenario: No se puede hacer click en puertas se hay se está ejecutando un step [ ]
   Escenario: Cuando el personaje viene de una región $r aparece en el origen
              para la misma (usualmente al lado de la puerta que lleva de regreso a $r) [ ]
@@ -46,9 +46,9 @@ Característica: Los personajes se pueden mover entre regiones
 
 Característica: Los personajes pueden hablar
   
-  Escenario: Al ejecutar la accion 'Decir un texto' se muestra un cuadro con el
+  Escenario: Al ejecutar la accion 'dice' se muestra un cuadro con el
              texto y el recuadro del personaje que habló [ ]
-  Escenario: Al ejecutar la accion 'Decir un texto' se muestra un globo con el
+  Escenario: Al ejecutar la accion 'dice' se muestra un globo con el
              texto arriba del personaje [ ]
   Escenario: Al hacer click en cualquier lado se termina el step [ ]
 
