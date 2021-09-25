@@ -11,6 +11,8 @@ func contenedor() -> Node2D:
 func dice(director: Director, detalles: Dictionary):
 	var dialogo = escena_dialogo.instance()
 	dialogo.asignar_texto(detalles['texto'])
+	if detalles.has('recuadro'):
+		dialogo.mostrar_recuadro(detalles['recuadro'])
 	dialogo.connect("presiono_continuar", self, 'presiono_continuar_en_el_dialogo', [director, dialogo])
 	contenedor().add_child(dialogo)
 

@@ -19,5 +19,8 @@ func protagonista_piensa(algo):
 func cambiar_escena_a(nombre_de_escena):
 	director.encolar("cambio_de_escena", {"escena": nombre_de_escena})
 
-func decir(texto):
-	director.encolar("dice", {"texto": texto})
+func grabar(texto):
+	director.encolar("dice", {"texto": texto, "recuadro": "grabadora"})
+
+func dice(quien, dialogo):
+	director.encolar("dice", {"texto": dialogo, "recuadro": quien})

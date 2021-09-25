@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/images/fondo_cuadro_de_dialogo.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/flechita_cuadro_de_dialogo.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/recuadros/marco.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/recuadros/jade.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/recuadros/grabadora.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/recuadros/milan.png" type="Texture" id=6]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Node2D
@@ -13,7 +17,11 @@ func _ready() -> void:
 
 func asignar_texto(texto: String):
 	$grupo/RichTextLabel.text = texto
-
+	
+func mostrar_recuadro(recuadro: String):
+	for c in $grupo/recuadro.get_children():
+		if c.name == recuadro:
+			c.show()
 
 func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
@@ -122,8 +130,9 @@ autoplay = "idle"
 anims/idle = SubResource( 1 )
 
 [node name="grupo" type="Node2D" parent="."]
-position = Vector2( 2.66899, -0.345184 )
+position = Vector2( 110.271, -2.23294 )
 rotation = -0.00879033
+scale = Vector2( 0.801173, 0.801173 )
 
 [node name="fondo_cuadro_de_dialogo" type="Sprite" parent="grupo"]
 position = Vector2( 2.08215, 0.23941 )
@@ -152,6 +161,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="recuadro" type="Position2D" parent="grupo"]
+
+[node name="grabadora" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -423.764, -9.4976 )
+rotation = 0.00879033
+scale = Vector2( 0.337794, 0.337794 )
+texture = ExtResource( 5 )
+
+[node name="jade" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -431.883, -10.0545 )
+rotation = 0.00879033
+scale = Vector2( 0.43457, 0.43457 )
+texture = ExtResource( 4 )
+
+[node name="marco" type="Sprite" parent="grupo/recuadro/jade"]
+position = Vector2( -6.85779, -8.40843 )
+rotation = -0.00879033
+scale = Vector2( 0.907347, 0.907347 )
+texture = ExtResource( 3 )
+
+[node name="milan" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -433.123, -10.4723 )
+rotation = 0.00879033
+scale = Vector2( 0.179756, 0.179756 )
+texture = ExtResource( 6 )
+
+[node name="marco2" type="Sprite" parent="grupo/recuadro/milan"]
+position = Vector2( -9.65869, -18.0643 )
+rotation = -0.00879033
+scale = Vector2( 2.19356, 2.19356 )
+texture = ExtResource( 3 )
+
 [node name="animacion_transiciones" type="AnimationPlayer" parent="."]
 autoplay = "aparece"
 anims/aparece = SubResource( 2 )
@@ -159,6 +203,7 @@ anims/aparece = SubResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2( -4.94974, -7.07108 )
 shape = SubResource( 4 )
 

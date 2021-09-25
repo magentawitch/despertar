@@ -16,15 +16,19 @@ func _on_puerta_izquierda_ocurrio_interaccion() -> void:
 	cambiar_escena_a('patio_de_juegos')
 
 
-var _interactuo_con_el_busto = false
+var veces_que_interactuo_con_el_busto = 0
 func _on_busto_ocurrio_interaccion() -> void:
-	if not _interactuo_con_el_busto:
-		_interactuo_con_el_busto = true
-		decir(\"El imponente busto del Zorro Gris\")
-		decir(\"Creo que es un personaje del Skyrim\")
-		decir(\"La verdad es que fue lo primero que encontré en internet\")
+	if veces_que_interactuo_con_el_busto == 0:
+		grabar(\"Entrada número 38: El imponente busto del Zorro Gris\")
+		grabar(\"Creo que es un personaje del Skyrim\")
+		grabar(\"La verdad es que fue lo primero que encontré en internet\")
+	elif veces_que_interactuo_con_el_busto == 1:
+		grabar(\"Se puede observar como la estética no combina en absoluto\")
+		dice(\"jade\", \"...\")
+		dice(\"jade\", \"Se reemplazará cuando haya assets mejores\")
 	else:
-		decir(\"No se que mas decir sobre el busto\")
+		dice(\"jade\", \"No se que mas decir sobre el busto feo\")
+	veces_que_interactuo_con_el_busto += 1
 "
 
 [node name="el_atico" type="Node2D"]

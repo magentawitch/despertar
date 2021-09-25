@@ -89,6 +89,6 @@ visible = false
 diario_path = NodePath("../../diario")
 
 [node name="contenedor_dialogo" type="Position2D" parent="ui"]
-position = Vector2( 502, 163 )
+position = Vector2( 436, 170 )
 
 [connection signal="pressed" from="ui/menu_que_hay_meter_en_algun_lado/VBoxContainer/boton_abrir_diario" to="ui/menu_que_hay_meter_en_algun_lado" method="_on_boton_abrir_diario_pressed"]
