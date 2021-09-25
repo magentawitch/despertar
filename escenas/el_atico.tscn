@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/images/Background/2609.jpg" type="Texture" id=1]
+[ext_resource path="res://utileria/busto.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Jade.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utileria/puerta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/piso.png" type="Texture" id=5]
@@ -13,6 +14,17 @@ script/source = "extends Escena
 func _on_puerta_izquierda_ocurrio_interaccion() -> void:
 	anotar_en_el_diario('Baje de nuevo al patio de juegos')
 	cambiar_escena_a('patio_de_juegos')
+
+
+var _interactuo_con_el_busto = false
+func _on_busto_ocurrio_interaccion() -> void:
+	if not _interactuo_con_el_busto:
+		_interactuo_con_el_busto = true
+		decir(\"El imponente busto del Zorro Gris\")
+		decir(\"Creo que es un personaje del Skyrim\")
+		decir(\"La verdad es que fue lo primero que encontré en internet\")
+	else:
+		decir(\"No se que mas decir sobre el busto\")
 "
 
 [node name="el_atico" type="Node2D"]
@@ -43,7 +55,11 @@ texture = ExtResource( 5 )
 position = Vector2( 324.952, -53.9367 )
 
 [node name="puerta_izquierda" parent="." instance=ExtResource( 4 )]
-position = Vector2( 294.822, 456.091 )
+position = Vector2( 292.822, 448.091 )
+
+[node name="busto" parent="." instance=ExtResource( 2 )]
+position = Vector2( 613, 473 )
 
 [connection signal="me_hicieron_click" from="Jade" to="." method="_on_Jade_me_hicieron_click"]
 [connection signal="ocurrio_interaccion" from="puerta_izquierda" to="." method="_on_puerta_izquierda_ocurrio_interaccion"]
+[connection signal="ocurrio_interaccion" from="busto" to="." method="_on_busto_ocurrio_interaccion"]

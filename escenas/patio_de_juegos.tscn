@@ -50,10 +50,10 @@ texture = ExtResource( 5 )
 position = Vector2( 317.952, -47.9367 )
 
 [node name="puerta_izquierda" parent="." instance=ExtResource( 4 )]
-position = Vector2( 747.133, 466.171 )
+position = Vector2( 745.719, 447.786 )
 
 [node name="puerta_derecha" parent="." instance=ExtResource( 4 )]
-position = Vector2( 257.024, 464.911 )
+position = Vector2( 258.438, 449.354 )
 
 [connection signal="me_hicieron_click" from="Jade" to="." method="_on_Jade_me_hicieron_click"]
 [connection signal="ocurrio_interaccion" from="puerta_izquierda" to="." method="_on_puerta_izquierda_ocurrio_interaccion"]
