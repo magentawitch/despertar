@@ -20,10 +20,13 @@ func _ready():
 
 func cuando_un_area_gano_interes():
 	emit_signal('gano_interes')
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 func cuando_un_area_perdio_el_interes():
 	emit_signal('perdio_el_interes')
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func cuando_se_interactuo_con_un_area_de_alguna_forma(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
 		emit_signal("ocurrio_interaccion")
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)

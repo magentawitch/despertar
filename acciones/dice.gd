@@ -13,9 +13,7 @@ func dice(director: Director, detalles: Dictionary):
 	dialogo.asignar_texto(detalles['texto'])
 	if detalles.has('recuadro'):
 		dialogo.mostrar_recuadro(detalles['recuadro'])
-	dialogo.connect("presiono_continuar", self, 'presiono_continuar_en_el_dialogo', [director, dialogo])
 	contenedor().add_child(dialogo)
-
-func presiono_continuar_en_el_dialogo(director: Director, dialogo: Node2D):
+	yield(dialogo, "presiono_continuar")
 	dialogo.queue_free()
 	director.termino_la_ejecucion_de_la_accion()

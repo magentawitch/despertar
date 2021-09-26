@@ -24,3 +24,6 @@ func grabar(texto):
 
 func dice(quien, dialogo):
 	director.encolar("dice", {"texto": dialogo, "recuadro": quien})
+
+func elige(opciones):
+	director.encolar('elige', {"opciones": opciones, "responsable": self})

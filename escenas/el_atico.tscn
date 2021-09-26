@@ -12,8 +12,8 @@ script/source = "extends Escena
 
 
 func _on_puerta_izquierda_ocurrio_interaccion() -> void:
-	anotar_en_el_diario('Baje de nuevo al patio de juegos')
 	cambiar_escena_a('patio_de_juegos')
+	anotar_en_el_diario('Baje de nuevo al patio de juegos')
 
 
 var veces_que_interactuo_con_el_busto = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/images/fondo_cuadro_de_dialogo.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/flechita_cuadro_de_dialogo.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/images/recuadros/jade.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/recuadros/grabadora.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/recuadros/milan.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/recuadros/alex.jpg" type="Texture" id=7]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Node2D
@@ -26,6 +27,13 @@ func mostrar_recuadro(recuadro: String):
 func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		emit_signal(\"presiono_continuar\")
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+func _on_Area2D_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+func _on_Area2D_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 "
 
 [sub_resource type="Animation" id=1]
@@ -163,6 +171,18 @@ __meta__ = {
 
 [node name="recuadro" type="Position2D" parent="grupo"]
 
+[node name="alex" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -428.724, -7.37518 )
+scale = Vector2( 0.180112, 0.180112 )
+texture = ExtResource( 7 )
+
+[node name="marco2" type="Sprite" parent="grupo/recuadro/alex"]
+position = Vector2( -33.9037, -35.3083 )
+rotation = 8.50824e-10
+scale = Vector2( 2.18923, 2.18923 )
+texture = ExtResource( 3 )
+
 [node name="grabadora" type="Sprite" parent="grupo/recuadro"]
 visible = false
 position = Vector2( -423.764, -9.4976 )
@@ -208,3 +228,5 @@ position = Vector2( -4.94974, -7.07108 )
 shape = SubResource( 4 )
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
