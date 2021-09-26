@@ -24,10 +24,10 @@ func _on_busto_ocurrio_interaccion() -> void:
 		grabar(\"La verdad es que fue lo primero que encontré en internet\")
 	elif veces_que_interactuo_con_el_busto == 1:
 		grabar(\"Se puede observar como la estética no combina en absoluto\")
-		dice(\"jade\", \"...\")
-		dice(\"jade\", \"Se reemplazará cuando haya assets mejores\")
+		dice(\"Jade\", \"...\")
+		dice(\"Jade\", \"Se reemplazará cuando haya assets mejores\")
 	else:
-		dice(\"jade\", \"No se que mas decir sobre el busto feo\")
+		dice(\"Jade\", \"No se que mas decir sobre el busto feo\")
 	veces_que_interactuo_con_el_busto += 1
 "
 

@@ -15,21 +15,21 @@ func _on_puerta_derecha_ocurrio_interaccion() -> void:
 	cambiar_escena_a('patio_de_juegos')
 
 func _on_panel_con_botones_ocurrio_interaccion() -> void:
-	dice('jade', 'Un panel con dos botones?')
+	dice('Jade', 'Un panel con dos botones?')
 	elige([
 		['Presionar boton rojo', 'presiono_el_boton_rojo'],
 		['Presionar boton negro', 'presiono_el_boton_negro'],
 		['Ignorar', 'ignora_el_panel_con_botones'],
 	])
-	dice('jade', '...')  # Esto puede llegar a ser medio confuso, pero las acciones
+	dice('Jade', '...')  # Esto puede llegar a ser medio confuso, pero las acciones
 						 # que haya despues de una elección van a ocurrir siempre pero
 						 # van a ocurrir antes que las de los branches.
 
 func presiono_el_boton_rojo():
-	dice('jade', 'Wow, no pasó nada')
+	dice('Jade', 'Wow, no pasó nada')
 	
 func presiono_el_boton_negro():
-	dice('jade', 'Me siento una persona totalmente diferente')
+	dice('Jade', 'Me siento una persona totalmente diferente')
 	
 func ignora_el_panel_con_botones():
 	pass

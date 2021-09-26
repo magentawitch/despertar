@@ -16,7 +16,7 @@ func cargar_escena_actual():
 	)
 	var escena = cargar_escena(nombre_de_la_escena_actual)
 	
-	escena.inicializar_dependencias($director, $diario)
+	escena._inicializar_dependencias($director, $diario)
 	$contenedor.add_child(escena, true)
 	escena.set_name('escena_actual')
 	call_deferred('avisar_que_la_escena_fue_cargada')

@@ -17,6 +17,10 @@ export var director_path: NodePath
 func director() -> Director:
 	return get_node(director_path) as Director
 
+func _ready():
+	director().connect(\"aparecieron_acciones_pendientes\", self, 'hide')
+	director().connect(\"se_acabaron_las_acciones_pendientes\", self, 'show')
+
 func _on_boton_abrir_diario_pressed() -> void:
 	director().encolar(\"abrir_diario\")
 

@@ -171,17 +171,32 @@ __meta__ = {
 
 [node name="recuadro" type="Position2D" parent="grupo"]
 
-[node name="alex" type="Sprite" parent="grupo/recuadro"]
+[node name="Alex" type="Sprite" parent="grupo/recuadro"]
 visible = false
 position = Vector2( -428.724, -7.37518 )
 scale = Vector2( 0.180112, 0.180112 )
 texture = ExtResource( 7 )
 
-[node name="marco2" type="Sprite" parent="grupo/recuadro/alex"]
+[node name="marco2" type="Sprite" parent="grupo/recuadro/Alex"]
 position = Vector2( -33.9037, -35.3083 )
 rotation = 8.50824e-10
 scale = Vector2( 2.18923, 2.18923 )
 texture = ExtResource( 3 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Alex"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -12.271
+margin_top = -448.335
+margin_right = 57.729
+margin_bottom = -420.335
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "Alex"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="grabadora" type="Sprite" parent="grupo/recuadro"]
 visible = false
@@ -190,31 +205,61 @@ rotation = 0.00879033
 scale = Vector2( 0.337794, 0.337794 )
 texture = ExtResource( 5 )
 
-[node name="jade" type="Sprite" parent="grupo/recuadro"]
+[node name="Jade" type="Sprite" parent="grupo/recuadro"]
 visible = false
 position = Vector2( -431.883, -10.0545 )
 rotation = 0.00879033
 scale = Vector2( 0.43457, 0.43457 )
 texture = ExtResource( 4 )
 
-[node name="marco" type="Sprite" parent="grupo/recuadro/jade"]
+[node name="marco" type="Sprite" parent="grupo/recuadro/Jade"]
 position = Vector2( -6.85779, -8.40843 )
 rotation = -0.00879033
 scale = Vector2( 0.907347, 0.907347 )
 texture = ExtResource( 3 )
 
-[node name="milan" type="Sprite" parent="grupo/recuadro"]
+[node name="nombre" type="Label" parent="grupo/recuadro/Jade"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 5.05164
+margin_top = -186.532
+margin_right = 75.0516
+margin_bottom = -158.532
+rect_scale = Vector2( 4.04699, 4.04699 )
+text = "Jade"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Milan" type="Sprite" parent="grupo/recuadro"]
 visible = false
 position = Vector2( -433.123, -10.4723 )
 rotation = 0.00879033
 scale = Vector2( 0.179756, 0.179756 )
 texture = ExtResource( 6 )
 
-[node name="marco2" type="Sprite" parent="grupo/recuadro/milan"]
+[node name="marco2" type="Sprite" parent="grupo/recuadro/Milan"]
 position = Vector2( -9.65869, -18.0643 )
 rotation = -0.00879033
 scale = Vector2( 2.19356, 2.19356 )
 texture = ExtResource( 3 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Milan"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 13.9449
+margin_top = -461.443
+margin_right = 83.9449
+margin_bottom = -433.443
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "Milán"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="animacion_transiciones" type="AnimationPlayer" parent="."]
 autoplay = "aparece"
