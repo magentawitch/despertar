@@ -1,11 +1,14 @@
 extends Node2D
 
-
 var nombre_de_la_escena_actual: String = "patio_de_juegos"
+
+signal la_escena_fue_cambiada
 
 func _ready() -> void:
 	cargar_escena_actual()
-	
+
+# TODO: Mover la lógica relacionada a cargar escenas al $contenedor	
+
 func cargar_escena_actual():
 	assert(
 		nombre_de_la_escena_actual != null,
@@ -13,7 +16,7 @@ func cargar_escena_actual():
 	)
 	var escena = cargar_escena(nombre_de_la_escena_actual)
 	
-	escena.inicializar_dependencias($director, $diario)
+	escena._inicializar_dependencias($director, $diario)
 	$contenedor.add_child(escena, true)
 	escena.set_name('escena_actual')
 	call_deferred('avisar_que_la_escena_fue_cargada')
@@ -29,6 +32,23 @@ func cargar_escena(nombre_de_la_escena) -> Escena:
 			nombre_de_la_escena_actual, archivo_de_la_escena
 		]
 	)
-	return load(archivo_de_la_escena).instance() as Escena
+	var escena = load(archivo_de_la_escena).instance()
+	assert(
+		escena is Escena,
+		"""La escena: %s no es del tipo Escena. (tip: Tiene que tener
+		un script attacheado que arranque con: `extends Escena`)""" % [escena]
+	)
+	return escena as Escena
 
 	
+func cambiar_escena(nombre_de_escena_nueva):
+	assert(
+		true,
+		"TODO: Hacer un chequeo de que la escena exista antes de cambiar"
+	)
+	var escena_previa = $contenedor.get_child(0)
+	escena_previa.queue_free()
+	yield(escena_previa, "tree_exited")
+	nombre_de_la_escena_actual = nombre_de_escena_nueva
+	cargar_escena_actual()
+	emit_signal("la_escena_fue_cambiada")

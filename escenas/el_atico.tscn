@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/images/Background/2609.jpg" type="Texture" id=1]
+[ext_resource path="res://utileria/busto.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Jade.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utileria/puerta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/piso.png" type="Texture" id=5]
@@ -9,22 +10,28 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-func _ready() -> void:
-	protagonista_piensa(\"Que quilombo el patio de juegos!\")
-
-func _on_Jade_me_hicieron_click() -> void:
-	anotar_en_el_diario(\"No lo puedo creer\")
 
 func _on_puerta_izquierda_ocurrio_interaccion() -> void:
-	anotar_en_el_diario('Baje al sotano')
-	cambiar_escena_a(\"el_sotano\")
+	cambiar_escena_a('patio_de_juegos')
+	anotar_en_el_diario('Baje de nuevo al patio de juegos')
 
-func _on_puerta_derecha_ocurrio_interaccion() -> void:
-	anotar_en_el_diario('Subi al atico')
-	cambiar_escena_a(\"el_atico\")
+
+var veces_que_interactuo_con_el_busto = 0
+func _on_busto_ocurrio_interaccion() -> void:
+	if veces_que_interactuo_con_el_busto == 0:
+		grabar(\"Entrada número 38: El imponente busto del Zorro Gris\")
+		grabar(\"Creo que es un personaje del Skyrim\")
+		grabar(\"La verdad es que fue lo primero que encontré en internet\")
+	elif veces_que_interactuo_con_el_busto == 1:
+		grabar(\"Se puede observar como la estética no combina en absoluto\")
+		dice(\"Jade\", \"...\")
+		dice(\"Jade\", \"Se reemplazará cuando haya assets mejores\")
+	else:
+		dice(\"Jade\", \"No se que mas decir sobre el busto feo\")
+	veces_que_interactuo_con_el_busto += 1
 "
 
-[node name="patio_de_juegos" type="Node2D"]
+[node name="el_atico" type="Node2D"]
 script = SubResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -37,24 +44,26 @@ __meta__ = {
 }
 
 [node name="pared" type="Sprite" parent="."]
+modulate = Color( 0.87451, 0.870588, 0.701961, 1 )
 position = Vector2( 513.704, 252.652 )
 scale = Vector2( 3.44559, 3.32814 )
 texture = ExtResource( 6 )
 
 [node name="piso" type="Sprite" parent="."]
+modulate = Color( 0.933333, 0.945098, 0.647059, 1 )
 position = Vector2( 516.884, 484.812 )
 scale = Vector2( 3.48, 1.68 )
 texture = ExtResource( 5 )
 
 [node name="Jade" parent="." instance=ExtResource( 3 )]
-position = Vector2( 317.952, -47.9367 )
+position = Vector2( 324.952, -53.9367 )
 
 [node name="puerta_izquierda" parent="." instance=ExtResource( 4 )]
-position = Vector2( 745.719, 447.786 )
+position = Vector2( 292.822, 448.091 )
 
-[node name="puerta_derecha" parent="." instance=ExtResource( 4 )]
-position = Vector2( 258.438, 449.354 )
+[node name="busto" parent="." instance=ExtResource( 2 )]
+position = Vector2( 613, 473 )
 
 [connection signal="me_hicieron_click" from="Jade" to="." method="_on_Jade_me_hicieron_click"]
 [connection signal="ocurrio_interaccion" from="puerta_izquierda" to="." method="_on_puerta_izquierda_ocurrio_interaccion"]
-[connection signal="ocurrio_interaccion" from="puerta_derecha" to="." method="_on_puerta_derecha_ocurrio_interaccion"]
+[connection signal="ocurrio_interaccion" from="busto" to="." method="_on_busto_ocurrio_interaccion"]

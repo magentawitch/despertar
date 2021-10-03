@@ -6,6 +6,9 @@ var _cola_de_acciones_pendientes = []
 var _accion_que_se_esta_ejecutando = null
 var _pausado = false
 
+signal aparecieron_acciones_pendientes
+signal se_acabaron_las_acciones_pendientes
+
 func _ready():
 	registrar_acciones_a_partir_de_nodos_hijos()
 
@@ -25,6 +28,8 @@ func registrar_acciones_a_partir_de_nodos_hijos():
 		registrar_nueva_accion(c.name, c)
 
 func encolar(accion: String, detalles:Dictionary={}):
+	if _cola_de_acciones_pendientes.empty():
+		emit_signal('aparecieron_acciones_pendientes')
 	_cola_de_acciones_pendientes.append([accion, detalles])
 	
 func hay_acciones_pendientes():
@@ -51,6 +56,8 @@ func ejecutar_siguiente_accion():
 
 func termino_la_ejecucion_de_la_accion():
 	_accion_que_se_esta_ejecutando = null
+	if _cola_de_acciones_pendientes.empty():
+		emit_signal('se_acabaron_las_acciones_pendientes')
 
 func se_sigue_ejecutando_una_accion():
 	return _accion_que_se_esta_ejecutando != null

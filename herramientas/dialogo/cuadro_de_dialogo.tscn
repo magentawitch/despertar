@@ -1,0 +1,277 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/images/fondo_cuadro_de_dialogo.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/flechita_cuadro_de_dialogo.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/recuadros/marco.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/recuadros/jade.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/recuadros/grabadora.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/recuadros/milan.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/recuadros/alex.jpg" type="Texture" id=7]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+signal presiono_continuar
+
+func _ready() -> void:
+	pass
+
+func asignar_texto(texto: String):
+	$grupo/RichTextLabel.text = texto
+	
+func mostrar_recuadro(recuadro: String):
+	for c in $grupo/recuadro.get_children():
+		if c.name == recuadro:
+			c.show()
+
+func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		emit_signal(\"presiono_continuar\")
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+func _on_Area2D_mouse_entered() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+func _on_Area2D_mouse_exited() -> void:
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+"
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("grupo/fondo_cuadro_de_dialogo/flechita_cuadro_de_dialogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("grupo/fondo_cuadro_de_dialogo/flechita_cuadro_de_dialogo:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -6.2837, -0.25, 0, 0.25, 0, 5.66723, -0.25, 0, 0.25, 0, -6.2837, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("grupo:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -0.503649, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.503649, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.2, 2 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "aparece"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("grupo/RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.593071, -0.284474, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("grupo:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("grupo:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("grupo:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("grupo:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 347.845, 62.4935 )
+
+[node name="cuadro_de_dialogo" type="Node2D"]
+script = SubResource( 3 )
+
+[node name="animacion_movimiento" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[node name="grupo" type="Node2D" parent="."]
+position = Vector2( 110.271, -2.23294 )
+rotation = -0.00879033
+scale = Vector2( 0.801173, 0.801173 )
+
+[node name="fondo_cuadro_de_dialogo" type="Sprite" parent="grupo"]
+position = Vector2( 2.08215, 0.23941 )
+rotation = -0.00471457
+scale = Vector2( 2.39732, 1.5946 )
+texture = ExtResource( 1 )
+
+[node name="flechita_cuadro_de_dialogo" type="Sprite" parent="grupo/fondo_cuadro_de_dialogo"]
+position = Vector2( 111.675, 20.272 )
+rotation = -0.109671
+scale = Vector2( 0.532495, 0.725257 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="Label" parent="grupo"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -295.613
+margin_top = -40.4765
+margin_right = 66.3871
+margin_bottom = 13.5235
+rect_scale = Vector2( 1.5, 1.5 )
+text = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system..."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="recuadro" type="Position2D" parent="grupo"]
+
+[node name="Alex" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -428.724, -7.37518 )
+scale = Vector2( 0.180112, 0.180112 )
+texture = ExtResource( 7 )
+
+[node name="marco2" type="Sprite" parent="grupo/recuadro/Alex"]
+position = Vector2( -33.9037, -35.3083 )
+rotation = 8.50824e-10
+scale = Vector2( 2.18923, 2.18923 )
+texture = ExtResource( 3 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Alex"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -12.271
+margin_top = -448.335
+margin_right = 57.729
+margin_bottom = -420.335
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "Alex"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grabadora" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -423.764, -9.4976 )
+rotation = 0.00879033
+scale = Vector2( 0.337794, 0.337794 )
+texture = ExtResource( 5 )
+
+[node name="Jade" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -431.883, -10.0545 )
+rotation = 0.00879033
+scale = Vector2( 0.43457, 0.43457 )
+texture = ExtResource( 4 )
+
+[node name="marco" type="Sprite" parent="grupo/recuadro/Jade"]
+position = Vector2( -6.85779, -8.40843 )
+rotation = -0.00879033
+scale = Vector2( 0.907347, 0.907347 )
+texture = ExtResource( 3 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Jade"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 5.05164
+margin_top = -186.532
+margin_right = 75.0516
+margin_bottom = -158.532
+rect_scale = Vector2( 4.04699, 4.04699 )
+text = "Jade"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Milan" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -433.123, -10.4723 )
+rotation = 0.00879033
+scale = Vector2( 0.179756, 0.179756 )
+texture = ExtResource( 6 )
+
+[node name="marco2" type="Sprite" parent="grupo/recuadro/Milan"]
+position = Vector2( -9.65869, -18.0643 )
+rotation = -0.00879033
+scale = Vector2( 2.19356, 2.19356 )
+texture = ExtResource( 3 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Milan"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 13.9449
+margin_top = -461.443
+margin_right = 83.9449
+margin_bottom = -433.443
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "Milán"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animacion_transiciones" type="AnimationPlayer" parent="."]
+autoplay = "aparece"
+anims/aparece = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( -4.94974, -7.07108 )
+shape = SubResource( 4 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

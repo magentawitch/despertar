@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://utileria/panel_con_botones.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Jade.tscn" type="PackedScene" id=3]
+[ext_resource path="res://utileria/puerta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/images/piso.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/pared.png" type="Texture" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Escena
+
+
+func _on_puerta_derecha_ocurrio_interaccion() -> void:
+	anotar_en_el_diario('Subi de regreso al patio de juegos.')
+	cambiar_escena_a('patio_de_juegos')
+
+func _on_panel_con_botones_ocurrio_interaccion() -> void:
+	dice('Jade', 'Un panel con dos botones?')
+	elige([
+		['Presionar boton rojo', 'presiono_el_boton_rojo'],
+		['Presionar boton negro', 'presiono_el_boton_negro'],
+		['Ignorar', 'ignora_el_panel_con_botones'],
+	])
+	dice('Jade', '...')  # Esto puede llegar a ser medio confuso, pero las acciones
+						 # que haya despues de una elección van a ocurrir siempre pero
+						 # van a ocurrir antes que las de los branches.
+
+func presiono_el_boton_rojo():
+	dice('Jade', 'Wow, no pasó nada')
+	
+func presiono_el_boton_negro():
+	dice('Jade', 'Me siento una persona totalmente diferente')
+	
+func ignora_el_panel_con_botones():
+	pass
+"
+
+[node name="el_sotano" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="pared" type="Sprite" parent="."]
+modulate = Color( 0.478431, 0.607843, 0.552941, 1 )
+position = Vector2( 513.704, 252.652 )
+scale = Vector2( 3.44559, 3.32814 )
+texture = ExtResource( 6 )
+
+[node name="piso" type="Sprite" parent="."]
+modulate = Color( 0.384314, 0.666667, 0.627451, 1 )
+position = Vector2( 516.884, 484.812 )
+scale = Vector2( 3.48, 1.68 )
+texture = ExtResource( 5 )
+
+[node name="Jade" parent="." instance=ExtResource( 3 )]
+position = Vector2( 555.36, -51.5043 )
+
+[node name="puerta_derecha" parent="." instance=ExtResource( 4 )]
+position = Vector2( 795.478, 447.767 )
+
+[node name="panel_con_botones" parent="." instance=ExtResource( 1 )]
+position = Vector2( 323.708, 421.091 )
+
+[connection signal="me_hicieron_click" from="Jade" to="." method="_on_Jade_me_hicieron_click"]
+[connection signal="ocurrio_interaccion" from="puerta_derecha" to="." method="_on_puerta_derecha_ocurrio_interaccion"]
+[connection signal="ocurrio_interaccion" from="panel_con_botones" to="." method="_on_panel_con_botones_ocurrio_interaccion"]
