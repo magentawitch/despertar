@@ -103,5 +103,11 @@ position = Vector2( -461.332, 487.149 )
 shape = SubResource( 6 )
 
 [connection signal="input_event" from="AreaIrIzquierda" to="." method="_on_AreaIrIzquierda_input_event"]
+[connection signal="mouse_entered" from="AreaIrIzquierda" to="." method="mostrar_cursor_como_dedito"]
+[connection signal="mouse_exited" from="AreaIrIzquierda" to="." method="mostrar_cursor_normal"]
 [connection signal="input_event" from="AreaIrDerecha" to="." method="_on_AreaIrDerecha_input_event"]
+[connection signal="mouse_entered" from="AreaIrDerecha" to="." method="mostrar_cursor_como_dedito"]
+[connection signal="mouse_exited" from="AreaIrDerecha" to="." method="mostrar_cursor_normal"]
 [connection signal="input_event" from="AreaCerrar" to="." method="_on_AreaCerrar_input_event"]
+[connection signal="mouse_entered" from="AreaCerrar" to="." method="mostrar_cursor_como_dedito"]
+[connection signal="mouse_exited" from="AreaCerrar" to="." method="mostrar_cursor_normal"]

@@ -59,3 +59,11 @@ func _on_AreaCerrar_input_event(viewport, event, shape_idx):
 	if is_click(event):
 		print("solicitaron_cerrarme")
 		emit_signal("solicitaron_cerrarme")
+		mostrar_cursor_normal()
+
+func mostrar_cursor_como_dedito():
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	
+func mostrar_cursor_normal():
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
