@@ -13,7 +13,7 @@ extents = Vector2( 201.12, 55.6386 )
 
 [node name="BotonCreditos" parent="." instance=ExtResource( 2 )]
 position = Vector2( 735.211, 405.114 )
-pantallaDestino = "res://Scenes/Credits.tscn"
+pantallaDestino = "res://pantallas/Creditos.tscn"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 514.629, 299.116 )
@@ -30,7 +30,7 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
-pantallaDestino = "res://Scenes/PantallaInicial.tscn"
+pantallaDestino = "res://pantallas/PantallaPrincipal.tscn"
 texturaNormal = ExtResource( 1 )
 texturaHover = ExtResource( 5 )
 

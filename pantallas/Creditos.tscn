@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://herramientas/boton/Boton.tscn" type="PackedScene" id=1]
 
 [node name="Credits" type="Node2D"]
 
@@ -9,7 +11,11 @@ margin_left = 422.0
 margin_top = 274.0
 margin_right = 684.0
 margin_bottom = 308.0
-text = "Game is over. This are credits. Cry"
+text = "This are credits. Cry"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BotonCreditos" parent="." instance=ExtResource( 1 )]
+position = Vector2( 117.211, 75.114 )
+pantallaDestino = "res://pantallas/Menu.tscn"
