@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://herramientas/director/Director.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "Escena",
 "language": "GDScript",
 "path": "res://herramientas/escena/Escena.gd"

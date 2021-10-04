@@ -1,23 +1,226 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/images/Background/2609.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/images/luz_autopista.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/DespertarFondoAutopista.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+	dice('Jade', 'Is this animations in godot?')
+	dice('Milan', 'It always has been')
+	dice('Milan', '...')
+	dice('Milan', 'Llegamos')
+	cambiar_escena_a('patio_de_juegos')
 "
 
-[node name="autopista" type="Node"]
+[sub_resource type="Animation" id=2]
+resource_name = "auto_moviendose"
+length = 10.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 304.254, -0.25, 0, 0.797191, -0.645996, 292.951, -0.983838, 2.41995, 1.60276, -1.45618, 267.524, -1.74467, 0.0681152, 1.52621, 6.52835, 286.811, -1.08016, -9.85184, 1.00006, 5.49121, 304.416, -1.49777, -0.161499, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4.8, 6.9, 10 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Luces"
+length = 1.8
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1.1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 386.099, 217 ), Vector2( 1205.5, 264.143 ), Vector2( 386.099, 217 ), Vector2( 1205.5, 264.143 ), Vector2( 386.099, 217 ), Vector2( 1205.5, 264.143 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1.1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ), Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ), Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6, 1, 1.1, 1.2, 1.54, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.776471, 0.776471, 1, 0 ), Color( 0.470588, 0.47451, 1, 0.0431373 ), Color( 0.792157, 0.8, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.470588, 0.478431, 1, 0.027451 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.529412, 0.494118, 1, 0.0431373 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Luces"
+length = 1.8
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1.1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 386.099, 217 ), Vector2( 1205.5, 264.143 ), Vector2( 386.099, 217 ), Vector2( 1205.5, 264.143 ), Vector2( 386.099, 217 ), Vector2( 1205.5, 264.143 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1.1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ), Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ), Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6, 1, 1.1, 1.2, 1.54, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.027451 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.00392157 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0352941 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Luces izquierda"
+length = 1.8
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1.1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 235.689, 225.98 ), Vector2( -152.682, 277.613 ), Vector2( 215.485, 234.959 ), Vector2( -143.703, 300.062 ), Vector2( 213.24, 225.98 ), Vector2( -148.191, 286.593 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1.1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ), Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ), Vector2( 1, 1 ), Vector2( 2.75104, 1.18059 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6, 1, 1.1, 1.2, 1.54, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.521569, 0.501961, 1, 0.0431373 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.458824, 0.454902, 1, 0.0156863 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.454902, 0.454902, 1, 0.0352941 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "auto_saltando"
+length = 1.8
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 290.428, -0.25, 0, 0.0696699, -0.939026, 290.647, -0.0799226, -0.313019, 0.0493201, -0.281708, 290.898, -0.0618256, -1.09552, 0.0876111, -1.34595, 291.054, -0.13468, -1.25204, 0.0834167, -1.06424, 290.835, -0.0226792, -0.68924, 0.0621362, -0.626648, 291.43, -0.071341, -1.37723, 0.074057, -1.72153, 290.71, -0.0603509, -0.86853, 0.0810082, -0.931122 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 1, 1.3, 1.7, 2.1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:b")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.890196, -0.25, 0, 0.35714, 0.00634694, 0.940044, -0.0326902, -0.040442, 0.130398, 0.0011757, 0.895367, -0.131713, 0.0105813, 0.404406, 0.0105813, 0.937692, -0.0348224, -0.0446763, 0.128628, 0.00705415, 0.897719, -0.149828, 0.00352705, 0.363408, 0.00352705, 0.942395, -0.016978, -0.0540818, 0.117685, 0.00470275, 0.90007, -0.197364, 0.00470275, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.6, 1, 1.2, 1.6, 1.8 )
+}
+
+[node name="autopista" type="Node2D"]
 script = SubResource( 1 )
+
+[node name="autopista" type="Sprite" parent="."]
+position = Vector2( 292.994, -110.016 )
+scale = Vector2( 0.333302, 0.333301 )
+texture = ExtResource( 1 )
+
+[node name="animacion" type="AnimationPlayer" parent="autopista"]
+autoplay = "auto_moviendose"
+anims/auto_moviendose = SubResource( 2 )
+
+[node name="luz_autopista_derecha" type="Sprite" parent="."]
+modulate = Color( 0.599734, 0.605664, 1, 0.0207545 )
+position = Vector2( 881.709, 245.515 )
+scale = Vector2( 2.05911, 1.10923 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="luz_autopista_derecha"]
+autoplay = "Luces"
+anims/Luces = SubResource( 3 )
+
+[node name="luz_autopista_izquierda" type="Sprite" parent="."]
+modulate = Color( 0.471763, 0.471763, 1, 0.0342024 )
+position = Vector2( -24.9311, 265.922 )
+scale = Vector2( 2.15388, 1.119 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="luz_autopista_izquierda"]
+autoplay = "Luces"
+anims/Luces = SubResource( 5 )
+"anims/Luces izquierda" = SubResource( 6 )
+
+[node name="auto" type="Sprite" parent="."]
+modulate = Color( 0.890196, 0.890196, 0.937246, 1 )
+position = Vector2( 518.481, 290.251 )
+scale = Vector2( 0.551284, 0.551284 )
+texture = ExtResource( 3 )
+
+[node name="animacion" type="AnimationPlayer" parent="auto"]
+autoplay = "auto_saltando"
+anims/auto_saltando = SubResource( 4 )

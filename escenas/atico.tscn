@@ -64,6 +64,5 @@ position = Vector2( 292.822, 448.091 )
 [node name="busto" parent="." instance=ExtResource( 2 )]
 position = Vector2( 613, 473 )
 
-[connection signal="me_hicieron_click" from="Jade" to="." method="_on_Jade_me_hicieron_click"]
 [connection signal="ocurrio_interaccion" from="puerta_izquierda" to="." method="_on_puerta_izquierda_ocurrio_interaccion"]
 [connection signal="ocurrio_interaccion" from="busto" to="." method="_on_busto_ocurrio_interaccion"]
