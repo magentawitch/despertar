@@ -1,5 +1,5 @@
 extends Node
-class_name Escena
+class_name Escena, "./icono.png"
 
 var diario: Diario
 var director: Director
