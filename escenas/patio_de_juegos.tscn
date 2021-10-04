@@ -17,11 +17,11 @@ func _on_Jade_me_hicieron_click() -> void:
 
 func _on_puerta_izquierda_ocurrio_interaccion() -> void:
 	anotar_en_el_diario('Baje al sotano')
-	cambiar_escena_a(\"el_sotano\")
+	cambiar_escena_a(\"sotano\")
 
 func _on_puerta_derecha_ocurrio_interaccion() -> void:
 	anotar_en_el_diario('Subi al atico')
-	cambiar_escena_a(\"el_atico\")
+	cambiar_escena_a(\"atico\")
 "
 
 [node name="patio_de_juegos" type="Node2D"]
