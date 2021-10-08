@@ -22,7 +22,7 @@ func cargar_escena_actual():
 	call_deferred('avisar_que_la_escena_fue_cargada')
 	
 func avisar_que_la_escena_fue_cargada():
-	pass
+	$telon/anim.play("ocultar")
 
 func cargar_escena(nombre_de_la_escena) -> Escena:
 	var archivo_de_la_escena = "res://escenas/%s.tscn" % nombre_de_la_escena
@@ -46,6 +46,8 @@ func cambiar_escena(nombre_de_escena_nueva):
 		true,
 		"TODO: Hacer un chequeo de que la escena exista antes de cambiar"
 	)
+	$telon/anim.play("mostrar")
+	yield($telon/anim, "animation_finished")
 	var escena_previa = $contenedor.get_child(0)
 	escena_previa.queue_free()
 	yield(escena_previa, "tree_exited")
