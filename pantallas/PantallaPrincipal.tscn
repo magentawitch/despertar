@@ -140,6 +140,9 @@ position = Vector2( 513.68, 289.797 )
 rotation = 1.57396
 scale = Vector2( 0.29856, 1066.52 )
 texture = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="anim" type="AnimationPlayer" parent="telon"]
 anims/mostrar = SubResource( 4 )
