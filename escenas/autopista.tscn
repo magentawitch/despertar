@@ -8,12 +8,58 @@
 script/source = "extends Escena
 
 
-func _ready() -> void:
-	dice('Jade', 'Is this animations in godot?')
-	dice('Milan', 'It always has been')
-	dice('Milan', '...')
-	dice('Milan', 'Llegamos')
+func _ready():
+	cinematica(\"\"\"
+		En una autopista oscura de la metrópolis que a sus costados tiene
+	edificios con luces rosadas, un barrido de luces de neón provocado por
+	los autos futuristas distrae a JADE, que está en el asiento trasero de
+	un auto violeta, mirando por la ventana.
+		Jade es une adolecente de 16 años. Tiene pelo corto oscuro con un
+	mechón teñido de rojo y está vestide con ropa vintage. Sus padres no 
+	binaries, Alex y Milán, están en los asientos delanteros del auto.
+	\"\"\")
+	dice('Alex', 'Te queda muy lindo el reloj que te regalamos.')
+	# Jade mira su muñeca derecha, tiene un reloj analógico circular con
+	# una correa de color madera.
+	# El brazo derecho de Milán es robótico y el resto de su cuerpo visible
+	# aparenta ser humano.
+	anotar_en_el_diario(\"Me sorprende cada dia mas cuantos implantes tiene Milan en el brazo\")
+	dice('Milan', 'Suficiente con esa grabadora que le regalamos para sus quince.')
+	dice_a_la_grabadora('Nota: Milán no tiene sentido de la moda.')
+	# Alex se ríe. Tiene una sonrisa cómplice mientras mira a Jade.
+	dice('Milan', 'Pero, ¿qué te dicen tus compañeres del reloj?')
+	elige([
+		['No me importa.', 'no_me_importa'],
+		['Ya sé. (Se quita el reloj)', 'ya_se'],
+		['No les importa. (Miente)', 'no_les_importa'],
+	])
+	
+func no_me_importa():
+	dice('Milan', 'No nos hagas tener problemas, Jade.')
+	_1()
+
+func ya_se():
+	dice('Milan', 'Sabes que esas son cosas para usar en casa.')
+	_1()
+	
+func no_les_importa():
+	dice('Milan', 'Milán mira mal a Jade desde el espejo retrovisor.')
+	_1()
+	
+func _1():
+	se_rie('Alex')
+	dice('Alex', 'Seguro que elles están muy ocupades con sus implantes.')
+	se_rie('Milan')
+	dice('Milan', 'Hoy en día tienen una computadora ahí.')
+	# Jade se cruza de brazos y pone los ojos en blanco al
+	# mirar hacia arriba, fastidiade.
+	dice('Jade', '...')
+	dice('Alex', 'Llegamos.')
 	cambiar_escena_a('patio_de_juegos')
+
+# Notas:
+# Las funciones cinematica(...) y se_rie(...) no hacen nada actualmente pero
+# pueden hacer algo a futuro. Son un
 "
 
 [sub_resource type="Animation" id=2]
@@ -73,7 +119,7 @@ tracks/2/keys = {
 "values": [ Color( 0.776471, 0.776471, 1, 0 ), Color( 0.470588, 0.47451, 1, 0.0431373 ), Color( 0.792157, 0.8, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.470588, 0.478431, 1, 0.027451 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.529412, 0.494118, 1, 0.0431373 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Luces"
 length = 1.8
 loop = true
@@ -115,7 +161,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.027451 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.00392157 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0352941 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "Luces izquierda"
 length = 1.8
 loop = true
@@ -157,8 +203,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 0.521569, 0.501961, 1, 0.0431373 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.458824, 0.454902, 1, 0.0156863 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 0.454902, 0.454902, 1, 0.0352941 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "auto_saltando"
+[sub_resource type="Animation" id=6]
 length = 1.8
 loop = true
 tracks/0/type = "bezier"
@@ -186,7 +231,7 @@ tracks/1/keys = {
 script = SubResource( 1 )
 
 [node name="autopista" type="Sprite" parent="."]
-position = Vector2( 292.994, -110.016 )
+position = Vector2( 296.98, -110.016 )
 scale = Vector2( 0.333302, 0.333301 )
 texture = ExtResource( 1 )
 
@@ -195,9 +240,9 @@ autoplay = "auto_moviendose"
 anims/auto_moviendose = SubResource( 2 )
 
 [node name="luz_autopista_derecha" type="Sprite" parent="."]
-modulate = Color( 0.599734, 0.605664, 1, 0.0207545 )
-position = Vector2( 881.709, 245.515 )
-scale = Vector2( 2.05911, 1.10923 )
+modulate = Color( 1, 1, 1, -1.51246e-08 )
+position = Vector2( 386.099, 217 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="luz_autopista_derecha"]
@@ -205,22 +250,22 @@ autoplay = "Luces"
 anims/Luces = SubResource( 3 )
 
 [node name="luz_autopista_izquierda" type="Sprite" parent="."]
-modulate = Color( 0.471763, 0.471763, 1, 0.0342024 )
-position = Vector2( -24.9311, 265.922 )
-scale = Vector2( 2.15388, 1.119 )
+modulate = Color( 1, 1, 1, -1.23747e-08 )
+position = Vector2( 386.099, 217 )
+scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="luz_autopista_izquierda"]
 autoplay = "Luces"
-anims/Luces = SubResource( 5 )
-"anims/Luces izquierda" = SubResource( 6 )
+anims/Luces = SubResource( 4 )
+"anims/Luces izquierda" = SubResource( 5 )
 
 [node name="auto" type="Sprite" parent="."]
-modulate = Color( 0.890196, 0.890196, 0.937246, 1 )
-position = Vector2( 518.481, 290.251 )
+modulate = Color( 0.890196, 0.890196, 0.890196, 1 )
+position = Vector2( 518.481, 290.428 )
 scale = Vector2( 0.551284, 0.551284 )
 texture = ExtResource( 3 )
 
 [node name="animacion" type="AnimationPlayer" parent="auto"]
 autoplay = "auto_saltando"
-anims/auto_saltando = SubResource( 4 )
+anims/auto_saltando = SubResource( 6 )

@@ -29,10 +29,19 @@ func anotar_en_el_diario(algo):
 
 func protagonista_piensa(algo):
 	print(algo)
+	
+func cinematica(descrpcion):
+	pass
 
 func cambiar_escena_a(nombre_de_escena):
 	director.encolar("cambio_de_escena", {"escena": nombre_de_escena})
 
+func dice_a_la_grabadora(texto):
+	grabar(texto)
+	
+func se_rie(quien):
+	pass
+	
 func grabar(texto):
 	director.encolar("dice", {"texto": texto, "recuadro": "grabadora"})
 
