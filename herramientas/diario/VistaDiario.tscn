@@ -29,11 +29,12 @@ __meta__ = {
 }
 
 [node name="FondoDiario" type="Sprite" parent="."]
-position = Vector2( 508.665, 287.249 )
+position = Vector2( 516.928, 270.857 )
+scale = Vector2( 0.73244, 0.73244 )
 texture = ExtResource( 3 )
 
 [node name="PaginaIzquierda" type="Area2D" parent="."]
-position = Vector2( 295.252, 287.768 )
+position = Vector2( 352.463, 283.53 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -48,7 +49,7 @@ __meta__ = {
 }
 
 [node name="PaginaDerecha" type="Area2D" parent="."]
-position = Vector2( 734.267, 292.358 )
+position = Vector2( 685.532, 281.763 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -63,7 +64,7 @@ __meta__ = {
 }
 
 [node name="AreaIrIzquierda" type="Area2D" parent="."]
-position = Vector2( 107.44, 480.27 )
+position = Vector2( 211.267, 471.794 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -72,7 +73,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="AreaIrDerecha" type="Area2D" parent="."]
-position = Vector2( 910.665, 482.652 )
+position = Vector2( 821.67, 474.176 )
 __meta__ = {
 "_edit_group_": true
 }
