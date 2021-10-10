@@ -1,6 +1,6 @@
 extends Node2D
 
-export var nombre_de_la_escena_actual: String = "autopista"
+export var nombre_de_la_escena_actual: String = "01_autopista"
 
 signal la_escena_fue_cambiada
 
