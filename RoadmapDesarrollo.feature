@@ -39,7 +39,7 @@ Característica: Los personajes se pueden mover entre regiones
   Escenario: Al ejecutar la accion `cambio_de_escena` el protagonista puede cambiar la escena actual [x]
   Escenario: Al cambiar de escena se descarga la actual y se carga la nueva [x]
   Escenario: Al hacer click en puertas se encola `cambio_de_escena` con la escena de destino [x]
-  Escenario: No se puede hacer click en puertas se hay se está ejecutando un step [ ]
+  Escenario: No se puede hacer click en puertas se hay se está ejecutando un step [x]
   Escenario: Cuando el personaje viene de una región $r aparece en el origen
              para la misma (usualmente al lado de la puerta que lleva de regreso a $r) [ ]
 
@@ -47,10 +47,15 @@ Característica: Los personajes se pueden mover entre regiones
 Característica: Los personajes pueden hablar
   
   Escenario: Al ejecutar la accion 'dice' se muestra un cuadro con el
-             texto y el recuadro del personaje que habló [ ]
-  Escenario: Al ejecutar la accion 'dice' se muestra un globo con el
-             texto arriba del personaje [ ]
-  Escenario: Al hacer click en cualquier lado se termina el step [ ]
+             texto y el recuadro del personaje que habló [x]
+  Escenario: Al hacer click en cualquier lado se termina el step [x]
+
+
+Característica: Los personajes se pueden mover por dentro de una región
+
+  Escenario: Al ejecutar la accion 'caminar_hacia' el protagonista se mueve a la posición dada [ ]
+  Escenario: Al hacer click sobre un area en la pantalla se encola 'caminar_hacia' la posición del click [ ]
+  Escenario: No se puede hacer click si hay se está ejecutando un step [ ]
 
 
 Característica: Entradas de diario con fotos epigrafeables
@@ -59,13 +64,6 @@ Característica: Entradas de diario con fotos epigrafeables
   Escenario: Al elegir el epigrafe se agrega la entrada en el diario y se muestra
              el diario en la última página [ ]
   Escenario: Al salir del diario se reanuda la partida [ ]
-
-
-Característica: Los personajes se pueden mover por dentro de una región
-
-  Escenario: Al ejecutar la accion 'CaminarHacia una posición' el protagonista se mueve a esa posición [ ]
-  Escenario: Al hacer click sobre un area en la pantalla se encola 'CaminarHacia la posición del click' [ ]
-  Escenario: No se puede hacer click si hay se está ejecutando un step [ ]
 
 
 Característica: Las colas de acciones pertenecen a estados de una FSM con pila 
