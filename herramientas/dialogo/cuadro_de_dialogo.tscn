@@ -163,7 +163,6 @@ autoplay = "idle"
 anims/idle = SubResource( 2 )
 
 [node name="grupo" type="Node2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 110.271, -1.94105 )
 rotation = -0.00879033
 scale = Vector2( 0.801173, 0.801173 )
@@ -192,7 +191,6 @@ rect_scale = Vector2( 1.5, 1.55 )
 text = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete..."
 align = 1
 autowrap = true
-percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
