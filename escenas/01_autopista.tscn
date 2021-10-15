@@ -43,7 +43,7 @@ func ya_se():
 	_1()
 	
 func no_les_importa():
-	dice('Milan', 'Milán mira mal a Jade desde el espejo retrovisor.')
+	dice('Milan', '*Milán mira mal a Jade desde el espejo retrovisor.*')
 	_1()
 	
 func _1():
