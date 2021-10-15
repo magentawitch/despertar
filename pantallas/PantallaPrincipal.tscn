@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://acciones/cambio_de_escena.gd" type="Script" id=7]
 [ext_resource path="res://acciones/dice.gd" type="Script" id=8]
 [ext_resource path="res://acciones/elige.gd" type="Script" id=9]
+[ext_resource path="res://assets/images/DiarioCerrado.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=11]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
@@ -81,23 +83,23 @@ margin_left = 30.0
 margin_top = 27.0
 margin_right = 350.0
 margin_bottom = 81.0
+rect_scale = Vector2( 0.1, 0.1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="titulo" type="Label" parent="ui/menu"]
-margin_right = 320.0
+margin_right = 493.0
 margin_bottom = 14.0
 text = "Menu con cosas que necesitan una UI mejor"
 
-[node name="boton_abrir_diario" type="Button" parent="ui/menu"]
+[node name="boton_abrir_diario" type="TextureButton" parent="ui/menu"]
 margin_top = 18.0
-margin_right = 320.0
-margin_bottom = 38.0
-text = "Abrir diario"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_right = 493.0
+margin_bottom = 863.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
 
 [node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
 visible = false

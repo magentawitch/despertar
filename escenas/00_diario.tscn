@@ -52,21 +52,23 @@ func _on_DiarioAbierto_ocurrio_interaccion():
 extents = Vector2( 425.34, 289.537 )
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( -95.2441, -35.2471 )
+scale = Vector2( 1.34889, 1.34889 )
 script = SubResource( 1 )
 
 [node name="FondoEscritorio" type="Sprite" parent="."]
-position = Vector2( 508.829, 263.781 )
-scale = Vector2( 0.528216, 0.528216 )
+position = Vector2( 476.238, 280.257 )
+scale = Vector2( 0.586093, 0.586093 )
 texture = ExtResource( 2 )
 
 [node name="diario_cerrado" parent="." instance=ExtResource( 1 )]
-position = Vector2( 472.483, 284.662 )
-scale = Vector2( 0.80827, 0.80827 )
+position = Vector2( 440.685, 263.72 )
+scale = Vector2( 1.07516, 1.07516 )
 
 [node name="DiarioAbierto" type="Sprite" parent="."]
 visible = false
-position = Vector2( 463.566, 267.572 )
-scale = Vector2( 0.475048, 0.475048 )
+position = Vector2( 437.512, 271.132 )
+scale = Vector2( 0.532746, 0.532747 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
@@ -82,9 +84,9 @@ visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_left = -378.0
 margin_top = -208.0
-margin_right = -113.0
-margin_bottom = -83.0
-rect_scale = Vector2( 1.24491, 1.24491 )
+margin_right = -154.0
+margin_bottom = -58.0
+rect_scale = Vector2( 1.51114, 1.51114 )
 text = "Hoy nuevamente me levanté tarde… Bah, no diría tarde, tarde. Simplemente me dormí un rato más. Convengamos que esta casa inteligente es demasiado pesada como para que une pueda dormir mil horas más, las horas necesarias de une adolescente productive."
 autowrap = true
 __meta__ = {
@@ -94,12 +96,12 @@ __meta__ = {
 [node name="Entrada2" type="Label" parent="DiarioAbierto"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -379.405
-margin_top = -29.239
-margin_right = -114.405
-margin_bottom = 120.761
-rect_scale = Vector2( 1.24491, 1.24491 )
-text = "Como sabrán (sí, todavía no sé a quién le hablo, asumo que estoy volviéndome loque), busqué por toda esta maldita ciudad tecnológica hasta que una amable señora me vendió este diario.. .Bah, es un cuaderno medio viejo, pero puedo escribir con un lápiz y tiene hojas. Básicamente no es una pantalla.
+margin_left = -381.0
+margin_top = 49.0
+margin_right = -158.0
+margin_bottom = 233.0
+rect_scale = Vector2( 1.511, 1.511 )
+text = "Busqué por toda esta maldita ciudad tecnológica hasta que una amable señora me vendió este diario.. .Bah, es un cuaderno medio viejo, pero puedo escribir con un lápiz y tiene hojas. Básicamente no es una pantalla.
 "
 autowrap = true
 __meta__ = {
@@ -109,11 +111,11 @@ __meta__ = {
 [node name="Entrada3" type="Label" parent="DiarioAbierto"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 44.837
-margin_top = -209.256
-margin_right = 309.837
-margin_bottom = -8.25626
-rect_scale = Vector2( 1.24491, 1.24491 )
+margin_left = 45.0
+margin_top = -212.31
+margin_right = 262.0
+margin_bottom = 39.6903
+rect_scale = Vector2( 1.511, 1.511 )
 text = "En fin, hoy tengo examen. Estudié...  Algo estudié, no mucho, pero estudié. Ahora bien, estoy llegando tarde, pero Alex va a trabajar a la oficina, así que seguro me dejan en la escuela. Saben que odio los bondis tecnológicos (sí, odio todo lo que se refiera a lo tecnológico. Bah, no lo odio, bah sí). Como sea, me llevan a la escuela así que todo bajo control, mi querido Watson? Una buena saga antigua de detectives que nunca vi.
 "
 autowrap = true
