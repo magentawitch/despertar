@@ -1,11 +1,13 @@
 extends Node2D
 
-export var nombre_de_la_escena_actual: String = "01_autopista"
+export var nombre_de_la_escena_actual: String = "00_diario"
 
 signal la_escena_fue_cambiada
 
 func _ready() -> void:
 	cargar_escena_actual()
+	$director.connect("aparecieron_acciones_pendientes", $ui/menu, 'hide')
+	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
 
 # TODO: Mover la lógica relacionada a cargar escenas al $contenedor	
 
@@ -54,3 +56,8 @@ func cambiar_escena(nombre_de_escena_nueva):
 	nombre_de_la_escena_actual = nombre_de_escena_nueva
 	cargar_escena_actual()
 	emit_signal("la_escena_fue_cambiada")
+
+
+func _on_boton_abrir_diario_pressed():
+	
+	$director.encolar("abrir_diario")

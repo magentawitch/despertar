@@ -58,7 +58,7 @@ func _ready() -> void:
 	agregar_opcion('C3', $examen/filas/punto_C/margen/opciones/opcion_3)
 "
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "enfocar_A"
 length = 2.0
 tracks/0/type = "value"
@@ -110,7 +110,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "enfocar_B"
 length = 2.0
 tracks/0/type = "value"
@@ -162,7 +162,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.239216 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "enfocar_C"
 length = 2.0
 tracks/0/type = "value"
@@ -202,7 +202,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.223529 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "finalizo_examen"
 length = 3.0
 tracks/0/type = "value"
@@ -266,13 +266,13 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.529921, 0.529921 ), Vector2( 0.599661, 0.599661 ) ]
 }
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=6]
 colors = PoolColorArray( 0.119722, 0, 0.178711, 1, 0, 0.0732098, 0.12793, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=8]
 MarginContainer/constants/margin_left = 15
 VBoxContainer/constants/separation = 9
 
@@ -281,19 +281,19 @@ script = SubResource( 1 )
 
 [node name="animacion" type="AnimationPlayer" parent="."]
 autoplay = "enfocar_A"
-anims/enfocar_A = SubResource( 5 )
-anims/enfocar_B = SubResource( 6 )
-anims/enfocar_C = SubResource( 7 )
-anims/finalizo_examen = SubResource( 8 )
+anims/enfocar_A = SubResource( 2 )
+anims/enfocar_B = SubResource( 3 )
+anims/enfocar_C = SubResource( 4 )
+anims/finalizo_examen = SubResource( 5 )
 
 [node name="fondo" type="Sprite" parent="."]
 position = Vector2( 514.091, 290.478 )
 rotation = 1.57079
 scale = Vector2( 0.301732, 1067.02 )
-texture = SubResource( 3 )
+texture = SubResource( 7 )
 
 [node name="examen" type="Node2D" parent="."]
-position = Vector2( 166.653, -504.706 )
+position = Vector2( 204.408, -232.87 )
 
 [node name="hoja" type="Sprite" parent="examen"]
 position = Vector2( 332.182, 585.472 )
@@ -311,7 +311,7 @@ margin_right = 574.0
 margin_bottom = 951.0
 rect_rotation = -2.31805
 rect_scale = Vector2( 1.2, 1.2 )
-theme = SubResource( 4 )
+theme = SubResource( 8 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -418,7 +418,6 @@ __meta__ = {
 }
 
 [node name="punto_B" type="VBoxContainer" parent="examen/filas"]
-modulate = Color( 1, 1, 1, 0.223529 )
 margin_top = 342.0
 margin_right = 556.0
 margin_bottom = 533.0
@@ -501,6 +500,7 @@ __meta__ = {
 }
 
 [node name="punto_C" type="VBoxContainer" parent="examen/filas"]
+modulate = Color( 1, 1, 1, 0.239216 )
 margin_top = 542.0
 margin_right = 556.0
 margin_bottom = 829.0
