@@ -4,6 +4,8 @@ signal gano_interes
 signal ocurrio_interaccion
 signal perdio_el_interes
 
+export var interactuable: bool = true
+
 var interaccion_habilitada: bool = true
 
 func rehabilitar_interaccion():
