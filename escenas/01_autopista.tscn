@@ -23,7 +23,15 @@ func _ready():
 	# una correa de color madera.
 	# El brazo derecho de Milán es robótico y el resto de su cuerpo visible
 	# aparenta ser humano.
-	anotar_en_el_diario(\"Me sorprende cada dia mas cuantos implantes tiene Milan en el brazo\")
+	anotar_en_el_diario(\"\"\"
+		Me sorprende cada dia mas
+		cuantos implantes tiene Milan
+		en el brazo. *
+		
+		*: Fuera del guión. Solo a
+		modo de ejemplo de como
+		agregar entradas.
+	\"\"\")
 	dice('Milan', 'Suficiente con esa grabadora que le regalamos para sus quince.')
 	dice_a_la_grabadora('Nota: Milán no tiene sentido de la moda.')
 	# Alex se ríe. Tiene una sonrisa cómplice mientras mira a Jade.
