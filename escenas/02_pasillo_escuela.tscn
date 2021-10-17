@@ -3,8 +3,10 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-func ready():
-	pass 
+func _ready():
+	anota_en_el_diario(\"Le saqué una foto a una mesa\")
+	agrega_foto_al_diario(\"mesa_profesore\")
+	anota_en_el_diario(\"No me animo a escribir sobre la \\nfoto aun... no sabría que poner.\")
 
 
 func _on_Button_pressed():

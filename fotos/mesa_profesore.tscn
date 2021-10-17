@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/recuadros/KEY0.CC-Polaroids-On-The-Hunt-Plantilla-Polaroid-superpuesta-transparente.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/FondoEscritorio.png" type="Texture" id=2]
+
+[node name="Control" type="Control"]
+margin_right = 166.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 166, 140 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 106.356, 114.69 )
+scale = Vector2( 0.964641, 0.964641 )
+
+[node name="FondoEscritorio" type="Sprite" parent="Node2D"]
+position = Vector2( -1.5297, -61.4458 )
+scale = Vector2( 0.0864697, 0.0864697 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 500, 0, 1200, 1200 )
+
+[node name="KEY0CC-Polaroids-On-The-Hunt-Plantilla-Polaroid-superpuesta-transparente" type="Sprite" parent="Node2D"]
+position = Vector2( 0.154556, -49.0539 )
+scale = Vector2( 0.361344, 0.361344 )
+texture = ExtResource( 1 )

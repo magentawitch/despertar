@@ -1,5 +1,8 @@
 extends Node
 class_name Diario, "./Diario.icon.png"
+
+# TODO: Sacar de acá todo el detalle de cuantos renglones hay por página
+# y que va en cada página. Resolver todo eso en la VistaDiario.
 var paginas = [[]]  # Arranca con una página vacía
 const TAMANIO_PAGINA = 16 # Renglones
 var espacio_disponible_en_la_ultima_pagina = TAMANIO_PAGINA
@@ -29,6 +32,13 @@ func escribir_entrada_de_texto(texto: String):
 # TODO: Deprecar
 func escribir_renglon(texto_del_renglon):
 	escribir_entrada_de_texto(texto_del_renglon)
+
+func agregar_foto(escena_foto):
+	self.agregar_entrada({
+		"tipo": "foto",
+		"tamanio": 8,
+		"escena_foto": escena_foto,
+	})
 
 func _interaccion_de_ejemplo(diario: Diario):
 	diario.escribir_entrada_de_texto("""

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://acciones/elige.gd" type="Script" id=9]
 [ext_resource path="res://assets/images/DiarioCerrado.png" type="Texture" id=10]
 [ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=11]
+[ext_resource path="res://acciones/agrega_foto.gd" type="Script" id=12]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
@@ -73,6 +74,10 @@ contenedor_del_dialogo = NodePath("../../ui/contenedor_dialogo")
 [node name="elige" type="Node" parent="director"]
 script = ExtResource( 9 )
 contenedor_del_dialogo = NodePath("../../ui/contenedor_dialogo")
+
+[node name="agrega_foto" type="Node" parent="director"]
+script = ExtResource( 12 )
+path_al_diario = NodePath("../../diario")
 
 [node name="contenedor" type="Node2D" parent="."]
 
