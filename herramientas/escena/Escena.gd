@@ -27,6 +27,9 @@ func _rehabilitar_input():
 func anota_en_el_diario(algo):
 	director.encolar("anotar", {"texto": algo.strip_edges()})
 	
+func agregar_un_salto_de_linea_en_el_diario():
+	director.encolar("anotar", {"texto": ""})
+
 
 func anotar_en_el_diario(algo):
 	anota_en_el_diario(algo)
