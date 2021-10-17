@@ -10,11 +10,13 @@ func diario() -> Diario:
 	return get_node(diario_path) as Diario
 	
 func mostrar():
+	print("mostrando diario")
 	recargar()
 	show()
 	
 func ocultar():
 	hide()
+	print("ocultando diario")
 
 func _ready():
 	self.recargar()

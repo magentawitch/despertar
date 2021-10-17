@@ -2,10 +2,10 @@
 
 [ext_resource path="res://assets/images/dialogo.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/flechita_cuadro_de_dialogo.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/recuadros/jade.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/Personajes/Alex.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/Personajes/Jade.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/recuadros/grabadora.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/recuadros/milan.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/recuadros/alex.jpg" type="Texture" id=7]
+[ext_resource path="res://assets/images/Personajes/Milan.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/recuadros/KEY0.CC-Polaroids-On-The-Hunt-Plantilla-Polaroid-superpuesta-transparente.png" type="Texture" id=8]
 
 [sub_resource type="GDScript" id=1]
@@ -94,7 +94,8 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Gradient" id=3]
-colors = PoolColorArray( 0.0919647, 0.280273, 0.219588, 1, 0.138855, 0.270713, 0.444336, 1 )
+offsets = PoolRealArray( 0.351852 )
+colors = PoolColorArray( 0.213867, 0.0292397, 0.127684, 1 )
 
 [sub_resource type="GradientTexture" id=4]
 gradient = SubResource( 3 )
@@ -164,12 +165,10 @@ anims/idle = SubResource( 2 )
 
 [node name="grupo" type="Node2D" parent="."]
 position = Vector2( 110.271, -1.94105 )
-rotation = -0.00879033
 scale = Vector2( 0.801173, 0.801173 )
 
 [node name="fondo_cuadro_de_dialogo" type="Sprite" parent="grupo"]
 position = Vector2( -37.9474, -0.852318 )
-rotation = -0.00471457
 scale = Vector2( 1.06487, 0.920164 )
 texture = ExtResource( 1 )
 
@@ -183,10 +182,9 @@ texture = ExtResource( 2 )
 [node name="RichTextLabel" type="Label" parent="grupo"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = -295.0
-margin_top = -35.0
+margin_top = -31.4657
 margin_right = 42.0
-margin_bottom = 20.0
-rect_rotation = -0.341438
+margin_bottom = 23.5343
 rect_scale = Vector2( 1.5, 1.55 )
 text = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete..."
 align = 1
@@ -209,10 +207,12 @@ scale = Vector2( 0.357176, 713.151 )
 texture = SubResource( 4 )
 
 [node name="Alex" type="Sprite" parent="grupo/recuadro/Alex"]
-position = Vector2( 54.3818, -54.5828 )
+position = Vector2( 57.0201, -13.8937 )
 rotation = 0.033079
-scale = Vector2( 0.752348, 0.752348 )
-texture = ExtResource( 7 )
+scale = Vector2( 1.30316, 1.30316 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 550 )
 
 [node name="marco" type="Sprite" parent="grupo/recuadro/Alex"]
 position = Vector2( 63.5175, 35.7242 )
@@ -249,10 +249,11 @@ scale = Vector2( 0.163738, 328.981 )
 texture = SubResource( 4 )
 
 [node name="cara" type="Sprite" parent="grupo/recuadro/Jade"]
-position = Vector2( 2.59326, -3.48217 )
-rotation = -0.00469597
-scale = Vector2( 1.00812, 1.00812 )
+position = Vector2( 21.3241, 4.02757 )
+scale = Vector2( 0.814311, 0.814311 )
 texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 400 )
 
 [node name="marco" type="Sprite" parent="grupo/recuadro/Jade"]
 position = Vector2( 8.27066, 14.7863 )
@@ -280,20 +281,33 @@ visible = false
 position = Vector2( -433.123, -10.4723 )
 rotation = 0.00879033
 scale = Vector2( 0.179756, 0.179756 )
-texture = ExtResource( 6 )
 
-[node name="marco2" type="Sprite" parent="grupo/recuadro/Milan"]
-position = Vector2( 13.6309, 9.22396 )
-rotation = -0.00879033
-scale = Vector2( 2.33241, 2.33241 )
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Milan"]
+position = Vector2( 60.1317, -31.6567 )
+rotation = 1.59648
+scale = Vector2( 0.357176, 713.151 )
+texture = SubResource( 4 )
+
+[node name="Alex" type="Sprite" parent="grupo/recuadro/Milan"]
+position = Vector2( 94.5967, 5.87949 )
+rotation = 0.033079
+scale = Vector2( 1.44913, 1.44913 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 550 )
+
+[node name="marco" type="Sprite" parent="grupo/recuadro/Milan"]
+position = Vector2( 63.5175, 35.7242 )
+rotation = 0.0294824
+scale = Vector2( 2.35527, 2.35527 )
 texture = ExtResource( 8 )
 
 [node name="nombre" type="Label" parent="grupo/recuadro/Milan"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 13.9449
-margin_top = -461.443
-margin_right = 83.9449
-margin_bottom = -433.443
+margin_left = -287.743
+margin_top = 262.173
+margin_right = -217.743
+margin_bottom = 290.173
 rect_scale = Vector2( 9.20587, 9.20587 )
 text = "Milán"
 align = 1

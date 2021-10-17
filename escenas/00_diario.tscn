@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://utileria/diario_cerrado.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/FondoEscritorio.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=3]
+[ext_resource path="res://herramientas/utileria.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Escena
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_diario_cerrado_ocurrio_interaccion():
+
+	$DiarioAbierto.visible = true
+	$diario_cerrado.visible = false
+	#abrir_diario()
+
+var cantidad_de_clicks_sobre_el_diario_abierto = 0
+
+func _on_DiarioAbierto_ocurrio_interaccion():
+	cantidad_de_clicks_sobre_el_diario_abierto += 1
+	if cantidad_de_clicks_sobre_el_diario_abierto == 1:
+		$DiarioAbierto/Entrada1.visible = true
+	if cantidad_de_clicks_sobre_el_diario_abierto == 2:	
+		$DiarioAbierto/Entrada2.visible = true
+	if cantidad_de_clicks_sobre_el_diario_abierto == 3:	
+		$DiarioAbierto/Entrada3.visible = true
+	if cantidad_de_clicks_sobre_el_diario_abierto == 4:	
+		cambiar_escena_a(\"01_autopista\")
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 425.34, 289.537 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( -95.2441, -35.2471 )
+scale = Vector2( 1.34889, 1.34889 )
+script = SubResource( 1 )
+
+[node name="FondoEscritorio" type="Sprite" parent="."]
+position = Vector2( 476.238, 280.257 )
+scale = Vector2( 0.586093, 0.586093 )
+texture = ExtResource( 2 )
+
+[node name="diario_cerrado" parent="." instance=ExtResource( 1 )]
+position = Vector2( 440.685, 263.72 )
+scale = Vector2( 1.07516, 1.07516 )
+
+[node name="DiarioAbierto" type="Sprite" parent="."]
+visible = false
+position = Vector2( 437.512, 271.132 )
+scale = Vector2( 0.532746, 0.532747 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="DiarioAbierto"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DiarioAbierto/Area2D"]
+visible = false
+position = Vector2( -3.75079, -1.87543 )
+shape = SubResource( 2 )
+
+[node name="Entrada1" type="Label" parent="DiarioAbierto"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -378.0
+margin_top = -208.0
+margin_right = -154.0
+margin_bottom = -58.0
+rect_scale = Vector2( 1.51114, 1.51114 )
+text = "Hoy nuevamente me levanté tarde… Bah, no diría tarde, tarde. Simplemente me dormí un rato más. Convengamos que esta casa inteligente es demasiado pesada como para que une pueda dormir mil horas más, las horas necesarias de une adolescente productive."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Entrada2" type="Label" parent="DiarioAbierto"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -381.0
+margin_top = 49.0
+margin_right = -158.0
+margin_bottom = 233.0
+rect_scale = Vector2( 1.511, 1.511 )
+text = "Busqué por toda esta maldita ciudad tecnológica hasta que una amable señora me vendió este diario.. .Bah, es un cuaderno medio viejo, pero puedo escribir con un lápiz y tiene hojas. Básicamente no es una pantalla.
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Entrada3" type="Label" parent="DiarioAbierto"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 45.0
+margin_top = -212.31
+margin_right = 262.0
+margin_bottom = 39.6903
+rect_scale = Vector2( 1.511, 1.511 )
+text = "En fin, hoy tengo examen. Estudié...  Algo estudié, no mucho, pero estudié. Ahora bien, estoy llegando tarde, pero Alex va a trabajar a la oficina, así que seguro me dejan en la escuela. Saben que odio los bondis tecnológicos (sí, odio todo lo que se refiera a lo tecnológico. Bah, no lo odio, bah sí). Como sea, me llevan a la escuela así que todo bajo control, mi querido Watson? Una buena saga antigua de detectives que nunca vi.
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="ocurrio_interaccion" from="diario_cerrado" to="." method="_on_diario_cerrado_ocurrio_interaccion"]
+[connection signal="ocurrio_interaccion" from="DiarioAbierto" to="." method="_on_DiarioAbierto_ocurrio_interaccion"]

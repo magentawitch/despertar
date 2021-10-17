@@ -9,6 +9,7 @@ func vista_diario() -> VistaDiario:
 
 
 func abrir_diario(director: Director, detalles: Dictionary) -> void:
+	print("mostrando diario")
 	vista_diario().mostrar()
 	print("Mostrando el diario")
 	yield(vista_diario(), "solicitaron_cerrarme")

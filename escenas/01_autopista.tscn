@@ -43,7 +43,7 @@ func ya_se():
 	_1()
 	
 func no_les_importa():
-	dice('Milan', 'Milán mira mal a Jade desde el espejo retrovisor.')
+	dice('Milan', '*Milán mira mal a Jade desde el espejo retrovisor.*')
 	_1()
 	
 func _1():
@@ -231,7 +231,7 @@ tracks/1/keys = {
 script = SubResource( 1 )
 
 [node name="autopista" type="Sprite" parent="."]
-position = Vector2( 296.98, -110.016 )
+position = Vector2( 293.224, -110.016 )
 scale = Vector2( 0.333302, 0.333301 )
 texture = ExtResource( 2 )
 
@@ -240,7 +240,7 @@ autoplay = "auto_moviendose"
 anims/auto_moviendose = SubResource( 2 )
 
 [node name="luz_autopista_derecha" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, -1.51246e-08 )
+modulate = Color( 0.776471, 0.776471, 1, 0 )
 position = Vector2( 386.099, 217 )
 texture = ExtResource( 1 )
 
@@ -249,18 +249,19 @@ autoplay = "Luces"
 anims/Luces = SubResource( 3 )
 
 [node name="luz_autopista_izquierda" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, -1.23747e-08 )
-position = Vector2( 386.099, 217 )
+modulate = Color( 0.623931, 0.621205, 1, 0.0109006 )
+position = Vector2( 15.8021, 271.152 )
+scale = Vector2( 1.97345, 1.1004 )
 texture = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="luz_autopista_izquierda"]
-autoplay = "Luces"
+autoplay = "Luces izquierda"
 anims/Luces = SubResource( 4 )
 "anims/Luces izquierda" = SubResource( 5 )
 
 [node name="auto" type="Sprite" parent="."]
-modulate = Color( 0.890196, 0.890196, 0.890196, 1 )
-position = Vector2( 518.481, 290.428 )
+modulate = Color( 0.890196, 0.890196, 0.898871, 1 )
+position = Vector2( 518.481, 289.998 )
 scale = Vector2( 0.551284, 0.551284 )
 texture = ExtResource( 3 )
 
