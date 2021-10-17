@@ -4,13 +4,26 @@
 script/source = "extends Escena
 
 func _ready():
-	anota_en_el_diario(\"Le saqué una foto a una mesa\")
-	agrega_foto_al_diario(\"mesa_profesore\")
-	anota_en_el_diario(\"No me animo a escribir sobre la \\nfoto aun... no sabría que poner.\")
+	pass
 
 
 func _on_Button_pressed():
 	cambiar_escena_a(\"03_examen\")
+
+var foto_tomada = false
+
+func _on_boton_tomar_foto_pressed() -> void:
+	if foto_tomada:
+		dice(\"Jade\", \"Ya saque una foto. No quiero gastar todo el rollo.\")
+		dice(\"Jade\", \"No sé donde podré conseguir otro si se me acaba.\")
+	else:
+		dice(\"Jade\", \"Voy a sacarle una foto a la mesa\")
+		anota_en_el_diario(\"Le saqué una foto a una mesa\")
+		agrega_foto_al_diario(\"mesa_profesore\")
+		anota_en_el_diario(\"No me animo a escribir sobre la \\nfoto aun... no sabría que poner.\")
+		dice(\"Jade\", \"Se vé...\")
+		dice(\"Jade\", \"Cuadrada!\")
+		foto_tomada = true
 "
 
 [node name="pasillo_escuela" type="Node2D"]
@@ -28,14 +41,26 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 430.893
-margin_top = 158.75
-margin_right = 539.893
-margin_bottom = 178.75
+margin_left = 443.163
+margin_top = 161.582
+margin_right = 552.163
+margin_bottom = 181.582
 rect_scale = Vector2( 1.5, 1.5 )
 text = "-> Ir al examen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="boton_tomar_foto" type="Button" parent="."]
+margin_left = 449.541
+margin_top = 238.01
+margin_right = 570.541
+margin_bottom = 258.01
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Tomar una foto"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="boton_tomar_foto" to="." method="_on_boton_tomar_foto_pressed"]

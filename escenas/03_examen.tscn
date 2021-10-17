@@ -41,7 +41,10 @@ func interaccion_con_una_opcion(event, id: String, label: Label):
 		'C': 
 			punto_actual = 'DDD'
 			$animacion.play(\"finalizo_examen\")
-			$animacion.connect(\"animation_finished\", self, 'cambiar_escena_a', ['04_resultado_examen'])
+			dice(\"Jade\", \"Teriminé\")
+			dice(\"Jade\", \"Espero que todo esté bien\")
+			cambiar_escena_a('00_diario')
+			# $animacion.connect(\"animation_finished\", self, 'cambiar_escena_a', ['00_diario'])
 
 
 func _ready() -> void:
