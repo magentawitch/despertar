@@ -24,8 +24,12 @@ func _rehabilitar_input():
 		if c.has_method('rehabilitar_interaccion'):
 			c.rehabilitar_interaccion()
 
+func anota_en_el_diario(algo):
+	director.encolar("anotar", {"texto": algo.strip_edges()})
+	
+
 func anotar_en_el_diario(algo):
-	director.encolar("anotar", {"texto": algo})
+	anota_en_el_diario(algo)
 
 func protagonista_piensa(algo):
 	print(algo)

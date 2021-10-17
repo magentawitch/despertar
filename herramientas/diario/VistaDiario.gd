@@ -22,13 +22,13 @@ func _ready():
 func recargar():
 	print("Recargando vista del diario")
 	var entradas_izquierda = diario().entradas_de_la_pagina(pagina_actual)
-	$PaginaIzquierda.recargar_entradas(entradas_izquierda)
+	$izquierda.recargar_entradas(entradas_izquierda)
 	
 	if diario().cantidad_de_paginas_ocupadas() > pagina_actual + 1:
 		var entradas_derecha = diario().entradas_de_la_pagina(pagina_actual + 1)
-		$PaginaDerecha.recargar_entradas(entradas_derecha)
+		$derecha.recargar_entradas(entradas_derecha)
 	else:
-		$PaginaDerecha.limpiar_entradas()
+		$derecha.limpiar_entradas()
 	
 func cambiar_pagina_izquierda():
 	if pagina_actual > 0:

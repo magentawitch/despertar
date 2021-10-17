@@ -1,35 +1,28 @@
-extends Area2D
+extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var EntradaRenglon = preload("./EntradaRenglon.tscn")
+var EntradaTexto = preload("./EntradaTexto.tscn")
+
+func _ready():
+	limpiar_entradas()
 
 func limpiar_entradas():
-	for c in $Contenido.get_children():
-		$Contenido.remove_child(c)
+	for c in get_children():
+		c.queue_free()
+
+func instanciar_entrada(tipo):
+	match tipo:
+		"texto":
+			return EntradaTexto.instance()
+		var t:
+			push_error("Tipo de entrada desconocida: " + t)
+			assert(false)
 
 func recargar_entradas(entradas):
 	print("Recargando entradas de pagina")
 	limpiar_entradas()
-	var upper_left_corner = -$Forma.get_shape().get_extents()
-	var page_height = $Forma.get_shape().get_extents().y * 2
-	var current_pos = upper_left_corner
 	for entrada in entradas:
-		match entrada["tipo"]:
-			"renglon":
-				var node = EntradaRenglon.instance()
-				node.set_text(entrada["texto"])
-				$Contenido.add_child(node)
-				node.set_position(current_pos)
-				
-			var t:
-				push_error("Tipo de entrada desconocida: " + t)
-				assert(false)
-		current_pos.y += entrada["tamanio"] * page_height / 100
+		var node = instanciar_entrada(entrada["tipo"])
+		node.inicializar_con(entrada)
+		add_child(node)
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Label
+
+func inicializar_con(entrada):
+	self.text = entrada[\"texto\"]
+"
+
+[node name="texto" type="Label"]
+modulate = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 4
+text = "Querido diario..."
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
