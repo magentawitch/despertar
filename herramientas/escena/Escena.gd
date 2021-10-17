@@ -1,6 +1,8 @@
 extends Node2D
 class_name Escena, "./icono.png"
 
+export var puede_abrir_el_diario = true
+
 var diario: Diario
 var director: Director
 

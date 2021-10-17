@@ -6,6 +6,7 @@ signal la_escena_fue_cambiada
 
 func _ready() -> void:
 	cargar_escena_actual()
+	$telon.visible = true
 	$director.connect("aparecieron_acciones_pendientes", $ui/menu, 'hide')
 	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
 
@@ -17,7 +18,7 @@ func cargar_escena_actual():
 		"No hay una escena para cargar"
 	)
 	var escena = cargar_escena(nombre_de_la_escena_actual)
-	
+	$ui/menu/boton_abrir_diario.visible = escena.puede_abrir_el_diario
 	escena._inicializar_dependencias($director, $diario)
 	$contenedor.add_child(escena, true)
 	escena.set_name('escena_actual')

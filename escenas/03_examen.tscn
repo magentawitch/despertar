@@ -278,6 +278,7 @@ VBoxContainer/constants/separation = 9
 
 [node name="examen" type="Node2D"]
 script = SubResource( 1 )
+puede_abrir_el_diario = false
 
 [node name="animacion" type="AnimationPlayer" parent="."]
 autoplay = "enfocar_A"

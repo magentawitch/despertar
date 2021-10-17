@@ -86,6 +86,7 @@ extents = Vector2( 425.34, 289.537 )
 position = Vector2( -95.2441, -35.2471 )
 scale = Vector2( 1.34889, 1.34889 )
 script = SubResource( 1 )
+puede_abrir_el_diario = false
 
 [node name="FondoEscritorio" type="Sprite" parent="."]
 position = Vector2( 476.238, 280.257 )
