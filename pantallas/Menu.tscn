@@ -5,9 +5,9 @@
 [ext_resource path="res://herramientas/boton/Boton.gd" type="Script" id=4]
 [ext_resource path="res://assets/images/BotonJugarHover.png" type="Texture" id=5]
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 201.12, 55.6386 )
 
 [node name="Menu" type="Node2D"]
@@ -17,7 +17,7 @@ modulate = Color( 0.45098, 0.0352941, 0.317647, 1 )
 self_modulate = Color( 0.235294, 0.0196078, 0.121569, 1 )
 position = Vector2( 104.573, 306.161 )
 scale = Vector2( 1.10212, 613.322 )
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 
 [node name="BotonCreditos" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -44,7 +44,7 @@ position = Vector2( -215.887, 66.6708 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BotonJugar/Area2D"]
 position = Vector2( -8.39154, 89.3466 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [connection signal="input_event" from="BotonJugar/Area2D" to="BotonJugar" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="BotonJugar/Area2D" to="BotonJugar" method="_on_Area2D_mouse_entered"]
