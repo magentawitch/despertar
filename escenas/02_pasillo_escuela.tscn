@@ -39,6 +39,7 @@ margin_top = -411.328
 margin_right = 745.183
 margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
@@ -52,6 +53,7 @@ margin_top = -411.328
 margin_right = 1483.77
 margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,6 +65,7 @@ margin_top = -408.755
 margin_right = 2165.54
 margin_bottom = 260.245
 rect_scale = Vector2( 0.542079, 0.542079 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -49,6 +49,7 @@ margin_top = -411.328
 margin_right = 745.183
 margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
@@ -97,6 +98,7 @@ margin_top = -172.722
 margin_right = 1024.9
 margin_bottom = 63.2781
 rect_scale = Vector2( 0.234467, 0.234467 )
+mouse_default_cursor_shape = 2
 icon = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
