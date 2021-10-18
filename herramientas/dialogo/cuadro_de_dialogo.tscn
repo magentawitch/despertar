@@ -50,50 +50,6 @@ func _on_Area2D_mouse_exited() -> void:
 
 "
 
-[sub_resource type="Animation" id=2]
-length = 2.0
-loop = true
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("grupo/fondo_cuadro_de_dialogo/flechita_cuadro_de_dialogo:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"points": PoolRealArray( -6.2837, -0.25, 0, 0.25, 0, 5.66723, -0.25, 0, 0.25, 0, -6.2837, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("grupo:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"points": PoolRealArray( -0.503649, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.503649, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.2, 2 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("grupo:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( -2.23294, -0.25, 0, 0.2425, 0.00652075, -1.51884, -0.5775, -0.00873542, 0.4825, 0, -2.23294, -0.5175, -0.00221467, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.2, 2 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("grupo/recuadro/grabadora:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( -8.46776, -0.25, 0, 0.25, 0, -4.93829, -0.25, 0, 0.25, 0, -8.22488, -0.25, 0, 0.25, 0, -5.2513, -0.25, 0, 0.25, 0, -8.46776, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 )
-}
-
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.351852 )
 colors = PoolColorArray( 0.213867, 0.0292397, 0.127684, 1 )
@@ -114,55 +70,21 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.3, 2 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("grupo:modulate:r")
+tracks/1/path = NodePath("grupo:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("grupo:modulate:g")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("grupo:modulate:b")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("grupo:modulate:a")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 257.991, 62.7238 )
+extents = Vector2( 340.101, 61.7378 )
 
 [node name="cuadro_de_dialogo" type="Node2D"]
 script = SubResource( 1 )
-
-[node name="animacion_movimiento" type="AnimationPlayer" parent="."]
-autoplay = "idle"
-anims/idle = SubResource( 2 )
 
 [node name="grupo" type="Node2D" parent="."]
 position = Vector2( 110.271, -1.94105 )
@@ -190,6 +112,7 @@ rect_scale = Vector2( 1.5, 1.55 )
 text = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete..."
 align = 1
 autowrap = true
+percent_visible = 0.949397
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -372,9 +295,11 @@ anims/aparece = SubResource( 5 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2( 83.3445, -2.0257 )
+position = Vector2( 57.8598, -1.08182 )
 shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="animation_finished" from="animacion_transiciones" to="." method="cuando_termina_la_animacion_de_texto"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
