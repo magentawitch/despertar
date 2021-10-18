@@ -2,6 +2,8 @@
 
 [ext_resource path="res://assets/images/hoja_blanca.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/redondelete.png" type="Texture" id=2]
+[ext_resource path="res://PuertaCerrada.png" type="Texture" id=3]
+[ext_resource path="res://FondoAula.png" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -41,7 +43,7 @@ func interaccion_con_una_opcion(event, id: String, label: Label):
 		'C': 
 			punto_actual = 'DDD'
 			$animacion.play(\"finalizo_examen\")
-			dice(\"Jade\", \"Teriminé\")
+			dice(\"Jade\", \"Terminé\")
 			dice(\"Jade\", \"Espero que todo esté bien\")
 			cambiar_escena_a('00_diario')
 			# $animacion.connect(\"animation_finished\", self, 'cambiar_escena_a', ['00_diario'])
@@ -269,13 +271,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.529921, 0.529921 ), Vector2( 0.599661, 0.599661 ) ]
 }
 
-[sub_resource type="Gradient" id=6]
-colors = PoolColorArray( 0.119722, 0, 0.178711, 1, 0, 0.0732098, 0.12793, 1 )
-
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
-
-[sub_resource type="Theme" id=8]
+[sub_resource type="Theme" id=6]
 MarginContainer/constants/margin_left = 15
 VBoxContainer/constants/separation = 9
 
@@ -291,10 +287,16 @@ anims/enfocar_C = SubResource( 4 )
 anims/finalizo_examen = SubResource( 5 )
 
 [node name="fondo" type="Sprite" parent="."]
-position = Vector2( 514.091, 290.478 )
-rotation = 1.57079
-scale = Vector2( 0.301732, 1067.02 )
-texture = SubResource( 7 )
+position = Vector2( 830.086, 258.11 )
+rotation = -0.000509253
+scale = Vector2( 0.580194, 0.580194 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -20.1665, 276.708 )
+rotation = -0.000509253
+scale = Vector2( 0.564872, 0.564872 )
+texture = ExtResource( 3 )
 
 [node name="examen" type="Node2D" parent="."]
 position = Vector2( 204.408, -232.87 )
@@ -315,7 +317,7 @@ margin_right = 574.0
 margin_bottom = 951.0
 rect_rotation = -2.31805
 rect_scale = Vector2( 1.2, 1.2 )
-theme = SubResource( 8 )
+theme = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false

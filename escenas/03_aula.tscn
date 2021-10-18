@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
+[ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
+[ext_resource path="res://assets/MesaProfesore.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/Personajes/Profesore.png" type="Texture" id=4]
+[ext_resource path="res://FondoAula.png" type="Texture" id=5]
+[ext_resource path="res://assets/BancoDer.png" type="Texture" id=6]
+[ext_resource path="res://assets/Reloj.png" type="Texture" id=7]
+[ext_resource path="res://assets/BancoIzq.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/HojaExamen.png" type="Texture" id=9]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Escena
+
+
+func _on_PuertaPasillo_pressed():
+	
+	var d2 = randi() % 2
+	match d2:
+		0:
+			dice(\"Jade\", \"Tengo que completar este estúpido examen.\")
+		1:
+			dice(\"Profesore\", \"Dónde crees que vas, Jade? Completa tu examen como el resto de la clase.\")
+
+
+
+func _on_Examen_pressed():
+	cambiar_escena_a('03_examen')
+"
+
+[node name="Aula" type="Node2D"]
+position = Vector2( -244.977, 523.251 )
+script = SubResource( 1 )
+
+[node name="FondoAula" type="Sprite" parent="."]
+position = Vector2( 1371.86, -246.9 )
+scale = Vector2( 0.555149, 0.555149 )
+texture = ExtResource( 5 )
+
+[node name="Reloj" type="Sprite" parent="."]
+position = Vector2( 442.093, -446.378 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="PuertaPasillo" type="TextureButton" parent="."]
+margin_left = 339.183
+margin_top = -411.328
+margin_right = 745.183
+margin_bottom = 257.672
+rect_scale = Vector2( 0.542079, 0.542079 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Profesore" type="Sprite" parent="."]
+position = Vector2( 1974.82, -201.361 )
+scale = Vector2( 0.348156, 0.348156 )
+texture = ExtResource( 4 )
+
+[node name="MesaProfesore" type="Sprite" parent="."]
+position = Vector2( 1900.65, -143.367 )
+scale = Vector2( 0.426636, 0.426636 )
+texture = ExtResource( 3 )
+
+[node name="BancoIzq" type="Sprite" parent="."]
+position = Vector2( 2133.27, -7.79163 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="BancoIzq2" type="Sprite" parent="."]
+position = Vector2( 2447.58, -44.3018 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="BancoDer" type="Sprite" parent="."]
+position = Vector2( 1525.7, -40.8162 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="BancoDer2" type="Sprite" parent="."]
+position = Vector2( 1155.72, -5.12598 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="BancoDer3" type="Sprite" parent="."]
+position = Vector2( 851.596, -42.7195 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Examen" type="Button" parent="."]
+margin_left = 822.899
+margin_top = -172.722
+margin_right = 1024.9
+margin_bottom = 63.2781
+rect_scale = Vector2( 0.234467, 0.234467 )
+icon = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
+[connection signal="pressed" from="Examen" to="." method="_on_Examen_pressed"]
