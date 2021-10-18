@@ -23,8 +23,7 @@ func asignar_texto(texto: String):
 	
 func mostrar_recuadro(recuadro: String):
 	for c in $grupo/recuadro.get_children():
-		if c.name == recuadro:
-			c.show()
+		c.visible = c.name == recuadro
 
 func _on_fondo_cuadro_de_dialogo_pressed() -> void:
 	if texto_termino_de_aparecer:
@@ -189,7 +188,6 @@ __meta__ = {
 }
 
 [node name="Profesore" type="Node2D" parent="grupo/recuadro"]
-visible = false
 position = Vector2( -422.968, -12.2002 )
 rotation = 0.0470631
 scale = Vector2( 0.355908, 0.355908 )
