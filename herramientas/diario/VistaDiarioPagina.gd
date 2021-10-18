@@ -1,7 +1,10 @@
 extends Control
 
-
+# Esto huele a que hay que hacer una script base "Entrada.gd" del que estos
+# hereden. También parece que ese sería el lugar correcto para todo lo que es
+# la lógica de layout del diario.
 var EntradaTexto = preload("./EntradaTexto.tscn")
+var EntradaFoto = preload("./EntradaFoto.tscn")
 
 func _ready():
 	limpiar_entradas()
@@ -10,22 +13,12 @@ func limpiar_entradas():
 	for c in get_children():
 		c.queue_free()
 
-func instanciar_entrada(entrada):
-	var tipo = entrada["tipo"]
+func instanciar_entrada(tipo):
 	match tipo:
 		"texto":
-			var t = EntradaTexto.instance()
-			t.inicializar_con(entrada)
-			return t
+			return EntradaTexto.instance()
 		"foto":
-			var archivo_de_la_escena = "res://fotos/%s.tscn" % entrada["escena_foto"]
-			assert(
-				ResourceLoader.exists(archivo_de_la_escena),
-				"No existe la foto: %s, deberia estar en: %s" % [
-					entrada["escena_foto"], archivo_de_la_escena
-				]
-			)
-			return load(archivo_de_la_escena).instance()
+			return EntradaFoto.instance()
 		var t:
 			push_error("Tipo de entrada desconocida: " + t)
 			assert(false)
@@ -34,6 +27,7 @@ func recargar_entradas(entradas):
 	print("Recargando entradas de pagina")
 	limpiar_entradas()
 	for entrada in entradas:
-		var node = instanciar_entrada(entrada)
+		var node = instanciar_entrada(entrada['tipo'])
+		node.inicializar_con(entrada)
 		add_child(node)
 	

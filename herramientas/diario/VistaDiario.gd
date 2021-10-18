@@ -4,6 +4,10 @@ class_name VistaDiario, "./VistaDiario.icon.png"
 signal solicitaron_cerrarme
 
 var pagina_actual = 0
+var interactivo = true
+
+func botones_habilitados():
+	return interactivo
 
 export(NodePath) var diario_path
 func diario() -> Diario:
@@ -11,6 +15,13 @@ func diario() -> Diario:
 	
 func mostrar():
 	print("mostrando diario")
+	interactivo = true
+	recargar()
+	show()
+	
+func mostrar_de_forma_no_interactiva():
+	print("mostrando diario de forma no interactiva")
+	interactivo = false
 	recargar()
 	show()
 	
@@ -48,24 +59,34 @@ func is_click(event):
 	return event is InputEventMouseButton and event.is_pressed()
 		
 func _on_AreaIrIzquierda_input_event(viewport, event, shape_idx):
+	if not botones_habilitados():
+		return
 	if is_click(event):
 		cambiar_pagina_izquierda()
 
 
 func _on_AreaIrDerecha_input_event(viewport, event, shape_idx):
+	if not botones_habilitados():
+		return
 	if is_click(event):
 		cambiar_pagina_derecha()
 
 
 func _on_AreaCerrar_input_event(viewport, event, shape_idx):
+	if not botones_habilitados():
+		return
 	if is_click(event):
 		print("solicitaron_cerrarme")
 		emit_signal("solicitaron_cerrarme")
 		mostrar_cursor_normal()
 
 func mostrar_cursor_como_dedito():
+	if not botones_habilitados():
+		return
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	
 func mostrar_cursor_normal():
+	if not botones_habilitados():
+		return
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 

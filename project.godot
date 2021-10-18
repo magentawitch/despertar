@@ -20,9 +20,19 @@ _global_script_classes=[ {
 "path": "res://herramientas/director/Director.gd"
 }, {
 "base": "Node2D",
+"class": "EleccionDeEpigrafe",
+"language": "GDScript",
+"path": "res://herramientas/diario/EleccionDeEpigrafe.gd"
+}, {
+"base": "Node2D",
 "class": "Escena",
 "language": "GDScript",
 "path": "res://herramientas/escena/Escena.gd"
+}, {
+"base": "Node2D",
+"class": "Foto",
+"language": "GDScript",
+"path": "res://fotos/Foto.gd"
 }, {
 "base": "PanelContainer",
 "class": "TestScene",
@@ -47,7 +57,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Diario": "res://herramientas/diario/Diario.icon.png",
 "Director": "res://herramientas/director/Director.icon.png",
+"EleccionDeEpigrafe": "",
 "Escena": "res://herramientas/escena/icono.png",
+"Foto": "",
 "TestScene": "res://herramientas/utest/TestScene.icon.png",
 "VistaDiario": "res://herramientas/diario/VistaDiario.icon.png",
 "WAT": "",

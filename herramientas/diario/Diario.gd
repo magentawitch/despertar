@@ -33,11 +33,12 @@ func escribir_entrada_de_texto(texto: String):
 func escribir_renglon(texto_del_renglon):
 	escribir_entrada_de_texto(texto_del_renglon)
 
-func agregar_foto(escena_foto):
+func agregar_foto(nombre_foto, epigrafe_elegido):
 	self.agregar_entrada({
 		"tipo": "foto",
 		"tamanio": 8,
-		"escena_foto": escena_foto,
+		"epigrafe": epigrafe_elegido,
+		"nombre_foto": nombre_foto,
 	})
 
 func _interaccion_de_ejemplo(diario: Diario):

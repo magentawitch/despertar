@@ -32,8 +32,8 @@ func anota_en_el_diario(algo):
 func agregar_un_salto_de_linea_en_el_diario():
 	director.encolar("anotar", {"texto": ""})
 
-func agrega_foto_al_diario(nombre_de_la_escena_de_la_foto):
-	director.encolar("agrega_foto", {"escena_foto": nombre_de_la_escena_de_la_foto})
+func agrega_foto_al_diario(nombre_foto):
+	director.encolar("agrega_foto", {"nombre_foto": nombre_foto})
 
 func anotar_en_el_diario(algo):
 	anota_en_el_diario(algo)

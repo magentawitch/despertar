@@ -1,12 +1,18 @@
 extends Node2D
 
+export var nombre_de_la_escena_de_prueba: String = "02_pasillo_escuela"
 export var nombre_de_la_escena_actual: String = "00_diario"
 
 signal la_escena_fue_cambiada
 
 func _ready() -> void:
+	if OS.is_debug_build():
+		print("Como estoy en debug arranco con la escena de test: ", nombre_de_la_escena_de_prueba)
+		nombre_de_la_escena_actual = nombre_de_la_escena_de_prueba
 	cargar_escena_actual()
 	$telon.visible = true
+	$ui/vista_diario.visible = false
+	$ui/eleccion_de_epigrafe.visible = false
 	$director.connect("aparecieron_acciones_pendientes", $ui/menu, 'hide')
 	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
 

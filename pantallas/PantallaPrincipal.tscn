@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/images/DiarioCerrado.png" type="Texture" id=10]
 [ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=11]
 [ext_resource path="res://acciones/agrega_foto.gd" type="Script" id=12]
+[ext_resource path="res://herramientas/diario/EleccionDeEpigrafe.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
@@ -78,6 +79,8 @@ contenedor_del_dialogo = NodePath("../../ui/contenedor_dialogo")
 [node name="agrega_foto" type="Node" parent="director"]
 script = ExtResource( 12 )
 path_al_diario = NodePath("../../diario")
+path_a_la_vista_del_diario = NodePath("../../ui/vista_diario")
+path_a_la_vista_de_eleccion_del_epigrafe = NodePath("../../ui/eleccion_de_epigrafe")
 
 [node name="contenedor" type="Node2D" parent="."]
 
@@ -107,8 +110,11 @@ texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
 
 [node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
-visible = false
 diario_path = NodePath("../../diario")
+
+[node name="eleccion_de_epigrafe" parent="ui" instance=ExtResource( 13 )]
+position = Vector2( 473.304, 277.085 )
+scale = Vector2( 2.74802, 2.74802 )
 
 [node name="contenedor_dialogo" type="Position2D" parent="ui"]
 position = Vector2( 436, 170 )
