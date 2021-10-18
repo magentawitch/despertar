@@ -87,32 +87,39 @@ path_a_la_vista_de_eleccion_del_epigrafe = NodePath("../../ui/eleccion_de_epigra
 [node name="ui" type="Node2D" parent="."]
 
 [node name="menu" type="VBoxContainer" parent="ui"]
-margin_left = 30.0
-margin_top = 27.0
-margin_right = 350.0
-margin_bottom = 81.0
+margin_left = 35.0
+margin_top = 14.0
+margin_right = 826.0
+margin_bottom = 877.0
 rect_scale = Vector2( 0.1, 0.1 )
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="titulo" type="Label" parent="ui/menu"]
-margin_right = 493.0
-margin_bottom = 14.0
+margin_top = 72.0
+margin_right = 791.0
+margin_bottom = 86.0
 text = "Menu con cosas que necesitan una UI mejor"
 
 [node name="boton_abrir_diario" type="TextureButton" parent="ui/menu"]
-margin_top = 18.0
-margin_right = 493.0
-margin_bottom = 863.0
+margin_top = 90.0
+margin_right = 791.0
+margin_bottom = 790.0
+rect_min_size = Vector2( 0, 700 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
+expand = true
+stretch_mode = 3
 
 [node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
 diario_path = NodePath("../../diario")
 
 [node name="eleccion_de_epigrafe" parent="ui" instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 473.304, 277.085 )
 scale = Vector2( 2.74802, 2.74802 )
 

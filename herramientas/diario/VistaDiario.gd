@@ -16,12 +16,17 @@ func diario() -> Diario:
 func mostrar():
 	print("mostrando diario")
 	interactivo = true
+	$botones.visible = true
+	# Vamos a la ultima pagina par
+	pagina_actual = diario().cantidad_de_paginas_ocupadas() - 1
+	pagina_actual -= pagina_actual % 2
 	recargar()
 	show()
 	
 func mostrar_de_forma_no_interactiva():
 	print("mostrando diario de forma no interactiva")
 	interactivo = false
+	$botones.visible = false
 	recargar()
 	show()
 	
@@ -42,6 +47,9 @@ func recargar():
 		$derecha.recargar_entradas(entradas_derecha)
 	else:
 		$derecha.limpiar_entradas()
+		
+	$botones/anterior_pagina.visible = pagina_actual > 0
+	$botones/siguiente_pagina.visible = pagina_actual < diario().cantidad_de_paginas_ocupadas() - 2
 	
 func cambiar_pagina_izquierda():
 	if pagina_actual > 0:
@@ -55,38 +63,20 @@ func cambiar_pagina_derecha():
 		recargar()
 	
 
-func is_click(event):
-	return event is InputEventMouseButton and event.is_pressed()
-		
-func _on_AreaIrIzquierda_input_event(viewport, event, shape_idx):
+func _on_anterior_pagina_pressed() -> void:
 	if not botones_habilitados():
 		return
-	if is_click(event):
-		cambiar_pagina_izquierda()
+	cambiar_pagina_izquierda()
 
 
-func _on_AreaIrDerecha_input_event(viewport, event, shape_idx):
+func _on_siguiente_pagina_pressed() -> void:
 	if not botones_habilitados():
 		return
-	if is_click(event):
-		cambiar_pagina_derecha()
+	cambiar_pagina_derecha()
 
 
-func _on_AreaCerrar_input_event(viewport, event, shape_idx):
+func _on_cerrar_diario_pressed() -> void:
 	if not botones_habilitados():
 		return
-	if is_click(event):
-		print("solicitaron_cerrarme")
-		emit_signal("solicitaron_cerrarme")
-		mostrar_cursor_normal()
-
-func mostrar_cursor_como_dedito():
-	if not botones_habilitados():
-		return
-	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	
-func mostrar_cursor_normal():
-	if not botones_habilitados():
-		return
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-
+	print("solicitaron_cerrarme")
+	emit_signal("solicitaron_cerrarme")

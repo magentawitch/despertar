@@ -1,23 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://herramientas/diario/VistaDiario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiarioPagina.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=3]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 47.6865
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 82.2017, 242.83 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 525.695, 27.1953 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 97.6232, 262.832 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 528.426, 34.6207 )
+[ext_resource path="res://assets/images/flatLight/flatLight22.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/flatLight/flatLight33.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/flatLight/flatLight23.png" type="Texture" id=6]
 
 [node name="VistaDiario" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,46 +17,6 @@ __meta__ = {
 position = Vector2( 516.928, 270.857 )
 scale = Vector2( 0.73244, 0.73244 )
 texture = ExtResource( 3 )
-
-[node name="AreaIrIzquierda" type="Area2D" parent="."]
-position = Vector2( 244.638, 455.776 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Forma" type="CollisionShape2D" parent="AreaIrIzquierda"]
-shape = SubResource( 1 )
-
-[node name="AreaIrDerecha" type="Area2D" parent="."]
-position = Vector2( 798.978, 451.484 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Forma" type="CollisionShape2D" parent="AreaIrDerecha"]
-shape = SubResource( 1 )
-
-[node name="AreaCerrar" type="Area2D" parent="."]
-position = Vector2( 968.685, 65.1028 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCerrar"]
-position = Vector2( -27.1215, 214.816 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AreaCerrar"]
-position = Vector2( -455.932, -44.8685 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="AreaCerrar"]
-position = Vector2( -877.408, 209.456 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="AreaCerrar"]
-position = Vector2( -450.653, 483.144 )
-shape = SubResource( 5 )
 
 [node name="izquierda" type="VBoxContainer" parent="."]
 margin_left = 238.745
@@ -197,12 +145,47 @@ caracteres entran en una sola linea.
 
                                              :'("
 
-[connection signal="input_event" from="AreaIrIzquierda" to="." method="_on_AreaIrIzquierda_input_event"]
-[connection signal="mouse_entered" from="AreaIrIzquierda" to="." method="mostrar_cursor_como_dedito"]
-[connection signal="mouse_exited" from="AreaIrIzquierda" to="." method="mostrar_cursor_normal"]
-[connection signal="input_event" from="AreaIrDerecha" to="." method="_on_AreaIrDerecha_input_event"]
-[connection signal="mouse_entered" from="AreaIrDerecha" to="." method="mostrar_cursor_como_dedito"]
-[connection signal="mouse_exited" from="AreaIrDerecha" to="." method="mostrar_cursor_normal"]
-[connection signal="input_event" from="AreaCerrar" to="." method="_on_AreaCerrar_input_event"]
-[connection signal="mouse_entered" from="AreaCerrar" to="." method="mostrar_cursor_como_dedito"]
-[connection signal="mouse_exited" from="AreaCerrar" to="." method="mostrar_cursor_normal"]
+[node name="botones" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cerrar_diario" type="TextureButton" parent="botones"]
+margin_left = 49.0
+margin_top = 34.0
+margin_right = 97.0
+margin_bottom = 82.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anterior_pagina" type="TextureButton" parent="botones"]
+margin_left = 113.0
+margin_top = 405.0
+margin_right = 193.0
+margin_bottom = 485.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="siguiente_pagina" type="TextureButton" parent="botones"]
+margin_left = 841.0
+margin_top = 406.0
+margin_right = 921.0
+margin_bottom = 486.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="botones/cerrar_diario" to="." method="_on_cerrar_diario_pressed"]
+[connection signal="pressed" from="botones/anterior_pagina" to="." method="_on_anterior_pagina_pressed"]
+[connection signal="pressed" from="botones/siguiente_pagina" to="." method="_on_siguiente_pagina_pressed"]
