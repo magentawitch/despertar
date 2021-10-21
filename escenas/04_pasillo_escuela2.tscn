@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
+[ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
+[ext_resource path="res://assets/BustoVolk.png" type="Texture" id=3]
+[ext_resource path="res://assets/Planta.png" type="Texture" id=4]
+[ext_resource path="res://FondoPasilo.png" type="Texture" id=5]
+[ext_resource path="res://PuertaAulaAbierta.png" type="Texture" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Escena
+
+func _ready():
+	pass
+
+func _on_PuertaAula_pressed():
+	dice(\"Jade\", \"Ya terminé el examen. Quiero explorar el pasillo antes de volver\")
+
+
+func _on_PuertaPatio_pressed():
+	dice(\"Jade\", \"Mm, la puerta del patio parece estar cerrada por ahora\")
+
+func _on_PuertaMuseoAnalogico_pressed():
+	dice(\"Jade\", \"Mm, esta puerta parece estar cerrada por ahora\")
+
+var clicks_cuadro_volk = 0
+
+func _on_CuadroVolk_pressed():
+	clicks_cuadro_volk += 1
+	if clicks_cuadro_volk == 1:
+		dice_a_la_grabadora(\"\"\"Bitácora número 42: En el pasillo tenemos un cuadro 
+		de Volk, principal exponente del movimiento transhumanista. Cuando el 
+		movimiento transhumanista recién estaba iniciando, Volk procramabla que
+		con los implantes todos podríamos alcanzar la mejor versión de nosotres
+		mismes.\"\"\")
+	if clicks_cuadro_volk >= 2:
+		dice_a_la_grabadora(\"\"\" Volk aseguraba que cuando ascendiera al poder, 
+		no habría diferencias entre nosotres, todes seríamos iguales: no habría 
+		personas ricas, pobres, ni en cargos de poder. Una sociedad horizontal, 
+		clamaba. \"\"\")
+
+
+func _on_BustVolk_pressed():
+	dice_a_la_grabadora(\"\"\" Bitácora número 316: Un mes después de que Volk 
+	ascendiera al poder, exigió que todos los ámbitos educativos, religiosos y 
+	comerciales exhibieran al menos un cuadro o escultura suya. 
+	Varias instituciones fueron clausuradas por no hacerlo. \"\"\")
+
+"
+
+[node name="Pasillo_Escuela2" type="Node2D"]
+position = Vector2( -244.977, 523.251 )
+script = SubResource( 1 )
+
+[node name="FondoPasillo" type="Sprite" parent="."]
+position = Vector2( 1331.82, -239.106 )
+scale = Vector2( 0.5349, 0.5349 )
+texture = ExtResource( 5 )
+
+[node name="PuertaAula" type="TextureButton" parent="."]
+margin_left = 339.183
+margin_top = -411.328
+margin_right = 745.183
+margin_bottom = 257.672
+rect_scale = Vector2( 0.542079, 0.542079 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PuertaPatio" type="TextureButton" parent="."]
+margin_left = 1077.77
+margin_top = -411.328
+margin_right = 1483.77
+margin_bottom = 257.672
+rect_scale = Vector2( 0.542079, 0.542079 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PuertaMuseoAnalogico" type="TextureButton" parent="."]
+margin_left = 1759.54
+margin_top = -408.755
+margin_right = 2165.54
+margin_bottom = 260.245
+rect_scale = Vector2( 0.542079, 0.542079 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Planta" type="Sprite" parent="."]
+position = Vector2( 757.215, -154.685 )
+scale = Vector2( 0.51725, 0.51725 )
+texture = ExtResource( 4 )
+
+[node name="Planta2" type="Sprite" parent="."]
+position = Vector2( 956.86, -156.804 )
+scale = Vector2( 0.51725, 0.51725 )
+texture = ExtResource( 4 )
+
+[node name="Planta3" type="Sprite" parent="."]
+position = Vector2( 1663.39, -157.063 )
+scale = Vector2( 0.51725, 0.51725 )
+texture = ExtResource( 4 )
+
+[node name="CuadroVolk" type="TextureButton" parent="."]
+margin_left = 1409.78
+margin_top = -442.218
+margin_right = 1683.78
+margin_bottom = -116.218
+rect_scale = Vector2( 0.520004, 0.520004 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BustVolk" type="TextureButton" parent="."]
+margin_left = 2144.67
+margin_top = -302.266
+margin_right = 2432.67
+margin_bottom = 277.734
+rect_scale = Vector2( 0.440002, 0.440002 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
+[connection signal="pressed" from="PuertaPatio" to="." method="_on_PuertaPatio_pressed"]
+[connection signal="pressed" from="PuertaMuseoAnalogico" to="." method="_on_PuertaMuseoAnalogico_pressed"]
+[connection signal="pressed" from="CuadroVolk" to="." method="_on_CuadroVolk_pressed"]
+[connection signal="pressed" from="BustVolk" to="." method="_on_BustVolk_pressed"]
