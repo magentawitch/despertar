@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/images/luz_autopista.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/Background/2609.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/images/DespertarFondoAutopista.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sonido/SFX/Amb autopista.mp3" type="AudioStream" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -276,3 +277,8 @@ texture = ExtResource( 3 )
 [node name="animacion" type="AnimationPlayer" parent="auto"]
 autoplay = "auto_saltando"
 anims/auto_saltando = SubResource( 6 )
+
+[node name="SFXAutopista" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+autoplay = true

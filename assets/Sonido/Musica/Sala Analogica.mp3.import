@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sala Analogica.mp3-19d4c6945c3feb2c6b1b0da7c1812c42.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/Musica/Sala Analogica.mp3"
+dest_files=[ "res://.import/Sala Analogica.mp3-19d4c6945c3feb2c6b1b0da7c1812c42.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

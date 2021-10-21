@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Examen.mp3-96e31779153f4071a8b187c5b31fce5d.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/Musica/Examen.mp3"
+dest_files=[ "res://.import/Examen.mp3-96e31779153f4071a8b187c5b31fce5d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

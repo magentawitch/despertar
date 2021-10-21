@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Diario.mp3-e2db5779c26aec8978c82324410a8442.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/Musica/Diario.mp3"
+dest_files=[ "res://.import/Diario.mp3-e2db5779c26aec8978c82324410a8442.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pasillo.mp3-dde32d27c8578cc53c33b9ef81c5b68a.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/Musica/Pasillo.mp3"
+dest_files=[ "res://.import/Pasillo.mp3-dde32d27c8578cc53c33b9ef81c5b68a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

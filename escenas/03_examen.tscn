@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/images/hoja_blanca.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/redondelete.png" type="Texture" id=2]
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=3]
 [ext_resource path="res://FondoAula.png" type="Texture" id=4]
+[ext_resource path="res://assets/Sonido/Musica/Examen.mp3" type="AudioStream" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -638,3 +639,8 @@ visible = false
 position = Vector2( 78.1162, 912.744 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
+
+[node name="OSTExamen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+autoplay = true

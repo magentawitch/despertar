@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Despues de la Explosion.mp3-71df5f4dc58f39b2b9d9d5f55ffba0a9.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/Musica/Despues de la Explosion.mp3"
+dest_files=[ "res://.import/Despues de la Explosion.mp3-71df5f4dc58f39b2b9d9d5f55ffba0a9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

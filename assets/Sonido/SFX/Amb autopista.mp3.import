@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Amb autopista.mp3-914c3b594635d1dfa27ac0a640cde937.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/SFX/Amb autopista.mp3"
+dest_files=[ "res://.import/Amb autopista.mp3-914c3b594635d1dfa27ac0a640cde937.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
