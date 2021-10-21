@@ -1,14 +1,59 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/images/DiarioCerrado.png" type="Texture" id=1]
-[ext_resource path="res://herramientas/utileria.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+signal gano_interes
+signal ocurrio_interaccion
+signal perdio_el_interes
+
+export var interactuable: bool = true
+
+var interaccion_habilitada: bool = true
+
+func rehabilitar_interaccion():
+	interaccion_habilitada = true
+
+func deshabilitar_interaccion():
+	interaccion_habilitada = false
+
+func _ready():
+	for nodo in get_children():
+		if nodo is Area2D:
+			nodo.connect('mouse_entered', self, 'cuando_un_area_gano_interes')
+			nodo.connect('mouse_exited',  self, 'cuando_un_area_perdio_el_interes')
+			nodo.connect('input_event',   self, 'cuando_se_interactuo_con_un_area_de_alguna_forma')
+		
+		if nodo is AnimationPlayer:
+			self.connect('gano_interes',        nodo, 'play', ['gano_interes'])
+			self.connect('ocurrio_interaccion', nodo, 'play', ['ocurrio_interaccion'])
+			self.connect('perdio_el_interes',   nodo, 'play', ['perdio_el_interes'])
+
+
+func cuando_un_area_gano_interes():
+	if interaccion_habilitada:
+		emit_signal('gano_interes')
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+func cuando_un_area_perdio_el_interes():
+	if interaccion_habilitada:
+		emit_signal('perdio_el_interes')
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+func cuando_se_interactuo_con_un_area_de_alguna_forma(viewport, event, shape_idx):
+	if interaccion_habilitada and event is InputEventMouseButton and event.is_pressed():
+		emit_signal(\"ocurrio_interaccion\")
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+"
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 120.398, 154.198 )
 
 [node name="diario_cerrado" type="Node2D"]
 position = Vector2( 2.24747, 0.749146 )
-script = ExtResource( 2 )
+script = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.642395, -14.673 )
@@ -21,4 +66,4 @@ position = Vector2( 2.34721, -101.7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
 position = Vector2( -1.99805, 82.7817 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
