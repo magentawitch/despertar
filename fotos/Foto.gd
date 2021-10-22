@@ -1,5 +1,5 @@
 extends Node2D
-class_name Foto
+class_name Foto, "res://assets/iconos/film.png"
 
 func asignar_opcion_de_epigrafe_elegida(opcion_elegida):
 	for opcion in $opciones.get_children():
