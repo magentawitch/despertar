@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -13,6 +13,34 @@
 [ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=11]
 [ext_resource path="res://acciones/agrega_foto.gd" type="Script" id=12]
 [ext_resource path="res://herramientas/diario/EleccionDeEpigrafe.tscn" type="PackedScene" id=13]
+[ext_resource path="res://acciones/ver_carta.gd" type="Script" id=14]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Position2D
+
+signal presiono_continuar
+
+func mostrar_carta(nombre_carta: String):
+	var carta = cargar_carta(nombre_carta)
+	$contenido.add_child(carta)
+	visible = true
+
+func on_presiono_continuar():
+	emit_signal(\"presiono_continuar\")
+	visible = false
+	for c in $contenido.get_children():
+		c.queue_free()
+
+func cargar_carta(nombre_carta: String):
+	var archivo_de_la_escena = \"res://cartas/%s.tscn\" % nombre_carta
+	assert(
+		ResourceLoader.exists(archivo_de_la_escena),
+		\"No existe la carta: %s, deberia estar en: %s\" % [
+			nombre_carta, archivo_de_la_escena
+		]
+	)
+	return load(archivo_de_la_escena).instance()
+"
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
@@ -82,6 +110,9 @@ path_al_diario = NodePath("../../diario")
 path_a_la_vista_del_diario = NodePath("../../ui/vista_diario")
 path_a_la_vista_de_eleccion_del_epigrafe = NodePath("../../ui/eleccion_de_epigrafe")
 
+[node name="ver_carta" type="Node" parent="director"]
+script = ExtResource( 14 )
+
 [node name="contenedor" type="Node2D" parent="."]
 
 [node name="ui" type="Node2D" parent="."]
@@ -125,6 +156,22 @@ scale = Vector2( 2.74802, 2.74802 )
 
 [node name="contenedor_dialogo" type="Position2D" parent="ui"]
 position = Vector2( 436, 170 )
+
+[node name="contenedor_carta" type="Position2D" parent="ui"]
+visible = false
+position = Vector2( 517, 279 )
+script = SubResource( 5 )
+
+[node name="contenido" type="Node2D" parent="ui/contenedor_carta"]
+
+[node name="boton_para_cerrar" type="TextureButton" parent="ui/contenedor_carta"]
+margin_left = -447.0
+margin_top = -262.0
+margin_right = 424.0
+margin_bottom = 275.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="telon" type="Sprite" parent="."]
 visible = false
