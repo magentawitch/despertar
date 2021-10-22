@@ -2,6 +2,7 @@ extends Node2D
 
 export var nombre_de_la_escena_de_prueba: String = "02_pasillo_escuela"
 export var nombre_de_la_escena_actual: String = "00_diario"
+export var velocidad_de_la_camara: float = 450.0
 
 signal la_escena_fue_cambiada
 
@@ -18,6 +19,18 @@ func _ready() -> void:
 
 # TODO: Mover la lógica relacionada a cargar escenas al $contenedor	
 
+func _process(delta: float) -> void:
+	var desplazamiento = Vector2()
+	if Input.is_action_pressed("ui_right"):
+		desplazamiento.x -= 1
+	if Input.is_action_pressed("ui_left"):
+		desplazamiento.x += 1
+	if desplazamiento.length() > 0:
+		desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta
+	
+	$contenedor.position += desplazamiento
+	
+
 func cargar_escena_actual():
 	assert(
 		nombre_de_la_escena_actual != null,
@@ -28,6 +41,7 @@ func cargar_escena_actual():
 	escena._inicializar_dependencias($director, $diario)
 	$contenedor.add_child(escena, true)
 	escena.set_name('escena_actual')
+	$contenedor.position = Vector2.ZERO
 	call_deferred('avisar_que_la_escena_fue_cargada')
 	
 func avisar_que_la_escena_fue_cargada():
