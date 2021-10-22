@@ -17,7 +17,7 @@ script/source = "extends Escena
 
 func _ready():
 	dice(\"Jade\", \"Uf, atravesar eso fue dificil\")
-	dice(\"Jade\", \"Por ningún motivo en particular quiero sacarle foto a alguno de estos pupitres\")
+	dice(\"Jade\", \"Por algún motivo en particular quiero sacarle foto a alguno de estos pupitres\")
 	dice(\"Jade\", \"La pregunta es... cual?\")
 
 func _on_PuertaPasillo_pressed():

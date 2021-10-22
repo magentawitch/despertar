@@ -31,6 +31,8 @@ func _on_boton_para_cerrar_pressed() -> void:
 	for c in $contenido.get_children():
 		c.queue_free()
 
+
+# Mover esto a un script de Carta
 func cargar_carta(nombre_carta: String):
 	var archivo_de_la_escena = \"res://cartas/%s.tscn\" % nombre_carta
 	assert(
