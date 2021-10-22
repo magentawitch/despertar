@@ -11,12 +11,17 @@ func sprite() -> Sprite:
 
 func _process(delta: float) -> void:
 	var desplazamiento = Vector2()
+	
 	if Input.is_action_pressed("ui_right"):
 		desplazamiento.x += 1
 	if Input.is_action_pressed("ui_left"):
 		desplazamiento.x -= 1
+		
 	if desplazamiento.length() > 0:
 		desplazamiento = desplazamiento.normalized() * velocidad * delta
+		
+		if !$AnimationPlayer.is_playing():
+			$AnimationPlayer.play("camina")
 		
 		if facing == "left" and desplazamiento.x > 0:
 			facing = "right"
@@ -25,6 +30,10 @@ func _process(delta: float) -> void:
 		if facing == "right" and desplazamiento.x < 0:
 			facing = "left"
 			sprite().scale.x = -sprite().scale.x
+	else:
+		if $AnimationPlayer.is_playing():
+			$AnimationPlayer.seek(0)
+			$AnimationPlayer.stop()
 		
 	position += desplazamiento
 	
