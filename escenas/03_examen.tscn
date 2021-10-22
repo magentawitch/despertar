@@ -48,14 +48,17 @@ func interaccion_con_una_opcion(event, id: String, label: Label):
 			dice(\"Jade\", \"Espero que todo esté bien\")
 			anotar_en_el_diario(\"\"\"
 			“¿No les da vergüenza ser tan obvios? 
-			Son unos chupamedias de esta estúpida sociedad. 
-			Ven a la tecnología como si fuera algo divino. 
+			Son unos chupamedias de esta 
+			estúpida sociedad. 
+			Ven a la tecnología como 
+			si fuera algo divino. 
 			Hubiera prendido fuego el examen!
 			Por ahora me limito a descargar 
 			mis sentimientos acá. 
 			Como les adolescentes de antes
+			
 			\"\"\")
-			cambiar_escena_a('05_aula_post_examen')
+			cambiar_escena_a('04_pasillo_escuela2')
 			# $animacion.connect(\"animation_finished\", self, 'cambiar_escena_a', ['00_diario'])
 
 

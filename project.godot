@@ -59,7 +59,7 @@ _global_script_class_icons={
 "Director": "res://herramientas/director/Director.icon.png",
 "EleccionDeEpigrafe": "",
 "Escena": "res://herramientas/escena/icono.png",
-"Foto": "res://assets/iconos/film.png",
+"Foto": "",
 "TestScene": "res://herramientas/utest/TestScene.icon.png",
 "VistaDiario": "res://herramientas/diario/VistaDiario.icon.png",
 "WAT": "",
