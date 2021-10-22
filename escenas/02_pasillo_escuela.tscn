@@ -50,6 +50,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+on_mouse_entered_cue = ExtResource( 8 )
 
 [node name="PuertaPatio" type="TextureButton" parent="."]
 margin_left = 1077.77

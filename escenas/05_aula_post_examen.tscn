@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Reloj.png" type="Texture" id=7]
 [ext_resource path="res://assets/BancoIzq.png" type="Texture" id=8]
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=9]
+[ext_resource path="res://assets/Sonido/SFX/Puerta abriendose.mp3" type="AudioStream" id=10]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -65,6 +66,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+on_mouse_entered_cue = ExtResource( 10 )
 
 [node name="Profesore" type="Sprite" parent="."]
 position = Vector2( 1974.82, -201.361 )
