@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Puerta abriendose.mp3-62bc45b7ddea267258318359c987ef
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

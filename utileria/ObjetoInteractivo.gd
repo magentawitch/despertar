@@ -16,6 +16,8 @@ func _ready():
 	connect("mouse_exited", self, "play_sound", [on_mouse_exited_cue])
 	
 func play_sound(auidio_stream: AudioStream):
+	if not auidio_stream or disabled:
+		return
 	if player.playing:
 		player.stop()
 	player.stream = auidio_stream
