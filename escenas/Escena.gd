@@ -1,5 +1,5 @@
 extends Node2D
-class_name Escena, "./icono.png"
+class_name Escena, "res://assets/iconos/door.png"
 
 export var puede_abrir_el_diario = true
 
@@ -10,21 +10,22 @@ func _inicializar_dependencias(director: Director, diario: Diario):
 	self.diario = diario
 	self.director = director
 	print("Escena: %s inicializada!" % get_name())
-	director.connect("aparecieron_acciones_pendientes", self, '_deshabilitar_input')
-	director.connect("se_acabaron_las_acciones_pendientes", self, '_rehabilitar_input')
+	director.connect("aparecieron_acciones_pendientes", self, '_deshabilitar_input', [self])
+	director.connect("se_acabaron_las_acciones_pendientes", self, '_rehabilitar_input', [self])
 
-func _deshabilitar_input():
-	# TODO: Esto deberia ser recursivo, que pasa si el hijo de un hijo tiene input
-	for c in get_children():
+func _deshabilitar_input(nodo):
+	print("DESHABILITANDO INPUT")
+	for c in nodo.get_children():
 		if c.has_method('deshabilitar_interaccion'):
 			c.deshabilitar_interaccion()
-			
-	
-func _rehabilitar_input():
-	# TODO: Esto deberia ser recursivo, que pasa si el hijo de un hijo tiene input
-	for c in get_children():
+			_deshabilitar_input(c)
+
+func _rehabilitar_input(nodo):
+	print("REHABILITANDO INPUT")
+	for c in nodo.get_children():
 		if c.has_method('rehabilitar_interaccion'):
 			c.rehabilitar_interaccion()
+			_rehabilitar_input(c)
 
 func anota_en_el_diario(algo):
 	director.encolar("anotar", {"texto": algo.strip_edges()})
