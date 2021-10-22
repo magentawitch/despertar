@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Sonido/Musica/Pasillo.mp3" type="AudioStream" id=7]
 [ext_resource path="res://assets/Sonido/SFX/Puerta abriendose.mp3" type="AudioStream" id=8]
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=9]
+[ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=10]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -109,6 +110,10 @@ autoplay = true
 stream = ExtResource( 8 )
 volume_db = 8.0
 pitch_scale = 1.23
+
+[node name="Jade" parent="." instance=ExtResource( 10 )]
+position = Vector2( 514.899, 16.0297 )
+scale = Vector2( 2, 2 )
 
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
 [connection signal="pressed" from="PuertaPatio" to="." method="_on_PuertaPatio_pressed"]

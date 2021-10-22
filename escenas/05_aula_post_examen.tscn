@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/BancoIzq.png" type="Texture" id=8]
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=9]
 [ext_resource path="res://assets/Sonido/SFX/Puerta abriendose.mp3" type="AudioStream" id=10]
+[ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -36,6 +37,13 @@ func _on_BancoDer4_pressed() -> void:
 	dice(\"Jade\", \"Mejor le saco al otro\")
 	reconcidero_el_pupitre = true
 
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Personaje
+
+func _ready():
+	pass 
 "
 
 [node name="Aula" type="Node2D"]
@@ -115,6 +123,11 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 expand = true
 script = ExtResource( 9 )
+
+[node name="Jade" parent="." instance=ExtResource( 11 )]
+position = Vector2( 514.899, 16.0297 )
+scale = Vector2( 2.01094, 2.01094 )
+script = SubResource( 2 )
 
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
 [connection signal="pressed" from="BancoDer3" to="." method="_on_BancoDer3_pressed"]

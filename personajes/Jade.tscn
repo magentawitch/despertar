@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/Personajes/Jade.png" type="Texture" id=1]
+[ext_resource path="res://personajes/Personaje.gd" type="Script" id=2]
+
+[node name="Jade" type="Node2D"]
+script = ExtResource( 2 )
+sprite_path = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.91093, -64.9837 )
+scale = Vector2( 0.216279, 0.216279 )
+texture = ExtResource( 1 )
