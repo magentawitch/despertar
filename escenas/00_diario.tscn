@@ -9,7 +9,6 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = \"text\"
@@ -24,9 +23,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func _on_diario_cerrado_ocurrio_interaccion():
-
 	$DiarioAbierto.visible = true
 	$diario_cerrado.visible = false
 	#abrir_diario()
@@ -34,18 +31,30 @@ func _on_diario_cerrado_ocurrio_interaccion():
 var cantidad_de_clicks_sobre_el_diario_abierto = 0
 
 func _on_DiarioAbierto_ocurrio_interaccion():
+	if $DiarioAbierto/TweenEntradas.is_active():
+		$DiarioAbierto/TweenEntradas.seek(10)
+		return  # No continuo, solo termino de mostrar
+				# el texto que se esté mostrando
+		
 	cantidad_de_clicks_sobre_el_diario_abierto += 1
 	if cantidad_de_clicks_sobre_el_diario_abierto == 1:
-		$DiarioAbierto/Entrada1.visible = true
-		anotar_texto_de_label_en_el_diario($DiarioAbierto/Entrada1)
+		mostrar_y_anotar_label($DiarioAbierto/Entrada1)
 	if cantidad_de_clicks_sobre_el_diario_abierto == 2:
-		$DiarioAbierto/Entrada2.visible = true
-		anotar_texto_de_label_en_el_diario($DiarioAbierto/Entrada2)
+		mostrar_y_anotar_label($DiarioAbierto/Entrada2)
 	if cantidad_de_clicks_sobre_el_diario_abierto == 3:
-		$DiarioAbierto/Entrada3.visible = true
-		anotar_texto_de_label_en_el_diario($DiarioAbierto/Entrada3)
+		mostrar_y_anotar_label($DiarioAbierto/Entrada3)
 	if cantidad_de_clicks_sobre_el_diario_abierto == 4:
 		cambiar_escena_a(\"01_autopista\")
+
+func mostrar_y_anotar_label(label: Label):
+		label.visible = true
+		print(\"MOSTRANDO\")
+		$DiarioAbierto/TweenEntradas.interpolate_property(
+			label, \"percent_visible\", 0.0, 1.0,
+			10, Tween.TRANS_LINEAR
+		)
+		$DiarioAbierto/TweenEntradas.start()
+		anotar_texto_de_label_en_el_diario(label)
 
 # La idea de este metodo es que tome directamente el texto de cada label y lo
 # mande al diario. Se rompe un poco y no queda igual tho.
@@ -160,6 +169,8 @@ __meta__ = {
 stream = ExtResource( 5 )
 volume_db = -5.0
 autoplay = true
+
+[node name="TweenEntradas" type="Tween" parent="DiarioAbierto"]
 
 [connection signal="ocurrio_interaccion" from="diario_cerrado" to="." method="_on_diario_cerrado_ocurrio_interaccion"]
 [connection signal="ocurrio_interaccion" from="DiarioAbierto" to="." method="_on_DiarioAbierto_ocurrio_interaccion"]
