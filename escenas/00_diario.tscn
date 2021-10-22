@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://utileria/diario_cerrado.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/FondoEscritorio.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=3]
-[ext_resource path="res://herramientas/utileria/utileria.gd" type="Script" id=4]
 [ext_resource path="res://assets/Sonido/Musica/Diario.mp3" type="AudioStream" id=5]
 
 [sub_resource type="GDScript" id=1]
@@ -30,7 +29,7 @@ func _on_diario_cerrado_ocurrio_interaccion():
 
 var cantidad_de_clicks_sobre_el_diario_abierto = 0
 
-func _on_DiarioAbierto_ocurrio_interaccion():
+func _on_BotonInvisibleDelDiarioAbierto_pressed() -> void:
 	if $DiarioAbierto/TweenEntradas.is_active():
 		$DiarioAbierto/TweenEntradas.seek(10)
 		return  # No continuo, solo termino de mostrar
@@ -87,10 +86,8 @@ func separar_en_chunks(texto: String) -> PoolStringArray:
 	# Para texto plano y este caso nos da igual que sean muchas entradas de una
 	# sola linea cada una
 	return texto.split(\"\\n\")
-"
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 425.34, 289.537 )
+"
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -95.2441, -35.2471 )
@@ -112,14 +109,6 @@ visible = false
 position = Vector2( 437.512, 271.132 )
 scale = Vector2( 0.532746, 0.532747 )
 texture = ExtResource( 3 )
-script = ExtResource( 4 )
-
-[node name="Area2D" type="Area2D" parent="DiarioAbierto"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DiarioAbierto/Area2D"]
-visible = false
-position = Vector2( -3.75079, -1.87543 )
-shape = SubResource( 2 )
 
 [node name="Entrada1" type="Label" parent="DiarioAbierto"]
 visible = false
@@ -172,5 +161,15 @@ autoplay = true
 
 [node name="TweenEntradas" type="Tween" parent="DiarioAbierto"]
 
+[node name="BotonInvisibleDelDiarioAbierto" type="TextureButton" parent="DiarioAbierto"]
+margin_left = -410.0
+margin_top = -286.0
+margin_right = 409.0
+margin_bottom = 280.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="ocurrio_interaccion" from="diario_cerrado" to="." method="_on_diario_cerrado_ocurrio_interaccion"]
-[connection signal="ocurrio_interaccion" from="DiarioAbierto" to="." method="_on_DiarioAbierto_ocurrio_interaccion"]
+[connection signal="pressed" from="DiarioAbierto/BotonInvisibleDelDiarioAbierto" to="." method="_on_BotonInvisibleDelDiarioAbierto_pressed"]
