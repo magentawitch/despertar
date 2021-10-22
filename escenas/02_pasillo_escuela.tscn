@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://PuertaAulaAbierta.png" type="Texture" id=6]
 [ext_resource path="res://assets/Sonido/Musica/Pasillo.mp3" type="AudioStream" id=7]
 [ext_resource path="res://assets/Sonido/SFX/Puerta abriendose.mp3" type="AudioStream" id=8]
+[ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -45,6 +46,7 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -57,9 +59,7 @@ margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 9 )
 
 [node name="PuertaMuseoAnalogico" type="TextureButton" parent="."]
 margin_left = 1759.54
@@ -69,6 +69,7 @@ margin_bottom = 260.245
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
