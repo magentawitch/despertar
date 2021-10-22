@@ -69,6 +69,9 @@ func _on_BustVolk_pressed():
 func _on_BotonProvisorio_pressed():
 	dice(\"Jade\", \"Qué es eso en la esquina?\")
 	cambiar_escena_a('05_aula_post_examen')
+
+func _on_Carta1_pressed():
+	ver_carta(\"Carta1\")
 "
 
 [node name="Pasillo_Escuela2" type="Node2D"]
@@ -162,7 +165,7 @@ stream = ExtResource( 7 )
 volume_db = -9.727
 autoplay = true
 
-[node name="Carta1" type="TextureButton" parent="."]
+[node name="CartaCerrada1" type="TextureButton" parent="."]
 margin_left = 2295.48
 margin_top = -82.366
 margin_right = 2862.48
@@ -194,4 +197,5 @@ scale = Vector2( 2, 2 )
 [connection signal="pressed" from="PuertaMuseoAnalogico" to="." method="_on_PuertaMuseoAnalogico_pressed"]
 [connection signal="pressed" from="CuadroVolk" to="." method="_on_CuadroVolk_pressed"]
 [connection signal="pressed" from="BustVolk" to="." method="_on_BustVolk_pressed"]
+[connection signal="pressed" from="CartaCerrada1" to="." method="_on_Carta1_pressed"]
 [connection signal="pressed" from="BotonProvisorio" to="." method="_on_BotonProvisorio_pressed"]
