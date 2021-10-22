@@ -1,6 +1,6 @@
 extends Node2D
 
-export var nombre_de_la_escena_de_prueba: String = "00_diario"
+export var nombre_de_la_escena_de_prueba: String = "04_pasillo_escuela2"
 export var nombre_de_la_escena_actual: String = "00_diario"
 export var velocidad_de_la_camara: float = 450.0
 

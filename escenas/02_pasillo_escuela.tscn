@@ -95,7 +95,7 @@ scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 2 )
 
 [node name="BustVolk" type="Sprite" parent="."]
-position = Vector2( 2160.58, -223.751 )
+position = Vector2( 2159.46, -196.302 )
 scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 3 )
 
