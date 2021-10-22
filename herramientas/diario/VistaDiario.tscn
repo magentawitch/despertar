@@ -14,16 +14,16 @@ __meta__ = {
 }
 
 [node name="FondoDiario" type="Sprite" parent="."]
-position = Vector2( 516.928, 270.857 )
-scale = Vector2( 0.73244, 0.73244 )
+position = Vector2( 518.928, 284.857 )
+scale = Vector2( 0.784461, 0.784461 )
 texture = ExtResource( 3 )
 
 [node name="izquierda" type="VBoxContainer" parent="."]
-margin_left = 238.745
-margin_top = 117.254
-margin_right = 441.745
-margin_bottom = 394.254
-rect_scale = Vector2( 1.2, 1.06 )
+margin_left = 224.153
+margin_top = 121.376
+margin_right = 427.153
+margin_bottom = 405.376
+rect_scale = Vector2( 1.27677, 1.12781 )
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -34,7 +34,7 @@ __meta__ = {
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_right = 203.0
 margin_bottom = 14.0
-custom_constants/line_spacing = 4
+custom_constants/line_spacing = 5
 text = "Primera linea"
 
 [node name="Label2" type="Label" parent="izquierda"]
@@ -112,11 +112,11 @@ rio usando la libreria de UI que
 trae."
 
 [node name="derecha" type="VBoxContainer" parent="."]
-margin_left = 552.701
-margin_top = 116.547
-margin_right = 755.701
-margin_bottom = 393.547
-rect_scale = Vector2( 1.2, 1.06 )
+margin_left = 556.068
+margin_top = 120.792
+margin_right = 759.068
+margin_bottom = 422.792
+rect_scale = Vector2( 1.277, 1.128 )
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -125,8 +125,8 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="derecha"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_right = 227.0
-margin_bottom = 284.0
+margin_right = 203.0
+margin_bottom = 302.0
 custom_constants/line_spacing = 4
 text = "Acá lo mismo...
 
@@ -139,7 +139,8 @@ lineas que ocupa una entrada.
 Por eso se deshabilitó el auto-
 wrap. Sin embargo, ahora uno
 está atado a saber cuantos 
-caracteres entran en una sola linea.
+caracteres entran en una sola 
+linea.
 
 
 
@@ -165,10 +166,10 @@ __meta__ = {
 }
 
 [node name="anterior_pagina" type="TextureButton" parent="botones"]
-margin_left = 113.0
-margin_top = 405.0
-margin_right = 193.0
-margin_bottom = 485.0
+margin_left = 55.0
+margin_top = 447.0
+margin_right = 135.0
+margin_bottom = 527.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 4 )
 __meta__ = {
@@ -176,10 +177,10 @@ __meta__ = {
 }
 
 [node name="siguiente_pagina" type="TextureButton" parent="botones"]
-margin_left = 841.0
-margin_top = 406.0
-margin_right = 921.0
-margin_bottom = 486.0
+margin_left = 897.0
+margin_top = 446.0
+margin_right = 977.0
+margin_bottom = 526.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 __meta__ = {

@@ -26,13 +26,21 @@ func _ready():
 	# aparenta ser humano.
 	anotar_en_el_diario(\"\"\"
 		Me sorprende cada dia mas
-		cuantos implantes tiene Milan
-		en el brazo. *
-		
-		*: Fuera del guión. Solo a
-		modo de ejemplo de como
-		agregar entradas.
+		cuántos implantes tiene Milán
+		en el brazo.
 	\"\"\")
+	anotar_en_el_diario(\"\"\"
+	Tuve la charla de siempre en el auto 
+	con mis padres: hay que aparentar 
+	en público, pero después está 
+	bien que seas tu misme. 
+	Bla, bla, bla. Hablamos del reloj de 
+	mi abuela (mi reliquia preciada) 
+	y creo que discutieron. 
+	Milán tiende a exagerar todo.
+
+	\"\"\")
+	
 	dice('Milan', 'Suficiente con esa grabadora que le regalamos para sus quince.')
 	dice_a_la_grabadora('Nota: Milán no tiene sentido de la moda.')
 	# Alex se ríe. Tiene una sonrisa cómplice mientras mira a Jade.

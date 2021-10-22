@@ -1,6 +1,6 @@
 extends Node2D
 
-export var nombre_de_la_escena_de_prueba: String = "02_pasillo_escuela"
+export var nombre_de_la_escena_de_prueba: String = "00_diario"
 export var nombre_de_la_escena_actual: String = "00_diario"
 
 signal la_escena_fue_cambiada
