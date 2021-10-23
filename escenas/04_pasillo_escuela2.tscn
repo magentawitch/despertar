@@ -71,7 +71,7 @@ func _on_BotonProvisorio_pressed():
 	cambiar_escena_a('05_aula_post_examen')
 
 func _on_Carta1_pressed():
-	ver_carta(\"Carta1\")
+	ver_carta(\"carta_1\")
 "
 
 [node name="Pasillo_Escuela2" type="Node2D"]

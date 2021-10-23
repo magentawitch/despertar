@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Carta",
+"language": "GDScript",
+"path": "res://cartas/Carta.gd"
+}, {
 "base": "Node",
 "class": "Diario",
 "language": "GDScript",
@@ -65,6 +70,7 @@ _global_script_classes=[ {
 "path": "res://addons/WAT/test/test.gd"
 } ]
 _global_script_class_icons={
+"Carta": "res://assets/iconos/envelope-solid.svg",
 "Diario": "res://herramientas/diario/Diario.icon.png",
 "Director": "res://herramientas/director/Director.icon.png",
 "EleccionDeEpigrafe": "",
