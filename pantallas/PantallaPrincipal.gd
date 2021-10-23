@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 # TODO: Mover la lógica relacionada a saber donde está el jugador a otro lado
-var jade = null
+var personaje_objetivo = null
 
 func _buscar_personaje_dfs(nodo) -> Personaje:
 	for c in nodo.get_children():
@@ -32,19 +32,19 @@ func _buscar_personaje_dfs(nodo) -> Personaje:
 	return null
 
 func _process(delta: float) -> void:
-	if not jade:
+	if not personaje_objetivo:
 		return
-	var dist_jade = $camara.get_global_transform().get_origin().x - jade.get_global_transform().get_origin().x
-	var jade_esta_a_la_izquierda = dist_jade > 0.1
-	var jade_esta_a_la_derecha = dist_jade < -0.1
+	var dist_personaje = $camara.get_global_transform().get_origin().x - personaje_objetivo.get_global_transform().get_origin().x
+	var personaje_esta_a_la_izquierda = dist_personaje > 0.1
+	var personaje_esta_a_la_derecha = dist_personaje < -0.1
 	
 	var desplazamiento = Vector2()
-	if jade_esta_a_la_izquierda and $camara.hay_lugar_a_la_izquierda:
+	if personaje_esta_a_la_izquierda and $camara.hay_lugar_a_la_izquierda:
 		desplazamiento.x += 1
-	if jade_esta_a_la_derecha and $camara.hay_lugar_a_la_derecha:
+	if personaje_esta_a_la_derecha and $camara.hay_lugar_a_la_derecha:
 		desplazamiento.x -= 1
 	if desplazamiento.length() > 0:
-		if abs(dist_jade) < distancia_foco:
+		if abs(dist_personaje) < distancia_foco:
 			desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta * 0.2
 		else:
 			desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta 
