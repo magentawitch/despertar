@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -15,13 +15,13 @@
 [ext_resource path="res://herramientas/diario/EleccionDeEpigrafe.tscn" type="PackedScene" id=13]
 [ext_resource path="res://acciones/ver_carta.gd" type="Script" id=14]
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Position2D
 
 signal presiono_continuar
 
 func mostrar_carta(nombre_carta: String):
-	var carta = cargar_carta(nombre_carta)
+	var carta = Carta.cargar_carta_abierta(nombre_carta)
 	$contenido.add_child(carta)
 	visible = true
 
@@ -31,27 +31,15 @@ func _on_boton_para_cerrar_pressed() -> void:
 	for c in $contenido.get_children():
 		c.queue_free()
 
-
-# Mover esto a un script de Carta
-func cargar_carta(nombre_carta: String):
-	var archivo_de_la_escena = \"res://cartas/%s.tscn\" % nombre_carta
-	assert(
-		ResourceLoader.exists(archivo_de_la_escena),
-		\"No existe la carta: %s, deberia estar en: %s\" % [
-			nombre_carta, archivo_de_la_escena
-		]
-	)
-	return load(archivo_de_la_escena).instance()
 "
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "mostrar"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
 tracks/0/interp = 1
@@ -63,8 +51,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "ocultar"
+[sub_resource type="Animation" id=5]
 length = 1.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
@@ -76,6 +63,35 @@ tracks/0/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.5825, -0.0105343, 0, -0.9675, 0.0104826, 0.25, 0 ),
 "times": PoolRealArray( 0, 1.2 )
 }
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Node2D
+
+
+signal toco_borde_izquierdo
+signal solto_borde_izquierdo
+signal toco_borde_derecho
+signal solto_borde_derecho
+
+var hay_lugar_a_la_izquierda = true
+var hay_lugar_a_la_derecha = true
+
+func _on_borde_izquierdo_body_entered(body: Node) -> void:
+	emit_signal(\"toco_borde_izquierdo\")
+	hay_lugar_a_la_izquierda = false
+
+func _on_borde_izquierdo_body_exited(body: Node) -> void:
+	emit_signal(\"solto_borde_izquierdo\")
+	hay_lugar_a_la_izquierda = true
+
+func _on_borde_derecho_body_entered(body: Node) -> void:
+	emit_signal(\"toco_borde_derecho\")
+	hay_lugar_a_la_derecha = false
+
+func _on_borde_derecho_body_exited(body: Node) -> void:
+	emit_signal(\"solto_borde_derecho\")
+	hay_lugar_a_la_derecha = true
+"
 
 [node name="pantalla_principal" type="Node2D"]
 script = ExtResource( 5 )
@@ -162,7 +178,7 @@ position = Vector2( 436, 170 )
 
 [node name="contenedor_carta" type="Position2D" parent="ui"]
 position = Vector2( 517, 279 )
-script = SubResource( 5 )
+script = SubResource( 1 )
 
 [node name="contenido" type="Node2D" parent="ui/contenedor_carta"]
 
@@ -180,14 +196,38 @@ visible = false
 position = Vector2( 513.68, 289.797 )
 rotation = 1.57396
 scale = Vector2( 0.29856, 1066.52 )
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="anim" type="AnimationPlayer" parent="telon"]
-anims/mostrar = SubResource( 3 )
-anims/ocultar = SubResource( 4 )
+anims/mostrar = SubResource( 4 )
+anims/ocultar = SubResource( 5 )
+
+[node name="camara" type="Node2D" parent="."]
+position = Vector2( 335.616, 313.167 )
+script = SubResource( 6 )
+
+[node name="borde_izquierdo" type="Area2D" parent="camara"]
+position = Vector2( -333.371, -310.922 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="poligono" type="CollisionPolygon2D" parent="camara/borde_izquierdo"]
+polygon = PoolVector2Array( 10.9634, 553.505, 71.2094, 567.689, 62.2196, 8.82083, 12.2212, 21.1522 )
+
+[node name="borde_derecho" type="Area2D" parent="camara"]
+position = Vector2( -333.371, -310.922 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="poligono" type="CollisionPolygon2D" parent="camara/borde_derecho"]
+polygon = PoolVector2Array( 948.345, 567.364, 1010.08, 559.805, 1012.6, 19.2984, 954.644, 9.21906 )
 
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]
 [connection signal="pressed" from="ui/contenedor_carta/boton_para_cerrar" to="ui/contenedor_carta" method="_on_boton_para_cerrar_pressed"]
+[connection signal="body_entered" from="camara/borde_izquierdo" to="camara" method="_on_borde_izquierdo_body_entered"]
+[connection signal="body_exited" from="camara/borde_izquierdo" to="camara" method="_on_borde_izquierdo_body_exited"]
+[connection signal="body_entered" from="camara/borde_derecho" to="camara" method="_on_borde_derecho_body_entered"]
+[connection signal="body_exited" from="camara/borde_derecho" to="camara" method="_on_borde_derecho_body_exited"]
