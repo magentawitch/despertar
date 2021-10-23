@@ -21,7 +21,10 @@ func _version_cerrada() -> Control:
 		carta_cerrada is Control,
 		"La version cerrada de la %s debe ser un nodo verde (Control)" % name
 	)
-	return carta_cerrada
+	carta_cerrada.transform.origin = Vector2()
+	self.remove_child(carta_cerrada)
+	self.queue_free()
+	return carta_cerrada as Control
 	
 func _version_abierta() -> Position2D:
 	var carta_abierta = get_node(version_abierta_para_ver)
@@ -29,10 +32,14 @@ func _version_abierta() -> Position2D:
 		carta_abierta is Position2D,
 		"La version abierta de la %s debe ser una posición que represente su centro (Position2D)" % name
 	)
-	return carta_abierta
+	carta_abierta.transform.origin = Vector2()
+	self.remove_child(carta_abierta)
+	self.queue_free()
+	return carta_abierta as Position2D
 
-static func cargar_carta_abierta(nombre_carta: String):
+static func cargar_carta_abierta(nombre_carta: String) -> Position2D:
 	return _cargar_escena_carta(nombre_carta)._version_abierta()
+	
 
 static func cargar_carta_cerrada(nombre_carta: String) -> Control:
 	return _cargar_escena_carta(nombre_carta)._version_cerrada()

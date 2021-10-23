@@ -22,6 +22,7 @@ signal presiono_continuar
 
 func mostrar_carta(nombre_carta: String):
 	var carta = Carta.cargar_carta_abierta(nombre_carta)
+	carta.visible = true
 	$contenido.add_child(carta)
 	visible = true
 

@@ -198,7 +198,7 @@ scale = Vector2( 2, 2 )
 script = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
-polygon = PoolVector2Array( 292.764, -28.0949, 259.128, 32.4497, 2358.97, 41.329, 2333.54, -22.2388 )
+polygon = PoolVector2Array( 270.977, -35.251, 260.977, 44.749, 2377.98, 47.749, 2365.98, -31.251 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
 position = Vector2( 175.152, -188.988 )
