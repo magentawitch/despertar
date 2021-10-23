@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		desplazamiento.x -= 1
 	if desplazamiento.length() > 0:
 		if abs(dist_personaje) < distancia_foco:
-			desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta * 0.2
+			desplazamiento = Vector2(dist_personaje / 2, 0)
 		else:
 			desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta 
 	
@@ -66,7 +66,7 @@ func cargar_escena_actual():
 	
 	# Relacionado a posición
 	$contenedor.position = Vector2.ZERO
-	jade = _buscar_personaje_dfs($contenedor)
+	personaje_objetivo = _buscar_personaje_dfs($contenedor)
 	
 	call_deferred('avisar_que_la_escena_fue_cargada')
 	

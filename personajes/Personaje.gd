@@ -8,32 +8,48 @@ var facing = "right"
 
 func sprite() -> Sprite:
 	return get_node(sprite_path) as Sprite
+	
+var por_caminar: float = 0
+	
+func caminar_hacia(lugar: Vector2):
+	por_caminar = lugar.x - get_global_transform().get_origin().x
+	
+func caminar(pixeles: float):
+	por_caminar += pixeles
+	
+func caminar_a_la_izquierda(pixeles: float):
+	por_caminar -= pixeles
+	
+func caminar_a_la_derecha(pixeles: float):
+	por_caminar += pixeles
 
 func _process(delta: float) -> void:
-	var desplazamiento = Vector2()
-	
-	if Input.is_action_pressed("ui_right"):
-		desplazamiento.x += 1
-	if Input.is_action_pressed("ui_left"):
-		desplazamiento.x -= 1
+	if abs(por_caminar) > 0:
 		
-	if desplazamiento.length() > 0:
-		desplazamiento = desplazamiento.normalized() * velocidad * delta
+		if facing == "left" and por_caminar > 0:
+			facing = "right"
+			sprite().scale.x = -sprite().scale.x
+			
+		if facing == "right" and por_caminar < 0:
+			facing = "left"
+			sprite().scale.x = -sprite().scale.x
+		
+		var desplazamiento = clamp(
+			sign(por_caminar) * velocidad * delta,
+			-abs(por_caminar),
+			abs(por_caminar)
+		)
+		position.x += desplazamiento
+		por_caminar -= desplazamiento
+		
+		if abs(por_caminar) < 1:
+			por_caminar = 0
 		
 		if !$AnimationPlayer.is_playing():
 			$AnimationPlayer.play("camina")
 		
-		if facing == "left" and desplazamiento.x > 0:
-			facing = "right"
-			sprite().scale.x = -sprite().scale.x
-			
-		if facing == "right" and desplazamiento.x < 0:
-			facing = "left"
-			sprite().scale.x = -sprite().scale.x
 	else:
 		if $AnimationPlayer.is_playing():
 			$AnimationPlayer.seek(0)
 			$AnimationPlayer.stop()
 		
-	position += desplazamiento
-	
