@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=9]
 [ext_resource path="res://assets/Sonido/SFX/Puerta abriendose.mp3" type="AudioStream" id=10]
 [ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=11]
+[ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=12]
+[ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -128,6 +130,19 @@ script = ExtResource( 9 )
 position = Vector2( 514.899, 16.0297 )
 scale = Vector2( 2.01094, 2.01094 )
 script = SubResource( 2 )
+
+[node name="PisoCaminable" type="Area2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
+polygon = PoolVector2Array( 283.928, -41.6395, 253.962, 54.2521, 2431, 58.747, 2411.52, -32.6497, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
+
+[node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
+position = Vector2( 175.152, -188.988 )
+
+[node name="TopeDeCamara2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2561.71, -199.079 )
+input_pickable = true
 
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
 [connection signal="pressed" from="BancoDer3" to="." method="_on_BancoDer3_pressed"]
