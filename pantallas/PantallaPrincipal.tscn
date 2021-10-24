@@ -112,7 +112,10 @@ func _on_borde_derecho_body_exited(body: Node) -> void:
 "
 
 [node name="pantalla_principal" type="Node2D"]
+position = Vector2( -12.6992, -9.52435 )
+scale = Vector2( 1.9, 1.9 )
 script = ExtResource( 5 )
+nombre_de_la_escena_de_prueba = "04_pasillo_escuela2"
 
 [node name="diario" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -218,6 +221,7 @@ visible = false
 position = Vector2( 513.68, 289.797 )
 rotation = 1.57396
 scale = Vector2( 0.29856, 1066.52 )
+z_index = 20
 texture = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
@@ -237,6 +241,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_izquierdo"]
+position = Vector2( -17.3218, -0.655685 )
 polygon = PoolVector2Array( 10.9634, 553.505, 71.2094, 567.689, 62.2196, 8.82083, 12.2212, 21.1522 )
 
 [node name="borde_derecho" type="Area2D" parent="camara"]
@@ -245,6 +250,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_derecho"]
+position = Vector2( 15.0154, 0.841827 )
 polygon = PoolVector2Array( 948.345, 567.364, 1010.08, 559.805, 1012.6, 19.2984, 954.644, 9.21906 )
 
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]

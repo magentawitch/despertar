@@ -81,14 +81,14 @@ position = Vector2( -244.977, 523.251 )
 script = SubResource( 1 )
 
 [node name="FondoPasillo" type="Sprite" parent="."]
-position = Vector2( 1331.82, -239.106 )
+position = Vector2( 1250.82, -239.106 )
 scale = Vector2( 0.5349, 0.5349 )
 texture = ExtResource( 5 )
 
 [node name="PuertaAula" type="TextureButton" parent="."]
-margin_left = 339.183
+margin_left = 258.183
 margin_top = -411.328
-margin_right = 745.183
+margin_right = 664.183
 margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
@@ -102,19 +102,22 @@ __meta__ = {
 on_mouse_entered_cue = ExtResource( 10 )
 
 [node name="PuertaPatio" type="TextureButton" parent="."]
-margin_left = 1077.77
+margin_left = 996.77
 margin_top = -411.328
-margin_right = 1483.77
+margin_right = 1402.77
 margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PuertaMuseoAnalogico" type="TextureButton" parent="."]
-margin_left = 1759.54
+margin_left = 1678.54
 margin_top = -408.755
-margin_right = 2165.54
+margin_right = 2084.54
 margin_bottom = 260.245
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
@@ -125,34 +128,37 @@ __meta__ = {
 }
 
 [node name="Planta" type="Sprite" parent="."]
-position = Vector2( 757.215, -154.685 )
+position = Vector2( 676.215, -154.685 )
 scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 4 )
 
 [node name="Planta2" type="Sprite" parent="."]
-position = Vector2( 956.86, -156.804 )
+position = Vector2( 875.86, -156.804 )
 scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 4 )
 
 [node name="Planta3" type="Sprite" parent="."]
-position = Vector2( 1663.39, -157.063 )
+position = Vector2( 1582.39, -157.063 )
 scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 4 )
 
 [node name="CuadroVolk" type="TextureButton" parent="."]
-margin_left = 1409.78
+margin_left = 1328.78
 margin_top = -442.218
-margin_right = 1683.78
+margin_right = 1602.78
 margin_bottom = -116.218
 rect_scale = Vector2( 0.520004, 0.520004 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BustVolk" type="TextureButton" parent="."]
-margin_left = 2144.67
+margin_left = 2063.67
 margin_top = -302.266
-margin_right = 2432.67
+margin_right = 2351.67
 margin_bottom = 277.734
 rect_scale = Vector2( 0.440002, 0.440002 )
 mouse_default_cursor_shape = 2
@@ -168,9 +174,9 @@ volume_db = -9.727
 autoplay = true
 
 [node name="CartaCerrada1" type="TextureButton" parent="."]
-margin_left = 2295.48
-margin_top = -82.366
-margin_right = 2862.48
+margin_left = 2214.48
+margin_top = -82.3662
+margin_right = 2781.48
 margin_bottom = 197.634
 rect_scale = Vector2( 0.124976, 0.124976 )
 mouse_default_cursor_shape = 2
@@ -181,9 +187,9 @@ __meta__ = {
 }
 
 [node name="BotonProvisorio" type="TextureButton" parent="."]
-margin_left = 2373.22
+margin_left = 2292.22
 margin_top = -479.886
-margin_right = 2410.22
+margin_right = 2329.22
 margin_bottom = -439.886
 script = ExtResource( 9 )
 __meta__ = {
@@ -191,20 +197,21 @@ __meta__ = {
 }
 
 [node name="Jade" parent="." instance=ExtResource( 11 )]
-position = Vector2( 534.539, 14.2543 )
+position = Vector2( 453.539, 14.2543 )
 scale = Vector2( 2, 2 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
+position = Vector2( -81, 0 )
 script = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
 polygon = PoolVector2Array( 270.977, -35.251, 260.977, 44.749, 2377.98, 47.749, 2365.98, -31.251 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
-position = Vector2( 175.152, -188.988 )
+position = Vector2( 134.606, -194.981 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 2502.32, -199.079 )
+position = Vector2( 2365.26, -191.254 )
 input_pickable = true
 
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
