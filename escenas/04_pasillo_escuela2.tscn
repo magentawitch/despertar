@@ -191,10 +191,10 @@ __meta__ = {
 }
 
 [node name="BotonProvisorio" type="TextureButton" parent="."]
-margin_left = 2292.22
-margin_top = -479.886
-margin_right = 2329.22
-margin_bottom = -439.886
+margin_left = 2251.0
+margin_top = -538.0
+margin_right = 2327.0
+margin_bottom = -498.0
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false

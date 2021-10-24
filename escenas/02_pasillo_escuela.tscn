@@ -148,10 +148,10 @@ script = ExtResource( 11 )
 polygon = PoolVector2Array( 283.892, -38.2773, 258.693, 51.1771, 2379.14, 51.1771, 2381.66, -35.7574 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 12 )]
-position = Vector2( 72.8557, -166.284 )
+position = Vector2( 90.3171, -164.697 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2332.87, -183.643 )
+position = Vector2( 2318.58, -186.818 )
 input_pickable = true
 
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
