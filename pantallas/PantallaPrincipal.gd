@@ -3,6 +3,7 @@ extends Node2D
 export var nombre_de_la_escena_de_prueba: String = "04_pasillo_escuela2"
 export var nombre_de_la_escena_actual: String = "00_diario"
 export var velocidad_de_la_camara: float = 450.0
+export var distancia_foco: float = 50.0
 
 signal la_escena_fue_cambiada
 
@@ -17,20 +18,41 @@ func _ready() -> void:
 	$director.connect("aparecieron_acciones_pendientes", $ui/menu, 'hide')
 	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
 
-# TODO: Mover la lógica relacionada a cargar escenas al $contenedor	
+
+# TODO: Mover la lógica relacionada a saber donde está el jugador a otro lado
+var personaje_objetivo = null
+
+func _buscar_personaje_dfs(nodo) -> Personaje:
+	for c in nodo.get_children():
+		if c is Personaje:
+			return c
+		var p = _buscar_personaje_dfs(c)
+		if p:
+			return p
+	return null
 
 func _process(delta: float) -> void:
+	if not personaje_objetivo:
+		return
+	var dist_personaje = $camara.get_global_transform().get_origin().x - personaje_objetivo.get_global_transform().get_origin().x
+	var personaje_esta_a_la_izquierda = dist_personaje > 0.1
+	var personaje_esta_a_la_derecha = dist_personaje < -0.1
+	
 	var desplazamiento = Vector2()
-	if Input.is_action_pressed("ui_right"):
-		desplazamiento.x -= 1
-	if Input.is_action_pressed("ui_left"):
+	if personaje_esta_a_la_izquierda and $camara.hay_lugar_a_la_izquierda:
 		desplazamiento.x += 1
+	if personaje_esta_a_la_derecha and $camara.hay_lugar_a_la_derecha:
+		desplazamiento.x -= 1
 	if desplazamiento.length() > 0:
-		desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta
+		if abs(dist_personaje) < distancia_foco:
+			desplazamiento = Vector2(dist_personaje / 2, 0)
+		else:
+			desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta 
 	
 	$contenedor.position += desplazamiento
 	
 
+# TODO: Mover la lógica relacionada a cargar escenas al $contenedor	
 func cargar_escena_actual():
 	assert(
 		nombre_de_la_escena_actual != null,
@@ -41,7 +63,11 @@ func cargar_escena_actual():
 	escena._inicializar_dependencias($director, $diario)
 	$contenedor.add_child(escena, true)
 	escena.set_name('escena_actual')
+	
+	# Relacionado a posición
 	$contenedor.position = Vector2.ZERO
+	personaje_objetivo = _buscar_personaje_dfs($contenedor)
+	
 	call_deferred('avisar_que_la_escena_fue_cargada')
 	
 func avisar_que_la_escena_fue_cargada():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=9]
 [ext_resource path="res://assets/Sonido/SFX/Puerta abriendose.mp3" type="AudioStream" id=10]
 [ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=11]
+[ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=12]
+[ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -71,7 +73,7 @@ func _on_BotonProvisorio_pressed():
 	cambiar_escena_a('05_aula_post_examen')
 
 func _on_Carta1_pressed():
-	ver_carta(\"Carta1\")
+	ver_carta(\"carta_1\")
 "
 
 [node name="Pasillo_Escuela2" type="Node2D"]
@@ -191,6 +193,19 @@ __meta__ = {
 [node name="Jade" parent="." instance=ExtResource( 11 )]
 position = Vector2( 534.539, 14.2543 )
 scale = Vector2( 2, 2 )
+
+[node name="PisoCaminable" type="Area2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
+polygon = PoolVector2Array( 270.977, -35.251, 260.977, 44.749, 2377.98, 47.749, 2365.98, -31.251 )
+
+[node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
+position = Vector2( 175.152, -188.988 )
+
+[node name="TopeDeCamara2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2502.32, -199.079 )
+input_pickable = true
 
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
 [connection signal="pressed" from="PuertaPatio" to="." method="_on_PuertaPatio_pressed"]
