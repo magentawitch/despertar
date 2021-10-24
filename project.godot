@@ -80,7 +80,7 @@ _global_script_class_icons={
 "Director": "res://herramientas/director/Director.icon.png",
 "EleccionDeEpigrafe": "",
 "Escena": "res://assets/iconos/door.png",
-"Foto": "res://assets/iconos/film.png",
+"Foto": "",
 "ObjectoInteractivo": "res://assets/iconos/joystick.png",
 "Personaje": "res://assets/iconos/singleplayer.png",
 "PisoCaminable": "res://assets/iconos/arrowDown.png",

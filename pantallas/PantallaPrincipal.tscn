@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.2 )
 }
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=7]
 script/source = "extends Node2D
 
 
@@ -229,7 +229,7 @@ anims/ocultar = SubResource( 6 )
 
 [node name="camara" type="Node2D" parent="."]
 position = Vector2( 335.616, 313.167 )
-script = SubResource( 6 )
+script = SubResource( 7 )
 
 [node name="borde_izquierdo" type="Area2D" parent="camara"]
 position = Vector2( -333.371, -310.922 )
