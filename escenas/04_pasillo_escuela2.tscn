@@ -17,6 +17,18 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
+func _ready():
+	anotar_en_el_diario(\"\"\"
+	Los pasillos de esta escuela 
+	siempre están vacíos. 
+	Pero lo que nunca faltan son 
+	esas figuras perturbadoras
+	del estúpido de Volk.
+	Todos lo alaban y a su 
+	super-sociedad de mierda.
+	
+	\"\"\")
+
 func _on_PuertaAula_pressed():
 	dice(\"Jade\", \"Ya terminé el examen. Quiero explorar el pasillo antes de volver\")
 
@@ -30,16 +42,7 @@ func _on_PuertaMuseoAnalogico_pressed():
 var clicks_cuadro_volk = 0
 
 func _on_CuadroVolk_pressed():
-	anotar_en_el_diario(\"\"\"
-	Los pasillos de esta escuela 
-	siempre están vacíos. 
-	Pero lo que nunca faltan son 
-	esas figuras perturbadoras
-	del estúpido de Volk.
-	Todos lo alaban y a su 
-	super-sociedad de mierda.
-	
-	\"\"\")
+
 	clicks_cuadro_volk += 1
 	if clicks_cuadro_volk == 1:
 		dice_a_la_grabadora(\"\"\"Bitácora número 42: En el pasillo tenemos un cuadro de Volk, principal exponente del movimiento transhumanista.\"\"\")
@@ -52,6 +55,7 @@ func _on_CuadroVolk_pressed():
 
 func _on_BustVolk_pressed():
 	anotar_en_el_diario(\"\"\"
+	
 	Lo peor de todo es que su campaña 
 	fue para llevarnos a la 
 	tierra prometida. 
