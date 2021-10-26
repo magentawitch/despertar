@@ -60,10 +60,10 @@ Característica: Los personajes se pueden mover por dentro de una región
 
 Característica: Entradas de diario con fotos epigrafeables
 
-  Escenario: Al agregarla se visualiza el diario con la foto y un prompt para el epigrafe [ ]
+  Escenario: Al agregarla se visualiza el diario con la foto y un prompt para el epigrafe [x]
   Escenario: Al elegir el epigrafe se agrega la entrada en el diario y se muestra
-             el diario en la última página [ ]
-  Escenario: Al salir del diario se reanuda la partida [ ]
+             el diario en la última página [x]
+  Escenario: Al salir del diario se reanuda la partida [x]
 
 
 Característica: Las colas de acciones pertenecen a estados de una FSM con pila 
