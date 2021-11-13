@@ -9,6 +9,7 @@ func vista_diario() -> VistaDiario:
 
 
 func abrir_diario(director: Director, detalles: Dictionary) -> void:
+	$"../../ui/menu/boton_abrir_diario/Notificacion".visible = false
 	print("mostrando diario")
 	vista_diario().mostrar()
 	print("Mostrando el diario")

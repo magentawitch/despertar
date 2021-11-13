@@ -44,6 +44,20 @@ func _on_Examen_pressed():
 	
 	\"\"\")
 	cambiar_escena_a('03_examen')
+
+var clicks_reloj = 0
+func _on_Reloj_pressed():
+	clicks_reloj += 1
+	if clicks_reloj == 1:
+		dice(\"Jade\", \"El reloj no funciona desde que estudio acá. Para ser una sociedad que está tan atada a la tecnología, a veces dejan mucho que desear\")
+	if clicks_reloj >= 2:
+		dice(\"Jade\", \"Claro que si todes tienen un implante que les indica siempre la hora, no necesitan este viejo reloj de pared...\")
+		dice(\"Jade\", \"Se siente como un recordatorio para les que no tenemos implantes. Quieren que seamos conscientes de que esta sociedad no está pensada para nosotres\")
+
+
+func _on_Profesore_pressed():
+	dice(\"Profesore\", \"El examen ya fue repartido. Llegaste con el tiempo justo.\")
+	dice(\"Profesore\", \"Recuerda, llegar temprano es estar a tiempo. Llegar a tiempo es llegar tarde, y llegar tarde es inaceptable\")
 "
 
 [node name="Aula" type="Node2D"]
@@ -55,10 +69,17 @@ position = Vector2( 1371.86, -246.9 )
 scale = Vector2( 0.555149, 0.555149 )
 texture = ExtResource( 5 )
 
-[node name="Reloj" type="Sprite" parent="."]
-position = Vector2( 442.093, -446.378 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 7 )
+[node name="Reloj" type="TextureButton" parent="."]
+margin_left = 399.123
+margin_top = -477.522
+margin_right = 556.123
+margin_bottom = -392.522
+rect_scale = Vector2( 0.628363, 0.628363 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PuertaPasillo" type="TextureButton" parent="."]
 margin_left = 339.183
@@ -76,10 +97,17 @@ __meta__ = {
 }
 on_mouse_entered_cue = ExtResource( 11 )
 
-[node name="Profesore" type="Sprite" parent="."]
-position = Vector2( 1974.82, -201.361 )
-scale = Vector2( 0.348156, 0.348156 )
-texture = ExtResource( 4 )
+[node name="Profesore" type="TextureButton" parent="."]
+margin_left = 1904.36
+margin_top = -424.488
+margin_right = 2228.36
+margin_bottom = 708.512
+rect_scale = Vector2( 0.380575, 0.380575 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MesaProfesore" type="Sprite" parent="."]
 position = Vector2( 1900.65, -143.367 )
@@ -89,33 +117,35 @@ texture = ExtResource( 3 )
 [node name="BancoIzq" type="Sprite" parent="."]
 position = Vector2( 2133.27, -7.79163 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 1
 texture = ExtResource( 8 )
 
 [node name="BancoIzq2" type="Sprite" parent="."]
-position = Vector2( 2447.58, -44.3018 )
+position = Vector2( 2447.58, -58.5562 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
 [node name="BancoDer" type="Sprite" parent="."]
-position = Vector2( 1525.7, -40.8162 )
+position = Vector2( 1526.89, -58.6544 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
 [node name="BancoDer2" type="Sprite" parent="."]
 position = Vector2( 1155.72, -5.12598 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 1
 texture = ExtResource( 6 )
 
 [node name="BancoDer3" type="Sprite" parent="."]
-position = Vector2( 851.596, -42.7195 )
+position = Vector2( 857.542, -60.5576 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
 [node name="Examen" type="TextureButton" parent="."]
-margin_left = 822.899
-margin_top = -172.722
-margin_right = 1024.9
-margin_bottom = 63.2781
+margin_left = 828.845
+margin_top = -190.56
+margin_right = 1030.85
+margin_bottom = 45.4399
 rect_scale = Vector2( 0.234467, 0.234467 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
@@ -129,17 +159,20 @@ position = Vector2( 527.412, 12.4726 )
 scale = Vector2( 2, 2 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
+visible = false
 script = ExtResource( 13 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PisoCaminable"]
 polygon = PoolVector2Array( 283.928, -41.6395, 253.962, 54.2521, 2431, 58.747, 2411.52, -32.6497, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 14 )]
-position = Vector2( 175.152, -188.988 )
+position = Vector2( 212.57, -187.206 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2552.72, -199.079 )
+position = Vector2( 2537.01, -196.834 )
 input_pickable = true
 
+[connection signal="pressed" from="Reloj" to="." method="_on_Reloj_pressed"]
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
+[connection signal="pressed" from="Profesore" to="." method="_on_Profesore_pressed"]
 [connection signal="pressed" from="Examen" to="." method="_on_Examen_pressed"]

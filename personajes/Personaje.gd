@@ -12,7 +12,7 @@ func sprite() -> Sprite:
 var por_caminar: float = 0
 	
 func caminar_hacia(lugar: Vector2):
-	por_caminar = lugar.x - get_global_transform().get_origin().x
+	por_caminar = (lugar.x - get_global_transform().get_origin().x) / 1.8 # get_global_transform().get_scale().x
 	
 func caminar(pixeles: float):
 	por_caminar += pixeles

@@ -13,6 +13,7 @@ collision_mask = 2
 shape = SubResource( 1 )
 
 [node name="scrollHorizontal" type="Sprite" parent="."]
+visible = false
 self_modulate = Color( 0.945098, 0, 1, 1 )
 position = Vector2( 1.48389, 2.8302 )
 scale = Vector2( 2.48167, 2.48167 )

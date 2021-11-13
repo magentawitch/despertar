@@ -28,6 +28,14 @@ func _on_PuertaPatio_pressed():
 
 func _on_PuertaMuseoAnalogico_pressed():
 	dice(\"Jade\", \"Mm, esta puerta parece estar cerrada por ahora\")
+
+
+func _on_CuadroVolk_pressed():
+	dice(\"Jade\", \"No tengo tiempo de explorar, tengo que rendir el examen\")
+
+
+func _on_BustVolk_pressed():
+	dice(\"Jade\", \"No tengo tiempo de explorar, tengo que rendir el examen\")
 "
 
 [node name="pasillo_escuela" type="Node2D"]
@@ -35,14 +43,14 @@ position = Vector2( -244.977, 523.251 )
 script = SubResource( 1 )
 
 [node name="FondoPasillo" type="Sprite" parent="."]
-position = Vector2( 1331.82, -239.106 )
+position = Vector2( 1206.82, -239.106 )
 scale = Vector2( 0.5349, 0.5349 )
 texture = ExtResource( 5 )
 
 [node name="PuertaAula" type="TextureButton" parent="."]
-margin_left = 339.183
+margin_left = 214.183
 margin_top = -411.328
-margin_right = 745.183
+margin_right = 620.183
 margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
@@ -56,9 +64,9 @@ __meta__ = {
 on_mouse_entered_cue = ExtResource( 8 )
 
 [node name="PuertaPatio" type="TextureButton" parent="."]
-margin_left = 1077.77
+margin_left = 952.77
 margin_top = -411.328
-margin_right = 1483.77
+margin_right = 1358.77
 margin_bottom = 257.672
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
@@ -69,9 +77,9 @@ __meta__ = {
 }
 
 [node name="PuertaMuseoAnalogico" type="TextureButton" parent="."]
-margin_left = 1759.54
+margin_left = 1634.54
 margin_top = -408.755
-margin_right = 2165.54
+margin_right = 2040.54
 margin_bottom = 260.245
 rect_scale = Vector2( 0.542079, 0.542079 )
 mouse_default_cursor_shape = 2
@@ -82,29 +90,41 @@ __meta__ = {
 }
 
 [node name="Planta" type="Sprite" parent="."]
-position = Vector2( 757.215, -154.685 )
+position = Vector2( 632.215, -154.685 )
 scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 4 )
 
 [node name="Planta2" type="Sprite" parent="."]
-position = Vector2( 956.86, -156.804 )
+position = Vector2( 831.86, -156.804 )
 scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 4 )
 
 [node name="Planta3" type="Sprite" parent="."]
-position = Vector2( 1663.39, -157.063 )
+position = Vector2( 1538.39, -157.063 )
 scale = Vector2( 0.51725, 0.51725 )
 texture = ExtResource( 4 )
 
-[node name="CuadroVolk" type="Sprite" parent="."]
-position = Vector2( 1483.4, -350.449 )
-scale = Vector2( 0.51725, 0.51725 )
-texture = ExtResource( 2 )
+[node name="CuadroVolk" type="TextureButton" parent="."]
+margin_left = 1331.61
+margin_top = -442.218
+margin_right = 1605.61
+margin_bottom = -116.218
+rect_scale = Vector2( 0.52, 0.52 )
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BustVolk" type="Sprite" parent="."]
-position = Vector2( 2159.46, -196.302 )
-scale = Vector2( 0.51725, 0.51725 )
-texture = ExtResource( 3 )
+[node name="BustVolk" type="TextureButton" parent="."]
+margin_left = 2063.67
+margin_top = -302.266
+margin_right = 2351.67
+margin_bottom = 277.734
+rect_scale = Vector2( 0.44, 0.44 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="OSTPasillo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -117,22 +137,25 @@ volume_db = 8.0
 pitch_scale = 1.23
 
 [node name="Jade" parent="." instance=ExtResource( 10 )]
-position = Vector2( 514.899, 16.0297 )
+position = Vector2( 389.899, 16.0297 )
 scale = Vector2( 2, 2 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
+position = Vector2( -125, 0 )
 script = ExtResource( 11 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
 polygon = PoolVector2Array( 283.892, -38.2773, 258.693, 51.1771, 2379.14, 51.1771, 2381.66, -35.7574 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 12 )]
-position = Vector2( 154.97, -188.988 )
+position = Vector2( 90.3171, -164.697 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2507.31, -188.988 )
+position = Vector2( 2318.58, -186.818 )
 input_pickable = true
 
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
 [connection signal="pressed" from="PuertaPatio" to="." method="_on_PuertaPatio_pressed"]
 [connection signal="pressed" from="PuertaMuseoAnalogico" to="." method="_on_PuertaMuseoAnalogico_pressed"]
+[connection signal="pressed" from="CuadroVolk" to="." method="_on_CuadroVolk_pressed"]
+[connection signal="pressed" from="BustVolk" to="." method="_on_BustVolk_pressed"]

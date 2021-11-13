@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -14,8 +14,25 @@
 [ext_resource path="res://acciones/agrega_foto.gd" type="Script" id=12]
 [ext_resource path="res://herramientas/diario/EleccionDeEpigrafe.tscn" type="PackedScene" id=13]
 [ext_resource path="res://acciones/ver_carta.gd" type="Script" id=14]
+[ext_resource path="res://assets/iconos/exclamation.png" type="Texture" id=15]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "Notificacion"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 565.617, 48.3115 ), Vector2( 561.157, 3.71628 ), Vector2( 565.617, 48.3115 ) ]
+}
+
+[sub_resource type="GDScript" id=2]
 script/source = "extends Position2D
 
 signal presiono_continuar
@@ -34,13 +51,13 @@ func _on_boton_para_cerrar_pressed() -> void:
 
 "
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
 tracks/0/interp = 1
@@ -52,7 +69,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 1.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
@@ -65,7 +82,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.2 )
 }
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=7]
 script/source = "extends Node2D
 
 
@@ -95,7 +112,10 @@ func _on_borde_derecho_body_exited(body: Node) -> void:
 "
 
 [node name="pantalla_principal" type="Node2D"]
+position = Vector2( -12.6992, -9.52435 )
+scale = Vector2( 1.9, 1.9 )
 script = ExtResource( 5 )
+nombre_de_la_escena_de_prueba = "04_pasillo_escuela2"
 
 [node name="diario" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -148,16 +168,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="titulo" type="Label" parent="ui/menu"]
-margin_top = 72.0
-margin_right = 791.0
-margin_bottom = 86.0
-text = "Menu con cosas que necesitan una UI mejor"
-
 [node name="boton_abrir_diario" type="TextureButton" parent="ui/menu"]
-margin_top = 90.0
+margin_top = 81.0
 margin_right = 791.0
-margin_bottom = 790.0
+margin_bottom = 781.0
 rect_min_size = Vector2( 0, 700 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
@@ -165,6 +179,15 @@ texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
 expand = true
 stretch_mode = 3
+
+[node name="Notificacion" type="Sprite" parent="ui/menu/boton_abrir_diario"]
+position = Vector2( 561.582, 7.9597 )
+scale = Vector2( 4.53789, 4.53789 )
+texture = ExtResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/menu/boton_abrir_diario/Notificacion"]
+autoplay = "Notificacion"
+anims/Notificacion = SubResource( 1 )
 
 [node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
 diario_path = NodePath("../../diario")
@@ -179,7 +202,7 @@ position = Vector2( 436, 170 )
 
 [node name="contenedor_carta" type="Position2D" parent="ui"]
 position = Vector2( 517, 279 )
-script = SubResource( 1 )
+script = SubResource( 2 )
 
 [node name="contenido" type="Node2D" parent="ui/contenedor_carta"]
 
@@ -189,6 +212,7 @@ margin_top = -262.0
 margin_right = 424.0
 margin_bottom = 275.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -197,18 +221,19 @@ visible = false
 position = Vector2( 513.68, 289.797 )
 rotation = 1.57396
 scale = Vector2( 0.29856, 1066.52 )
-texture = SubResource( 3 )
+z_index = 20
+texture = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="anim" type="AnimationPlayer" parent="telon"]
-anims/mostrar = SubResource( 4 )
-anims/ocultar = SubResource( 5 )
+anims/mostrar = SubResource( 5 )
+anims/ocultar = SubResource( 6 )
 
 [node name="camara" type="Node2D" parent="."]
 position = Vector2( 335.616, 313.167 )
-script = SubResource( 6 )
+script = SubResource( 7 )
 
 [node name="borde_izquierdo" type="Area2D" parent="camara"]
 position = Vector2( -333.371, -310.922 )
@@ -216,6 +241,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_izquierdo"]
+position = Vector2( -17.3218, -0.655685 )
 polygon = PoolVector2Array( 10.9634, 553.505, 71.2094, 567.689, 62.2196, 8.82083, 12.2212, 21.1522 )
 
 [node name="borde_derecho" type="Area2D" parent="camara"]
@@ -224,6 +250,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_derecho"]
+position = Vector2( 15.0154, 0.841827 )
 polygon = PoolVector2Array( 948.345, 567.364, 1010.08, 559.805, 1012.6, 19.2984, 954.644, 9.21906 )
 
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]
