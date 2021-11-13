@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://herramientas/diario/EleccionDeEpigrafe.gd"
 }, {
+"base": "MarginContainer",
+"class": "EntradaDeDiario",
+"language": "GDScript",
+"path": "res://tipos_de_entrada_de_diario/EntradaDeDiario.gd"
+}, {
 "base": "Node2D",
 "class": "Escena",
 "language": "GDScript",
@@ -79,6 +84,7 @@ _global_script_class_icons={
 "Diario": "res://herramientas/diario/Diario.icon.png",
 "Director": "res://herramientas/director/Director.icon.png",
 "EleccionDeEpigrafe": "",
+"EntradaDeDiario": "res://assets/iconos/menuList.png",
 "Escena": "res://assets/iconos/door.png",
 "Foto": "res://assets/iconos/film.png",
 "ObjectoInteractivo": "res://assets/iconos/joystick.png",

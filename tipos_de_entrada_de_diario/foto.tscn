@@ -4,24 +4,23 @@
 [ext_resource path="res://assets/images/FondoEscritorio.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=1]
-script/source = "extends Control
+script/source = "extends EntradaDeDiario
 
 func _ready():
 	$lugar_donde_va_la_foto/foto_placeholder_que_se_borra_al_iniciar.queue_free()
 
-func inicializar_con(entrada):
+func inicializar_con(entrada: Dictionary):
 	var foto = Foto.cargar(entrada[\"nombre_foto\"])
 	foto.asignar_opcion_de_epigrafe_elegida(entrada[\"epigrafe\"])
 	$lugar_donde_va_la_foto.add_child(foto)
 "
 
-[node name="Control" type="Control"]
+[node name="entrada_de_foto" type="MarginContainer"]
 margin_right = 166.0
 margin_bottom = 144.0
 rect_min_size = Vector2( 166, 140 )
 script = SubResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": "El alto que tiene se corresponde con el espacio (fijo) que ocupa una entrada de foto en el diario."
 }
 

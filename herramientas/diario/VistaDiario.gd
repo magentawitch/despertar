@@ -46,7 +46,7 @@ func recargar():
 		var entradas_derecha = diario().entradas_de_la_pagina(pagina_actual + 1)
 		$derecha.recargar_entradas(entradas_derecha)
 	else:
-		$derecha.limpiar_entradas()
+		$derecha.recargar_entradas([])
 		
 	$botones/anterior_pagina.visible = pagina_actual > 0
 	$botones/siguiente_pagina.visible = pagina_actual < diario().cantidad_de_paginas_ocupadas() - 2

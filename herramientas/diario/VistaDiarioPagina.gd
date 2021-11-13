@@ -3,31 +3,24 @@ extends Control
 # Esto huele a que hay que hacer una script base "Entrada.gd" del que estos
 # hereden. También parece que ese sería el lugar correcto para todo lo que es
 # la lógica de layout del diario.
-var EntradaTexto = preload("./EntradaTexto.tscn")
-var EntradaFoto = preload("./EntradaFoto.tscn")
+var EntradaTexto = preload("res://tipos_de_entrada_de_diario/texto.tscn")
+var EntradaFoto = preload("res://tipos_de_entrada_de_diario/foto.tscn")
 
 func _ready():
-	limpiar_entradas()
+	_limpiar_entradas()
 
-func limpiar_entradas():
+func _limpiar_entradas():
 	for c in get_children():
 		c.queue_free()
 
-func instanciar_entrada(tipo):
-	match tipo:
-		"texto":
-			return EntradaTexto.instance()
-		"foto":
-			return EntradaFoto.instance()
-		var t:
-			push_error("Tipo de entrada desconocida: " + t)
-			assert(false)
+func _instanciar_entrada(tipo):
+	return EntradaDeDiario.cargar(tipo)
 
 func recargar_entradas(entradas):
 	print("Recargando entradas de pagina")
-	limpiar_entradas()
+	_limpiar_entradas()
 	for entrada in entradas:
-		var node = instanciar_entrada(entrada['tipo'])
+		var node = _instanciar_entrada(entrada['tipo'])
 		node.inicializar_con(entrada)
 		add_child(node)
 	
