@@ -108,7 +108,7 @@ anims/idle = SubResource( 2 )
 [node name="grupo" type="Node2D" parent="."]
 position = Vector2( 7.58743, -12.9423 )
 rotation = -0.00439517
-scale = Vector2( 0.801173, 0.801173 )
+scale = Vector2( 1.78191, 1.78191 )
 
 [node name="fondo_cuadro_de_dialogo" type="Sprite" parent="grupo"]
 position = Vector2( -21.7432, -12.9978 )

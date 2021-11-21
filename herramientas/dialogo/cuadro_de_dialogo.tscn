@@ -40,14 +40,14 @@ func cuando_termina_la_animacion_de_texto(anim_name):
 	texto_termino_de_aparecer = true
 "
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.351852 )
 colors = PoolColorArray( 0.213867, 0.0292397, 0.127684, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("grupo/dialogo:percent_visible")
@@ -75,7 +75,7 @@ script = SubResource( 1 )
 
 [node name="grupo" type="Node2D" parent="."]
 position = Vector2( 110.271, -1.94105 )
-scale = Vector2( 0.801173, 0.801173 )
+scale = Vector2( 1.64052, 1.64052 )
 
 [node name="fondo_cuadro_de_dialogo" type="TextureButton" parent="grupo"]
 margin_left = -439.0
@@ -115,7 +115,7 @@ scale = Vector2( 0.180112, 0.180112 )
 position = Vector2( 60.1317, -31.6567 )
 rotation = 1.59648
 scale = Vector2( 0.357176, 713.151 )
-texture = SubResource( 4 )
+texture = SubResource( 3 )
 
 [node name="Alex" type="Sprite" parent="grupo/recuadro/Alex"]
 position = Vector2( 57.0201, -13.8937 )
@@ -157,7 +157,7 @@ scale = Vector2( 0.355908, 0.355908 )
 position = Vector2( 2.19446, -21.8561 )
 rotation = 1.56319
 scale = Vector2( 0.163738, 328.981 )
-texture = SubResource( 4 )
+texture = SubResource( 3 )
 
 [node name="cara" type="Sprite" parent="grupo/recuadro/Jade"]
 position = Vector2( 21.3241, 4.02757 )
@@ -196,7 +196,7 @@ scale = Vector2( 0.355908, 0.355908 )
 position = Vector2( 2.19446, -21.8561 )
 rotation = 1.56319
 scale = Vector2( 0.163738, 328.981 )
-texture = SubResource( 4 )
+texture = SubResource( 3 )
 
 [node name="cara" type="Sprite" parent="grupo/recuadro/Profesore"]
 position = Vector2( 21.6989, -27.0957 )
@@ -236,7 +236,7 @@ scale = Vector2( 0.179756, 0.179756 )
 position = Vector2( 60.1317, -31.6567 )
 rotation = 1.59648
 scale = Vector2( 0.357176, 713.151 )
-texture = SubResource( 4 )
+texture = SubResource( 3 )
 
 [node name="Alex" type="Sprite" parent="grupo/recuadro/Milan"]
 position = Vector2( 94.5967, 5.87949 )
@@ -276,7 +276,7 @@ texture = ExtResource( 5 )
 
 [node name="animacion_transiciones" type="AnimationPlayer" parent="."]
 autoplay = "aparece"
-anims/aparece = SubResource( 5 )
+anims/aparece = SubResource( 4 )
 
 [connection signal="pressed" from="grupo/fondo_cuadro_de_dialogo" to="." method="_on_fondo_cuadro_de_dialogo_pressed"]
 [connection signal="animation_finished" from="animacion_transiciones" to="." method="cuando_termina_la_animacion_de_texto"]

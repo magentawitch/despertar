@@ -8,6 +8,6 @@ margin_bottom = 104.0
 
 [node name="texto" parent="." index="0"]
 margin_right = 395.0
-margin_bottom = 136.0
+margin_bottom = 396.0
 text = "Hoy nuevamente me levanté tarde… Bah, no diría tarde, tarde. Simplemente me dormí un rato más. Convengamos que esta casa inteligente es demasiado pesada como para que une pueda dormir mil horas más, las horas necesarias de une adolescente productive.
 "

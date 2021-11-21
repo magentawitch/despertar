@@ -43,16 +43,14 @@ position = Vector2( -244.977, 523.251 )
 script = SubResource( 1 )
 
 [node name="FondoPasillo" type="Sprite" parent="."]
-position = Vector2( 1206.82, -239.106 )
-scale = Vector2( 0.5349, 0.5349 )
+position = Vector2( 2128.01, 15.165 )
 texture = ExtResource( 5 )
 
 [node name="PuertaAula" type="TextureButton" parent="."]
-margin_left = 214.183
-margin_top = -411.328
-margin_right = 620.183
-margin_bottom = 257.672
-rect_scale = Vector2( 0.542079, 0.542079 )
+margin_left = 198.259
+margin_top = -293.91
+margin_right = 604.259
+margin_bottom = 375.09
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 6 )
@@ -64,11 +62,10 @@ __meta__ = {
 on_mouse_entered_cue = ExtResource( 8 )
 
 [node name="PuertaPatio" type="TextureButton" parent="."]
-margin_left = 952.77
-margin_top = -411.328
-margin_right = 1358.77
-margin_bottom = 257.672
-rect_scale = Vector2( 0.542079, 0.542079 )
+margin_left = 1604.0
+margin_top = -299.911
+margin_right = 2010.0
+margin_bottom = 369.089
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 script = ExtResource( 9 )
@@ -77,11 +74,10 @@ __meta__ = {
 }
 
 [node name="PuertaMuseoAnalogico" type="TextureButton" parent="."]
-margin_left = 1634.54
-margin_top = -408.755
-margin_right = 2040.54
-margin_bottom = 260.245
-rect_scale = Vector2( 0.542079, 0.542079 )
+margin_left = 2913.8
+margin_top = -302.193
+margin_right = 3319.8
+margin_bottom = 366.807
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 script = ExtResource( 9 )
@@ -90,37 +86,32 @@ __meta__ = {
 }
 
 [node name="Planta" type="Sprite" parent="."]
-position = Vector2( 632.215, -154.685 )
-scale = Vector2( 0.51725, 0.51725 )
+position = Vector2( 1041.51, 159.62 )
 texture = ExtResource( 4 )
 
 [node name="Planta2" type="Sprite" parent="."]
-position = Vector2( 831.86, -156.804 )
-scale = Vector2( 0.51725, 0.51725 )
+position = Vector2( 1431.71, 160.599 )
 texture = ExtResource( 4 )
 
 [node name="Planta3" type="Sprite" parent="."]
-position = Vector2( 1538.39, -157.063 )
-scale = Vector2( 0.51725, 0.51725 )
+position = Vector2( 2754.69, 162.841 )
 texture = ExtResource( 4 )
 
 [node name="CuadroVolk" type="TextureButton" parent="."]
-margin_left = 1331.61
-margin_top = -442.218
-margin_right = 1605.61
-margin_bottom = -116.218
-rect_scale = Vector2( 0.52, 0.52 )
+margin_left = 2277.04
+margin_top = -348.005
+margin_right = 2551.04
+margin_bottom = -22.0053
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BustVolk" type="TextureButton" parent="."]
-margin_left = 2063.67
-margin_top = -302.266
-margin_right = 2351.67
-margin_bottom = 277.734
-rect_scale = Vector2( 0.44, 0.44 )
+margin_left = 3702.32
+margin_top = -207.333
+margin_right = 3990.32
+margin_bottom = 372.667
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -137,21 +128,21 @@ volume_db = 8.0
 pitch_scale = 1.23
 
 [node name="Jade" parent="." instance=ExtResource( 10 )]
-position = Vector2( 389.899, 16.0297 )
-scale = Vector2( 2, 2 )
+position = Vector2( 412.012, 266.624 )
+scale = Vector2( 0.893571, 0.893571 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
-position = Vector2( -125, 0 )
+position = Vector2( -60.8553, 466.831 )
 script = ExtResource( 11 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
-polygon = PoolVector2Array( 283.892, -38.2773, 258.693, 51.1771, 2379.14, 51.1771, 2381.66, -35.7574 )
+polygon = PoolVector2Array( 236.004, -68.6011, 211.059, 77.5062, 4159.52, 84.6335, 4148.83, -65.0375 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 12 )]
-position = Vector2( 90.3171, -164.697 )
+position = Vector2( 72.3576, 149.592 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2318.58, -186.818 )
+position = Vector2( 4177.38, 122.982 )
 input_pickable = true
 
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]

@@ -113,7 +113,6 @@ func _on_borde_derecho_body_exited(body: Node) -> void:
 
 [node name="pantalla_principal" type="Node2D"]
 position = Vector2( -12.6992, -9.52435 )
-scale = Vector2( 1.9, 1.9 )
 script = ExtResource( 5 )
 
 [node name="diario" type="Node" parent="."]
@@ -157,11 +156,11 @@ contenedor_de_la_carta = NodePath("../../ui/contenedor_carta")
 [node name="ui" type="Node2D" parent="."]
 
 [node name="menu" type="VBoxContainer" parent="ui"]
-margin_left = 35.0
-margin_top = 14.0
-margin_right = 826.0
-margin_bottom = 877.0
-rect_scale = Vector2( 0.1, 0.1 )
+margin_left = 52.818
+margin_top = 22.909
+margin_right = 843.818
+margin_bottom = 885.909
+rect_scale = Vector2( 0.242848, 0.242848 )
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -197,19 +196,19 @@ position = Vector2( 473.304, 277.085 )
 scale = Vector2( 2.74802, 2.74802 )
 
 [node name="contenedor_dialogo" type="Position2D" parent="ui"]
-position = Vector2( 436, 170 )
+position = Vector2( 981.23, 333.925 )
 
 [node name="contenedor_carta" type="Position2D" parent="ui"]
-position = Vector2( 517, 279 )
+position = Vector2( 982.512, 519.935 )
 script = SubResource( 2 )
 
 [node name="contenido" type="Node2D" parent="ui/contenedor_carta"]
 
 [node name="boton_para_cerrar" type="TextureButton" parent="ui/contenedor_carta"]
-margin_left = -447.0
-margin_top = -262.0
-margin_right = 424.0
-margin_bottom = 275.0
+margin_left = -748.0
+margin_top = -444.0
+margin_right = 745.0
+margin_bottom = 491.0
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -217,9 +216,9 @@ __meta__ = {
 
 [node name="telon" type="Sprite" parent="."]
 visible = false
-position = Vector2( 513.68, 289.797 )
+position = Vector2( 982.756, 554.566 )
 rotation = 1.57396
-scale = Vector2( 0.29856, 1066.52 )
+scale = Vector2( 0.557886, 1992.89 )
 z_index = 20
 texture = SubResource( 4 )
 __meta__ = {
@@ -241,16 +240,16 @@ collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_izquierdo"]
 position = Vector2( -17.3218, -0.655685 )
-polygon = PoolVector2Array( 10.9634, 553.505, 71.2094, 567.689, 62.2196, 8.82083, 12.2212, 21.1522 )
+polygon = PoolVector2Array( -4.08509, 996.205, 65.5075, 1050.08, 62.2196, 8.82083, 0.404747, 37.6224 )
 
 [node name="borde_derecho" type="Area2D" parent="camara"]
-position = Vector2( -333.371, -310.922 )
+position = Vector2( 1595.02, -301.942 )
 collision_layer = 2
 collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_derecho"]
 position = Vector2( 15.0154, 0.841827 )
-polygon = PoolVector2Array( 948.345, 567.364, 1010.08, 559.805, 1012.6, 19.2984, 954.644, 9.21906 )
+polygon = PoolVector2Array( -38.6667, 1044.1, 17.4563, 1017.16, 24.191, 40.6148, -43.1567, 20.4105 )
 
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]
 [connection signal="pressed" from="ui/contenedor_carta/boton_para_cerrar" to="ui/contenedor_carta" method="_on_boton_para_cerrar_pressed"]

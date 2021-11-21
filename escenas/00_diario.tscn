@@ -73,31 +73,31 @@ func inicializar_con(entrada: Dictionary):
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -95.2441, -35.2471 )
-scale = Vector2( 1.34889, 1.34889 )
 script = SubResource( 1 )
 puede_abrir_el_diario = false
 
 [node name="FondoEscritorio" type="Sprite" parent="."]
-position = Vector2( 476.238, 280.257 )
-scale = Vector2( 0.586093, 0.586093 )
+position = Vector2( 1138.37, 710.343 )
+scale = Vector2( 1.46839, 1.46839 )
 texture = ExtResource( 2 )
 
 [node name="diario_cerrado" type="TextureButton" parent="."]
-margin_left = 317.373
-margin_top = 33.8884
-margin_right = 579.373
-margin_bottom = 482.888
+margin_left = 696.716
+margin_top = 22.9329
+margin_right = 1321.72
+margin_bottom = 889.933
+rect_scale = Vector2( 1.33737, 1.33737 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
-expand = true
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DiarioAbierto" type="Sprite" parent="."]
-position = Vector2( 433.772, 271.132 )
-scale = Vector2( 0.532746, 0.532747 )
+visible = false
+position = Vector2( 1023.74, 670.184 )
+scale = Vector2( 1.29752, 1.29752 )
 texture = ExtResource( 3 )
 
 [node name="OSTDiarioAbierto" type="AudioStreamPlayer" parent="DiarioAbierto"]
@@ -108,33 +108,35 @@ autoplay = true
 [node name="TweenEntradas" type="Tween" parent="DiarioAbierto"]
 
 [node name="izquierda" type="VBoxContainer" parent="DiarioAbierto"]
-margin_left = -387.463
-margin_top = -215.155
-margin_right = -104.463
-margin_bottom = 128.845
-rect_scale = Vector2( 1.2664, 1.2664 )
+margin_left = -387.0
+margin_top = -215.0
+margin_right = 111.0
+margin_bottom = 417.0
+rect_scale = Vector2( 0.7, 0.7 )
 custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="texto_ejemplo_primer_parrafo" parent="DiarioAbierto/izquierda" instance=ExtResource( 6 )]
-margin_right = 283.0
-margin_bottom = 176.0
+visible = false
+margin_right = 498.0
+margin_bottom = 316.0
 script = SubResource( 2 )
 
 [node name="texto_ejemplo_segundo_parrafo" parent="DiarioAbierto/izquierda" instance=ExtResource( 8 )]
-margin_top = 180.0
-margin_right = 283.0
-margin_bottom = 336.0
+visible = false
+margin_top = 320.0
+margin_right = 498.0
+margin_bottom = 596.0
 script = SubResource( 2 )
 
 [node name="derecha" type="VBoxContainer" parent="DiarioAbierto"]
-margin_left = 33.4693
-margin_top = -215.155
-margin_right = 316.469
-margin_bottom = 126.845
-rect_scale = Vector2( 1.29028, 1.29028 )
+margin_left = 33.0
+margin_top = -215.0
+margin_right = 546.0
+margin_bottom = 411.0
+rect_scale = Vector2( 0.7, 0.7 )
 custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,8 +144,8 @@ __meta__ = {
 
 [node name="texto_ejemplo_tercer_parrafo" parent="DiarioAbierto/derecha" instance=ExtResource( 7 )]
 visible = false
-margin_right = 282.0
-margin_bottom = 276.0
+margin_right = 513.0
+margin_bottom = 476.0
 script = SubResource( 2 )
 
 [node name="BotonInvisibleDelDiarioAbierto" type="TextureButton" parent="DiarioAbierto"]

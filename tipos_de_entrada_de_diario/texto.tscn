@@ -11,7 +11,7 @@ func inicializar_con(entrada: Dictionary):
 "
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
+size = 38
 extra_spacing_bottom = -20
 font_data = ExtResource( 1 )
 

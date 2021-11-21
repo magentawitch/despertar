@@ -17,8 +17,8 @@ __meta__ = {
 }
 
 [node name="FondoDiario" type="Sprite" parent="."]
-position = Vector2( 519.928, 284.857 )
-scale = Vector2( 0.784461, 0.784461 )
+position = Vector2( 980.402, 530.542 )
+scale = Vector2( 1.32199, 1.32199 )
 texture = ExtResource( 3 )
 
 [node name="paginas" type="Control" parent="."]
@@ -36,10 +36,10 @@ __meta__ = {
 }
 
 [node name="izquierda" type="VBoxContainer" parent="paginas_ejemplo"]
-margin_left = 214.0
-margin_top = 116.0
-margin_right = 497.0
-margin_bottom = 460.0
+margin_left = 463.0
+margin_top = 247.0
+margin_right = 940.0
+margin_bottom = 831.0
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -48,19 +48,19 @@ __meta__ = {
 es_izquierda = true
 
 [node name="texto_ejemplo_primer_parrafo" parent="paginas_ejemplo/izquierda" instance=ExtResource( 8 )]
-margin_right = 283.0
-margin_bottom = 176.0
+margin_right = 477.0
+margin_bottom = 316.0
 
 [node name="texto_ejemplo_segundo_parrafo" parent="paginas_ejemplo/izquierda" instance=ExtResource( 9 )]
-margin_top = 180.0
-margin_right = 283.0
-margin_bottom = 336.0
+margin_top = 320.0
+margin_right = 477.0
+margin_bottom = 596.0
 
 [node name="derecha" type="VBoxContainer" parent="paginas_ejemplo"]
-margin_left = 546.0
-margin_top = 116.0
-margin_right = 829.0
-margin_bottom = 458.0
+margin_left = 1032.0
+margin_top = 250.0
+margin_right = 1489.0
+margin_bottom = 831.0
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -68,8 +68,8 @@ __meta__ = {
 }
 
 [node name="texto_ejemplo_tercer_parrafo" parent="paginas_ejemplo/derecha" instance=ExtResource( 7 )]
-margin_right = 283.0
-margin_bottom = 276.0
+margin_right = 457.0
+margin_bottom = 556.0
 
 [node name="botones" type="Control" parent="."]
 margin_right = 40.0
@@ -79,10 +79,10 @@ __meta__ = {
 }
 
 [node name="cerrar_diario" type="TextureButton" parent="botones"]
-margin_left = 49.0
-margin_top = 34.0
-margin_right = 97.0
-margin_bottom = 82.0
+margin_left = 84.2692
+margin_top = 65.3784
+margin_right = 213.269
+margin_bottom = 194.378
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 5 )
 expand = true
@@ -91,23 +91,25 @@ __meta__ = {
 }
 
 [node name="anterior_pagina" type="TextureButton" parent="botones"]
-margin_left = 55.0
-margin_top = 447.0
-margin_right = 135.0
-margin_bottom = 527.0
+margin_left = 250.03
+margin_top = 813.276
+margin_right = 392.03
+margin_bottom = 955.276
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 4 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="siguiente_pagina" type="TextureButton" parent="botones"]
-margin_left = 897.0
-margin_top = 446.0
-margin_right = 977.0
-margin_bottom = 526.0
+margin_left = 1562.86
+margin_top = 819.649
+margin_right = 1697.86
+margin_bottom = 954.649
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
