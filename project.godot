@@ -86,7 +86,7 @@ _global_script_class_icons={
 "EleccionDeEpigrafe": "",
 "EntradaDeDiario": "res://assets/iconos/menuList.png",
 "Escena": "res://assets/iconos/door.png",
-"Foto": "",
+"Foto": "res://assets/iconos/film.png",
 "ObjectoInteractivo": "res://assets/iconos/joystick.png",
 "Personaje": "res://assets/iconos/singleplayer.png",
 "PisoCaminable": "res://assets/iconos/arrowDown.png",

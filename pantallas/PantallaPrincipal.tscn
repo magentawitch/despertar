@@ -115,7 +115,6 @@ func _on_borde_derecho_body_exited(body: Node) -> void:
 position = Vector2( -12.6992, -9.52435 )
 scale = Vector2( 1.9, 1.9 )
 script = ExtResource( 5 )
-nombre_de_la_escena_de_prueba = "04_pasillo_escuela2"
 
 [node name="diario" type="Node" parent="."]
 script = ExtResource( 1 )

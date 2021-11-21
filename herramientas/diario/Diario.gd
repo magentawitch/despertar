@@ -1,25 +1,16 @@
 extends Node
 class_name Diario, "./Diario.icon.png"
 
-# TODO: Sacar de acá todo el detalle de cuantos renglones hay por página
-# y que va en cada página. Resolver todo eso en la VistaDiario.
-var paginas = [[]]  # Arranca con una página vacía
-const TAMANIO_PAGINA = 16 # Renglones
-var espacio_disponible_en_la_ultima_pagina = TAMANIO_PAGINA
+signal entrada_agregada
+
+var entradas = []
+
+func obtener_todas_las_entradas():
+	return entradas
 
 func agregar_entrada(entrada):
-	if self.espacio_disponible_en_la_ultima_pagina >= entrada["tamanio"]:
-		self.espacio_disponible_en_la_ultima_pagina -= entrada["tamanio"]
-		self.paginas[-1].append(entrada)
-	else:
-		self.espacio_disponible_en_la_ultima_pagina = TAMANIO_PAGINA - entrada["tamanio"]
-		self.paginas.append([entrada])
-	
-func cantidad_de_paginas_ocupadas():
-	return self.paginas.size()
-
-func entradas_de_la_pagina(n):
-	return self.paginas[n]
+	entradas.append(entrada)
+	emit_signal("entrada_agregada", entrada)
 
 func escribir_entrada_de_texto(texto: String):
 	print("Escribió: " + texto)

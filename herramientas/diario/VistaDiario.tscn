@@ -18,26 +18,41 @@ position = Vector2( 518.928, 284.857 )
 scale = Vector2( 0.784461, 0.784461 )
 texture = ExtResource( 3 )
 
-[node name="izquierda" type="VBoxContainer" parent="."]
-margin_left = 224.153
-margin_top = 121.376
-margin_right = 427.153
-margin_bottom = 405.376
+[node name="paginas" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paginas_ejemplo" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="izquierda" type="VBoxContainer" parent="paginas_ejemplo"]
+margin_left = 224.0
+margin_top = 121.0
+margin_right = 427.0
+margin_bottom = 425.0
 rect_scale = Vector2( 1.27677, 1.12781 )
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+es_izquierda = true
 
-[node name="Label" type="Label" parent="izquierda"]
+[node name="Label" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_right = 203.0
 margin_bottom = 14.0
 custom_constants/line_spacing = 5
 text = "Primera linea"
 
-[node name="Label2" type="Label" parent="izquierda"]
+[node name="Label2" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 18.0
 margin_right = 203.0
@@ -46,7 +61,7 @@ custom_constants/line_spacing = 4
 text = "Segunda linea
 Tercera Linea"
 
-[node name="Label3" type="Label" parent="izquierda"]
+[node name="Label3" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 54.0
 margin_right = 203.0
@@ -54,7 +69,7 @@ margin_bottom = 68.0
 custom_constants/line_spacing = 4
 text = "Cuarta linea"
 
-[node name="Label4" type="Label" parent="izquierda"]
+[node name="Label4" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 72.0
 margin_right = 203.0
@@ -64,7 +79,7 @@ text = "Quinta linea
 Sexta linea
 Septima linea"
 
-[node name="Label5" type="Label" parent="izquierda"]
+[node name="Label5" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 126.0
 margin_right = 203.0
@@ -72,7 +87,7 @@ margin_bottom = 140.0
 custom_constants/line_spacing = 4
 text = "Octava linea"
 
-[node name="Label8" type="Label" parent="izquierda"]
+[node name="Label8" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 144.0
 margin_right = 203.0
@@ -83,7 +98,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label6" type="Label" parent="izquierda"]
+[node name="Label6" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 162.0
 margin_right = 203.0
@@ -91,7 +106,7 @@ margin_bottom = 176.0
 custom_constants/line_spacing = 4
 text = "Primera linea"
 
-[node name="Label7" type="Label" parent="izquierda"]
+[node name="Label7" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 180.0
 margin_right = 203.0
@@ -100,7 +115,7 @@ custom_constants/line_spacing = 4
 text = "Segunda linea
 Tercera Linea"
 
-[node name="Label9" type="Label" parent="izquierda"]
+[node name="Label9" type="Label" parent="paginas_ejemplo/izquierda"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_top = 216.0
 margin_right = 203.0
@@ -111,11 +126,11 @@ el tema de las entradas de dia-
 rio usando la libreria de UI que
 trae."
 
-[node name="derecha" type="VBoxContainer" parent="."]
+[node name="derecha" type="VBoxContainer" parent="paginas_ejemplo"]
 margin_left = 556.068
 margin_top = 120.792
 margin_right = 759.068
-margin_bottom = 422.792
+margin_bottom = 424.792
 rect_scale = Vector2( 1.277, 1.128 )
 custom_constants/separation = 4
 script = ExtResource( 2 )
@@ -123,7 +138,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="derecha"]
+[node name="Label" type="Label" parent="paginas_ejemplo/derecha"]
 modulate = Color( 0.12549, 0.152941, 0.4, 1 )
 margin_right = 203.0
 margin_bottom = 302.0
