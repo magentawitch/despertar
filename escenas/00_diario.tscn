@@ -56,39 +56,8 @@ func mostrar_y_anotar_label(label: Label):
 		$DiarioAbierto/TweenEntradas.start()
 		anotar_texto_de_label_en_el_diario(label)
 
-# La idea de este metodo es que tome directamente el texto de cada label y lo
-# mande al diario. Se rompe un poco y no queda igual tho.
 func anotar_texto_de_label_en_el_diario(label: Label):
-	# Para que no se valla a la derecha cortamos el texto primero
-	var texto = separar_en_lineas(label.text)
-	# Luego para que no sobresalga para abajo lo separamos en varias entradas
-	# (La \"entrada\" no se puede separar. Si no hay lugar suficiente para que
-	# entre en la página actual entonces va en la siguiente página.)
-	var entradas = separar_en_chunks(texto)
-	for entrada in entradas:
-		anota_en_el_diario(entrada)
-	agregar_un_salto_de_linea_en_el_diario()
-
-func separar_en_lineas(texto: String) -> String:
-	var max_caracteres_por_renglon = 28
-	var renglones = \"\"
-	var caracteres_disponibles_en_el_renglon_actual = max_caracteres_por_renglon
-	var palabras = texto.split(\" \", false)
-	for palabra in palabras:
-		if caracteres_disponibles_en_el_renglon_actual >= palabra.length():
-			caracteres_disponibles_en_el_renglon_actual -= palabra.length() + 1  # el espacio cuenta
-			renglones += \" \" + palabra
-		else:
-			renglones += \"\\n\" + palabra
-			caracteres_disponibles_en_el_renglon_actual = max_caracteres_por_renglon - palabra.length()
-	return renglones.strip_edges()
-
-func separar_en_chunks(texto: String) -> PoolStringArray:
-	# Para texto plano y este caso nos da igual que sean muchas entradas de una
-	# sola linea cada una
-	return texto.split(\"\\n\")
-
-
+	anota_en_el_diario(label.text)
 "
 
 [node name="Node2D" type="Node2D"]

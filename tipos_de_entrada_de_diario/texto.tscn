@@ -23,6 +23,7 @@ margin_bottom = 76.0
 size_flags_vertical = 1
 custom_constants/line_spacing = 4
 text = "Querido diario..."
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
