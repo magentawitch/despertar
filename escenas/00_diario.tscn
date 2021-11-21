@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://utileria/diario_cerrado.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/DiarioCerrado.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/FondoEscritorio.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/FondoDiario.png" type="Texture" id=3]
+[ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=4]
 [ext_resource path="res://assets/Sonido/Musica/Diario.mp3" type="AudioStream" id=5]
 
 [sub_resource type="GDScript" id=1]
@@ -22,7 +23,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_diario_cerrado_ocurrio_interaccion():
+func _on_diario_cerrado_pressed() -> void:
 	$DiarioAbierto.visible = true
 	$diario_cerrado.visible = false
 	#abrir_diario()
@@ -87,6 +88,7 @@ func separar_en_chunks(texto: String) -> PoolStringArray:
 	# sola linea cada una
 	return texto.split(\"\\n\")
 
+
 "
 
 [node name="Node2D" type="Node2D"]
@@ -100,9 +102,18 @@ position = Vector2( 476.238, 280.257 )
 scale = Vector2( 0.586093, 0.586093 )
 texture = ExtResource( 2 )
 
-[node name="diario_cerrado" parent="." instance=ExtResource( 1 )]
-position = Vector2( 440.685, 263.72 )
-scale = Vector2( 1.07516, 1.07516 )
+[node name="diario_cerrado" type="TextureButton" parent="."]
+margin_left = 317.373
+margin_top = 33.8884
+margin_right = 579.373
+margin_bottom = 482.888
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+expand = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DiarioAbierto" type="Sprite" parent="."]
 visible = false
@@ -171,5 +182,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="ocurrio_interaccion" from="diario_cerrado" to="." method="_on_diario_cerrado_ocurrio_interaccion"]
+[connection signal="pressed" from="diario_cerrado" to="." method="_on_diario_cerrado_pressed"]
 [connection signal="pressed" from="DiarioAbierto/BotonInvisibleDelDiarioAbierto" to="." method="_on_BotonInvisibleDelDiarioAbierto_pressed"]
