@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fuentes/Autography.otf" type="DynamicFontData" id=1]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends EntradaDeDiario
@@ -7,6 +9,11 @@ script/source = "extends EntradaDeDiario
 func inicializar_con(entrada: Dictionary):
 	$texto.text = entrada[\"texto\"]
 "
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+extra_spacing_bottom = -20
+font_data = ExtResource( 1 )
 
 [node name="texto" type="MarginContainer"]
 margin_right = 207.0
@@ -21,6 +28,7 @@ modulate = Color( 0, 0, 0, 1 )
 margin_right = 207.0
 margin_bottom = 76.0
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
 custom_constants/line_spacing = 4
 text = "Querido diario..."
 autowrap = true

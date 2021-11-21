@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tipos_de_entrada_de_diario/texto.tscn" type="PackedScene" id=1]
+
+[node name="texto_ejemplo_tercer_parrafo" instance=ExtResource( 1 )]
+
+[node name="texto" parent="." index="0"]
+margin_bottom = 284.0
+text = "En fin, hoy tengo examen. Estudié...  Algo estudié, no mucho, pero estudié. Ahora bien, estoy llegando tarde, pero Alex va a trabajar a la oficina, así que seguro me dejan en la escuela. Saben que odio los bondis tecnológicos (sí, odio todo lo que se refiera a lo tecnológico. Bah, no lo odio, bah sí). Como sea, me llevan a la escuela así que todo bajo control, mi querido Watson? Una buena saga antigua de detectives que nunca vi.
+"

@@ -32,16 +32,9 @@ func _on_PuertaPasillo_pressed():
 
 func _on_Examen_pressed():
 	anotar_en_el_diario(\"\"\"
-	Llegué unos minutos antes, 
-	eso es ser una persona eficiente. 
-	Podría haber repasado antes del 
-	examen, pero quién 
-	no preferiria escuchar 
-	a una de las mejores divas 
-	pop de antes.
-	Seguro si apruebo es 
-	gracias a Miss Clarkson.
-	
+	Llegué unos minutos antes, eso es ser una persona eficiente. 
+	Podría haber repasado antes del examen, pero quién no preferiria escuchar a una de las mejores divas pop de antes.
+	Seguro si apruebo es gracias a Miss Clarkson.
 	\"\"\")
 	cambiar_escena_a('03_examen')
 

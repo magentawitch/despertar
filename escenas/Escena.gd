@@ -25,8 +25,12 @@ func _rehabilitar_input(nodo):
 			c.rehabilitar_interaccion()
 			_rehabilitar_input(c)
 
-func anota_en_el_diario(algo):
-	director.encolar("anotar", {"texto": algo.strip_edges() + "\n"})
+func anota_en_el_diario(algo: String):
+	var renglones = algo.strip_edges().split('\n')
+	var texto = ''
+	for renglon in renglones:
+		texto += renglon.strip_edges() + '\n'
+	director.encolar("anotar", {"texto": texto + "\n"})
 	
 func agregar_un_salto_de_linea_en_el_diario():
 	director.encolar("anotar", {"texto": ""})

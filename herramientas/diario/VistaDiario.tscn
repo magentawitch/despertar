@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://herramientas/diario/VistaDiario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiarioPagina.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://assets/images/flatLight/flatLight22.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/flatLight/flatLight33.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/flatLight/flatLight23.png" type="Texture" id=6]
+[ext_resource path="res://tipos_de_entrada_de_diario/texto_ejemplo_tercer_parrafo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tipos_de_entrada_de_diario/texto_ejemplo_primer_parrafo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tipos_de_entrada_de_diario/texto_ejemplo_segundo_parrafo.tscn" type="PackedScene" id=9]
 
 [node name="VistaDiario" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,7 +17,7 @@ __meta__ = {
 }
 
 [node name="FondoDiario" type="Sprite" parent="."]
-position = Vector2( 518.928, 284.857 )
+position = Vector2( 519.928, 284.857 )
 scale = Vector2( 0.784461, 0.784461 )
 texture = ExtResource( 3 )
 
@@ -33,11 +36,10 @@ __meta__ = {
 }
 
 [node name="izquierda" type="VBoxContainer" parent="paginas_ejemplo"]
-margin_left = 224.0
-margin_top = 121.0
-margin_right = 427.0
-margin_bottom = 425.0
-rect_scale = Vector2( 1.27677, 1.12781 )
+margin_left = 214.0
+margin_top = 116.0
+margin_right = 497.0
+margin_bottom = 460.0
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -45,121 +47,29 @@ __meta__ = {
 }
 es_izquierda = true
 
-[node name="Label" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_right = 203.0
-margin_bottom = 14.0
-custom_constants/line_spacing = 5
-text = "Primera linea"
-
-[node name="Label2" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_top = 18.0
-margin_right = 203.0
-margin_bottom = 50.0
-custom_constants/line_spacing = 4
-text = "Segunda linea
-Tercera Linea"
-
-[node name="Label3" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_top = 54.0
-margin_right = 203.0
-margin_bottom = 68.0
-custom_constants/line_spacing = 4
-text = "Cuarta linea"
-
-[node name="Label4" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_top = 72.0
-margin_right = 203.0
-margin_bottom = 122.0
-custom_constants/line_spacing = 4
-text = "Quinta linea
-Sexta linea
-Septima linea"
-
-[node name="Label5" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_top = 126.0
-margin_right = 203.0
-margin_bottom = 140.0
-custom_constants/line_spacing = 4
-text = "Octava linea"
-
-[node name="Label8" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_top = 144.0
-margin_right = 203.0
-margin_bottom = 158.0
-custom_constants/line_spacing = 4
-text = "De arriba ahora!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label6" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_top = 162.0
-margin_right = 203.0
+[node name="texto_ejemplo_primer_parrafo" parent="paginas_ejemplo/izquierda" instance=ExtResource( 8 )]
+margin_right = 283.0
 margin_bottom = 176.0
-custom_constants/line_spacing = 4
-text = "Primera linea"
 
-[node name="Label7" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
+[node name="texto_ejemplo_segundo_parrafo" parent="paginas_ejemplo/izquierda" instance=ExtResource( 9 )]
 margin_top = 180.0
-margin_right = 203.0
-margin_bottom = 212.0
-custom_constants/line_spacing = 4
-text = "Segunda linea
-Tercera Linea"
-
-[node name="Label9" type="Label" parent="paginas_ejemplo/izquierda"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_top = 216.0
-margin_right = 203.0
-margin_bottom = 284.0
-custom_constants/line_spacing = 4
-text = "Bueno, queda bastante chevere
-el tema de las entradas de dia-
-rio usando la libreria de UI que
-trae."
+margin_right = 283.0
+margin_bottom = 336.0
 
 [node name="derecha" type="VBoxContainer" parent="paginas_ejemplo"]
-margin_left = 556.068
-margin_top = 120.792
-margin_right = 759.068
-margin_bottom = 424.792
-rect_scale = Vector2( 1.277, 1.128 )
+margin_left = 546.0
+margin_top = 116.0
+margin_right = 829.0
+margin_bottom = 458.0
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="paginas_ejemplo/derecha"]
-modulate = Color( 0.12549, 0.152941, 0.4, 1 )
-margin_right = 203.0
-margin_bottom = 302.0
-custom_constants/line_spacing = 4
-text = "Acá lo mismo...
-
-Se puede escribir directamente
-texto multilinea pero el
-inconveniente es que hay que
-conocer a prepo la cantidad de
-lineas que ocupa una entrada.
-
-Por eso se deshabilitó el auto-
-wrap. Sin embargo, ahora uno
-está atado a saber cuantos 
-caracteres entran en una sola 
-linea.
-
-
-
-                                             :'("
+[node name="texto_ejemplo_tercer_parrafo" parent="paginas_ejemplo/derecha" instance=ExtResource( 7 )]
+margin_right = 283.0
+margin_bottom = 276.0
 
 [node name="botones" type="Control" parent="."]
 margin_right = 40.0

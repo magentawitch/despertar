@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tipos_de_entrada_de_diario/texto.tscn" type="PackedScene" id=1]
+
+[node name="texto_ejemplo_primer_parrafo" instance=ExtResource( 1 )]
+margin_right = 395.0
+margin_bottom = 104.0
+
+[node name="texto" parent="." index="0"]
+margin_right = 395.0
+margin_bottom = 136.0
+text = "Hoy nuevamente me levanté tarde… Bah, no diría tarde, tarde. Simplemente me dormí un rato más. Convengamos que esta casa inteligente es demasiado pesada como para que une pueda dormir mil horas más, las horas necesarias de une adolescente productive.
+"

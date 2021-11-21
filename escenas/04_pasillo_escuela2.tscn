@@ -19,14 +19,9 @@ script/source = "extends Escena
 
 func _ready():
 	anotar_en_el_diario(\"\"\"
-	Los pasillos de esta escuela 
-	siempre están vacíos. 
-	Pero lo que nunca faltan son 
-	esas figuras perturbadoras
-	del estúpido de Volk.
-	Todos lo alaban y a su 
-	super-sociedad de mierda.
-	
+	Los pasillos de esta escuela siempre están vacíos. 
+	Pero lo que nunca faltan son esas figuras perturbadoras del estúpido de Volk.
+	Todos lo alaban y a su super-sociedad de mierda.
 	\"\"\")
 
 func _on_PuertaAula_pressed():
@@ -55,13 +50,8 @@ func _on_CuadroVolk_pressed():
 
 func _on_BustVolk_pressed():
 	anotar_en_el_diario(\"\"\"
-	
-	Lo peor de todo es que su campaña 
-	fue para llevarnos a la 
-	tierra prometida. 
-	La verdad que si es esto, 
-	devolveme a la  época anterior. 
-	
+	Lo peor de todo es que su campaña fue para llevarnos a la tierra prometida. 
+	La verdad que si es esto, devolveme a la  época anterior. 
 	\"\"\")
 	dice_a_la_grabadora(\"\"\" Bitácora número 316: Un mes después de que Volk ascendiera al poder,
 	 \"\"\")
