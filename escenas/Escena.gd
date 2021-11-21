@@ -14,14 +14,12 @@ func _inicializar_dependencias(director: Director, diario: Diario):
 	director.connect("se_acabaron_las_acciones_pendientes", self, '_rehabilitar_input', [self])
 
 func _deshabilitar_input(nodo):
-	print("DESHABILITANDO INPUT")
 	for c in nodo.get_children():
 		if c.has_method('deshabilitar_interaccion'):
 			c.deshabilitar_interaccion()
 			_deshabilitar_input(c)
 
 func _rehabilitar_input(nodo):
-	print("REHABILITANDO INPUT")
 	for c in nodo.get_children():
 		if c.has_method('rehabilitar_interaccion'):
 			c.rehabilitar_interaccion()
