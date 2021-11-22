@@ -52,21 +52,20 @@ func _ready():
 script = SubResource( 1 )
 
 [node name="FondoAula" type="Sprite" parent="."]
-position = Vector2( 1121.37, 306.788 )
-scale = Vector2( 0.555149, 0.555149 )
+position = Vector2( 1986.8, 543.556 )
+scale = Vector2( 0.983593, 0.983593 )
 texture = ExtResource( 5 )
 
 [node name="Reloj" type="Sprite" parent="."]
-position = Vector2( 191.602, 107.31 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 339.474, 190.128 )
+scale = Vector2( 0.885882, 0.885882 )
 texture = ExtResource( 7 )
 
 [node name="PuertaPasillo" type="TextureButton" parent="."]
-margin_left = 88.6922
-margin_top = 142.36
-margin_right = 494.692
-margin_bottom = 811.36
-rect_scale = Vector2( 0.542079, 0.542079 )
+margin_left = 157.142
+margin_top = 252.228
+margin_right = 563.142
+margin_bottom = 921.228
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
@@ -78,33 +77,34 @@ __meta__ = {
 on_mouse_entered_cue = ExtResource( 10 )
 
 [node name="Profesore" type="Sprite" parent="."]
-position = Vector2( 1724.33, 352.327 )
-scale = Vector2( 0.348156, 0.348156 )
+position = Vector2( 3055.11, 624.24 )
+scale = Vector2( 0.61685, 0.61685 )
 texture = ExtResource( 4 )
 
 [node name="MesaProfesore" type="Sprite" parent="."]
-position = Vector2( 1650.16, 410.321 )
-scale = Vector2( 0.426636, 0.426636 )
+position = Vector2( 2923.69, 726.992 )
+scale = Vector2( 0.755898, 0.755898 )
 texture = ExtResource( 3 )
 
 [node name="BancoIzq" type="Sprite" parent="."]
-position = Vector2( 1882.78, 545.896 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 3335.84, 967.199 )
+scale = Vector2( 0.885882, 0.885882 )
 z_index = 1
 texture = ExtResource( 8 )
 
 [node name="BancoIzq2" type="Sprite" parent="."]
-position = Vector2( 2197.09, 488.004 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 3892.73, 864.628 )
+scale = Vector2( 0.885882, 0.885882 )
 texture = ExtResource( 8 )
 
 [node name="BancoDer" type="Sprite" parent="."]
-position = Vector2( 1276.99, 491.49 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 2262.53, 870.804 )
+scale = Vector2( 0.885882, 0.885882 )
 texture = ExtResource( 6 )
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( -250.491, 553.688 )
+position = Vector2( -443.811, 981.005 )
+scale = Vector2( 1.77176, 1.77176 )
 z_index = 1
 
 [node name="BancoDer4" type="TextureButton" parent="Node2D"]
@@ -121,10 +121,10 @@ __meta__ = {
 }
 
 [node name="BancoDer3" type="TextureButton" parent="."]
-margin_left = 269.169
-margin_top = 399.395
-margin_right = 540.169
-margin_bottom = 539.396
+margin_left = 476.904
+margin_top = 707.634
+margin_right = 747.904
+margin_bottom = 847.635
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 expand = true
@@ -134,22 +134,24 @@ __meta__ = {
 }
 
 [node name="Jade" parent="." instance=ExtResource( 11 )]
-position = Vector2( 73.5895, 545.023 )
-scale = Vector2( 2.01094, 2.01094 )
+position = Vector2( 347.763, 783.909 )
 script = SubResource( 2 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
-position = Vector2( -250.491, 553.688 )
+position = Vector2( -443.811, 981.005 )
+scale = Vector2( 1.77176, 1.77176 )
 script = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
 polygon = PoolVector2Array( 283.928, -41.6395, 253.962, 54.2521, 2431, 58.747, 2411.52, -32.6497, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
-position = Vector2( -37.9211, 362.918 )
+position = Vector2( -67.1872, 643.005 )
+scale = Vector2( 1.77176, 1.77176 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 2282.71, 358.172 )
+position = Vector2( 4044.42, 634.596 )
+scale = Vector2( 1.77176, 1.77176 )
 input_pickable = true
 
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]

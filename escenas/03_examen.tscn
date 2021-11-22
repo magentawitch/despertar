@@ -33,7 +33,7 @@ func interaccion_con_una_opcion(event, id: String, label: Label):
 	if not id.begins_with(punto_actual):
 		return
 	opciones_elegidas.append(id)
-	$examen/redondeletes.get_node(id).visible = true
+	$contenido/examen/redondeletes.get_node(id).visible = true
 	match punto_actual:
 		'A': 
 			punto_actual = 'B'
@@ -59,24 +59,28 @@ func interaccion_con_una_opcion(event, id: String, label: Label):
 
 
 func _ready() -> void:
-	agregar_opcion('A1', $examen/filas/punto_A/margen/opciones/opcion_1)
-	agregar_opcion('A2', $examen/filas/punto_A/margen/opciones/opcion_2)
-	agregar_opcion('A3', $examen/filas/punto_A/margen/opciones/opcion_3)
+	agregar_opcion('A1', $contenido/examen/filas/punto_A/margen/opciones/opcion_1)
+	agregar_opcion('A2', $contenido/examen/filas/punto_A/margen/opciones/opcion_2)
+	agregar_opcion('A3', $contenido/examen/filas/punto_A/margen/opciones/opcion_3)
 	
-	agregar_opcion('B1', $examen/filas/punto_B/margen/opciones/opcion_1)
-	agregar_opcion('B2', $examen/filas/punto_B/margen/opciones/opcion_2)
-	agregar_opcion('B3', $examen/filas/punto_B/margen/opciones/opcion_3)
+	agregar_opcion('B1', $contenido/examen/filas/punto_B/margen/opciones/opcion_1)
+	agregar_opcion('B2', $contenido/examen/filas/punto_B/margen/opciones/opcion_2)
+	agregar_opcion('B3', $contenido/examen/filas/punto_B/margen/opciones/opcion_3)
 	
-	agregar_opcion('C1', $examen/filas/punto_C/margen/opciones/opcion_1)
-	agregar_opcion('C2', $examen/filas/punto_C/margen/opciones/opcion_2)
-	agregar_opcion('C3', $examen/filas/punto_C/margen/opciones/opcion_3)
+	agregar_opcion('C1', $contenido/examen/filas/punto_C/margen/opciones/opcion_1)
+	agregar_opcion('C2', $contenido/examen/filas/punto_C/margen/opciones/opcion_2)
+	agregar_opcion('C3', $contenido/examen/filas/punto_C/margen/opciones/opcion_3)
 "
+
+[sub_resource type="Theme" id=6]
+MarginContainer/constants/margin_left = 15
+VBoxContainer/constants/separation = 9
 
 [sub_resource type="Animation" id=2]
 resource_name = "enfocar_A"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("examen:position")
+tracks/0/path = NodePath("contenido/examen:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -88,7 +92,7 @@ tracks/0/keys = {
 "values": [ Vector2( 215.722, 643.943 ), Vector2( 181.781, 95.2278 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("examen/filas/punto_A:modulate")
+tracks/1/path = NodePath("contenido/examen/filas/punto_A:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -100,7 +104,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0.243137 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("examen/filas/punto_B:modulate")
+tracks/2/path = NodePath("contenido/examen/filas/punto_B:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -112,7 +116,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.258824 ), Color( 1, 1, 1, 0.258824 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("examen:scale")
+tracks/3/path = NodePath("contenido/examen:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -128,7 +132,7 @@ tracks/3/keys = {
 resource_name = "enfocar_B"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("examen:position")
+tracks/0/path = NodePath("contenido/examen:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -140,7 +144,7 @@ tracks/0/keys = {
 "values": [ Vector2( 181.781, 95.2278 ), Vector2( 204.408, -232.87 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("examen/filas/punto_A:modulate")
+tracks/1/path = NodePath("contenido/examen/filas/punto_A:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -152,7 +156,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.243137 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("examen/filas/punto_B:modulate")
+tracks/2/path = NodePath("contenido/examen/filas/punto_B:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -164,7 +168,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.258824 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("examen/filas/punto_C:modulate")
+tracks/3/path = NodePath("contenido/examen/filas/punto_C:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -180,7 +184,7 @@ tracks/3/keys = {
 resource_name = "enfocar_C"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("examen:position")
+tracks/0/path = NodePath("contenido/examen:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -192,7 +196,7 @@ tracks/0/keys = {
 "values": [ Vector2( 204.408, -232.87 ), Vector2( 166.653, -504.706 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("examen/filas/punto_B:modulate")
+tracks/1/path = NodePath("contenido/examen/filas/punto_B:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -204,7 +208,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.223529 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("examen/filas/punto_C:modulate")
+tracks/2/path = NodePath("contenido/examen/filas/punto_C:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -220,7 +224,7 @@ tracks/2/keys = {
 resource_name = "finalizo_examen"
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("examen/filas/punto_C:modulate")
+tracks/0/path = NodePath("contenido/examen/filas/punto_C:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -232,7 +236,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("examen/filas/punto_B:modulate")
+tracks/1/path = NodePath("contenido/examen/filas/punto_B:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -244,7 +248,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0.223529 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("examen/filas/punto_A:modulate")
+tracks/2/path = NodePath("contenido/examen/filas/punto_A:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -256,7 +260,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.243137 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("examen:position")
+tracks/3/path = NodePath("contenido/examen:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -268,7 +272,7 @@ tracks/3/keys = {
 "values": [ Vector2( 166.653, -504.706 ), Vector2( 319.916, 4.38727 ), Vector2( 319.916, 4.38727 ), Vector2( 219.222, -757.417 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("examen:scale")
+tracks/4/path = NodePath("contenido/examen:scale")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -280,37 +284,32 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.529921, 0.529921 ), Vector2( 0.599661, 0.599661 ) ]
 }
 
-[sub_resource type="Theme" id=6]
-MarginContainer/constants/margin_left = 15
-VBoxContainer/constants/separation = 9
-
 [node name="examen" type="Node2D"]
 script = SubResource( 1 )
 puede_abrir_el_diario = false
 
-[node name="animacion" type="AnimationPlayer" parent="."]
-autoplay = "enfocar_A"
-anims/enfocar_A = SubResource( 2 )
-anims/enfocar_B = SubResource( 3 )
-anims/enfocar_C = SubResource( 4 )
-anims/finalizo_examen = SubResource( 5 )
+[node name="contenido" type="Node2D" parent="."]
+scale = Vector2( 1.8529, 1.8529 )
 
-[node name="fondo" type="Sprite" parent="."]
-position = Vector2( 830.086, 258.11 )
+[node name="fondo" type="Node2D" parent="contenido"]
+scale = Vector2( 0.930364, 0.930364 )
+
+[node name="fondo" type="Sprite" parent="contenido/fondo"]
+position = Vector2( 927.122, 350.294 )
 rotation = -0.000509253
-scale = Vector2( 0.580194, 0.580194 )
+scale = Vector2( 0.881113, 0.881113 )
 texture = ExtResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -20.1665, 276.708 )
+[node name="Sprite" type="Sprite" parent="contenido/fondo"]
+position = Vector2( -28.2528, 368.892 )
 rotation = -0.000509253
-scale = Vector2( 0.564872, 0.564872 )
+scale = Vector2( 0.881, 0.881 )
 texture = ExtResource( 3 )
 
-[node name="examen" type="Node2D" parent="."]
-position = Vector2( 204.408, -232.87 )
+[node name="examen" type="Node2D" parent="contenido"]
+position = Vector2( 181.781, 95.2278 )
 
-[node name="hoja" type="Sprite" parent="examen"]
+[node name="hoja" type="Sprite" parent="contenido/examen"]
 position = Vector2( 332.182, 585.472 )
 rotation = 1.52853
 scale = Vector2( 2.59966, 2.59966 )
@@ -319,7 +318,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="filas" type="VBoxContainer" parent="examen"]
+[node name="filas" type="VBoxContainer" parent="contenido/examen"]
 margin_left = 18.0
 margin_top = 12.0
 margin_right = 574.0
@@ -332,7 +331,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="titulo" type="Label" parent="examen/filas"]
+[node name="titulo" type="Label" parent="contenido/examen/filas"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 556.0
 margin_bottom = 48.0
@@ -345,7 +344,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="enunciado" type="Label" parent="examen/filas"]
+[node name="enunciado" type="Label" parent="contenido/examen/filas"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 57.0
 margin_right = 556.0
@@ -357,8 +356,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="punto_A" type="VBoxContainer" parent="examen/filas"]
-modulate = Color( 1, 1, 1, 0.243137 )
+[node name="punto_A" type="VBoxContainer" parent="contenido/examen/filas"]
 margin_top = 97.0
 margin_right = 556.0
 margin_bottom = 333.0
@@ -366,7 +364,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="enunciado" type="Label" parent="examen/filas/punto_A"]
+[node name="enunciado" type="Label" parent="contenido/examen/filas/punto_A"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 556.0
 margin_bottom = 48.0
@@ -378,12 +376,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="margen" type="MarginContainer" parent="examen/filas/punto_A"]
+[node name="margen" type="MarginContainer" parent="contenido/examen/filas/punto_A"]
 margin_top = 57.0
 margin_right = 556.0
 margin_bottom = 236.0
 
-[node name="opciones" type="VBoxContainer" parent="examen/filas/punto_A/margen"]
+[node name="opciones" type="VBoxContainer" parent="contenido/examen/filas/punto_A/margen"]
 margin_left = 15.0
 margin_right = 556.0
 margin_bottom = 179.0
@@ -391,7 +389,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_1" type="Label" parent="examen/filas/punto_A/margen/opciones"]
+[node name="opcion_1" type="Label" parent="contenido/examen/filas/punto_A/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 541.0
 margin_bottom = 82.0
@@ -404,7 +402,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_2" type="Label" parent="examen/filas/punto_A/margen/opciones"]
+[node name="opcion_2" type="Label" parent="contenido/examen/filas/punto_A/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 91.0
 margin_right = 541.0
@@ -418,7 +416,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_3" type="Label" parent="examen/filas/punto_A/margen/opciones"]
+[node name="opcion_3" type="Label" parent="contenido/examen/filas/punto_A/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 131.0
 margin_right = 541.0
@@ -432,7 +430,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="punto_B" type="VBoxContainer" parent="examen/filas"]
+[node name="punto_B" type="VBoxContainer" parent="contenido/examen/filas"]
+modulate = Color( 1, 1, 1, 0.258824 )
 margin_top = 342.0
 margin_right = 556.0
 margin_bottom = 533.0
@@ -440,7 +439,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="enunciado" type="Label" parent="examen/filas/punto_B"]
+[node name="enunciado" type="Label" parent="contenido/examen/filas/punto_B"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 556.0
 margin_bottom = 48.0
@@ -451,12 +450,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="margen" type="MarginContainer" parent="examen/filas/punto_B"]
+[node name="margen" type="MarginContainer" parent="contenido/examen/filas/punto_B"]
 margin_top = 57.0
 margin_right = 556.0
 margin_bottom = 168.0
 
-[node name="opciones" type="VBoxContainer" parent="examen/filas/punto_B/margen"]
+[node name="opciones" type="VBoxContainer" parent="contenido/examen/filas/punto_B/margen"]
 margin_left = 15.0
 margin_right = 556.0
 margin_bottom = 111.0
@@ -464,7 +463,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_1" type="Label" parent="examen/filas/punto_B/margen/opciones"]
+[node name="opcion_1" type="Label" parent="contenido/examen/filas/punto_B/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 541.0
 margin_bottom = 31.0
@@ -474,7 +473,7 @@ text = "1- Eterna juventud, androginia y biotecnología.
 "
 autowrap = true
 
-[node name="opcion_2" type="Label" parent="examen/filas/punto_B/margen/opciones"]
+[node name="opcion_2" type="Label" parent="contenido/examen/filas/punto_B/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 40.0
 margin_right = 541.0
@@ -485,7 +484,7 @@ text = "2- Criogenia, modificaciones corporales, super-inteligencia y eliminaci�
 "
 autowrap = true
 
-[node name="opcion_3" type="Label" parent="examen/filas/punto_B/margen/opciones"]
+[node name="opcion_3" type="Label" parent="contenido/examen/filas/punto_B/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 97.0
 margin_right = 541.0
@@ -495,18 +494,18 @@ mouse_default_cursor_shape = 2
 text = "3- Post-Humanidad y reproducción asistida."
 autowrap = true
 
-[node name="hbox" type="HBoxContainer" parent="examen/filas/punto_B"]
+[node name="hbox" type="HBoxContainer" parent="contenido/examen/filas/punto_B"]
 margin_top = 177.0
 margin_right = 556.0
 margin_bottom = 191.0
 
-[node name="tab" type="Label" parent="examen/filas/punto_B/hbox"]
+[node name="tab" type="Label" parent="contenido/examen/filas/punto_B/hbox"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 14.0
 margin_bottom = 14.0
 text = "as"
 
-[node name="opciones" type="VBoxContainer" parent="examen/filas/punto_B/hbox"]
+[node name="opciones" type="VBoxContainer" parent="contenido/examen/filas/punto_B/hbox"]
 margin_left = 18.0
 margin_right = 18.0
 margin_bottom = 14.0
@@ -514,7 +513,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="punto_C" type="VBoxContainer" parent="examen/filas"]
+[node name="punto_C" type="VBoxContainer" parent="contenido/examen/filas"]
 modulate = Color( 1, 1, 1, 0.239216 )
 margin_top = 542.0
 margin_right = 556.0
@@ -523,7 +522,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="enunciado" type="Label" parent="examen/filas/punto_C"]
+[node name="enunciado" type="Label" parent="contenido/examen/filas/punto_C"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 556.0
 margin_bottom = 65.0
@@ -535,12 +534,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="margen" type="MarginContainer" parent="examen/filas/punto_C"]
+[node name="margen" type="MarginContainer" parent="contenido/examen/filas/punto_C"]
 margin_top = 74.0
 margin_right = 556.0
 margin_bottom = 287.0
 
-[node name="opciones" type="VBoxContainer" parent="examen/filas/punto_C/margen"]
+[node name="opciones" type="VBoxContainer" parent="contenido/examen/filas/punto_C/margen"]
 margin_left = 15.0
 margin_right = 556.0
 margin_bottom = 213.0
@@ -548,7 +547,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_1" type="Label" parent="examen/filas/punto_C/margen/opciones"]
+[node name="opcion_1" type="Label" parent="contenido/examen/filas/punto_C/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 541.0
 margin_bottom = 48.0
@@ -561,7 +560,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_2" type="Label" parent="examen/filas/punto_C/margen/opciones"]
+[node name="opcion_2" type="Label" parent="contenido/examen/filas/punto_C/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 57.0
 margin_right = 541.0
@@ -575,7 +574,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_3" type="Label" parent="examen/filas/punto_C/margen/opciones"]
+[node name="opcion_3" type="Label" parent="contenido/examen/filas/punto_C/margen/opciones"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 131.0
 margin_right = 541.0
@@ -589,60 +588,60 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="redondeletes" type="Node2D" parent="examen"]
+[node name="redondeletes" type="Node2D" parent="contenido/examen"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="A1" type="Sprite" parent="examen/redondeletes"]
+[node name="A1" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 49.7266, 202.386 )
 scale = Vector2( 0.0242383, 0.034024 )
 texture = ExtResource( 2 )
 
-[node name="A2" type="Sprite" parent="examen/redondeletes"]
+[node name="A2" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 53.0679, 311.075 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
 
-[node name="A3" type="Sprite" parent="examen/redondeletes"]
+[node name="A3" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 54.4028, 359.13 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
 
-[node name="B1" type="Sprite" parent="examen/redondeletes"]
+[node name="B1" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 60.396, 496.226 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
 
-[node name="B2" type="Sprite" parent="examen/redondeletes"]
+[node name="B2" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 64.1416, 542.674 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
 
-[node name="B3" type="Sprite" parent="examen/redondeletes"]
+[node name="B3" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 64.8906, 612.346 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
 
-[node name="C1" type="Sprite" parent="examen/redondeletes"]
+[node name="C1" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 71.6333, 754.686 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
 
-[node name="C2" type="Sprite" parent="examen/redondeletes"]
+[node name="C2" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 73.8784, 824.278 )
 scale = Vector2( 0.0231984, 0.0370069 )
 texture = ExtResource( 2 )
 
-[node name="C3" type="Sprite" parent="examen/redondeletes"]
+[node name="C3" type="Sprite" parent="contenido/examen/redondeletes"]
 visible = false
 position = Vector2( 78.1162, 912.744 )
 scale = Vector2( 0.0231984, 0.0370069 )
@@ -652,3 +651,10 @@ texture = ExtResource( 2 )
 stream = ExtResource( 5 )
 volume_db = -5.0
 autoplay = true
+
+[node name="animacion" type="AnimationPlayer" parent="."]
+autoplay = "enfocar_A"
+anims/enfocar_A = SubResource( 2 )
+anims/enfocar_B = SubResource( 3 )
+anims/enfocar_C = SubResource( 4 )
+anims/finalizo_examen = SubResource( 5 )
