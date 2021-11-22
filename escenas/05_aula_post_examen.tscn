@@ -108,10 +108,10 @@ scale = Vector2( 1.77176, 1.77176 )
 z_index = 1
 
 [node name="BancoDer4" type="TextureButton" parent="Node2D"]
-margin_left = 1029.76
-margin_top = -78.5
-margin_right = 1300.76
-margin_bottom = 61.5
+margin_left = 1035.13
+margin_top = -91.924
+margin_right = 1306.13
+margin_bottom = 48.076
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 expand = true
@@ -121,10 +121,11 @@ __meta__ = {
 }
 
 [node name="BancoDer3" type="TextureButton" parent="."]
-margin_left = 476.904
-margin_top = 707.634
-margin_right = 747.904
-margin_bottom = 847.635
+margin_left = 745.665
+margin_top = 745.688
+margin_right = 1016.66
+margin_bottom = 885.689
+rect_scale = Vector2( 1.76176, 1.76176 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 expand = true
