@@ -37,9 +37,9 @@ __meta__ = {
 
 [node name="izquierda" type="VBoxContainer" parent="paginas_ejemplo"]
 margin_left = 463.0
-margin_top = 247.0
+margin_top = 238.0
 margin_right = 940.0
-margin_bottom = 831.0
+margin_bottom = 842.0
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -58,9 +58,9 @@ margin_bottom = 596.0
 
 [node name="derecha" type="VBoxContainer" parent="paginas_ejemplo"]
 margin_left = 1032.0
-margin_top = 250.0
-margin_right = 1489.0
-margin_bottom = 831.0
+margin_top = 237.0
+margin_right = 1496.0
+margin_bottom = 837.0
 custom_constants/separation = 4
 script = ExtResource( 2 )
 __meta__ = {
@@ -68,8 +68,8 @@ __meta__ = {
 }
 
 [node name="texto_ejemplo_tercer_parrafo" parent="paginas_ejemplo/derecha" instance=ExtResource( 7 )]
-margin_right = 457.0
-margin_bottom = 556.0
+margin_right = 464.0
+margin_bottom = 516.0
 
 [node name="botones" type="Control" parent="."]
 margin_right = 40.0

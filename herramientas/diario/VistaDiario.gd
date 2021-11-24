@@ -27,20 +27,22 @@ export(NodePath) var diario_path
 func diario() -> Diario:
 	return get_node(diario_path) as Diario
 	
+# yeilds
 func mostrar():
 	print("mostrando diario")
 	interactivo = true
 	$botones.visible = true
 	# Vamos a la ultima pagina par
-	recargar()
 	show()
+	yield(recargar(), 'completed')
 	
+# yeilds
 func mostrar_de_forma_no_interactiva():
 	print("mostrando diario de forma no interactiva")
 	interactivo = false
 	$botones.visible = false
-	recargar()
 	show()
+	yield(recargar(), 'completed')
 	
 func ocultar():
 	hide()
@@ -59,16 +61,20 @@ func limpiar_paginas_de_ejemplo():
 func agregar_entrada(entrada):
 	pass
 	
+# yeilds
 func limpiar_entradas():
 	print("Limpiando entradas")
 	for pagina in $paginas.get_children():
 		pagina.queue_free()
 	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	ultima_pagina_con_espacio = $paginas_ejemplo/izquierda.duplicate(7)
 	$paginas.add_child(ultima_pagina_con_espacio)
+	pagina_actual = ultima_pagina_con_espacio
 
 var ultima_pagina_con_espacio
 
+# yeilds
 func avanzar_pagina():
 	print("Avanzando pagina..")
 	if ultima_pagina_con_espacio.name == '1':
@@ -77,6 +83,11 @@ func avanzar_pagina():
 	else:
 		print(".. a una nueva pagina..")
 		var pagina_en_blanco = null
+		
+		if ultima_pagina_con_espacio.es_pagina_derecha():
+			ultima_pagina_con_espacio.hide()
+			ultima_pagina_con_espacio.pagina_anterior.hide()
+			
 		if ultima_pagina_con_espacio.es_pagina_izquierda():
 			pagina_en_blanco = $paginas_ejemplo/derecha.duplicate(7)
 		if ultima_pagina_con_espacio.es_pagina_derecha():
@@ -89,7 +100,9 @@ func avanzar_pagina():
 		pagina_en_blanco.pagina_siguiente = null
 		ultima_pagina_con_espacio = pagina_en_blanco
 	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 
+# yeilds
 func recargar():
 	print("Recargando vista del diario")
 	yield(limpiar_entradas(), 'completed')
