@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/HojaCarta.png" type="Texture" id=1]
 [ext_resource path="res://cartas/Carta.gd" type="Script" id=2]
 [ext_resource path="res://assets/CartaDoblada.png" type="Texture" id=3]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Position2D
+
+
+# TODO: Podria ser un Control tranquilamente
+"
 
 [node name="carta_1" type="Node2D"]
 script = ExtResource( 2 )
@@ -17,6 +24,7 @@ position = Vector2( 323.101, -2.00154 )
 [node name="VersionAbierta" type="Position2D" parent="."]
 position = Vector2( 620.795, 534.698 )
 scale = Vector2( 1.77195, 1.77195 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -82,7 +90,7 @@ margin_left = 1069.34
 margin_top = 425.563
 margin_right = 1636.34
 margin_bottom = 705.563
-rect_scale = Vector2( 0.453972, 0.453972 )
+rect_scale = Vector2( 0.718888, 0.718888 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
