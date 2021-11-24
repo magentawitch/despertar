@@ -193,8 +193,8 @@ diario_path = NodePath("../../diario")
 
 [node name="eleccion_de_epigrafe" parent="ui" instance=ExtResource( 13 )]
 visible = false
-position = Vector2( 473.304, 277.085 )
-scale = Vector2( 2.74802, 2.74802 )
+position = Vector2( 971.108, 528.815 )
+scale = Vector2( 3.17586, 3.17586 )
 
 [node name="contenedor_dialogo" type="Position2D" parent="ui"]
 position = Vector2( 981.23, 333.925 )
@@ -231,11 +231,11 @@ anims/mostrar = SubResource( 5 )
 anims/ocultar = SubResource( 6 )
 
 [node name="camara" type="Node2D" parent="."]
-position = Vector2( 335.616, 313.167 )
+position = Vector2( 983.326, 601.667 )
 script = SubResource( 7 )
 
 [node name="borde_izquierdo" type="Area2D" parent="camara"]
-position = Vector2( -333.371, -310.922 )
+position = Vector2( -983.91, -590.937 )
 collision_layer = 2
 collision_mask = 2
 
@@ -244,7 +244,7 @@ position = Vector2( -17.3218, -0.655685 )
 polygon = PoolVector2Array( -4.08509, 996.205, 65.5075, 1050.08, 62.2196, 8.82083, 0.404747, 37.6224 )
 
 [node name="borde_derecho" type="Area2D" parent="camara"]
-position = Vector2( 1595.02, -301.942 )
+position = Vector2( 944.481, -581.957 )
 collision_layer = 2
 collision_mask = 2
 

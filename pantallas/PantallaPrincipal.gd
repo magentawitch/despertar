@@ -13,7 +13,7 @@ func _ready() -> void:
 		nombre_de_la_escena_actual = nombre_de_la_escena_de_prueba
 	cargar_escena_actual()
 	$telon.visible = true
-	$ui/vista_diario.visible = false
+	#$ui/vista_diario.visible = false
 	$ui/eleccion_de_epigrafe.visible = false
 	$director.connect("aparecieron_acciones_pendientes", $ui/menu, 'hide')
 	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
