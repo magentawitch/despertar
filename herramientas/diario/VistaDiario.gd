@@ -27,30 +27,39 @@ export(NodePath) var diario_path
 func diario() -> Diario:
 	return get_node(diario_path) as Diario
 	
+var OFFSCREEN_OFFSET = Vector2(0, 5000)
+var posicion_inicial: Vector2
+var posicion_afuera: Vector2
+
+func _ready():
+	show()  # por si estaba invisible en el editor
+	# a partir de ahora lo oculta moviendolo afuera del viewport
+	posicion_inicial = transform.origin
+	posicion_afuera = posicion_inicial + OFFSCREEN_OFFSET
+	ocultar()
+	diario().connect("entrada_agregada", self, "agregar_entrada")
+	limpiar_paginas_de_ejemplo()
+	
 # yeilds
 func mostrar():
 	print("mostrando diario")
 	interactivo = true
 	$botones.visible = true
-	# Vamos a la ultima pagina par
-	show()
+	show()  # por si las dudas
 	yield(recargar(), 'completed')
+	self.transform.origin = posicion_inicial
 	
 # yeilds
 func mostrar_de_forma_no_interactiva():
 	print("mostrando diario de forma no interactiva")
 	interactivo = false
 	$botones.visible = false
-	show()
 	yield(recargar(), 'completed')
+	self.transform.origin = posicion_inicial
 	
 func ocultar():
-	hide()
 	print("ocultando diario")
-
-func _ready():
-	diario().connect("entrada_agregada", self, "agregar_entrada")
-	limpiar_paginas_de_ejemplo()
+	self.transform.origin = posicion_afuera
 	
 func limpiar_paginas_de_ejemplo():
 	for node in $paginas_ejemplo/derecha.get_children():
