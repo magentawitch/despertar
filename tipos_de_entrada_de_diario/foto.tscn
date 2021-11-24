@@ -16,19 +16,20 @@ func inicializar_con(entrada: Dictionary):
 "
 
 [node name="entrada_de_foto" type="MarginContainer"]
-margin_right = 166.0
-margin_bottom = 144.0
-rect_min_size = Vector2( 166, 140 )
+margin_right = 359.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 166, 220 )
 script = SubResource( 1 )
 __meta__ = {
+"_edit_use_anchors_": false,
 "_editor_description_": "El alto que tiene se corresponde con el espacio (fijo) que ocupa una entrada de foto en el diario."
 }
 
 [node name="lugar_donde_va_la_foto" type="Position2D" parent="."]
-position = Vector2( 106.356, 114.69 )
-scale = Vector2( 0.964641, 0.964641 )
+position = Vector2( 237.148, 195.495 )
 
 [node name="foto_placeholder_que_se_borra_al_iniciar" type="Node2D" parent="lugar_donde_va_la_foto"]
+scale = Vector2( 1.5, 1.5 )
 
 [node name="FondoEscritorio" type="Sprite" parent="lugar_donde_va_la_foto/foto_placeholder_que_se_borra_al_iniciar"]
 position = Vector2( -1.5297, -61.4458 )

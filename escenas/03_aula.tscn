@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -52,6 +52,21 @@ func _on_Profesore_pressed():
 	dice(\"Profesore\", \"El examen ya fue repartido. Llegaste con el tiempo justo.\")
 	dice(\"Profesore\", \"Recuerda, llegar temprano es estar a tiempo. Llegar a tiempo es llegar tarde, y llegar tarde es inaceptable\")
 "
+
+[sub_resource type="Animation" id=2]
+resource_name = "Flota"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("contenedor:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.137493, -0.25, 0, 0.801232, -21.4056, 0.22531, -0.830657, 21.8614, 0.2, -47.2781 ),
+"times": PoolRealArray( 0, 2 )
+}
 
 [node name="Aula" type="Node2D"]
 position = Vector2( -244.977, 523.251 )
@@ -134,18 +149,27 @@ position = Vector2( 1367.23, 357.066 )
 scale = Vector2( 0.91809, 0.91809 )
 texture = ExtResource( 6 )
 
-[node name="Examen" type="TextureButton" parent="."]
-margin_left = 1314.54
-margin_top = 118.359
-margin_right = 1516.54
-margin_bottom = 354.358
-rect_scale = Vector2( 0.234467, 0.234467 )
+[node name="examen" type="Node2D" parent="."]
+
+[node name="contenedor" type="Node2D" parent="examen"]
+position = Vector2( 15.7145, -3.80091 )
+
+[node name="Examen" type="TextureButton" parent="examen/contenedor"]
+margin_left = 1267.63
+margin_top = 76.107
+margin_right = 1469.63
+margin_bottom = 312.106
+rect_scale = Vector2( 0.64917, 0.64917 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="examen"]
+autoplay = "Flota"
+anims/Flota = SubResource( 2 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
 visible = false
@@ -171,4 +195,4 @@ position = Vector2( 606.698, 246.554 )
 [connection signal="pressed" from="Reloj" to="." method="_on_Reloj_pressed"]
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
 [connection signal="pressed" from="Profesore" to="." method="_on_Profesore_pressed"]
-[connection signal="pressed" from="Examen" to="." method="_on_Examen_pressed"]
+[connection signal="pressed" from="examen/contenedor/Examen" to="." method="_on_Examen_pressed"]

@@ -39,7 +39,7 @@ func _on_BustVolk_pressed():
 "
 
 [node name="pasillo_escuela" type="Node2D"]
-position = Vector2( -244.977, 523.251 )
+position = Vector2( -124.977, 523.251 )
 script = SubResource( 1 )
 
 [node name="FondoPasillo" type="Sprite" parent="."]

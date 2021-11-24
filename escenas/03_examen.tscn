@@ -72,12 +72,11 @@ func _ready() -> void:
 	agregar_opcion('C3', $contenido/examen/filas/punto_C/margen/opciones/opcion_3)
 "
 
-[sub_resource type="Theme" id=6]
+[sub_resource type="Theme" id=2]
 MarginContainer/constants/margin_left = 15
 VBoxContainer/constants/separation = 9
 
-[sub_resource type="Animation" id=2]
-resource_name = "enfocar_A"
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("contenido/examen:position")
@@ -128,8 +127,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "enfocar_B"
+[sub_resource type="Animation" id=4]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("contenido/examen:position")
@@ -180,8 +178,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.239216 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "enfocar_C"
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("contenido/examen:position")
@@ -220,8 +217,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.223529 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "finalizo_examen"
+[sub_resource type="Animation" id=6]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("contenido/examen/filas/punto_C:modulate")
@@ -325,7 +321,7 @@ margin_right = 574.0
 margin_bottom = 951.0
 rect_rotation = -2.31805
 rect_scale = Vector2( 1.2, 1.2 )
-theme = SubResource( 6 )
+theme = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -654,7 +650,7 @@ autoplay = true
 
 [node name="animacion" type="AnimationPlayer" parent="."]
 autoplay = "enfocar_A"
-anims/enfocar_A = SubResource( 2 )
-anims/enfocar_B = SubResource( 3 )
-anims/enfocar_C = SubResource( 4 )
-anims/finalizo_examen = SubResource( 5 )
+anims/enfocar_A = SubResource( 3 )
+anims/enfocar_B = SubResource( 4 )
+anims/enfocar_C = SubResource( 5 )
+anims/finalizo_examen = SubResource( 6 )

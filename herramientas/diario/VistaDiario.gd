@@ -100,7 +100,6 @@ func avanzar_pagina():
 		pagina_en_blanco.pagina_siguiente = null
 		ultima_pagina_con_espacio = pagina_en_blanco
 	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
 
 # yeilds
 func recargar():
