@@ -3,9 +3,30 @@ class_name VistaDiario, "./VistaDiario.icon.png"
 
 signal solicitaron_cerrarme
 
+var recargar_al_mostrar = false
+
 var pagina_actual: Control
 var interactivo = true
+export(NodePath) var diario_path
 
+var OFFSCREEN_OFFSET = Vector2(0, 5000)
+var posicion_inicial: Vector2
+var posicion_afuera: Vector2
+
+func diario() -> Diario:
+	return get_node(diario_path) as Diario
+	
+
+func _ready() -> void:
+	show()  # por si estaba invisible en el editor
+	# a partir de ahora lo oculta moviendolo afuera del viewport
+	posicion_inicial = transform.origin
+	posicion_afuera = posicion_inicial + OFFSCREEN_OFFSET
+	ocultar()
+	diario().connect("entrada_agregada", self, "agregar_entrada")
+	limpiar_paginas_de_ejemplo()
+	recargar()
+	
 func cambiar_pagina_actual(nueva_pagina):
 	print("[cambio la pagina actual]")
 	for node in $paginas.get_children():
@@ -22,23 +43,6 @@ func cambiar_pagina_actual(nueva_pagina):
 
 func botones_habilitados():
 	return interactivo
-
-export(NodePath) var diario_path
-func diario() -> Diario:
-	return get_node(diario_path) as Diario
-	
-var OFFSCREEN_OFFSET = Vector2(0, 5000)
-var posicion_inicial: Vector2
-var posicion_afuera: Vector2
-
-func _ready():
-	show()  # por si estaba invisible en el editor
-	# a partir de ahora lo oculta moviendolo afuera del viewport
-	posicion_inicial = transform.origin
-	posicion_afuera = posicion_inicial + OFFSCREEN_OFFSET
-	ocultar()
-	diario().connect("entrada_agregada", self, "agregar_entrada")
-	limpiar_paginas_de_ejemplo()
 	
 # yeilds
 func mostrar():
@@ -46,7 +50,8 @@ func mostrar():
 	interactivo = true
 	$botones.visible = true
 	show()  # por si las dudas
-	yield(recargar(), 'completed')
+	if recargar_al_mostrar:
+		yield(recargar(), 'completed')
 	self.transform.origin = posicion_inicial
 	
 # yeilds
@@ -54,7 +59,9 @@ func mostrar_de_forma_no_interactiva():
 	print("mostrando diario de forma no interactiva")
 	interactivo = false
 	$botones.visible = false
-	yield(recargar(), 'completed')
+	show()  # por si las dudas
+	if recargar_al_mostrar:
+		yield(recargar(), 'completed')
 	self.transform.origin = posicion_inicial
 	
 func ocultar():
@@ -68,7 +75,10 @@ func limpiar_paginas_de_ejemplo():
 		node.queue_free()
 
 func agregar_entrada(entrada):
-	pass
+	var se_pudo = yield(ultima_pagina_con_espacio.agregar_entrada_si_hay_lugar(entrada), "completed")
+	if not se_pudo:
+		yield(avanzar_pagina(), 'completed')
+		yield(ultima_pagina_con_espacio.agregar_entrada(entrada), 'completed')
 	
 # yeilds
 func limpiar_entradas():
@@ -115,10 +125,7 @@ func recargar():
 	print("Recargando vista del diario")
 	yield(limpiar_entradas(), 'completed')
 	for entrada in diario().obtener_todas_las_entradas():
-		var se_pudo = yield(ultima_pagina_con_espacio.agregar_entrada_si_hay_lugar(entrada), "completed")
-		if not se_pudo:
-			yield(avanzar_pagina(), 'completed')
-			yield(ultima_pagina_con_espacio.agregar_entrada(entrada), 'completed')
+		yield(agregar_entrada(entrada), 'completed')
 	cambiar_pagina_actual(ultima_pagina_con_espacio)
 	
 func cambiar_pagina_izquierda():
