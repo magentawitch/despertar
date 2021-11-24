@@ -15,7 +15,8 @@ modulate = Color( 0.572549, 0.392157, 0.686275, 0.109804 )
 position = Vector2( 323.101, -2.00154 )
 
 [node name="VersionAbierta" type="Position2D" parent="."]
-position = Vector2( 278.982, 285.656 )
+position = Vector2( 620.795, 534.698 )
+scale = Vector2( 1.77195, 1.77195 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -77,10 +78,10 @@ __meta__ = {
 }
 
 [node name="VersionCerrada" type="TextureButton" parent="."]
-margin_left = 545.208
-margin_top = 110.583
-margin_right = 1112.21
-margin_bottom = 390.583
+margin_left = 1069.34
+margin_top = 425.563
+margin_right = 1636.34
+margin_bottom = 705.563
 rect_scale = Vector2( 0.453972, 0.453972 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
