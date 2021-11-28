@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://cartas/Carta.gd"
 }, {
+"base": "Node2D",
+"class": "ContenedorDeEscena",
+"language": "GDScript",
+"path": "res://herramientas/ContenedorDeEscena.gd"
+}, {
 "base": "Node",
 "class": "Diario",
 "language": "GDScript",
@@ -81,6 +86,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Carta": "res://assets/iconos/envelope-solid.svg",
+"ContenedorDeEscena": "",
 "Diario": "res://herramientas/diario/Diario.icon.png",
 "Director": "res://herramientas/director/Director.icon.png",
 "EleccionDeEpigrafe": "",
