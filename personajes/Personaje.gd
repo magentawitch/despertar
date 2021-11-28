@@ -34,11 +34,11 @@ func _process(delta: float) -> void:
 		
 		if facing == "left" and por_caminar > 0:
 			facing = "right"
-			sprite().scale.x = -sprite().scale.x
+			self.scale.x = -self.scale.x
 			
 		if facing == "right" and por_caminar < 0:
 			facing = "left"
-			sprite().scale.x = -sprite().scale.x
+			self.scale.x = -self.scale.x
 		
 		var desplazamiento = clamp(
 			sign(por_caminar) * velocidad * delta,
@@ -51,12 +51,12 @@ func _process(delta: float) -> void:
 		if abs(por_caminar) < 1:
 			por_caminar = 0
 		
-		if !$AnimationPlayer.is_playing():
-			$AnimationPlayer.play("camina")
+		if !$cuerpo/AnimationPlayer.is_playing():
+			$cuerpo/AnimationPlayer.play("camina")
 		
 	else:
-		if $AnimationPlayer.is_playing():
+		if $cuerpo/AnimationPlayer.is_playing():
 			emit_signal("llegue_al_destino", posicion_destino_actual)
-			$AnimationPlayer.seek(0)
-			$AnimationPlayer.stop()
+			$cuerpo/AnimationPlayer.seek(0)
+			$cuerpo/AnimationPlayer.stop()
 		

@@ -128,8 +128,7 @@ volume_db = 8.0
 pitch_scale = 1.23
 
 [node name="Jade" parent="." instance=ExtResource( 10 )]
-position = Vector2( 412.012, 266.624 )
-scale = Vector2( 0.893571, 0.893571 )
+position = Vector2( 379.94, 469.749 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
 position = Vector2( -60.8553, 466.831 )

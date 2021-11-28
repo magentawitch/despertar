@@ -8,25 +8,30 @@ resource_name = "camina"
 length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath("./Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 0.801 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1.91093, -64.9837 ), Vector2( -1.91093, -64.9837 ), Vector2( -2.713, -67.131 ), Vector2( -1.91093, -64.9837 ), Vector2( -1.91093, -64.9837 ), Vector2( -1.062, -67.009 ), Vector2( -1.91093, -64.9837 ), Vector2( -1.91093, -64.9837 ) ]
+"values": [ Vector2( 2.32686, -285.352 ), Vector2( -20.9812, -281.114 ), Vector2( 22.7141, -325.64 ), Vector2( 51.0622, -285.352 ), Vector2( -37.4968, -281.114 ), Vector2( 32.841, -306.448 ), Vector2( 37.7137, -285.305 ), Vector2( 2.32686, -285.352 ), Vector2( -1.91093, -64.9837 ) ]
 }
 
 [node name="Jade" type="Node2D"]
 script = ExtResource( 2 )
-sprite_path = NodePath("Sprite")
+sprite_path = NodePath("cuerpo/Sprite")
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -1.86765, -65.0869 )
+[node name="cuerpo" type="Node2D" parent="."]
+position = Vector2( -1.88782, -98.163 )
+scale = Vector2( 0.478, 0.478 )
+
+[node name="Sprite" type="Sprite" parent="cuerpo"]
+position = Vector2( -18.942, -287.797 )
+scale = Vector2( 1.71158, 1.71158 )
 texture = ExtResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cuerpo"]
 anims/camina = SubResource( 1 )

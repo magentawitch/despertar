@@ -190,7 +190,7 @@ scale = Vector2( 1.83618, 1.83618 )
 input_pickable = true
 
 [node name="Jade" parent="." instance=ExtResource( 12 )]
-position = Vector2( 606.698, 246.554 )
+position = Vector2( 616.777, 473.34 )
 
 [connection signal="pressed" from="Reloj" to="." method="_on_Reloj_pressed"]
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]

@@ -135,7 +135,7 @@ __meta__ = {
 }
 
 [node name="Jade" parent="." instance=ExtResource( 11 )]
-position = Vector2( 347.763, 783.909 )
+position = Vector2( 354.898, 990.831 )
 script = SubResource( 2 )
 
 [node name="PisoCaminable" type="Area2D" parent="."]
