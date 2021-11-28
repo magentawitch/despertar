@@ -13,6 +13,24 @@ func _inicializar_dependencias(director: Director, diario: Diario):
 	director.connect("aparecieron_acciones_pendientes", self, '_deshabilitar_input', [self])
 	director.connect("se_acabaron_las_acciones_pendientes", self, '_rehabilitar_input', [self])
 
+static func cargar(nombre_de_la_escena: String) -> Escena:
+	var archivo_de_la_escena = "res://escenas/%s.tscn" % nombre_de_la_escena
+	assert(
+		ResourceLoader.exists(archivo_de_la_escena),
+		"No existe la escena: %s, deberia estar en: %s" % [
+			nombre_de_la_escena, archivo_de_la_escena
+		]
+	)
+	var escena = load(archivo_de_la_escena).instance()
+	assert(
+		true, # escena is Escena, 
+		"""La escena: %s no es del tipo Escena. TIP: Tiene que tener
+		un script attacheado que arranque con: `extends Escena`""" % [escena]
+		## Parece que godot no puede llamar `x is X` dentro de funciones estáticas
+	)
+	return escena as Escena
+
+	
 func _deshabilitar_input(nodo):
 	for c in nodo.get_children():
 		if c.has_method('deshabilitar_interaccion'):
@@ -67,3 +85,4 @@ func dice(quien, dialogo):
 
 func elige(opciones):
 	director.encolar('elige', {"opciones": opciones, "responsable": self})
+
