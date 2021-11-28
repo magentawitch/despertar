@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/iconos/exclamation.png" type="Texture" id=15]
 [ext_resource path="res://herramientas/Foco.gd" type="Script" id=16]
 [ext_resource path="res://herramientas/ContenedorDeEscena.gd" type="Script" id=17]
+[ext_resource path="res://acciones/caminar.gd" type="Script" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Notificacion"
@@ -152,6 +153,10 @@ path_a_la_vista_de_eleccion_del_epigrafe = NodePath("../../ui/eleccion_de_epigra
 [node name="ver_carta" type="Node" parent="director"]
 script = ExtResource( 14 )
 contenedor_de_la_carta = NodePath("../../ui/contenedor_carta")
+
+[node name="caminar" type="Node" parent="director"]
+script = ExtResource( 18 )
+path_al_foco = NodePath("../../foco")
 
 [node name="contenedor" type="Node2D" parent="."]
 script = ExtResource( 17 )

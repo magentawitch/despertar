@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://escenas/Escena.gd"
 }, {
+"base": "Node",
+"class": "Foco",
+"language": "GDScript",
+"path": "res://herramientas/Foco.gd"
+}, {
 "base": "Node2D",
 "class": "Foto",
 "language": "GDScript",
@@ -92,6 +97,7 @@ _global_script_class_icons={
 "EleccionDeEpigrafe": "",
 "EntradaDeDiario": "res://assets/iconos/menuList.png",
 "Escena": "res://assets/iconos/door.png",
+"Foco": "",
 "Foto": "res://assets/iconos/film.png",
 "ObjectoInteractivo": "res://assets/iconos/joystick.png",
 "Personaje": "res://assets/iconos/singleplayer.png",

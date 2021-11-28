@@ -1,5 +1,5 @@
 extends Node
-
+class_name Foco
 
 export(NodePath) var path_al_contenedor_de_escena
 onready var contenedor_de_escena = get_node(path_al_contenedor_de_escena) as Node2D

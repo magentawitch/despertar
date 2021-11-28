@@ -86,3 +86,6 @@ func dice(quien, dialogo):
 func elige(opciones):
 	director.encolar('elige', {"opciones": opciones, "responsable": self})
 
+func camina(posicion_destino: Vector2):
+	director.encolar('caminar', {"posicion_destino": posicion_destino})
+	
