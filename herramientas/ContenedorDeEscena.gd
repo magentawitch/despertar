@@ -4,7 +4,7 @@ class_name ContenedorDeEscena
 
 const DELAY_ANTES_DE_CARGAR_ESCENA = 1.0
 
-export var nombre_de_la_escena_de_prueba: String = "02_pasillo_escuela"
+export var nombre_de_la_escena_de_prueba: String = "00_diario"
 export var nombre_de_la_escena_actual: String = "00_diario"
 
 export(NodePath) var path_al_director

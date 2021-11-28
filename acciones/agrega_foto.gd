@@ -26,6 +26,8 @@ func agrega_foto(director: Director, detalles: Dictionary):
 	
 	# Agregar entrada al diario junto con la opcion elegida
 	diario().agregar_foto(nombre_foto, epigrafe_elegido)
+	yield(vista_diario(), "entrada_agregada")
+	vista_diario().cambiar_a_ultima_pagina()
 	
 	# Mostrar el diario de nuevo de forma interactiva
 	# (asi se habilitan los botones y se muestra la nueva entrada)
