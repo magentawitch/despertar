@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -19,16 +19,17 @@
 [ext_resource path="res://herramientas/ContenedorDeEscena.gd" type="Script" id=17]
 [ext_resource path="res://acciones/caminar.gd" type="Script" id=18]
 [ext_resource path="res://acciones/agregar_carta.gd" type="Script" id=19]
+[ext_resource path="res://assets/images/camara_boton.png" type="Texture" id=20]
+[ext_resource path="res://assets/images/camara_boton_hover.png" type="Texture" id=21]
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.5, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.19043, 0.19043, 0.19043, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 9 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Notificacion"
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -43,7 +44,7 @@ tracks/0/keys = {
 "values": [ Vector2( 565.617, 48.3115 ), Vector2( 561.157, 3.71628 ), Vector2( 565.617, 48.3115 ) ]
 }
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=4]
 script/source = "extends Position2D
 
 signal presiono_continuar
@@ -62,13 +63,13 @@ func _on_boton_para_cerrar_pressed() -> void:
 
 "
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=5]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
 tracks/0/interp = 1
@@ -80,7 +81,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 1.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
@@ -93,7 +94,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.2 )
 }
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=9]
 script/source = "extends Node2D
 
 
@@ -186,13 +187,13 @@ visible = false
 self_modulate = Color( 1, 1, 1, 0.294118 )
 position = Vector2( 982.512, 563.776 )
 scale = Vector2( 1, 1293.59 )
-texture = SubResource( 8 )
+texture = SubResource( 2 )
 
 [node name="menu" type="VBoxContainer" parent="ui"]
 margin_left = 52.818
-margin_top = 22.909
+margin_top = 59.6786
 margin_right = 843.818
-margin_bottom = 885.909
+margin_bottom = 1263.68
 rect_scale = Vector2( 0.242848, 0.242848 )
 alignment = 1
 __meta__ = {
@@ -200,9 +201,8 @@ __meta__ = {
 }
 
 [node name="boton_abrir_diario" type="TextureButton" parent="ui/menu"]
-margin_top = 81.0
 margin_right = 791.0
-margin_bottom = 781.0
+margin_bottom = 700.0
 rect_min_size = Vector2( 0, 700 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 10 )
@@ -218,7 +218,18 @@ texture = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui/menu/boton_abrir_diario/Notificacion"]
 autoplay = "Notificacion"
-anims/Notificacion = SubResource( 1 )
+anims/Notificacion = SubResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="ui/menu"]
+margin_top = 704.0
+margin_right = 791.0
+margin_bottom = 1204.0
+rect_min_size = Vector2( 0, 500 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
+expand = true
+stretch_mode = 5
 
 [node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
 diario_path = NodePath("../../diario")
@@ -233,7 +244,7 @@ position = Vector2( 981.23, 333.925 )
 
 [node name="contenedor_carta" type="Position2D" parent="ui"]
 position = Vector2( 982.512, 519.935 )
-script = SubResource( 2 )
+script = SubResource( 4 )
 
 [node name="contenido" type="Node2D" parent="ui/contenedor_carta"]
 
@@ -253,18 +264,18 @@ position = Vector2( 982.756, 554.566 )
 rotation = 1.57396
 scale = Vector2( 0.557886, 1992.89 )
 z_index = 20
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="anim" type="AnimationPlayer" parent="telon"]
-anims/mostrar = SubResource( 5 )
-anims/ocultar = SubResource( 6 )
+anims/mostrar = SubResource( 7 )
+anims/ocultar = SubResource( 8 )
 
 [node name="camara" type="Node2D" parent="."]
 position = Vector2( 983.326, 601.667 )
-script = SubResource( 7 )
+script = SubResource( 9 )
 
 [node name="borde_izquierdo" type="Area2D" parent="camara"]
 position = Vector2( -983.91, -590.937 )

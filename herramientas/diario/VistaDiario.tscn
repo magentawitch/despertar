@@ -81,10 +81,10 @@ __meta__ = {
 }
 
 [node name="cerrar_diario" type="TextureButton" parent="botones"]
-margin_left = 84.2692
-margin_top = 65.3784
-margin_right = 213.269
-margin_bottom = 194.378
+margin_left = 86.051
+margin_top = 72.5056
+margin_right = 215.051
+margin_bottom = 201.505
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 5 )
 expand = true
