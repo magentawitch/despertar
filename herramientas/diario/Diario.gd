@@ -51,3 +51,18 @@ func _interaccion_de_ejemplo(diario: Diario):
 	# diario.registrar_hito("leBobeSeCuró")
 	# if diario.el_hito_fue_registrado("leBobeSeCuró"):
 	# 	diario.escribir_renglon("Yay! Mi abuele se siente mejor :smile:")
+
+
+# Todavia no me encuentro decidido sobre si esto tiene sentido tratarlo como
+# un objeto separado (como Memoria o algo así) o registrar los hitos directamente
+# como entradas en el diario que no se muestran en la vista del mismo.
+# De todas maneras, la interface de las escenas expone otra api para interactuar
+# con esto. 
+var hitos = []
+
+func registrar_hito(nombre_hito: String):
+	if not el_hito_fue_registrado(nombre_hito):
+		hitos.append(nombre_hito)
+	
+func el_hito_fue_registrado(nombre_hito: String) -> bool:
+	return hitos.has(nombre_hito)

@@ -3,11 +3,12 @@ class_name Escena, "res://assets/iconos/door.png"
 
 export var puede_abrir_el_diario = true
 
-var diario: Diario
+## El diario es de solo lectura
+var diario_sl: Diario
 var director: Director
 
 func _inicializar_dependencias(director: Director, diario: Diario):
-	self.diario = diario
+	self.diario_sl = diario
 	self.director = director
 	print("Escena: %s inicializada!" % get_name())
 	director.connect("aparecieron_acciones_pendientes", self, '_deshabilitar_input', [self])
@@ -64,6 +65,15 @@ func protagonista_piensa(algo):
 	
 func cinematica(descrpcion):
 	pass
+	
+func ya_ocurrio_que(nombre_hito) -> bool:
+	return diario_sl.el_hito_fue_registrado(nombre_hito)
+	
+func no_ocurrio_que(nombre_hito) -> bool:
+	return not diario_sl.el_hito_fue_registrado(nombre_hito)
+	
+func registrar_hito(nombre_hito):
+	director.encolar("registrar_hito", {"nombre_hito": nombre_hito})
 
 func cambiar_escena_a(nombre_de_escena):
 	director.encolar("cambio_de_escena", {"escena": nombre_de_escena})

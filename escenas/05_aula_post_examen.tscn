@@ -30,15 +30,40 @@ var reconcidero_el_pupitre = false
 func _on_BancoDer3_pressed() -> void:
 	if not reconcidero_el_pupitre:
 		dice(\"Jade\", \"No, este no\")
-	else:
+	elif no_ocurrio_que(\"tomo_foto\"):
 		dice(\"Jade\", \"Serás añadido a la colección de mi diario!\")
 		agrega_foto_al_diario(\"mesa_profesore\")
+		registrar_hito(\"tomo_foto\")
+	else:
+		dice(\"Jade\", \"Ya le saqué una foto\")
+		dice(\"Jade\", \"No quiero otra\")
 
 func _on_BancoDer4_pressed() -> void:
-	dice(\"Jade\", \"No, este tampoco\")
-	dice(\"Jade\", \"Mejor le saco al otro\")
+	if reconcidero_el_pupitre:
+		dice(\"Jade\", \"No, mejor le saco al otro\")
+	else:
+		dice(\"Jade\", \"Mejor le saco al otro\")
 	reconcidero_el_pupitre = true
 
+func _on_PuertaArmario_pressed() -> void:
+	if no_ocurrio_que(\"vio_puerta_armario\"):
+		dice(\"Jade\", \"Es el perturbador armario del aula\")
+		registrar_hito(\"vio_puerta_armario\")
+		
+	if no_ocurrio_que(\"tomo_foto\"):
+		dice(\"Jade\", \"No puedo entrar sin antes haber sacado una foto\")
+		return
+		
+	dice(\"Jade\", \"Ahora si, entremos\")
+	dice(\"Profesore\", \"Espera jade!\")
+	dice(\"Jade\", \"No Profesore! No podrá detenerme!\")
+	cambiar_escena_a(\"04_pasillo_escuela2\")
+	dice(\"Jade\", \"Wow\")
+	dice(\"Jade\", \"It's bigger on the inside!\")
+
+
+func _on_Profesore_pressed() -> void:
+	dice(\"Profesore\", \"Jade, a donde vas?\")
 "
 
 [sub_resource type="GDScript" id=2]
@@ -51,10 +76,29 @@ func _ready():
 [node name="Aula" type="Node2D"]
 script = SubResource( 1 )
 
-[node name="FondoAula" type="Sprite" parent="."]
-position = Vector2( 1986.8, 543.556 )
-scale = Vector2( 0.983593, 0.983593 )
+[node name="FondoAula3" type="Sprite" parent="."]
+position = Vector2( 5271.85, 45.4142 )
 texture = ExtResource( 5 )
+offset = Vector2( -929.068, 513.135 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FondoAula2" type="Sprite" parent="."]
+position = Vector2( 4093.48, 45.1962 )
+texture = ExtResource( 5 )
+offset = Vector2( -929.068, 513.135 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FondoAula" type="Sprite" parent="."]
+position = Vector2( 2916.71, 45.0662 )
+texture = ExtResource( 5 )
+offset = Vector2( -929.068, 513.135 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Reloj" type="Sprite" parent="."]
 position = Vector2( 339.474, 190.128 )
@@ -66,6 +110,7 @@ margin_left = 157.142
 margin_top = 252.228
 margin_right = 563.142
 margin_bottom = 921.228
+rect_pivot_offset = Vector2( -1014.63, -612.778 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
@@ -76,10 +121,35 @@ __meta__ = {
 }
 on_mouse_entered_cue = ExtResource( 10 )
 
-[node name="Profesore" type="Sprite" parent="."]
-position = Vector2( 3055.11, 624.24 )
-scale = Vector2( 0.61685, 0.61685 )
-texture = ExtResource( 4 )
+[node name="PuertaArmario" type="TextureButton" parent="."]
+margin_left = 5596.06
+margin_top = 242.137
+margin_right = 6002.06
+margin_bottom = 911.137
+rect_pivot_offset = Vector2( -1014.63, -612.778 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+on_mouse_entered_cue = ExtResource( 10 )
+
+[node name="Profesore" type="TextureButton" parent="."]
+margin_left = 2825.24
+margin_top = 266.02
+margin_right = 3307.24
+margin_bottom = 936.02
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MesaProfesore" type="Sprite" parent="."]
 position = Vector2( 2923.69, 726.992 )
@@ -144,17 +214,19 @@ scale = Vector2( 1.77176, 1.77176 )
 script = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
-polygon = PoolVector2Array( 283.928, -41.6395, 253.962, 54.2521, 2431, 58.747, 2411.52, -32.6497, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
+polygon = PoolVector2Array( 283.928, -41.6395, 253.962, 54.2521, 3554.31, 48.2253, 3716.1, -21.5582, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
 position = Vector2( -67.1872, 643.005 )
 scale = Vector2( 1.77176, 1.77176 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4044.42, 634.596 )
+position = Vector2( 6408.56, 634.596 )
 scale = Vector2( 1.77176, 1.77176 )
 input_pickable = true
 
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
+[connection signal="pressed" from="PuertaArmario" to="." method="_on_PuertaArmario_pressed"]
+[connection signal="pressed" from="Profesore" to="." method="_on_Profesore_pressed"]
 [connection signal="pressed" from="Node2D/BancoDer4" to="." method="_on_BancoDer4_pressed"]
 [connection signal="pressed" from="BancoDer3" to="." method="_on_BancoDer3_pressed"]
