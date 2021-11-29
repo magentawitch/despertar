@@ -3,6 +3,7 @@ class_name VistaDiario, "./VistaDiario.icon.png"
 
 signal entrada_agregada
 signal solicitaron_cerrarme
+signal solicita_ejecutar_accion
 
 var recargar_al_mostrar = false
 
@@ -98,6 +99,7 @@ func limpiar_paginas_de_ejemplo():
 		node.queue_free()
 	for node in $paginas_ejemplo/izquierda.get_children():
 		node.queue_free()
+	$paginas_ejemplo.hide()
 		
 func mostrar_solo_paginas_actuales():
 	for pagina in $paginas.get_children():
@@ -110,7 +112,9 @@ func agregar_entrada(entrada):
 	print('Agregando entrada')
 	agregando_entrada = true
 	ultima_pagina_con_espacio.show()
-	var se_pudo = yield(ultima_pagina_con_espacio.agregar_entrada_si_hay_lugar(entrada), "completed")
+	var se_pudo = yield(
+		ultima_pagina_con_espacio.agregar_entrada_si_hay_lugar(entrada), "completed"
+	)
 	ultima_pagina_con_espacio.hide()
 	if not se_pudo:
 		yield(avanzar_pagina(), 'completed')
@@ -127,39 +131,46 @@ func limpiar_entradas():
 	for pagina in $paginas.get_children():
 		pagina.queue_free()
 	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
 	ultima_pagina_con_espacio = $paginas_ejemplo/izquierda.duplicate(7)
 	$paginas.add_child(ultima_pagina_con_espacio)
+	yield(get_tree(), "idle_frame")
+	conectar_senales_ultima_pagina()
 	cambiar_pagina_actual(ultima_pagina_con_espacio)
 
 var ultima_pagina_con_espacio
 
 # yeilds
 func avanzar_pagina():
-	print("Avanzando pagina..")
-	if ultima_pagina_con_espacio.name == '1':
-		print(".. a la pagina 2")
-		ultima_pagina_con_espacio = $paginas.get_node('2')
-	else:
-		print(".. a una nueva pagina..")
-		var pagina_en_blanco = null
+	print("Avanzando a una nueva pagina")
+	var pagina_en_blanco = null
+	
+	#if ultima_pagina_con_espacio.es_pagina_derecha():
+	#	ultima_pagina_con_espacio.hide()
+	#	ultima_pagina_con_espacio.pagina_anterior.hide()
 		
-		#if ultima_pagina_con_espacio.es_pagina_derecha():
-		#	ultima_pagina_con_espacio.hide()
-		#	ultima_pagina_con_espacio.pagina_anterior.hide()
-			
-		if ultima_pagina_con_espacio.es_pagina_izquierda():
-			pagina_en_blanco = $paginas_ejemplo/derecha.duplicate(7)
-		if ultima_pagina_con_espacio.es_pagina_derecha():
-			pagina_en_blanco = $paginas_ejemplo/izquierda.duplicate(7)
-		$paginas.add_child(pagina_en_blanco)
-		for node in pagina_en_blanco.get_children():
-			node.queue_free()
-		ultima_pagina_con_espacio.pagina_siguiente = pagina_en_blanco
-		pagina_en_blanco.pagina_anterior = ultima_pagina_con_espacio
-		pagina_en_blanco.pagina_siguiente = null
-		ultima_pagina_con_espacio = pagina_en_blanco
+	if ultima_pagina_con_espacio.es_pagina_izquierda():
+		pagina_en_blanco = $paginas_ejemplo/derecha.duplicate(7)
+	if ultima_pagina_con_espacio.es_pagina_derecha():
+		pagina_en_blanco = $paginas_ejemplo/izquierda.duplicate(7)
+	$paginas.add_child(pagina_en_blanco)
+	for node in pagina_en_blanco.get_children():
+		node.queue_free()
+	ultima_pagina_con_espacio.pagina_siguiente = pagina_en_blanco
+	pagina_en_blanco.pagina_anterior = ultima_pagina_con_espacio
+	pagina_en_blanco.pagina_siguiente = null
+	ultima_pagina_con_espacio = pagina_en_blanco
+	
 	yield(get_tree(), "idle_frame")
+	conectar_senales_ultima_pagina()
+	
+func conectar_senales_ultima_pagina():
+	ultima_pagina_con_espacio.connect(
+		'solicita_ejecutar_accion', self, '_cuando_una_pagina_solicita_ejecutar_accion'
+	)
+
+func _cuando_una_pagina_solicita_ejecutar_accion(accion: String, detalles: Dictionary):
+	emit_signal("solicita_ejecutar_accion", accion, detalles)
+
 
 # yeilds
 func recargar():
@@ -201,5 +212,11 @@ func _on_siguiente_pagina_pressed() -> void:
 func _on_cerrar_diario_pressed() -> void:
 	if not botones_habilitados():
 		return
+	cerrar()
+	
+func cerrar() -> void:
 	print("solicitaron_cerrarme")
 	emit_signal("solicitaron_cerrarme")
+
+func es_interactivo() -> bool:
+	return interactivo

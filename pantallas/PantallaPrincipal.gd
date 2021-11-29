@@ -13,6 +13,7 @@ func _ready() -> void:
 	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
 	$contenedor.connect("se_procedera_a_cargar_una_escena", self, "_antes_de_cargar_una_escena")
 	$contenedor.connect("una_escena_fue_cargada", self, "_cuando_una_escena_fue_cargada")
+	$ui/vista_diario.connect('solicita_ejecutar_accion', self, "_cuando_la_vista_diario_solicita_ejecutar_una_accion")
 
 func _antes_de_cargar_una_escena():
 	$telon/anim.play("mostrar")
@@ -22,6 +23,16 @@ func _cuando_una_escena_fue_cargada(escena: Escena):
 	$foco.enfocar_personaje_objetivo()
 	$telon/anim.play("ocultar")
 	$ui/menu/boton_abrir_diario.visible = escena.puede_abrir_el_diario
+
+func _cuando_la_vista_diario_solicita_ejecutar_una_accion(accion: String, detalles: Dictionary):
+	print("Vista diario solicito ejecutar la accion: %s detalles: %s" % [accion, detalles])
+	if $ui/vista_diario.es_interactivo():
+		$director.encolar(accion, detalles)
+		$ui/vista_diario.cerrar()
+		yield($director, "se_acabaron_las_acciones_pendientes")
+		$director.encolar("abrir_diario")
+		
+	
 
 # TODO: Mover esto a la camara
 func _process(delta: float) -> void:

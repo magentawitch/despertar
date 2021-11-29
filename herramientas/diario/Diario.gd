@@ -32,6 +32,12 @@ func agregar_foto(nombre_foto, epigrafe_elegido):
 		"nombre_foto": nombre_foto,
 	})
 
+func agregar_carta(nombre_carta):
+	self.agregar_entrada({
+		"tipo": "carta",
+		"nombre_carta": nombre_carta,
+	})
+
 func _interaccion_de_ejemplo(diario: Diario):
 	diario.escribir_entrada_de_texto("""
 		Querido diario...

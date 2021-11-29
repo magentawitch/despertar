@@ -2,6 +2,9 @@ extends MarginContainer
 
 class_name EntradaDeDiario, "res://assets/iconos/menuList.png"
 
+## accion: String, detalles: Dictionary
+signal solicita_ejecutar_accion 
+
 func inicializar_con(entrada: Dictionary):
 	assert(
 		false,

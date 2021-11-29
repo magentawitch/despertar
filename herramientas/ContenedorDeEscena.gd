@@ -21,7 +21,7 @@ func _ready():
 	if OS.is_debug_build():
 		print("Como estoy en debug arranco con la escena de test: ", nombre_de_la_escena_de_prueba)
 		nombre_de_la_escena_actual = nombre_de_la_escena_de_prueba
-	cargar_escena_actual()
+	call_deferred('cargar_escena_actual')
 
 func cambiar_escena(nombre_de_escena_nueva):
 	assert(

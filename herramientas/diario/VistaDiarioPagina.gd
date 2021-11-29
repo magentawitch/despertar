@@ -6,6 +6,9 @@ var pagina_anterior: Control
 
 var tamanio_original = null
 
+## accion: String, detalles: Dictionary
+signal solicita_ejecutar_accion 
+
 func _ready():
 	limpiar_entradas()
 	tamanio_original = rect_size.y
@@ -26,6 +29,24 @@ func limpiar_entradas():
 
 func _instanciar_entrada(tipo):
 	return EntradaDeDiario.cargar(tipo)
+
+# yeilds
+func agregar_entrada(entrada) -> MarginContainer:
+	print("Agregando entrada")
+	var node = _instanciar_entrada(entrada['tipo'])
+	node.inicializar_con(entrada)
+	add_child(node)
+	yield(get_tree(), "idle_frame")
+	node.connect('solicita_ejecutar_accion', self, '_cuando_una_entrada_solicita_ejecutar_accion')
+	yield(get_tree(), "idle_frame")
+	if tamanio_original and rect_size.y > tamanio_original:
+		print("Crecio mas de lo que recordaba, a ver, vamos a probar achicarlo")
+		set_size(Vector2(rect_size.x, tamanio_original))
+		yield(get_tree(), "idle_frame")
+	return node
+	
+func _cuando_una_entrada_solicita_ejecutar_accion(accion: String, detalles: Dictionary):
+	emit_signal("solicita_ejecutar_accion", accion, detalles)
 
 # yeilds
 func agregar_entrada_si_hay_lugar(entrada) -> bool:
@@ -49,17 +70,3 @@ func agregar_entrada_si_hay_lugar(entrada) -> bool:
 	else:
 		print("- El tamanio no ha cambiado")
 		return true
-
-# yeilds
-func agregar_entrada(entrada) -> MarginContainer:
-	print("Agregando entrada")
-	var node = _instanciar_entrada(entrada['tipo'])
-	node.inicializar_con(entrada)
-	add_child(node)
-	yield(get_tree(), "idle_frame")
-	yield(get_tree(), "idle_frame")
-	if tamanio_original and rect_size.y > tamanio_original:
-		print("Crecio mas de lo que recordaba, a ver, vamos a probar achicarlo")
-		set_size(Vector2(rect_size.x, tamanio_original))
-		yield(get_tree(), "idle_frame")
-	return node

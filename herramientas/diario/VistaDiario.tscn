@@ -22,15 +22,16 @@ scale = Vector2( 1.32199, 1.32199 )
 texture = ExtResource( 3 )
 
 [node name="paginas" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1868.0
+margin_bottom = 1038.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="paginas_ejemplo" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1731.0
+margin_bottom = 1013.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -74,6 +75,7 @@ margin_bottom = 516.0
 [node name="botones" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

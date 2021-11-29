@@ -68,8 +68,11 @@ func cinematica(descrpcion):
 func cambiar_escena_a(nombre_de_escena):
 	director.encolar("cambio_de_escena", {"escena": nombre_de_escena})
 	
-func ver_carta(nombre_de_carta):
-	director.encolar("ver_carta", {"carta": nombre_de_carta})
+func ver_carta(nombre_carta):
+	director.encolar("ver_carta", {"nombre_carta": nombre_carta})
+
+func agregar_carta(nombre_carta):
+	director.encolar("agregar_carta", {"nombre_carta": nombre_carta})
 
 func dice_a_la_grabadora(texto):
 	grabar(texto)
