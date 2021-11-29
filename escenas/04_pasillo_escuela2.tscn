@@ -17,7 +17,7 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-func _ready():
+func _al_comienzo():
 	anotar_en_el_diario(\"\"\"
 	Los pasillos de esta escuela siempre están vacíos. 
 	Pero lo que nunca faltan son esas figuras perturbadoras del estúpido de Volk.
@@ -67,6 +67,7 @@ func _on_BotonProvisorio_pressed():
 	cambiar_escena_a('05_aula_post_examen')
 
 func _on_Carta1_pressed():
+	$CartaCerrada1.queue_free()
 	ver_carta(\"carta_1\")
 	agregar_carta(\"carta_1\")
 "

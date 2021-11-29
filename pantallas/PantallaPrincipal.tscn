@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -19,6 +19,13 @@
 [ext_resource path="res://herramientas/ContenedorDeEscena.gd" type="Script" id=17]
 [ext_resource path="res://acciones/caminar.gd" type="Script" id=18]
 [ext_resource path="res://acciones/agregar_carta.gd" type="Script" id=19]
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.19043, 0.19043, 0.19043, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 9 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "Notificacion"
@@ -132,6 +139,7 @@ path_al_diario = NodePath("../../diario")
 [node name="abrir_diario" type="Node" parent="director"]
 script = ExtResource( 6 )
 path_a_la_vista_del_diario = NodePath("../../ui/vista_diario")
+path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
 
 [node name="cambio_de_escena" type="Node" parent="director"]
 script = ExtResource( 7 )
@@ -150,10 +158,12 @@ script = ExtResource( 12 )
 path_al_diario = NodePath("../../diario")
 path_a_la_vista_del_diario = NodePath("../../ui/vista_diario")
 path_a_la_vista_de_eleccion_del_epigrafe = NodePath("../../ui/eleccion_de_epigrafe")
+path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
 
 [node name="ver_carta" type="Node" parent="director"]
 script = ExtResource( 14 )
 path_al_contenedor_de_la_carta = NodePath("../../ui/contenedor_carta")
+path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
 
 [node name="caminar" type="Node" parent="director"]
 script = ExtResource( 18 )
@@ -170,6 +180,13 @@ path_al_director = NodePath("../director")
 path_al_diario = NodePath("../diario")
 
 [node name="ui" type="Node2D" parent="."]
+
+[node name="oscurecedor_de_fondo" type="Sprite" parent="ui"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 982.512, 563.776 )
+scale = Vector2( 1, 1293.59 )
+texture = SubResource( 8 )
 
 [node name="menu" type="VBoxContainer" parent="ui"]
 margin_left = 52.818

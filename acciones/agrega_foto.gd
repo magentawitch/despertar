@@ -13,10 +13,14 @@ func vista_diario() -> VistaDiario:
 func vista_eleccion_epigrafe() -> EleccionDeEpigrafe:
 	return get_node(path_a_la_vista_de_eleccion_del_epigrafe) as EleccionDeEpigrafe
 
+export(NodePath) var path_al_oscurededor_de_fondo
+onready var oscurecedor_de_fondo = get_node(path_al_oscurededor_de_fondo) as Sprite
+
 func agrega_foto(director: Director, detalles: Dictionary):
 	print("Agregando foto")
 	
 	# Mostrar el diario de fondo
+	oscurecedor_de_fondo.show()
 	vista_diario().mostrar_de_forma_no_interactiva()
 	
 	# Mostrar el dialogo de elección de foto
@@ -35,5 +39,6 @@ func agrega_foto(director: Director, detalles: Dictionary):
 	vista_diario().mostrar()
 	yield(vista_diario(), "solicitaron_cerrarme")
 	vista_diario().ocultar()
+	oscurecedor_de_fondo.hide()
 	print("Ocultando el diario")
 	director.termino_la_ejecucion_de_la_accion()
