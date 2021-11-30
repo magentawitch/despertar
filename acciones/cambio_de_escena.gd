@@ -9,3 +9,4 @@ func cambio_de_escena(director: Director, detalles: Dictionary) -> void:
 	contenedor_de_escena.cambiar_escena(nombre_de_la_escena_a_la_que_cambia)
 	yield(contenedor_de_escena, "una_escena_fue_cargada")
 	director.termino_la_ejecucion_de_la_accion()
+	

@@ -200,7 +200,6 @@ margin_top = 59.6786
 margin_right = 843.818
 margin_bottom = 1263.68
 rect_scale = Vector2( 0.242848, 0.242848 )
-alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -225,7 +224,7 @@ texture = ExtResource( 15 )
 autoplay = "Notificacion"
 anims/Notificacion = SubResource( 3 )
 
-[node name="TextureButton" type="TextureButton" parent="ui/menu"]
+[node name="boton_camara" type="TextureButton" parent="ui/menu"]
 margin_top = 704.0
 margin_right = 791.0
 margin_bottom = 1204.0

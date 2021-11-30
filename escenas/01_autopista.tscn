@@ -237,6 +237,9 @@ tracks/1/keys = {
 
 [node name="autopista" type="Node2D"]
 script = SubResource( 1 )
+puede_abrir_el_diario = false
+puede_tomar_fotos = false
+pude_ver_el_menu = false
 
 [node name="autopista" type="Sprite" parent="."]
 position = Vector2( 375.501, -258.615 )

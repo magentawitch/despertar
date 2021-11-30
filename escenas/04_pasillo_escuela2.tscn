@@ -63,8 +63,12 @@ func _on_BustVolk_pressed():
 
 
 func _on_BotonProvisorio_pressed():
-	dice(\"Jade\", \"Qué es eso en la esquina?\")
-	cambiar_escena_a('05_aula_post_examen')
+	if ya_ocurrio_que(\"paso_por_el_agujero\"):
+		dice(\"Jade\", \"La pertubación triangular cósmica desapareció\")
+		dice(\"Jade\", \"Que suerte que me llevé la cámara\")
+	else:
+		dice(\"Jade\", \"Qué es eso en la esquina?\")
+		cambiar_escena_a('05_aula_post_examen')
 
 func _on_Carta1_pressed():
 	$CartaCerrada1.queue_free()

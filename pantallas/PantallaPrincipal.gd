@@ -14,16 +14,30 @@ func _ready() -> void:
 	$contenedor.connect("se_procedera_a_cargar_una_escena", self, "_antes_de_cargar_una_escena")
 	$contenedor.connect("una_escena_fue_cargada", self, "_cuando_una_escena_fue_cargada")
 	$ui/vista_diario.connect('solicita_ejecutar_accion', self, "_cuando_la_vista_diario_solicita_ejecutar_una_accion")
+	$diario.connect('hito_fue_registrado', self, "_cuando_un_hito_fue_registrado")
 
 func _antes_de_cargar_una_escena():
 	$telon/anim.play("mostrar")
 	$ui/menu/boton_abrir_diario.visible = false
+	$ui/menu/boton_camara.visible = false
 	
 func _cuando_una_escena_fue_cargada(escena: Escena):
 	$foco.enfocar_personaje_objetivo()
 	$telon/anim.play("ocultar")
+	$ui/menu.visible = escena.puede_ver_el_menu
 	$ui/menu/boton_abrir_diario.visible = escena.puede_abrir_el_diario
-
+	$ui/menu/boton_camara.visible = (
+		escena.puede_tomar_fotos and $diario.el_hito_fue_registrado("consiguio_la_camara")
+	)
+	print("oh, no")
+	
+func _cuando_un_hito_fue_registrado(nombre_hito: String):
+	var escena = $contenedor.obtener_escena_actual() 
+	$ui/menu/boton_camara.visible = (
+		escena.puede_tomar_fotos and $diario.el_hito_fue_registrado("consiguio_la_camara")
+	)
+	print("oh, no")
+	
 func _cuando_la_vista_diario_solicita_ejecutar_una_accion(accion: String, detalles: Dictionary):
 	print("Vista diario solicito ejecutar la accion: %s detalles: %s" % [accion, detalles])
 	if $ui/vista_diario.es_interactivo():
