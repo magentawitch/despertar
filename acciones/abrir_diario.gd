@@ -1,7 +1,5 @@
 extends Node
 
-# TODO: Cambiar nombre a indicativo
-
 export var path_a_la_vista_del_diario: NodePath
 
 func vista_diario() -> VistaDiario:

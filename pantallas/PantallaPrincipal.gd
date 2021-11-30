@@ -22,7 +22,7 @@ func _antes_de_cargar_una_escena():
 	$ui/menu/boton_camara.visible = false
 	
 func _cuando_una_escena_fue_cargada(escena: Escena):
-	$foco.enfocar_personaje_objetivo()
+	$foco.enfocar_personaje_activo()
 	$telon/anim.play("ocultar")
 	$ui/menu.visible = escena.puede_ver_el_menu
 	$ui/menu/boton_abrir_diario.visible = escena.puede_abrir_el_diario
@@ -50,10 +50,10 @@ func _cuando_la_vista_diario_solicita_ejecutar_una_accion(accion: String, detall
 
 # TODO: Mover esto a la camara
 func _process(delta: float) -> void:
-	var personaje_objetivo = $foco.obtener_personaje_objetivo()
-	if not personaje_objetivo:
+	var personaje_activo = $foco.obtener_personaje_activo()
+	if not personaje_activo:
 		return
-	var dist_personaje = $camara.get_global_transform().get_origin().x - personaje_objetivo.get_global_transform().get_origin().x
+	var dist_personaje = $camara.get_global_transform().get_origin().x - personaje_activo.get_global_transform().get_origin().x
 	var personaje_esta_a_la_izquierda = dist_personaje > 0.1
 	var personaje_esta_a_la_derecha = dist_personaje < -0.1
 	

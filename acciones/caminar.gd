@@ -5,10 +5,10 @@ onready var foco = get_node(path_al_foco) as Foco
 
 func caminar(director: Director, detalles: Dictionary) -> void:
 	var posicion_destino = detalles['posicion_destino']
-	var personaje = foco.obtener_personaje_objetivo()
+	var personaje = foco.obtener_personaje_activo()
 	assert(
 		personaje != null,
-		"Se intentó caminar cuando no había un personaje objetivo en la escena."
+		"Se intentó caminar cuando no había un personaje activo en la escena."
 	)
 	personaje.caminar_hacia(posicion_destino)
 	yield(personaje, "llegue_al_destino")
