@@ -71,6 +71,7 @@ tracks/0/keys = {
 [node name="Aula" type="Node2D"]
 position = Vector2( -244.977, 523.251 )
 script = SubResource( 1 )
+pude_ver_el_menu = null
 
 [node name="FondoAula" type="Sprite" parent="."]
 position = Vector2( 2321.5, 15.4579 )

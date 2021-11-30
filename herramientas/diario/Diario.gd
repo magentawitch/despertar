@@ -1,6 +1,7 @@
 extends Node
 class_name Diario, "./Diario.icon.png"
 
+## entrada: Dictionary
 signal entrada_agregada
 
 var entradas = []
@@ -70,11 +71,16 @@ func epigrafe_elegido_para(nombre_foto: String) -> String:
 # como entradas en el diario que no se muestran en la vista del mismo.
 # De todas maneras, la interface de las escenas expone otra api para interactuar
 # con esto. 
+
+## nombre_hito: String
+signal hito_fue_registrado
+
 var hitos = []
 
 func registrar_hito(nombre_hito: String):
 	if not el_hito_fue_registrado(nombre_hito):
 		hitos.append(nombre_hito)
+		emit_signal("hito_fue_registrado", nombre_hito)
 	
 func el_hito_fue_registrado(nombre_hito: String) -> bool:
 	return hitos.has(nombre_hito)

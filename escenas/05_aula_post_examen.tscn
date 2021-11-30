@@ -20,7 +20,9 @@ script/source = "extends Escena
 func _ready():
 	registrar_hito(\"paso_por_el_agujero\")
 	dice(\"Jade\", \"Uf, atravesar eso fue dificil\")
-	dice(\"Jade\", \"Por algún motivo en particular quiero sacarle foto a alguno de estos pupitres\")
+	dice(\"Jade\", \"Oh, una cámara!\")
+	agarrar_camara()
+	dice(\"Jade\", \"Ahora no me queda otra que sacarle foto a alguno de estos pupitres\")
 	dice(\"Jade\", \"La pregunta es... cual?\")
 
 func _on_PuertaPasillo_pressed():
@@ -31,12 +33,13 @@ var reconcidero_el_pupitre = false
 func _on_BancoDer3_pressed() -> void:
 	if ya_saco_foto(\"mesa_profesore\"):
 		dice(\"Jade\", \"Ya le saqué una foto\")
-		if epigrafe_elegido_para(\"mesa_profesore\") == \"oda_uniformidad\":
-			dice(\"Jade\", \"No quiero otra foto de una mesa aburrida\")
-		elif epigrafe_elegido_para(\"mesa_profesore\") == \"futuro_anicos\":
-			dice(\"Jade\", \"No quiero otra foto que me traiga a este presente\")
-		else:
-			dice(\"Jade\", \"No quiero otra\")
+		match epigrafe_elegido_para(\"mesa_profesore\"):
+			\"oda_uniformidad\":
+				dice(\"Jade\", \"No quiero otra foto de una mesa aburrida\")
+			\"futuro_anicos\":
+				dice(\"Jade\", \"No quiero otra foto que me traiga a este presente\")
+			_:
+				dice(\"Jade\", \"No quiero otra\")
 		return
 		
 	if not reconcidero_el_pupitre:
@@ -60,8 +63,8 @@ func _on_PuertaArmario_pressed() -> void:
 	if no_saco_foto(\"mesa_profesore\"):
 		dice(\"Jade\", \"No puedo entrar sin antes haber sacado una foto\")
 		return
-		
-	dice(\"Jade\", \"Ahora si, entremos\")
+	
+	dice(\"Jade\", \"Entremos\")
 	dice(\"Profesore\", \"Espera jade!\")
 	dice(\"Jade\", \"No Profesore! No podrá detenerme!\")
 	cambiar_escena_a(\"04_pasillo_escuela2\")
@@ -69,8 +72,14 @@ func _on_PuertaArmario_pressed() -> void:
 	dice(\"Jade\", \"It's bigger on the inside!\")
 
 
+var ya_hablo_con_profesore = false
+
 func _on_Profesore_pressed() -> void:
-	dice(\"Profesore\", \"Jade, a donde vas?\")
+	if ya_hablo_con_profesore:
+		dice(\"Profesore\", \"No entiendo que estás haciendo\")
+	else:
+		ya_hablo_con_profesore = true
+		dice(\"Profesore\", \"Jade, a donde vas?\")
 "
 
 [sub_resource type="GDScript" id=2]

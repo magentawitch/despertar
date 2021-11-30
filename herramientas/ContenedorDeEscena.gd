@@ -54,5 +54,8 @@ func cargar_escena_actual():
 	
 	call_deferred('_avisar_que_la_escena_fue_cargada', escena)
 	
+func obtener_escena_actual() -> Escena:
+	return get_child(0) as Escena
+	
 func _avisar_que_la_escena_fue_cargada(escena: Escena):
 	emit_signal("una_escena_fue_cargada", escena)

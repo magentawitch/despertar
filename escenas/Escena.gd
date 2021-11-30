@@ -2,6 +2,8 @@ extends Node2D
 class_name Escena, "res://assets/iconos/door.png"
 
 export var puede_abrir_el_diario = true
+export var puede_tomar_fotos = true
+export var puede_ver_el_menu = true
 
 ## El diario es de solo lectura
 var diario_sl: Diario
@@ -102,6 +104,12 @@ func dice_a_la_grabadora(texto):
 	
 func se_rie(quien):
 	pass
+	
+func agarrar_camara():
+	registrar_hito("consiguio_la_camara")
+	
+func tiene_la_camara():
+	return diario_sl.el_hito_fue_registrado("consiguio_la_camara")
 	
 func grabar(texto):
 	director.encolar("dice", {"texto": texto, "recuadro": "grabadora"})
