@@ -18,6 +18,7 @@
 script/source = "extends Escena
 
 func _ready():
+	registrar_hito(\"paso_por_el_agujero\")
 	dice(\"Jade\", \"Uf, atravesar eso fue dificil\")
 	dice(\"Jade\", \"Por algún motivo en particular quiero sacarle foto a alguno de estos pupitres\")
 	dice(\"Jade\", \"La pregunta es... cual?\")
@@ -28,15 +29,21 @@ func _on_PuertaPasillo_pressed():
 var reconcidero_el_pupitre = false
 
 func _on_BancoDer3_pressed() -> void:
+	if ya_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Ya le saqué una foto\")
+		if epigrafe_elegido_para(\"mesa_profesore\") == \"oda_uniformidad\":
+			dice(\"Jade\", \"No quiero otra foto de una mesa aburrida\")
+		elif epigrafe_elegido_para(\"mesa_profesore\") == \"futuro_anicos\":
+			dice(\"Jade\", \"No quiero otra foto que me traiga a este presente\")
+		else:
+			dice(\"Jade\", \"No quiero otra\")
+		return
+		
 	if not reconcidero_el_pupitre:
 		dice(\"Jade\", \"No, este no\")
-	elif no_ocurrio_que(\"tomo_foto\"):
+	elif no_saco_foto(\"mesa_profesore\"):
 		dice(\"Jade\", \"Serás añadido a la colección de mi diario!\")
 		agrega_foto_al_diario(\"mesa_profesore\")
-		registrar_hito(\"tomo_foto\")
-	else:
-		dice(\"Jade\", \"Ya le saqué una foto\")
-		dice(\"Jade\", \"No quiero otra\")
 
 func _on_BancoDer4_pressed() -> void:
 	if reconcidero_el_pupitre:
@@ -50,7 +57,7 @@ func _on_PuertaArmario_pressed() -> void:
 		dice(\"Jade\", \"Es el perturbador armario del aula\")
 		registrar_hito(\"vio_puerta_armario\")
 		
-	if no_ocurrio_que(\"tomo_foto\"):
+	if no_saco_foto(\"mesa_profesore\"):
 		dice(\"Jade\", \"No puedo entrar sin antes haber sacado una foto\")
 		return
 		

@@ -21,10 +21,10 @@ func escribir_entrada_de_texto(texto: String):
 	})
 
 # TODO: Deprecar
-func escribir_renglon(texto_del_renglon):
+func escribir_renglon(texto_del_renglon: String):
 	escribir_entrada_de_texto(texto_del_renglon)
 
-func agregar_foto(nombre_foto, epigrafe_elegido):
+func agregar_foto(nombre_foto: String, epigrafe_elegido: String):
 	self.agregar_entrada({
 		"tipo": "foto",
 		"tamanio": 8,
@@ -32,7 +32,7 @@ func agregar_foto(nombre_foto, epigrafe_elegido):
 		"nombre_foto": nombre_foto,
 	})
 
-func agregar_carta(nombre_carta):
+func agregar_carta(nombre_carta: String):
 	self.agregar_entrada({
 		"tipo": "carta",
 		"nombre_carta": nombre_carta,
@@ -52,6 +52,18 @@ func _interaccion_de_ejemplo(diario: Diario):
 	# if diario.el_hito_fue_registrado("leBobeSeCuró"):
 	# 	diario.escribir_renglon("Yay! Mi abuele se siente mejor :smile:")
 
+func contiene_foto(nombre_foto: String) -> bool:
+	for entrada in entradas:
+		if entrada['tipo'] == "foto" and entrada['nombre_foto'] == nombre_foto:
+			return true
+	return false
+
+## Devuelve una string vacía si todavía no se tomo la foto
+func epigrafe_elegido_para(nombre_foto: String) -> String:
+	for entrada in entradas:
+		if entrada['tipo'] == "foto" and entrada['nombre_foto'] == nombre_foto:
+			return entrada['epigrafe']
+	return ""
 
 # Todavia no me encuentro decidido sobre si esto tiene sentido tratarlo como
 # un objeto separado (como Memoria o algo así) o registrar los hitos directamente

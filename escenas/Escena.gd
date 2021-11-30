@@ -44,6 +44,10 @@ func _rehabilitar_input(nodo):
 			c.rehabilitar_interaccion()
 			_rehabilitar_input(c)
 
+###############################
+# API para scripting de escenas
+###############################
+
 func anota_en_el_diario(algo: String):
 	var renglones = algo.strip_edges().split('\n')
 	var texto = ''
@@ -66,11 +70,20 @@ func protagonista_piensa(algo):
 func cinematica(descrpcion):
 	pass
 	
+func ya_saco_foto(nombre_foto) -> bool:
+	return diario_sl.contiene_foto(nombre_foto)
+
+func no_saco_foto(nombre_foto) -> bool:
+	return not ya_saco_foto(nombre_foto)
+	
 func ya_ocurrio_que(nombre_hito) -> bool:
 	return diario_sl.el_hito_fue_registrado(nombre_hito)
 	
 func no_ocurrio_que(nombre_hito) -> bool:
 	return not diario_sl.el_hito_fue_registrado(nombre_hito)
+	
+func epigrafe_elegido_para(nombre_foto) -> String:
+	return diario_sl.epigrafe_elegido_para(nombre_foto)
 	
 func registrar_hito(nombre_hito):
 	director.encolar("registrar_hito", {"nombre_hito": nombre_hito})
