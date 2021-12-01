@@ -234,14 +234,14 @@ __meta__ = {
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( -443.811, 981.005 )
-scale = Vector2( 1.77176, 1.77176 )
 z_index = 1
 
 [node name="Banco2" type="TextureButton" parent="Node2D"]
-margin_left = 1035.13
-margin_top = -91.924
-margin_right = 1306.13
-margin_bottom = 48.076
+margin_left = 2055.47
+margin_top = -122.843
+margin_right = 2326.47
+margin_bottom = 17.1566
+rect_scale = Vector2( 1.73784, 1.73784 )
 rect_pivot_offset = Vector2( 219.226, 21.517 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )

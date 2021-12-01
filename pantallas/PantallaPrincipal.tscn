@@ -181,6 +181,7 @@ script = ExtResource( 22 )
 path_al_diario = NodePath("../../diario")
 
 [node name="contenedor" type="Node2D" parent="."]
+z_index = -10
 script = ExtResource( 17 )
 path_al_director = NodePath("../director")
 path_al_diario = NodePath("../diario")
