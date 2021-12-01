@@ -60,6 +60,9 @@ func _on_Banco1_pressed() -> void:
 	if ya_saco_foto(\"mesa_profesore\"):
 		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
 		return
+	if reconcidero_el_pupitre:
+		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
+		return
 	dice(\"Jade\", \"Este pupitre está muy cerca de la puerta\")
 	
 	if vio_el_pupitre and not reconcidero_el_pupitre:
@@ -70,6 +73,9 @@ func _on_Banco1_pressed() -> void:
 func _on_Banco2_pressed() -> void:
 	if ya_saco_foto(\"mesa_profesore\"):
 		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
+		return
+	if reconcidero_el_pupitre:
+		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
 		return
 	dice(\"Jade\", \"Este pupitre está muy al frente\")
 	
@@ -109,7 +115,7 @@ func _on_Banco4_pressed() -> void:
 	dice(\"Jade\", \"Hmmm, este está sucio\")
 	
 	if vio_el_pupitre and not reconcidero_el_pupitre:
-		dice(\"Jade\", \"Para eso prefiero el otro\")
+		dice(\"Jade\", \"Para eso le saco foto al que está a la izquierda\")
 		reconcidero_el_pupitre = true
 
 

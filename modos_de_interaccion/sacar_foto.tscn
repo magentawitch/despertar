@@ -1,16 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/images/mascara_foto.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/flatLight/flatLight33.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/camara.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends ModoDeInteraccion
 
 func entrar_al_modo():
 	_rehabilitar_input(contenedor_de_la_escena)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	
 func salir_del_modo():
 	_deshabilitar_input(contenedor_de_la_escena)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func ocultar_menu_de_acciones_mientras_esta_colocado() -> bool:
 	return true
@@ -20,12 +24,14 @@ var mascara_sigue_al_mouse = true
 var area_objetivo: AreaFotografeable = null
 	
 func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_key_pressed(KEY_ESCAPE) or Input.is_mouse_button_pressed(BUTTON_RIGHT):
 		solicitar_salir()
-		
+	
 	if mascara_sigue_al_mouse:
 		$mascara.global_position = get_global_mouse_position()
-		
+	
+	$cursor_camara.global_position = get_global_mouse_position()
+	
 	if area_objetivo:
 		$mascara.global_position = area_objetivo.rect_global_position + (
 			area_objetivo.rect_scale.x * area_objetivo.rect_size / 2
@@ -62,6 +68,17 @@ func solicitar_salir():
 
 func _on_boton_salir_pressed() -> void:
 	solicitar_salir()
+
+
+func _on_boton_salir_mouse_entered() -> void:
+	$cursor_camara.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _on_boton_salir_mouse_exited() -> void:
+	$cursor_camara.show()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 "
 
 [sub_resource type="OpenSimplexNoise" id=2]
@@ -181,4 +198,10 @@ autoplay = "desenfocar"
 anims/desenfocar = SubResource( 6 )
 anims/enfocar = SubResource( 5 )
 
+[node name="cursor_camara" type="Sprite" parent="."]
+scale = Vector2( 0.216711, 0.216711 )
+texture = ExtResource( 3 )
+
+[connection signal="mouse_entered" from="boton_salir" to="." method="_on_boton_salir_mouse_entered"]
+[connection signal="mouse_exited" from="boton_salir" to="." method="_on_boton_salir_mouse_exited"]
 [connection signal="pressed" from="boton_salir" to="." method="_on_boton_salir_pressed"]
