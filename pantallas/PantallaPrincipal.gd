@@ -2,6 +2,8 @@ extends Node2D
 
 export var velocidad_de_la_camara: float = 450.0
 export var distancia_foco: float = 50.0
+export var nombre_de_la_escena_de_prueba: String = "02_pasillo_escuela"
+export var nombre_de_la_escena_inicial: String = "00_diario"
 
 signal la_escena_fue_cambiada
 
@@ -9,28 +11,54 @@ func _ready() -> void:
 	$telon.visible = true
 	#$ui/vista_diario.visible = false
 	$ui/eleccion_de_epigrafe.visible = false
+	$foco.connect("cambio_de_modo", self, '_cuando_el_foco_cambia_de_modo')
 	$director.connect("aparecieron_acciones_pendientes", $ui/menu, 'hide')
 	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
+	$director.connect("aparecieron_acciones_pendientes", $foco, 'entrar_en_modo_de_accion')
+	$director.connect("se_acabaron_las_acciones_pendientes", $foco, 'entrar_en_modo_de_interaccion')
 	$contenedor.connect("se_procedera_a_cargar_una_escena", self, "_antes_de_cargar_una_escena")
 	$contenedor.connect("una_escena_fue_cargada", self, "_cuando_una_escena_fue_cargada")
 	$ui/vista_diario.connect('solicita_ejecutar_accion', self, "_cuando_la_vista_diario_solicita_ejecutar_una_accion")
 	$diario.connect('hito_fue_registrado', self, "_cuando_un_hito_fue_registrado")
+	
+	var nombre_escena: String
+	if OS.is_debug_build():
+		print("Como estoy en debug arranco con la escena de test: ", nombre_de_la_escena_de_prueba)
+		nombre_escena = nombre_de_la_escena_de_prueba
+	else:
+		nombre_escena = nombre_de_la_escena_inicial
+	$director.encolar("cambio_de_escena", {"escena": nombre_escena})
 
+func _cuando_el_foco_cambia_de_modo(modo: ModoDeInteraccion):
+	if modo.ocultar_menu_de_acciones_mientras_esta_colocado():
+		ocultar_menu_de_acciones()
+	else:
+		mostrar_menu_de_acciones()
+
+var _telon_first_time = true
 func _antes_de_cargar_una_escena():
-	$telon/anim.play("mostrar")
+	if not _telon_first_time:
+		$telon/anim.play("mostrar")
+	_telon_first_time = false
+	ocultar_menu_de_acciones()
+	
+func ocultar_menu_de_acciones():
 	$ui/menu/boton_abrir_diario.visible = false
 	$ui/menu/boton_camara.visible = false
 	
 func _cuando_una_escena_fue_cargada(escena: Escena):
-	$foco.enfocar_personaje_activo()
 	$telon/anim.play("ocultar")
+	mostrar_menu_de_acciones()
+	print("oh, no")
+	
+func mostrar_menu_de_acciones():
+	var escena = $contenedor.obtener_escena_actual()
 	$ui/menu.visible = escena.puede_ver_el_menu
 	$ui/menu/boton_abrir_diario.visible = escena.puede_abrir_el_diario
 	$ui/menu/boton_camara.visible = (
 		escena.puede_tomar_fotos and $diario.el_hito_fue_registrado("consiguio_la_camara")
 	)
-	print("oh, no")
-	
+
 func _cuando_un_hito_fue_registrado(nombre_hito: String):
 	var escena = $contenedor.obtener_escena_actual() 
 	$ui/menu/boton_camara.visible = (

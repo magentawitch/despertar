@@ -4,8 +4,7 @@ class_name ContenedorDeEscena
 
 const DELAY_ANTES_DE_CARGAR_ESCENA = 1.0
 
-export var nombre_de_la_escena_de_prueba: String = "02_pasillo_escuela"
-export var nombre_de_la_escena_actual: String = "00_diario"
+var nombre_de_la_escena_actual: String
 
 export(NodePath) var path_al_director
 onready var director = get_node(path_al_director) as Director
@@ -17,12 +16,6 @@ signal se_procedera_a_cargar_una_escena
 signal una_escena_fue_cargada
 
 
-func _ready():
-	if OS.is_debug_build():
-		print("Como estoy en debug arranco con la escena de test: ", nombre_de_la_escena_de_prueba)
-		nombre_de_la_escena_actual = nombre_de_la_escena_de_prueba
-	call_deferred('cargar_escena_actual')
-
 func cambiar_escena(nombre_de_escena_nueva):
 	assert(
 		true,
@@ -30,11 +23,13 @@ func cambiar_escena(nombre_de_escena_nueva):
 	)
 	emit_signal("se_procedera_a_cargar_una_escena")
 	
-	yield(get_tree().create_timer(DELAY_ANTES_DE_CARGAR_ESCENA), "timeout")
+	if nombre_de_la_escena_actual:
+		yield(get_tree().create_timer(DELAY_ANTES_DE_CARGAR_ESCENA), "timeout")
 	
 	var escena_previa = get_child(0)
-	escena_previa.queue_free()
-	yield(escena_previa, "tree_exited")
+	if escena_previa:
+		escena_previa.queue_free()
+		yield(escena_previa, "tree_exited")
 	
 	nombre_de_la_escena_actual = nombre_de_escena_nueva
 	cargar_escena_actual()

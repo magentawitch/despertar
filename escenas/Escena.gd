@@ -13,8 +13,6 @@ func _inicializar_dependencias(director: Director, diario: Diario):
 	self.diario_sl = diario
 	self.director = director
 	print("Escena: %s inicializada!" % get_name())
-	director.connect("aparecieron_acciones_pendientes", self, '_deshabilitar_input', [self])
-	director.connect("se_acabaron_las_acciones_pendientes", self, '_rehabilitar_input', [self])
 
 static func cargar(nombre_de_la_escena: String) -> Escena:
 	var archivo_de_la_escena = "res://escenas/%s.tscn" % nombre_de_la_escena
@@ -33,18 +31,6 @@ static func cargar(nombre_de_la_escena: String) -> Escena:
 	)
 	return escena as Escena
 
-	
-func _deshabilitar_input(nodo):
-	for c in nodo.get_children():
-		if c.has_method('deshabilitar_interaccion'):
-			c.deshabilitar_interaccion()
-			_deshabilitar_input(c)
-
-func _rehabilitar_input(nodo):
-	for c in nodo.get_children():
-		if c.has_method('rehabilitar_interaccion'):
-			c.rehabilitar_interaccion()
-			_rehabilitar_input(c)
 
 ###############################
 # API para scripting de escenas

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends ModoDeInteraccion
+
+func entrar_al_modo():
+	_rehabilitar_input(contenedor_de_la_escena)
+	
+func salir_del_modo():
+	_deshabilitar_input(contenedor_de_la_escena)
+
+	
+func _deshabilitar_input(nodo):
+	for c in nodo.get_children():
+		if c.has_method('deshabilitar_interaccion'):
+			c.deshabilitar_interaccion()
+		_deshabilitar_input(c)
+
+func _rehabilitar_input(nodo):
+	for c in nodo.get_children():
+		if c.has_method('rehabilitar_interaccion'):
+			c.rehabilitar_interaccion()
+		_rehabilitar_input(c)
+"
+
+[node name="lente_normal" type="Node2D"]
+script = SubResource( 1 )

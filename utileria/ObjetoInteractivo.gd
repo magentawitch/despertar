@@ -1,5 +1,5 @@
 extends TextureButton
-class_name ObjectoInteractivo, "res://assets/iconos/joystick.png"
+class_name ObjectoInteractivo, "res://assets/iconos/button1.png"
 
 export var on_pressed_cue: AudioStream
 export var on_mouse_entered_cue: AudioStream
@@ -11,6 +11,7 @@ var player: AudioStreamPlayer
 func _ready():
 	player = AudioStreamPlayer.new()
 	add_child(player)
+	deshabilitar_interaccion()
 	connect("pressed", self, "play_sound", [on_pressed_cue])
 	connect("mouse_entered", self, "play_sound", [on_mouse_entered_cue])
 	connect("mouse_exited", self, "play_sound", [on_mouse_exited_cue])

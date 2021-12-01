@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends ModoDeInteraccion
+
+func entrar_al_modo():
+	_rehabilitar_input(contenedor_de_la_escena)
+	
+func salir_del_modo():
+	_deshabilitar_input(contenedor_de_la_escena)
+
+func ocultar_menu_de_acciones_mientras_esta_colocado() -> bool:
+	return true
+	
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_ESCAPE):
+		emit_signal(\"solicito_cambiar_modo\", \"interactuar\")
+	
+func _deshabilitar_input(nodo):
+	for c in nodo.get_children():
+		if c is AreaFotografeable:
+			c.deshabilitar_sacar_fotos()
+		_deshabilitar_input(c)
+
+func _rehabilitar_input(nodo):
+	for c in nodo.get_children():
+		if c is AreaFotografeable:
+			c.habilitar_sacar_fotos()
+		_rehabilitar_input(c)
+"
+
+[sub_resource type="OpenSimplexNoise" id=2]
+octaves = 2
+period = 0.1
+persistence = 1.0
+lacunarity = 0.755355
+
+[sub_resource type="NoiseTexture" id=3]
+noise = SubResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "static"
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("estatica:texture:noise:lacunarity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.758024, -0.25, 0, 0.25, 0, 0.903713, -0.944764, 0, 0.67396, -0.00702119, 0.754513, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.9, 4.1 )
+}
+
+[node name="lente_de_foto" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="estatica" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.188235 )
+position = Vector2( 965.099, 471.21 )
+scale = Vector2( 3.9431, 3.9431 )
+texture = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "static"
+anims/static = SubResource( 4 )

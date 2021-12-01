@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=11]
 [ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=12]
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=13]
+[ext_resource path="res://utileria/AreaFotografeable.gd" type="Script" id=14]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -27,33 +28,6 @@ func _ready():
 
 func _on_PuertaPasillo_pressed():
 	dice(\"Jade\", \"Debo satisfacer mis ganas de fotografear antes\")
-
-var reconcidero_el_pupitre = false
-
-func _on_BancoDer3_pressed() -> void:
-	if ya_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Ya le saqué una foto\")
-		match epigrafe_elegido_para(\"mesa_profesore\"):
-			\"oda_uniformidad\":
-				dice(\"Jade\", \"No quiero otra foto de una mesa aburrida\")
-			\"futuro_anicos\":
-				dice(\"Jade\", \"No quiero otra foto que me traiga a este presente\")
-			_:
-				dice(\"Jade\", \"No quiero otra\")
-		return
-		
-	if not reconcidero_el_pupitre:
-		dice(\"Jade\", \"No, este no\")
-	elif no_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Serás añadido a la colección de mi diario!\")
-		agrega_foto_al_diario(\"mesa_profesore\")
-
-func _on_BancoDer4_pressed() -> void:
-	if reconcidero_el_pupitre:
-		dice(\"Jade\", \"No, mejor le saco al otro\")
-	else:
-		dice(\"Jade\", \"Mejor le saco al otro\")
-	reconcidero_el_pupitre = true
 
 func _on_PuertaArmario_pressed() -> void:
 	if no_ocurrio_que(\"vio_puerta_armario\"):
@@ -80,6 +54,78 @@ func _on_Profesore_pressed() -> void:
 	else:
 		ya_hablo_con_profesore = true
 		dice(\"Profesore\", \"Jade, a donde vas?\")
+
+
+func _on_Banco1_pressed() -> void:
+	if ya_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
+		return
+	dice(\"Jade\", \"Este pupitre está muy cerca de la puerta\")
+	
+	if vio_el_pupitre and not reconcidero_el_pupitre:
+		dice(\"Jade\", \"Me gusta mas el que está al lado de la pizarra-monitor\")
+		reconcidero_el_pupitre = true
+
+
+func _on_Banco2_pressed() -> void:
+	if ya_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
+		return
+	dice(\"Jade\", \"Este pupitre está muy al frente\")
+	
+	if vio_el_pupitre and not reconcidero_el_pupitre:
+		dice(\"Jade\", \"Me gusta mas el que está al lado de la pizarra-monitor\")
+		reconcidero_el_pupitre = true
+
+var vio_el_pupitre = false
+var reconcidero_el_pupitre = false
+func _on_Banco3_pressed() -> void:
+	vio_el_pupitre = true
+	if ya_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Ya le saqué una foto\")
+		match epigrafe_elegido_para(\"mesa_profesore\"):
+			\"oda_uniformidad\":
+				dice(\"Jade\", \"No quiero otra foto de una mesa aburrida\")
+			\"futuro_anicos\":
+				dice(\"Jade\", \"No quiero otra foto que me traiga a este presente\")
+			_:
+				dice(\"Jade\", \"No quiero otra\")
+		return
+		
+	if not reconcidero_el_pupitre:
+		dice(\"Jade\", \"Este me gusta pero, no estoy segure\")
+	elif no_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Serás añadido a la colección de mi diario!\")
+		agrega_foto_al_diario(\"mesa_profesore\")
+
+
+func _on_Banco4_pressed() -> void:
+	if ya_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Ya saqué una foto\")
+		return
+	if reconcidero_el_pupitre:
+		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
+		return
+	dice(\"Jade\", \"Hmmm, este está sucio\")
+	
+	if vio_el_pupitre and not reconcidero_el_pupitre:
+		dice(\"Jade\", \"Para eso prefiero el otro\")
+		reconcidero_el_pupitre = true
+
+
+func _on_Banco5_pressed() -> void:
+	if ya_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
+		return
+	if reconcidero_el_pupitre:
+		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
+		return
+		
+	dice(\"Jade\", \"Hmmm, este está escrito y dibujado con laser\")
+	
+	if vio_el_pupitre and not reconcidero_el_pupitre:
+		dice(\"Jade\", \"Prefiero el otro\")
+		reconcidero_el_pupitre = true
 "
 
 [sub_resource type="GDScript" id=2]
@@ -172,41 +218,7 @@ position = Vector2( 2923.69, 726.992 )
 scale = Vector2( 0.755898, 0.755898 )
 texture = ExtResource( 3 )
 
-[node name="BancoIzq" type="Sprite" parent="."]
-position = Vector2( 3335.84, 967.199 )
-scale = Vector2( 0.885882, 0.885882 )
-z_index = 1
-texture = ExtResource( 8 )
-
-[node name="BancoIzq2" type="Sprite" parent="."]
-position = Vector2( 3892.73, 864.628 )
-scale = Vector2( 0.885882, 0.885882 )
-texture = ExtResource( 8 )
-
-[node name="BancoDer" type="Sprite" parent="."]
-position = Vector2( 2262.53, 870.804 )
-scale = Vector2( 0.885882, 0.885882 )
-texture = ExtResource( 6 )
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2( -443.811, 981.005 )
-scale = Vector2( 1.77176, 1.77176 )
-z_index = 1
-
-[node name="BancoDer4" type="TextureButton" parent="Node2D"]
-margin_left = 1035.13
-margin_top = -91.924
-margin_right = 1306.13
-margin_bottom = 48.076
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 6 )
-expand = true
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BancoDer3" type="TextureButton" parent="."]
+[node name="Banco1" type="TextureButton" parent="."]
 margin_left = 745.665
 margin_top = 745.688
 margin_right = 1016.66
@@ -215,7 +227,71 @@ rect_scale = Vector2( 1.76176, 1.76176 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 expand = true
-script = ExtResource( 9 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -443.811, 981.005 )
+scale = Vector2( 1.77176, 1.77176 )
+z_index = 1
+
+[node name="Banco2" type="TextureButton" parent="Node2D"]
+margin_left = 1035.13
+margin_top = -91.924
+margin_right = 1306.13
+margin_bottom = 48.076
+rect_pivot_offset = Vector2( 219.226, 21.517 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Banco3" type="TextureButton" parent="."]
+margin_left = 2288.92
+margin_top = 764.931
+margin_right = 2559.92
+margin_bottom = 904.931
+rect_scale = Vector2( 1.762, 1.762 )
+rect_pivot_offset = Vector2( 219.226, 21.517 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Banco4" type="TextureButton" parent="."]
+margin_left = 3402.01
+margin_top = 762.552
+margin_right = 3673.01
+margin_bottom = 902.552
+rect_scale = Vector2( 1.762, 1.762 )
+rect_pivot_offset = Vector2( 219.226, 21.517 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 8 )
+expand = true
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Banco5" type="TextureButton" parent="."]
+margin_left = 4160.73
+margin_top = 764.931
+margin_right = 4431.73
+margin_bottom = 904.931
+rect_scale = Vector2( 1.762, 1.762 )
+rect_pivot_offset = Vector2( 219.226, 21.517 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 8 )
+expand = true
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -230,7 +306,7 @@ scale = Vector2( 1.77176, 1.77176 )
 script = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
-polygon = PoolVector2Array( 283.928, -41.6395, 253.962, 54.2521, 3554.31, 48.2253, 3716.1, -21.5582, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
+polygon = PoolVector2Array( 283.928, -41.6395, 250.239, 63.5817, 3554.31, 48.2253, 3716.1, -21.5582, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
 position = Vector2( -67.1872, 643.005 )
@@ -244,5 +320,8 @@ input_pickable = true
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
 [connection signal="pressed" from="PuertaArmario" to="." method="_on_PuertaArmario_pressed"]
 [connection signal="pressed" from="Profesore" to="." method="_on_Profesore_pressed"]
-[connection signal="pressed" from="Node2D/BancoDer4" to="." method="_on_BancoDer4_pressed"]
-[connection signal="pressed" from="BancoDer3" to="." method="_on_BancoDer3_pressed"]
+[connection signal="pressed" from="Banco1" to="." method="_on_Banco1_pressed"]
+[connection signal="pressed" from="Node2D/Banco2" to="." method="_on_Banco2_pressed"]
+[connection signal="pressed" from="Banco3" to="." method="_on_Banco3_pressed"]
+[connection signal="pressed" from="Banco4" to="." method="_on_Banco4_pressed"]
+[connection signal="pressed" from="Banco5" to="." method="_on_Banco5_pressed"]

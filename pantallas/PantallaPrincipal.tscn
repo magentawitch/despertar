@@ -127,6 +127,7 @@ func _on_borde_derecho_body_exited(body: Node) -> void:
 [node name="pantalla_principal" type="Node2D"]
 position = Vector2( -12.6992, -9.52435 )
 script = ExtResource( 5 )
+nombre_de_la_escena_de_prueba = "05_aula_post_examen"
 
 [node name="diario" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -181,7 +182,6 @@ path_al_diario = NodePath("../../diario")
 
 [node name="contenedor" type="Node2D" parent="."]
 script = ExtResource( 17 )
-nombre_de_la_escena_de_prueba = "04_pasillo_escuela2"
 path_al_director = NodePath("../director")
 path_al_diario = NodePath("../diario")
 
@@ -299,11 +299,13 @@ collision_mask = 2
 position = Vector2( 15.0154, 0.841827 )
 polygon = PoolVector2Array( -38.6667, 1044.1, 17.4563, 1017.16, 24.191, 40.6148, -43.1567, 20.4105 )
 
-[node name="foco" type="Node" parent="."]
+[node name="foco" type="Node2D" parent="."]
 script = ExtResource( 16 )
-path_al_contenedor_de_escena = NodePath("../contenedor")
+path_al_contenedor_de_la_escena = NodePath("../contenedor")
+path_al_director = NodePath("../director")
 
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]
+[connection signal="pressed" from="ui/menu/boton_camara" to="foco" method="cambiar_modo" binds= [ "sacar_foto" ]]
 [connection signal="pressed" from="ui/contenedor_carta/boton_para_cerrar" to="ui/contenedor_carta" method="_on_boton_para_cerrar_pressed"]
 [connection signal="body_entered" from="camara/borde_izquierdo" to="camara" method="_on_borde_izquierdo_body_entered"]
 [connection signal="body_exited" from="camara/borde_izquierdo" to="camara" method="_on_borde_izquierdo_body_exited"]
