@@ -1,6 +1,236 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://escenas/Escena.gd" type="Script" id=1]
+[ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=1]
+[ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
+[ext_resource path="res://assets/Museo/cuadroperiodico.png" type="Texture" id=3]
+[ext_resource path="res://assets/Museo/PuertaHerrumbre.png" type="Texture" id=4]
+[ext_resource path="res://assets/Museo/EscritorioKase.png" type="Texture" id=5]
+[ext_resource path="res://assets/Museo/cuadropicasso.png" type="Texture" id=6]
+[ext_resource path="res://assets/Museo/cuadrocompu.png" type="Texture" id=7]
+[ext_resource path="res://assets/Museo/fotocamara.png" type="Texture" id=8]
+[ext_resource path="res://FondoMuseo.png" type="Texture" id=9]
+[ext_resource path="res://assets/Museo/Cristal.png" type="Texture" id=10]
+[ext_resource path="res://assets/Museo/base.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/Personajes/Kase.png" type="Texture" id=12]
+[ext_resource path="res://assets/Museo/camara.png" type="Texture" id=13]
+[ext_resource path="res://assets/Museo/Libros.png" type="Texture" id=14]
+[ext_resource path="res://assets/Museo/maquinaescribir.png" type="Texture" id=15]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Escena
+
+func _ready():
+	dice_a_la_grabadora(\"Entrada 112: Cuando Volk subió al poder, los visitantes dejaron de venir.\")
+	dice_a_la_grabadora(\"Si bien legalmente no era un asunto prohibido, todos sabían qué opinaba el Líder sobre las épocas pasadas.\") 
+	dice_a_la_grabadora(\"Con el tiempo se transformó en el depósito de la escuela y se lo bautizó Museo Analógico como una burla.\")
+
+
+
+
+func _on_CuadroPicaso_pressed():
+	dice(Jade, \"Se parece al cuadro que Alex tiene escondido en casa. Creo que el pintor era bien famoso o algo.\")
+	
+"
 
 [node name="Escena" type="Node2D"]
+position = Vector2( 0, -25 )
+script = SubResource( 1 )
+puede_abrir_el_diario = null
+puede_tomar_fotos = null
+puede_ver_el_menu = null
+
+[node name="Fondo" type="Sprite" parent="."]
+position = Vector2( 918.895, 553.082 )
+z_index = -3
+texture = ExtResource( 9 )
+
+[node name="Camara" type="TextureButton" parent="Fondo"]
+margin_left = -976.175
+margin_top = 37.3442
+margin_right = -414.175
+margin_bottom = 585.344
+rect_scale = Vector2( 0.136886, 0.136886 )
+texture_normal = ExtResource( 13 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaquinaDeEscribir" type="TextureButton" parent="Fondo"]
+margin_left = 424.45
+margin_top = 89.8726
+margin_right = 986.45
+margin_bottom = 477.873
+rect_scale = Vector2( 0.280002, 0.280002 )
+texture_normal = ExtResource( 15 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Libros" type="TextureButton" parent="Fondo"]
+margin_left = 1239.05
+margin_top = -10.9185
+margin_right = 1832.05
+margin_bottom = 780.082
+rect_scale = Vector2( 0.199994, 0.199994 )
+texture_normal = ExtResource( 14 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CuadroCamaras" type="TextureButton" parent="Fondo"]
+margin_left = -1315.74
+margin_top = -347.938
+margin_right = -862.738
+margin_bottom = 158.062
+rect_scale = Vector2( 0.573582, 0.573582 )
+texture_normal = ExtResource( 8 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CuadroPeriodico" type="TextureButton" parent="Fondo"]
+margin_left = 701.105
+margin_top = -341.082
+margin_right = 1204.1
+margin_bottom = 220.918
+rect_scale = Vector2( 0.52, 0.52 )
+texture_normal = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CuadroCompu" type="TextureButton" parent="Fondo"]
+margin_left = 1454.92
+margin_top = -348.446
+margin_right = 1938.92
+margin_bottom = 193.554
+rect_scale = Vector2( 0.56, 0.56 )
+texture_normal = ExtResource( 7 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CuadroPicaso" type="TextureButton" parent="Fondo"]
+margin_left = -724.336
+margin_top = -329.658
+margin_right = -236.336
+margin_bottom = 217.342
+rect_scale = Vector2( 0.52, 0.52 )
+texture_normal = ExtResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EscritorioKase" type="TextureButton" parent="."]
+margin_left = -1105.33
+margin_top = 612.018
+margin_right = -362.33
+margin_bottom = 1028.02
+texture_normal = ExtResource( 5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Puerta" type="TextureButton" parent="."]
+margin_left = 717.735
+margin_top = 242.978
+margin_right = 1123.74
+margin_bottom = 911.978
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base1" type="TextureButton" parent="."]
+margin_left = -131.494
+margin_top = 671.897
+margin_right = 92.5059
+margin_bottom = 1016.9
+texture_normal = ExtResource( 11 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cristal1" type="TextureButton" parent="."]
+margin_left = -106.871
+margin_top = 449.661
+margin_right = 67.1294
+margin_bottom = 673.661
+texture_normal = ExtResource( 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base2" type="TextureButton" parent="."]
+margin_left = 1310.51
+margin_top = 752.532
+margin_right = 1534.51
+margin_bottom = 1097.53
+texture_normal = ExtResource( 11 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cristal2" type="TextureButton" parent="."]
+margin_left = 1335.13
+margin_top = 530.296
+margin_right = 1509.13
+margin_bottom = 754.296
+texture_normal = ExtResource( 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base3" type="TextureButton" parent="."]
+margin_left = 2104.31
+margin_top = 698.715
+margin_right = 2328.31
+margin_bottom = 1043.71
+texture_normal = ExtResource( 11 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cristal3" type="TextureButton" parent="."]
+margin_left = 2128.94
+margin_top = 476.479
+margin_right = 2302.94
+margin_bottom = 700.479
+texture_normal = ExtResource( 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Kase" type="TextureButton" parent="Node2D"]
+margin_left = -906.466
+margin_top = 309.2
+margin_right = -475.466
+margin_bottom = 1243.2
+rect_scale = Vector2( 0.756984, 0.756984 )
+texture_normal = ExtResource( 12 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Fondo/CuadroPicaso" to="." method="_on_CuadroPicaso_pressed"]
