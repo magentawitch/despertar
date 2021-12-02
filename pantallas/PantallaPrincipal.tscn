@@ -240,9 +240,6 @@ stretch_mode = 5
 diario_path = NodePath("../../diario")
 
 [node name="eleccion_de_epigrafe" parent="ui" instance=ExtResource( 13 )]
-visible = false
-position = Vector2( 971.108, 528.815 )
-scale = Vector2( 3.17586, 3.17586 )
 
 [node name="contenedor_dialogo" type="Position2D" parent="ui"]
 position = Vector2( 981.23, 333.925 )

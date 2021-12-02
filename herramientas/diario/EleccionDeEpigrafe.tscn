@@ -1,15 +1,55 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://herramientas/diario/EleccionDeEpigrafe.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/recuadros/KEY0.CC-Polaroids-On-The-Hunt-Plantilla-Polaroid-superpuesta-transparente.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/FondoEscritorio.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/lapicera.png" type="Texture" id=4]
+[ext_resource path="res://herramientas/diario/OpcionDeEpigrafe.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.00396825, 0.511905, 1 )
+colors = PoolColorArray( 0.280273, 0.28, 0.28, 1, 0.12793, 0.061841, 0.061841, 1, 0.170898, 0.0158548, 0.0158548, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "flotar"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -109.762, -0.25, 0, 0.25, 0, -109.762, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -231.382, -0.25, 0, 0.25, 0, -242.684, -0.691895, -1.1683, 0.458799, 1.03848, -231.382, -0.168533, -0.00811768, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
 
 [node name="eleccion_de_epigrafe" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="fondo" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.6 )
+position = Vector2( 989.42, 547.035 )
+scale = Vector2( 1.05672, 1157.18 )
+texture = SubResource( 2 )
+
 [node name="lugar_donde_va_la_foto" type="Position2D" parent="."]
-position = Vector2( -84.9487, 44.834 )
-scale = Vector2( 0.964641, 0.964641 )
+position = Vector2( 657.516, 652.603 )
+scale = Vector2( 2.94455, 2.94455 )
 
 [node name="foto_placeholder_que_se_borra_al_iniciar" type="Node2D" parent="lugar_donde_va_la_foto"]
 
@@ -25,31 +65,47 @@ position = Vector2( 0.154556, -49.0539 )
 scale = Vector2( 0.361344, 0.361344 )
 texture = ExtResource( 2 )
 
-[node name="panel" type="PanelContainer" parent="."]
-margin_left = 18.8775
-margin_top = -28.3162
-margin_right = 177.877
-margin_bottom = 29.6838
+[node name="panel" type="CenterContainer" parent="."]
+margin_left = 984.464
+margin_top = 56.85
+margin_right = 1737.46
+margin_bottom = 974.85
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="opciones" type="VBoxContainer" parent="panel"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 152.0
-margin_bottom = 51.0
+margin_top = 130.0
+margin_right = 753.0
+margin_bottom = 788.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="opcion_de_prueba_a" type="Button" parent="panel/opciones"]
-margin_right = 145.0
-margin_bottom = 20.0
-text = "Oda a la uniformidad"
+[node name="prototipo_opcion_de_epigrafe" parent="panel/opciones" instance=ExtResource( 5 )]
+margin_top = 0.0
+margin_right = 753.0
+margin_bottom = 327.0
 
-[node name="opcion_de_prueba_b" type="Button" parent="panel/opciones"]
-margin_top = 24.0
-margin_right = 145.0
-margin_bottom = 44.0
-text = "Futuro en añicos"
+[node name="opcion_de_epigrafe_de_ejemplo" parent="panel/opciones" instance=ExtResource( 5 )]
+margin_top = 331.0
+margin_right = 753.0
+margin_bottom = 658.0
+
+[node name="lapicera" type="Node2D" parent="."]
+position = Vector2( 520.941, 663.178 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="lapicera"]
+position = Vector2( -109.762, -231.382 )
+scale = Vector2( -0.582888, 0.582888 )
+texture = ExtResource( 4 )
+
+[node name="animacion_flotando" type="AnimationPlayer" parent="lapicera"]
+autoplay = "flotar"
+anims/flotar = SubResource( 3 )
+
+[node name="sobre_la_carta" type="Position2D" parent="."]
+position = Vector2( 524.673, 674.58 )

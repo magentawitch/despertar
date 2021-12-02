@@ -5,8 +5,8 @@ signal opcion_elegida
 
 func _ready() -> void:
 	# Borro las opciones de prueba
-	$panel/opciones/opcion_de_prueba_a.queue_free()
-	$panel/opciones/opcion_de_prueba_b.queue_free()
+	$panel/opciones/prototipo_opcion_de_epigrafe.queue_free()
+	$panel/opciones/opcion_de_epigrafe_de_ejemplo.queue_free()
 	
 func mostrar_foto(nombre_foto):
 	print("Mostrando foto para elegir el epigrafe")
@@ -16,6 +16,7 @@ func mostrar_foto(nombre_foto):
 	)
 	# mostrar foto
 	visible = true
+	mover_lapicera($sobre_la_carta)
 
 func asnignar_opciones_disponibles(opciones_disponibles: Dictionary):
 	# Borro las opciones viejas
@@ -24,11 +25,23 @@ func asnignar_opciones_disponibles(opciones_disponibles: Dictionary):
 	# Agrego las que son para esta foto
 	for nombre_opcion in opciones_disponibles.keys():
 		var texto_opcion = opciones_disponibles[nombre_opcion]
-		var button = Button.new()
-		button.text = texto_opcion
-		button.connect("pressed", self, "_on_opcion_elegida", [nombre_opcion])
-		$panel/opciones.add_child(button)
-
+		var opcion = OpcionDeEpigrafe.crear()
+		$panel/opciones.add_child(opcion)
+		opcion.asignar_texto(texto_opcion)
+		opcion.connect("fue_elegido", self, "_on_opcion_elegida", [nombre_opcion])
+		opcion.connect("gano_interes", self, "_on_opcion_gano_interes", [opcion])
+		opcion.connect("perdio_interes", self, "_on_opcion_perdio_interes", [opcion])
+		
 func _on_opcion_elegida(nombre_opcion):
 	visible = false
 	emit_signal("opcion_elegida", nombre_opcion)
+
+func _on_opcion_gano_interes(opcion: OpcionDeEpigrafe):
+	mover_lapicera(opcion.obtener_posicion_lapicera())
+
+func mover_lapicera(posicion: Position2D):
+	$lapicera.global_position = posicion.global_position
+
+func _on_opcion_perdio_interes(opcion: OpcionDeEpigrafe):
+	mover_lapicera($sobre_la_carta)
+	
