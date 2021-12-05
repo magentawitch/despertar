@@ -24,9 +24,10 @@
 script/source = "extends Escena
 
 func _ready():
-	dice_a_la_grabadora(\"Entrada 112: Cuando Volk subió al poder, los visitantes dejaron de venir.\")
-	dice_a_la_grabadora(\"Si bien legalmente no era un asunto prohibido, todos sabían qué opinaba el Líder sobre las épocas pasadas.\") 
-	dice_a_la_grabadora(\"Con el tiempo se transformó en el depósito de la escuela y se lo bautizó Museo Analógico como una burla.\")
+	if not tiene_la_camara():
+		dice_a_la_grabadora(\"Entrada 112: Cuando Volk subió al poder, los visitantes dejaron de venir.\")
+		dice_a_la_grabadora(\"Si bien legalmente no era un asunto prohibido, todos sabían qué opinaba el Líder sobre las épocas pasadas.\") 
+		dice_a_la_grabadora(\"Con el tiempo se transformó en el depósito de la escuela y se lo bautizó Museo Analógico como una burla.\")
 	if tiene_la_camara():
 		$Node2D/Kase.visible = false
 		$Cristal1.visible = false
@@ -145,6 +146,10 @@ func _on_FotoEscritorioKase_pressed():
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"KaseSeVa\")
 		yield($Animador, \"animation_finished\")
+
+
+func _on_Puerta_pressed():
+	cambiar_escena_a(\"04_pasillo_escuela2\")
 "
 
 [sub_resource type="Animation" id=2]
@@ -215,7 +220,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "KaseVuelve"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Node2D/Kase:rect_position")
@@ -230,7 +235,7 @@ tracks/0/keys = {
 "values": [ Vector2( -435.54, 304.443 ), Vector2( -935.007, 304.443 ) ]
 }
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=5]
 script/source = "extends Personaje
 
 func _ready():
@@ -347,11 +352,10 @@ __meta__ = {
 z_index = -1
 
 [node name="Kase" type="TextureButton" parent="Node2D"]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 3000.0
-margin_top = 294.929
-margin_right = 3431.0
-margin_bottom = 1228.93
+margin_left = -935.007
+margin_top = 275.902
+margin_right = -504.007
+margin_bottom = 1209.9
 rect_scale = Vector2( 0.756984, 0.756984 )
 texture_normal = ExtResource( 12 )
 script = ExtResource( 1 )
@@ -449,7 +453,7 @@ __meta__ = {
 [node name="Animador" type="AnimationPlayer" parent="."]
 anims/KaseAbreCamara = SubResource( 2 )
 anims/KaseSeVa = SubResource( 3 )
-anims/KaseVuelve = SubResource( 5 )
+anims/KaseVuelve = SubResource( 4 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 17 )]
 position = Vector2( -1137.67, 593.387 )
@@ -465,13 +469,14 @@ polygon = PoolVector2Array( -1057.35, 1027.9, -1051.36, 1093.82, 2896.64, 1085.7
 
 [node name="Jade" parent="." instance=ExtResource( 19 )]
 position = Vector2( 937.49, 1059.5 )
-script = SubResource( 4 )
+script = SubResource( 5 )
 sprite_path = NodePath("")
 
 [connection signal="pressed" from="Fondo/CuadroCamaras" to="." method="_on_CuadroCamaras_pressed"]
 [connection signal="pressed" from="Fondo/CuadroPeriodico" to="." method="_on_CuadroPeriodico_pressed"]
 [connection signal="pressed" from="Fondo/CuadroCompu" to="." method="_on_CuadroCompu_pressed"]
 [connection signal="pressed" from="Fondo/CuadroPicaso" to="." method="_on_CuadroPicaso_pressed"]
+[connection signal="pressed" from="Fondo/Puerta" to="." method="_on_Puerta_pressed"]
 [connection signal="pressed" from="Node2D/Kase" to="." method="_on_Kase_pressed"]
 [connection signal="pressed" from="EscritorioKase/FotoEscritorioKase" to="." method="_on_FotoEscritorioKase_pressed"]
 [connection signal="pressed" from="Cristal1" to="." method="_on_Cristal1_pressed"]

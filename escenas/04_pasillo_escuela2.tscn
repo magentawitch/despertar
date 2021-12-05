@@ -17,14 +17,22 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-func _al_comienzo():
-	anotar_en_el_diario(\"\"\"
-	Los pasillos de esta escuela siempre están vacíos. 
-	Pero lo que nunca faltan son esas figuras perturbadoras del estúpido de Volk.
-	Todos lo alaban y a su super-sociedad de mierda.
-	\"\"\")
+func _ready():
+	if tiene_la_camara():
+		$CartaCerrada1.visible = false
+	if not tiene_la_camara():
+		anotar_en_el_diario(\"\"\"
+		Los pasillos de esta escuela siempre están vacíos. 
+		Pero lo que nunca faltan son esas figuras perturbadoras del estúpido de Volk.
+		Todos lo alaban y a su super-sociedad de mierda.
+		\"\"\")
 
 func _on_PuertaAula_pressed():
+	if tiene_la_camara():
+		dice(\"Jade\", \"Quiero probar la cámara en el aula\")
+		cambiar_escena_a(\"05_aula_post_examen\")
+		return
+		
 	dice(\"Jade\", \"Ya terminé el examen. Quiero explorar el pasillo antes de volver\")
 
 
@@ -32,12 +40,18 @@ func _on_PuertaPatio_pressed():
 	dice(\"Jade\", \"Mm, la puerta del patio parece estar cerrada por ahora\")
 
 func _on_PuertaMuseoAnalogico_pressed():
-	dice(\"Jade\", \"Mm, esta puerta parece estar cerrada por ahora\")
+	if ya_ocurrio_que(\"agarro_carta_1\"):
+		cambiar_escena_a(\"06_museo_analogico\")
+	else:
+		dice(\"Jade\", \"Creo que vi algo al lado del busto de Volk\")
 
 var clicks_cuadro_volk = 0
 
 func _on_CuadroVolk_pressed():
-
+	if tiene_la_camara():
+		dice(\"Jade\", \"Puedo sacarle una foto?\")
+		return
+		
 	clicks_cuadro_volk += 1
 	if clicks_cuadro_volk == 1:
 		dice_a_la_grabadora(\"\"\"Bitácora número 42: En el pasillo tenemos un cuadro de Volk, principal exponente del movimiento transhumanista.\"\"\")
@@ -48,11 +62,14 @@ func _on_CuadroVolk_pressed():
 		dice_a_la_grabadora(\"\"\" no habría personas ricas, pobres, ni en cargos de poder. Una sociedad horizontal, clamaba. \"\"\")
 
 
+
 func _on_BustVolk_pressed():
-	anotar_en_el_diario(\"\"\"
-	Lo peor de todo es que su campaña fue para llevarnos a la tierra prometida. 
-	La verdad que si es esto, devolveme a la  época anterior. 
-	\"\"\")
+	if no_ocurrio_que(\"miro_el_busto_de_volk\"):
+		anotar_en_el_diario(\"\"\"
+		Lo peor de todo es que su campaña fue para llevarnos a la tierra prometida. 
+		La verdad que si es esto, devolveme a la  época anterior. 
+		\"\"\")
+		registrar_hito(\"miro_el_busto_de_volk\")
 	dice_a_la_grabadora(\"\"\" Bitácora número 316: Un mes después de que Volk ascendiera al poder,
 	 \"\"\")
 	dice_a_la_grabadora(\"\"\" exigió que todos los ámbitos educativos, religiosos y comerciales exhibieran al menos un cuadro o escultura suya. 
@@ -74,6 +91,7 @@ func _on_Carta1_pressed():
 	$CartaCerrada1.queue_free()
 	ver_carta(\"carta_1\")
 	agregar_carta(\"carta_1\")
+	registrar_hito(\"agarro_carta_1\")
 "
 
 [node name="Pasillo_Escuela2" type="Node2D"]
