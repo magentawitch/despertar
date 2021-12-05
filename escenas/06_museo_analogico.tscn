@@ -27,7 +27,10 @@ func _ready():
 	dice_a_la_grabadora(\"Entrada 112: Cuando Volk subió al poder, los visitantes dejaron de venir.\")
 	dice_a_la_grabadora(\"Si bien legalmente no era un asunto prohibido, todos sabían qué opinaba el Líder sobre las épocas pasadas.\") 
 	dice_a_la_grabadora(\"Con el tiempo se transformó en el depósito de la escuela y se lo bautizó Museo Analógico como una burla.\")
-
+	if tiene_la_camara():
+		$Node2D/Kase.visible = false
+		$Cristal1.visible = false
+		$Fondo/Camara.visible = false
 
 
 
@@ -59,15 +62,21 @@ func _on_Cristal2_pressed():
 
 
 func _on_Cristal1_pressed():
+	ya_vio_la_camara = true
 	dice(\"Jade\", \"Siempre quise tener una de estas. Podría registrar toda mi vida.\")
 
-
+var ya_vio_la_camara = false
 var habloconkase = false
 
 func _on_Kase_pressed():
+	if not ya_vio_la_camara:
+		dice(\"Jade\", \"Mejor sigo explorando antes de molestarle\")
+		return
+	
 	if habloconkase: 
 		dice(\"Kase\", \"Con la cámara en mano, apunta al escenario que quieras capturar y hace click\")
 		return
+		
 	elige([
 		['Quién sos?', 'quien_sos'],
 		['Perdón, no quería molestar.', 'no_molestar'],
@@ -85,8 +94,9 @@ func quien_sos():
 	dice(\"Jade\", \"Sí, desde que lo estudiamos en las clases de Historia Arcaica quise una para registrar todo lo que veo\")
 	dice(\"Kase\", \"Hace varios años atrás había une joven obsesionade con dejar documentada la historia para el futuro, pasaba largos ratos escribiendo y fotografiando todo lo que...\")
 	dice(\"Jade\", \"Es su cámara? Puedo verla?\")
-	_1()
-	respuesta_kase =  \"Puedes verla, solo recuerda volver a guardarla cuando termines.\"
+	yield(self, \"termino_dialogo\")
+	yield(_1(), \"completed\")
+	respuesta_kase =  \"Puedes usarla, solo recuerda volver a guardarla cuando termines.\"
 
 
 func no_molestar():
@@ -95,7 +105,8 @@ func no_molestar():
 	dice(\"Jade\", \"...\")
 	dice(\"Kase\", \"Te veo interesade en la cámara. Quieres probarla?\")
 	dice(\"Jade\", \"SI! Muero por probar una desde que las estudiamos en Historia Arcaica\")
-	_1()
+	yield(self, \"termino_dialogo\")
+	yield(_1(), \"completed\")
 	respuesta_kase = \"*Se ríe* Solo recuerda volver a guardarla cuando termines.\"
 
 
@@ -189,7 +200,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -935.007, 304.443 ), Vector2( 2722.99, 294.929 ) ]
+"values": [ Vector2( -935.007, 304.443 ), Vector2( 3000, 294.929 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Node2D/Kase:self_modulate")
@@ -336,10 +347,11 @@ __meta__ = {
 z_index = -1
 
 [node name="Kase" type="TextureButton" parent="Node2D"]
-margin_left = -935.007
-margin_top = 304.443
-margin_right = -504.007
-margin_bottom = 1238.44
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 3000.0
+margin_top = 294.929
+margin_right = 3431.0
+margin_bottom = 1228.93
 rect_scale = Vector2( 0.756984, 0.756984 )
 texture_normal = ExtResource( 12 )
 script = ExtResource( 1 )
