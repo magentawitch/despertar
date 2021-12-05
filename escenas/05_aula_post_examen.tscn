@@ -27,7 +27,8 @@ func _ready():
 	dice(\"Jade\", \"La pregunta es... cual?\")
 
 func _on_PuertaPasillo_pressed():
-	dice(\"Jade\", \"Debo satisfacer mis ganas de fotografear antes\")
+	dice(\"Jade\", \"Adios, me voy al museo\")
+	cambiar_escena_a(\"06_museo_analogico\")
 
 func _on_PuertaArmario_pressed() -> void:
 	if no_ocurrio_que(\"vio_puerta_armario\"):

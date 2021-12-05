@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -28,16 +28,163 @@ func _ready():
 
 
 func _on_CuadroPicaso_pressed():
-	dice(Jade, \"Se parece al cuadro que Alex tiene escondido en casa. Creo que el pintor era bien famoso o algo.\")
+	dice(\"Jade\", \"Se parece al cuadro que Alex tiene escondido en casa. Creo que el pintor era bien famoso o algo.\")
 	
+
+
+func _on_CuadroCamaras_pressed():
+	dice(\"Jade\", \"La evolución de las cámaras! Existían tantas tan diferentes\")
+	dice(\"Jade\", \"Es re aburrido que ahora todes saquen fotos con sus implantes. Ni hablar que nunca sabes si te estn fotografiando cada vez que te miran\")
+
+
+func _on_CuadroPeriodico_pressed():
+	dice(\"Jade\", \"Leer las noticias desde el celular me parece ridículo cuando podríamos tener esto.\") 
+	dice(\"Jade\", \"Como en las películas antiguas, que se levantan a desayunar mientras leen las noticias.\")
+
+
+func _on_CuadroCompu_pressed():
+	dice(\"Jade\", \"Un cuadro de la evolución de las computadoras\")
+
+
+func _on_Cristal3_pressed():
+	dice(\"Jade\", \"Siempre me dan ganas de leer estos libros, pero son tan viejos que seguro me darían alergia\")
+
+
+func _on_Cristal2_pressed():
+	dice(\"Jade\", \"Me gusta escribir mi diario a mano, pero me encantaría también tener una de estas en casa.\")
+
+
+func _on_Cristal1_pressed():
+	dice(\"Jade\", \"Siempre quise tener una de estas. Podría registrar toda mi vida.\")
+
+
+var habloconkase = false
+
+func _on_Kase_pressed():
+	if habloconkase: 
+		dice(\"Kase\", \"Ya hablamos\")
+		return
+	elige([
+		['Quién sos?', 'quien_sos'],
+		['Perdón, no quería molestar.', 'no_molestar'],
+		['Me asustaste!', 'me_asustaste'],
+	])
+	habloconkase =true
+	
+
+func quien_sos():
+	dice(\"Jade\", \"Quién sos? Nunca te vi por acá.\")
+	dice(\"Kase\", \"Soy Kase. Le cuidadore del museo. te veo bastante interesade en este polvoriento y viejo lugar.\")
+	dice(\"Jade\", \"Siempre vengo por acá cuando quiero estar sole\")
+	dice(\"Kase\", \"Veo que te atrae la cámara. Sabes para que sirve?\")
+	dice(\"Jade\", \"Sí, desde que lo estudiamos en las clases de Historia Arcaica quise una para registrar todo lo que veo\")
+	dice(\"Kase\", \"Hace varios años atrás había une joven obsesionade con dejar documentada la historia para el futuro, pasaba largos ratos escribiendo y fotografiando todo lo que...\")
+	dice(\"Jade\", \"Es su cámara? Puedo verla?\")
+	_1()
+	dice(\"Kase\", \"Puedes verla, solo recuerda volver a guardarla cuando termines.\")
+	_2()
+
+func no_molestar():
+	dice(\"Jade\", \"'Perdón, no quería molestar. Este lugar siempre está vacío.\")
+	dice(\"Kase\", \"Soy Kase. Le cuidadore del museo. Te suelo ver seguido por acá, pero siempre estás concentrade viendo la exposición como para notar que hay alguien más\")
+	dice(\"Jade\", \"...\")
+	dice(\"Kase\", \"Te veo interesade en la cámara. Quieres probarla?\")
+	dice(\"Jade\", \"SI! Muero por probar una desde que las estudiamos en Historia Arcaica\")
+	_1()
+	dice(\"Kase\", \"*Se ríe* Solo recuerda volver a guardarla cuando termines.\")
+	_2()
+
+func me_asustaste():
+	dice(\"Jade\", \"Me asustaste! Hace cuánto esás ahí?\")
+	dice(\"Kase\", \"No era mi intención. Solo hago mi trabajo.\")
+	dice(\"Jade\", \"No te había visto antes por acá\")
+	dice(\"Kase\", \"Soy Kase, le cuidadore del museo. Te veo interesade en la cámara\")
+	dice(\"Jade\",\"Desde que las estudiamos en Historia Arcaica quise tener una!\")
+	dice(\"Kase\", \"Conocia a alguien que solia usar esta misma cámara para registrar todos sus días\")
+	dice(\"Jade\", \"Puedo probarla?!\")
+	_1()
+	dice(\"Kase\", \"Con cuidado. Y recuerda guardarla cuando termines.\")
+	_2()
+
+func _1():
+	$Animador.play(\"KaseAbreCamara\")
+	yield($Animador, \"animation_finished\")
+
+func _2():
+	agarrar_camara() 
 "
+
+[sub_resource type="Animation" id=2]
+resource_name = "KaseAbreCamara"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Kase:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -935.007, 275.902 ), Vector2( -435.54, 304.443 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cristal1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -106.871, 449.661 ), Vector2( -106.871, 449.661 ), Vector2( -106.871, 345.011 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cristal1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "KaseSeVa"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Kase:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -435.54, 304.443 ), Vector2( 2722.99, 294.929 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Kase:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 5.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Escena" type="Node2D"]
 position = Vector2( 0, -25 )
 script = SubResource( 1 )
-puede_abrir_el_diario = null
-puede_tomar_fotos = null
-puede_ver_el_menu = null
 
 [node name="Fondo" type="Sprite" parent="."]
 position = Vector2( 918.895, 553.082 )
@@ -128,25 +275,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Puerta" type="TextureButton" parent="Fondo"]
+margin_left = -201.16
+margin_top = -310.104
+margin_right = 204.845
+margin_bottom = 358.896
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EscritorioKase" type="TextureButton" parent="."]
 margin_left = -1105.33
 margin_top = 612.018
 margin_right = -362.33
 margin_bottom = 1028.02
 texture_normal = ExtResource( 5 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Puerta" type="TextureButton" parent="."]
-margin_left = 717.735
-margin_top = 242.978
-margin_right = 1123.74
-margin_bottom = 911.978
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -164,10 +311,11 @@ __meta__ = {
 }
 
 [node name="Cristal1" type="TextureButton" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = -106.871
-margin_top = 449.661
+margin_top = 345.011
 margin_right = 67.1294
-margin_bottom = 673.661
+margin_bottom = 569.015
 texture_normal = ExtResource( 10 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -222,10 +370,11 @@ __meta__ = {
 z_index = -1
 
 [node name="Kase" type="TextureButton" parent="Node2D"]
-margin_left = -906.466
-margin_top = 309.2
-margin_right = -475.466
-margin_bottom = 1243.2
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 2722.99
+margin_top = 294.929
+margin_right = 3153.99
+margin_bottom = 1228.93
 rect_scale = Vector2( 0.756984, 0.756984 )
 texture_normal = ExtResource( 12 )
 script = ExtResource( 1 )
@@ -233,4 +382,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Animador" type="AnimationPlayer" parent="."]
+anims/KaseAbreCamara = SubResource( 2 )
+anims/KaseSeVa = SubResource( 3 )
+
+[connection signal="pressed" from="Fondo/CuadroCamaras" to="." method="_on_CuadroCamaras_pressed"]
+[connection signal="pressed" from="Fondo/CuadroPeriodico" to="." method="_on_CuadroPeriodico_pressed"]
+[connection signal="pressed" from="Fondo/CuadroCompu" to="." method="_on_CuadroCompu_pressed"]
 [connection signal="pressed" from="Fondo/CuadroPicaso" to="." method="_on_CuadroPicaso_pressed"]
+[connection signal="pressed" from="Cristal1" to="." method="_on_Cristal1_pressed"]
+[connection signal="pressed" from="Cristal2" to="." method="_on_Cristal2_pressed"]
+[connection signal="pressed" from="Cristal3" to="." method="_on_Cristal3_pressed"]
+[connection signal="pressed" from="Node2D/Kase" to="." method="_on_Kase_pressed"]
