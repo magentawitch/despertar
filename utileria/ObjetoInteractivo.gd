@@ -27,8 +27,10 @@ func play_sound(auidio_stream: AudioStream):
 
 func rehabilitar_interaccion():
 	disabled = false
+	mouse_filter = Control.MOUSE_FILTER_STOP
 	mouse_default_cursor_shape = _forma_de_cursor_guardada
 
 func deshabilitar_interaccion():
 	disabled = true
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	mouse_default_cursor_shape = Control.CURSOR_ARROW
