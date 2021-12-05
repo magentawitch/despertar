@@ -26,7 +26,11 @@ func _ready() -> void:
 		nombre_escena = nombre_de_la_escena_de_prueba
 	else:
 		nombre_escena = nombre_de_la_escena_inicial
-	$director.encolar("nueva_partida", {})
+		
+	if $memoria.hay_una_partida_guardada():
+		$director.encolar("cargar_partida", {})
+	else:
+		$director.encolar("nueva_partida", {})
 	
 func _cuando_el_foco_cambia_de_modo(modo: ModoDeInteraccion):
 	if modo.ocultar_menu_de_acciones_mientras_esta_colocado():

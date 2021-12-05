@@ -188,17 +188,17 @@ path_al_diario = NodePath("../../diario")
 script = ExtResource( 23 )
 path_al_diario = NodePath("../../diario")
 path_al_contenedor_de_escena = NodePath("../../contenedor")
-path_a_la_memoria = NodePath("../../Memoria")
+path_a_la_memoria = NodePath("../../memoria")
 
 [node name="cargar_partida" type="Node" parent="director"]
 script = ExtResource( 24 )
 path_al_diario = NodePath("../../diario")
 path_al_contenedor_de_escena = NodePath("../../contenedor")
-path_a_la_memoria = NodePath("../../Memoria")
+path_a_la_memoria = NodePath("../../memoria")
 
 [node name="nueva_partida" type="Node" parent="director"]
 script = ExtResource( 25 )
-path_a_la_memoria = NodePath("../../Memoria")
+path_a_la_memoria = NodePath("../../memoria")
 
 [node name="contenedor" type="Node2D" parent="."]
 z_index = -10
@@ -323,7 +323,7 @@ script = ExtResource( 16 )
 path_al_contenedor_de_la_escena = NodePath("../contenedor")
 path_al_director = NodePath("../director")
 
-[node name="Memoria" type="Node" parent="."]
+[node name="memoria" type="Node" parent="."]
 script = ExtResource( 26 )
 
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]
