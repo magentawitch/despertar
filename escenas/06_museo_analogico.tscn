@@ -58,13 +58,19 @@ func _on_Cristal1_pressed():
 	dice(\"Jade\", \"Siempre quise tener una de estas. Podría registrar toda mi vida.\")
 
 
+var habloconkase = false
 
 func _on_Kase_pressed():
+	if habloconkase: 
+		dice(\"Kase\", \"Ya hablamos\")
+		return
 	elige([
 		['Quién sos?', 'quien_sos'],
 		['Perdón, no quería molestar.', 'no_molestar'],
 		['Me asustaste!', 'me_asustaste'],
 	])
+	habloconkase =true
+	
 
 func quien_sos():
 	dice(\"Jade\", \"Quién sos? Nunca te vi por acá.\")
@@ -105,7 +111,7 @@ func _1():
 	yield($Animador, \"animation_finished\")
 
 func _2():
-	pass 
+	agarrar_camara() 
 "
 
 [sub_resource type="Animation" id=2]
