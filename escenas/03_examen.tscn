@@ -284,7 +284,6 @@ tracks/4/keys = {
 script = SubResource( 1 )
 puede_abrir_el_diario = false
 puede_tomar_fotos = false
-pude_ver_el_menu = false
 
 [node name="contenido" type="Node2D" parent="."]
 scale = Vector2( 1.8529, 1.8529 )

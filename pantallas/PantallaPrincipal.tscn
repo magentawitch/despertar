@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -25,6 +25,44 @@
 [ext_resource path="res://acciones/cargar_partida.gd" type="Script" id=24]
 [ext_resource path="res://acciones/nueva_partida.gd" type="Script" id=25]
 [ext_resource path="res://herramientas/persistencia/Memoria.gd" type="Script" id=26]
+
+[sub_resource type="Animation" id=11]
+resource_name = "fade_in"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("master_bus:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -72, -0.25, 0, 0.924631, 0.777779, 0, -0.304611, 6.34452, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fade_out"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("master_bus:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.276415, 14.8889, 0.254067, 6.58211, -74.6944, -0.951884, -0.694443, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Node
+
+export(float) var volume_db setget set_volume_db, get_volume_db
+
+func set_volume_db(volume: float):
+	AudioServer.set_bus_volume_db(0, volume)
+	
+func get_volume_db() -> float:
+	return AudioServer.get_bus_volume_db(0)
+"
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.5, 1 )
@@ -150,6 +188,13 @@ path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
 [node name="cambio_de_escena" type="Node" parent="director"]
 script = ExtResource( 7 )
 path_al_contenedor_de_escena = NodePath("../../contenedor")
+
+[node name="animador" type="AnimationPlayer" parent="director/cambio_de_escena"]
+anims/fade_in = SubResource( 11 )
+anims/fade_out = SubResource( 12 )
+
+[node name="master_bus" type="Node" parent="director/cambio_de_escena"]
+script = SubResource( 10 )
 
 [node name="dice" type="Node" parent="director"]
 script = ExtResource( 8 )
