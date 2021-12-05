@@ -9,6 +9,8 @@ export var puede_ver_el_menu = true
 var diario_sl: Diario
 var director: Director
 
+signal termino_dialogo
+
 func _inicializar_dependencias(director: Director, diario: Diario):
 	self.diario_sl = diario
 	self.director = director
@@ -31,6 +33,8 @@ static func cargar(nombre_de_la_escena: String) -> Escena:
 	)
 	return escena as Escena
 
+func _cuando_se_acabaron_las_acciones_pendientes():
+	emit_signal("termino_dialogo")
 
 ###############################
 # API para scripting de escenas

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -19,8 +19,7 @@
 [ext_resource path="res://herramientas/ContenedorDeEscena.gd" type="Script" id=17]
 [ext_resource path="res://acciones/caminar.gd" type="Script" id=18]
 [ext_resource path="res://acciones/agregar_carta.gd" type="Script" id=19]
-[ext_resource path="res://assets/images/camara_boton.png" type="Texture" id=20]
-[ext_resource path="res://assets/images/camara_boton_hover.png" type="Texture" id=21]
+[ext_resource path="res://assets/Museo/camara.png" type="Texture" id=20]
 [ext_resource path="res://acciones/registrar_hito.gd" type="Script" id=22]
 
 [sub_resource type="Gradient" id=1]
@@ -127,7 +126,7 @@ func _on_borde_derecho_body_exited(body: Node) -> void:
 [node name="pantalla_principal" type="Node2D"]
 position = Vector2( -12.6992, -9.52435 )
 script = ExtResource( 5 )
-nombre_de_la_escena_de_prueba = "05_aula_post_examen"
+nombre_de_la_escena_de_prueba = "06_museo_analogico"
 
 [node name="diario" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -232,7 +231,6 @@ margin_bottom = 1204.0
 rect_min_size = Vector2( 0, 500 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 20 )
-texture_hover = ExtResource( 21 )
 expand = true
 stretch_mode = 5
 

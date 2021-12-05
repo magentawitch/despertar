@@ -54,3 +54,6 @@ func obtener_escena_actual() -> Escena:
 	
 func _avisar_que_la_escena_fue_cargada(escena: Escena):
 	emit_signal("una_escena_fue_cargada", escena)
+	
+func _cuando_se_acabaron_las_acciones_pendientes():
+	obtener_escena_actual()._cuando_se_acabaron_las_acciones_pendientes()

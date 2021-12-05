@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://assets/Museo/camara.png" type="Texture" id=13]
 [ext_resource path="res://assets/Museo/Libros.png" type="Texture" id=14]
 [ext_resource path="res://assets/Museo/maquinaescribir.png" type="Texture" id=15]
+[ext_resource path="res://utileria/AreaFotografeable.gd" type="Script" id=16]
+[ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=17]
+[ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=18]
+[ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=19]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -102,7 +106,8 @@ func me_asustaste():
 	dice(\"Jade\",\"Desde que las estudiamos en Historia Arcaica quise tener una!\")
 	dice(\"Kase\", \"Conocia a alguien que solia usar esta misma cámara para registrar todos sus días\")
 	dice(\"Jade\", \"Puedo probarla?!\")
-	_1()
+	yield(self, \"termino_dialogo\")
+	yield(_1(), \"completed\")
 	dice(\"Kase\", \"Con cuidado. Y recuerda guardarla cuando termines.\")
 	_2()
 
@@ -112,6 +117,19 @@ func _1():
 
 func _2():
 	agarrar_camara() 
+	$Fondo/Camara.visible = false 
+	$Animador.play(\"KaseSeVa\")
+	yield($Animador, \"animation_finished\")
+	dice(\"Jade\", \"Quiero probar una foto\")
+	
+	
+
+
+func _on_FotoEscritorioKase_pressed():
+	if ya_saco_foto(\"escritorio_kase\"):
+		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+	else:
+		agrega_foto_al_diario(\"escritorio_kase\")
 "
 
 [sub_resource type="Animation" id=2]
@@ -181,6 +199,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Personaje
+
+func _ready():
+	pass 
+"
 
 [node name="Escena" type="Node2D"]
 position = Vector2( 0, -25 )
@@ -299,6 +324,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FotoEscritorioKase" type="TextureButton" parent="EscritorioKase"]
+margin_left = 33.9561
+margin_top = -59.9357
+margin_right = 672.956
+margin_bottom = 452.064
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Base1" type="TextureButton" parent="."]
 margin_left = -131.494
 margin_top = 671.897
@@ -311,11 +346,10 @@ __meta__ = {
 }
 
 [node name="Cristal1" type="TextureButton" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 margin_left = -106.871
-margin_top = 345.011
+margin_top = 449.661
 margin_right = 67.1294
-margin_bottom = 569.015
+margin_bottom = 673.665
 texture_normal = ExtResource( 10 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -370,11 +404,10 @@ __meta__ = {
 z_index = -1
 
 [node name="Kase" type="TextureButton" parent="Node2D"]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 2722.99
-margin_top = 294.929
-margin_right = 3153.99
-margin_bottom = 1228.93
+margin_left = -935.007
+margin_top = 275.902
+margin_right = -504.007
+margin_bottom = 1209.9
 rect_scale = Vector2( 0.756984, 0.756984 )
 texture_normal = ExtResource( 12 )
 script = ExtResource( 1 )
@@ -386,10 +419,28 @@ __meta__ = {
 anims/KaseAbreCamara = SubResource( 2 )
 anims/KaseSeVa = SubResource( 3 )
 
+[node name="TopeDeCamara" parent="." instance=ExtResource( 17 )]
+position = Vector2( -1137.67, 593.387 )
+
+[node name="TopeDeCamara2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2952.63, 557.428 )
+
+[node name="PisoCaminable" type="Area2D" parent="."]
+script = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
+polygon = PoolVector2Array( -1057.35, 1027.9, -1051.36, 1093.82, 2896.64, 1085.76, 2896.64, 924.491, -371.13, 920.018, -404.092, 1018.91 )
+
+[node name="Jade" parent="." instance=ExtResource( 19 )]
+position = Vector2( 937.49, 1059.5 )
+script = SubResource( 4 )
+sprite_path = NodePath("")
+
 [connection signal="pressed" from="Fondo/CuadroCamaras" to="." method="_on_CuadroCamaras_pressed"]
 [connection signal="pressed" from="Fondo/CuadroPeriodico" to="." method="_on_CuadroPeriodico_pressed"]
 [connection signal="pressed" from="Fondo/CuadroCompu" to="." method="_on_CuadroCompu_pressed"]
 [connection signal="pressed" from="Fondo/CuadroPicaso" to="." method="_on_CuadroPicaso_pressed"]
+[connection signal="pressed" from="EscritorioKase/FotoEscritorioKase" to="." method="_on_FotoEscritorioKase_pressed"]
 [connection signal="pressed" from="Cristal1" to="." method="_on_Cristal1_pressed"]
 [connection signal="pressed" from="Cristal2" to="." method="_on_Cristal2_pressed"]
 [connection signal="pressed" from="Cristal3" to="." method="_on_Cristal3_pressed"]

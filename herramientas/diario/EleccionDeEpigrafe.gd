@@ -7,6 +7,7 @@ func _ready() -> void:
 	# Borro las opciones de prueba
 	$panel/opciones/prototipo_opcion_de_epigrafe.queue_free()
 	$panel/opciones/opcion_de_epigrafe_de_ejemplo.queue_free()
+	$lugar_donde_va_la_foto/foto_placeholder_que_se_borra_al_iniciar.queue_free()
 	
 func mostrar_foto(nombre_foto):
 	print("Mostrando foto para elegir el epigrafe")
@@ -14,7 +15,7 @@ func mostrar_foto(nombre_foto):
 	asnignar_opciones_disponibles(
 		foto.opciones_de_epigrafe_disponibles()
 	)
-	# mostrar foto
+	$lugar_donde_va_la_foto.add_child(foto)
 	visible = true
 	mover_lapicera($sobre_la_carta)
 

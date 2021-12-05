@@ -16,6 +16,7 @@ func _ready() -> void:
 	$director.connect("se_acabaron_las_acciones_pendientes", $ui/menu, 'show')
 	$director.connect("aparecieron_acciones_pendientes", $foco, 'entrar_en_modo_de_accion')
 	$director.connect("se_acabaron_las_acciones_pendientes", $foco, 'entrar_en_modo_de_interaccion')
+	$director.connect("se_acabaron_las_acciones_pendientes", $contenedor, '_cuando_se_acabaron_las_acciones_pendientes')
 	$contenedor.connect("se_procedera_a_cargar_una_escena", self, "_antes_de_cargar_una_escena")
 	$contenedor.connect("una_escena_fue_cargada", self, "_cuando_una_escena_fue_cargada")
 	$ui/vista_diario.connect('solicita_ejecutar_accion', self, "_cuando_la_vista_diario_solicita_ejecutar_una_accion")

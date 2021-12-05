@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/images/mascara_foto.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/flatLight/flatLight33.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/camara.png" type="Texture" id=3]
+[ext_resource path="res://assets/Museo/camara.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends ModoDeInteraccion
@@ -105,7 +105,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.9, 4.1 )
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "desenfocar"
 length = 12.0
 tracks/0/type = "bezier"
@@ -129,8 +129,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 4, 7.65372, 12 )
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "enfocar"
+[sub_resource type="Animation" id=6]
 length = 8.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("mascara:scale:x")
@@ -195,8 +194,8 @@ __meta__ = {
 
 [node name="animacion_mascara" type="AnimationPlayer" parent="."]
 autoplay = "desenfocar"
-anims/desenfocar = SubResource( 6 )
-anims/enfocar = SubResource( 5 )
+anims/desenfocar = SubResource( 5 )
+anims/enfocar = SubResource( 6 )
 
 [node name="cursor_camara" type="Sprite" parent="."]
 scale = Vector2( 0.216711, 0.216711 )
