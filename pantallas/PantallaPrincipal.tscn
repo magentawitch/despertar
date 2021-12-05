@@ -74,7 +74,7 @@ gradient = SubResource( 1 )
 [sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("SignoExclamacion:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -83,7 +83,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 565.617, 48.3115 ), Vector2( 561.157, 3.71628 ), Vector2( 565.617, 48.3115 ) ]
+"values": [ Vector2( 0, 48.312 ), Vector2( 0, 3.716 ), Vector2( 0, 48.312 ) ]
 }
 
 [sub_resource type="GDScript" id=4]
@@ -260,17 +260,17 @@ scale = Vector2( 1, 1293.59 )
 texture = SubResource( 2 )
 
 [node name="menu" type="VBoxContainer" parent="ui"]
-margin_left = 52.818
-margin_top = 59.6786
-margin_right = 843.818
-margin_bottom = 1263.68
+margin_left = 79.0
+margin_top = 60.0
+margin_right = 589.0
+margin_bottom = 1464.0
 rect_scale = Vector2( 0.242848, 0.242848 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="boton_abrir_diario" type="TextureButton" parent="ui/menu"]
-margin_right = 791.0
+margin_right = 510.0
 margin_bottom = 700.0
 rect_min_size = Vector2( 0, 700 )
 mouse_default_cursor_shape = 2
@@ -278,11 +278,14 @@ texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 
-[node name="Notificacion" type="Sprite" parent="ui/menu/boton_abrir_diario"]
-position = Vector2( 561.582, 7.9597 )
-scale = Vector2( 4.53789, 4.53789 )
+[node name="Notificacion" type="Node2D" parent="ui/menu/boton_abrir_diario"]
+position = Vector2( 394.225, 28.7239 )
+
+[node name="SignoExclamacion" type="Sprite" parent="ui/menu/boton_abrir_diario/Notificacion"]
+position = Vector2( 0, 48.312 )
+scale = Vector2( 5.61521, 5.61521 )
 texture = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui/menu/boton_abrir_diario/Notificacion"]
@@ -291,15 +294,16 @@ anims/Notificacion = SubResource( 3 )
 
 [node name="boton_camara" type="TextureButton" parent="ui/menu"]
 margin_top = 704.0
-margin_right = 791.0
-margin_bottom = 1204.0
-rect_min_size = Vector2( 0, 500 )
+margin_right = 510.0
+margin_bottom = 1404.0
+rect_min_size = Vector2( 0, 700 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 20 )
 expand = true
 stretch_mode = 5
 
 [node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
+visible = false
 diario_path = NodePath("../../diario")
 
 [node name="eleccion_de_epigrafe" parent="ui" instance=ExtResource( 13 )]
