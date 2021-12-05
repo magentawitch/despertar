@@ -1,8 +1,6 @@
 extends Node
 
 
-const escena_dialogo = preload('res://herramientas/dialogo/cuadro_de_decision.tscn')
-
 export var path_al_diario: NodePath
 onready var diario = get_node(path_al_diario) as Diario
 

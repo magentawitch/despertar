@@ -3,6 +3,7 @@ class_name Diario, "./Diario.icon.png"
 
 ## entrada: Dictionary
 signal entrada_agregada
+signal el_estado_se_cambio
 
 var entradas = []
 
@@ -20,6 +21,11 @@ func escribir_entrada_de_texto(texto: String):
 		"tamanio": texto.split("\n").size(),
 		"texto": texto,
 	})
+	
+func cargar_estado(entradas: Array, hitos: Array):
+	self.entradas = entradas
+	self.hitos = hitos
+	emit_signal("el_estado_se_cambio")
 
 # TODO: Deprecar
 func escribir_renglon(texto_del_renglon: String):

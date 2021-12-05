@@ -20,14 +20,14 @@ func _ready() -> void:
 	$contenedor.connect("una_escena_fue_cargada", self, "_cuando_una_escena_fue_cargada")
 	$ui/vista_diario.connect('solicita_ejecutar_accion', self, "_cuando_la_vista_diario_solicita_ejecutar_una_accion")
 	$diario.connect('hito_fue_registrado', self, "_cuando_un_hito_fue_registrado")
-	
 	var nombre_escena: String
 	if OS.is_debug_build():
 		print("Como estoy en debug arranco con la escena de test: ", nombre_de_la_escena_de_prueba)
 		nombre_escena = nombre_de_la_escena_de_prueba
 	else:
 		nombre_escena = nombre_de_la_escena_inicial
-	$director.encolar("cambio_de_escena", {"escena": nombre_escena})
+	$director.encolar("nueva_partida", {})
+	
 
 func _cuando_el_foco_cambia_de_modo(modo: ModoDeInteraccion):
 	if modo.ocultar_menu_de_acciones_mientras_esta_colocado():
