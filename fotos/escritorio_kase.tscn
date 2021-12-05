@@ -14,44 +14,44 @@ texture = ExtResource( 1 )
 [node name="opciones" type="Node2D" parent="."]
 scale = Vector2( 1.67128, 1.67128 )
 
-[node name="oda_uniformidad" type="Node2D" parent="opciones"]
+[node name="raras_arrugas" type="Node2D" parent="opciones"]
 visible = false
 position = Vector2( 0.776637, -4.6597 )
 
-[node name="epigrafe" type="Label" parent="opciones/oda_uniformidad"]
+[node name="epigrafe" type="Label" parent="opciones/raras_arrugas"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -46.2085
+margin_left = -49.7986
 margin_top = -0.388303
-margin_right = 86.7915
+margin_right = 84.2014
 margin_bottom = 13.6117
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Oda a la uniformidad"
+text = "Que raras las arrugas"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta1" type="Label" parent="opciones/oda_uniformidad"]
+[node name="vineta1" type="Label" parent="opciones/raras_arrugas"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = -149.006
 margin_top = -106.346
 margin_right = -25.0061
 margin_bottom = -58.3464
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Siempre soy le últime en entregar el examen"
+text = "Así seré yo en el futuro?"
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta2" type="Label" parent="opciones/oda_uniformidad"]
+[node name="vineta2" type="Label" parent="opciones/raras_arrugas"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 61.5908
 margin_top = -70.6012
 margin_right = 187.591
 margin_bottom = -5.60122
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Siempre tenemos el mismo tipo de examen 
+text = "Quiero ser joven para siempre
 "
 align = 1
 autowrap = true
@@ -59,90 +59,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta3" type="Label" parent="opciones/oda_uniformidad"]
+[node name="vineta3" type="Label" parent="opciones/raras_arrugas"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = -158.948
 margin_top = -24.9625
 margin_right = -17.9476
 margin_bottom = 6.03751
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Nunca hay margen para cuestionar"
+text = "Se puede ser joven sin implantes?"
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="futuro_anicos" type="Node2D" parent="opciones"]
+[node name="sin_implantes" type="Node2D" parent="opciones"]
 visible = false
 position = Vector2( 0.776637, -4.6597 )
 
-[node name="epigrafe" type="Label" parent="opciones/futuro_anicos"]
+[node name="epigrafe" type="Label" parent="opciones/sin_implantes"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = -39.6117
 margin_top = -0.164924
 margin_right = 69.3883
 margin_bottom = 13.8351
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Futuro en añicos"
+text = "Y sus implantes?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta1" type="Label" parent="opciones/futuro_anicos"]
+[node name="vineta1" type="Label" parent="opciones/sin_implantes"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -119.43
-margin_top = -85.6331
-margin_right = -23.4303
-margin_bottom = -49.6326
+margin_left = -132.224
+margin_top = -63.7775
+margin_right = -36.2238
+margin_bottom = -15.7775
 rect_rotation = -37.2959
 rect_scale = Vector2( 0.7, 0.7 )
-text = "No puedo sobresalir"
+text = "Es tan distinte a les otres adultes."
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta2" type="Label" parent="opciones/futuro_anicos"]
+[node name="vineta2" type="Label" parent="opciones/sin_implantes"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 60.7766
-margin_top = -106.106
-margin_right = 169.776
-margin_bottom = -62.1065
-rect_rotation = 25.6643
+margin_left = -75.1547
+margin_top = 20.2301
+margin_right = 33.8447
+margin_bottom = 64.2296
+rect_rotation = -87.8172
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Sobresalir no es la norma"
+text = "Me trata bien"
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta3" type="Label" parent="opciones/futuro_anicos"]
+[node name="vineta4" type="Label" parent="opciones/sin_implantes"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -87.3238
-margin_top = -5.90842
-margin_right = 1.67623
-margin_bottom = 55.0916
-rect_rotation = -89.4932
-rect_scale = Vector2( 0.7, 0.7 )
-text = "No se puede soñar"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="vineta4" type="Label" parent="opciones/futuro_anicos"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 76.192
-margin_top = -66.8412
-margin_right = 203.192
-margin_bottom = -18.8412
+margin_left = 59.6671
+margin_top = -81.2339
+margin_right = 186.667
+margin_bottom = -33.2339
 rect_rotation = 46.2038
 rect_scale = Vector2( 0.7, 0.7 )
-text = "No hay futuro para los soñadores"
+text = "No limita mi curiosidad"
 align = 1
 autowrap = true
 __meta__ = {

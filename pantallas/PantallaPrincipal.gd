@@ -29,7 +29,7 @@ func _ready() -> void:
 		nombre_escena = nombre_de_la_escena_inicial
 		
 	if $memoria.hay_una_partida_guardada():
-		$director.encolar("cargar_partida", {})
+		$director.encolar("nueva_partida", {})
 	else:
 		$director.encolar("nueva_partida", {})
 	
