@@ -48,6 +48,7 @@ func ejecutar_siguiente_accion():
 	if accion in _responsables_de_acciones_conocidas:
 		var responsable = _responsables_de_acciones_conocidas[accion]
 		_accion_que_se_esta_ejecutando = accion
+		print("> ", accion, ' ', detalles)
 		responsable.call(accion, self, detalles)
 		return true
 	else:

@@ -11,6 +11,9 @@ onready var memoria = get_node(path_a_la_memoria) as Memoria
 
 func cargar_partida(director: Director, detalles: Dictionary):
 	var p = memoria.cargar_partida()
-	diario.cargar_estado(p['diario']['entradas'], p['diario']['hitos'])
-	contenedor_de_escena.cambiar_escena(p['nombre_escena_actual'])
+	diario.cargar_estado(
+		p['diario']['entradas'],
+		p['diario']['hitos']
+	)
+	director.encolar("cambio_de_escena", {"escena": p['nombre_escena_actual']})
 	director.termino_la_ejecucion_de_la_accion()
