@@ -4,6 +4,7 @@ class_name VistaDiario, "./VistaDiario.icon.png"
 signal entrada_agregada
 signal solicitaron_cerrarme
 signal solicita_ejecutar_accion
+signal termino_de_recargarse
 
 var recargar_al_mostrar = false
 
@@ -16,6 +17,8 @@ var posicion_inicial: Vector2
 var posicion_afuera: Vector2
 var cola_de_entradas = []
 
+var recargando = false
+
 export(NodePath) var diario_path
 onready var diario = get_node(diario_path) as Diario
 
@@ -27,6 +30,7 @@ func _ready() -> void:
 	posicion_afuera = posicion_inicial + OFFSCREEN_OFFSET
 	ocultar()
 	diario.connect("entrada_agregada", self, "_encolar_entrada")
+	diario.connect("el_estado_se_cambio", self, "_cuando_cambio_el_estado_del_diario")
 	self.connect("entrada_agregada", self, "_cuando_termino_de_agregar_entrada")
 	limpiar_paginas_de_ejemplo()
 	recargar()
@@ -49,6 +53,10 @@ func _cuando_termino_de_agregar_entrada(entrada):
 	entrada = cola_de_entradas.pop_front()
 	agregar_entrada(entrada)
 	
+func _cuando_cambio_el_estado_del_diario():
+	if recargando:
+		yield(self, "termino_de_recargarse")
+	recargar()
 
 func cambiar_pagina_actual(nueva_pagina):
 	print("[cambio la pagina actual]")
@@ -174,10 +182,13 @@ func _cuando_una_pagina_solicita_ejecutar_accion(accion: String, detalles: Dicti
 
 # yeilds
 func recargar():
+	recargando = true
 	print("Recargando vista del diario")
 	yield(limpiar_entradas(), 'completed')
 	for entrada in diario.obtener_todas_las_entradas():
 		yield(agregar_entrada(entrada), 'completed')
+	recargando = false
+	emit_signal("termino_de_recargarse")
 	
 func cambiar_pagina_izquierda():
 	print("Cambiando pagina a la izquierda")

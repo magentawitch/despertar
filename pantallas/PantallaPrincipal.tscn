@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -21,6 +21,10 @@
 [ext_resource path="res://acciones/agregar_carta.gd" type="Script" id=19]
 [ext_resource path="res://assets/Museo/camara.png" type="Texture" id=20]
 [ext_resource path="res://acciones/registrar_hito.gd" type="Script" id=22]
+[ext_resource path="res://acciones/guardar_partida.gd" type="Script" id=23]
+[ext_resource path="res://acciones/cargar_partida.gd" type="Script" id=24]
+[ext_resource path="res://acciones/nueva_partida.gd" type="Script" id=25]
+[ext_resource path="res://herramientas/persistencia/Memoria.gd" type="Script" id=26]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.5, 1 )
@@ -179,6 +183,22 @@ path_al_diario = NodePath("../../diario")
 script = ExtResource( 22 )
 path_al_diario = NodePath("../../diario")
 
+[node name="guardar_partida" type="Node" parent="director"]
+script = ExtResource( 23 )
+path_al_diario = NodePath("../../diario")
+path_al_contenedor_de_escena = NodePath("../../contenedor")
+path_a_la_memoria = NodePath("../../memoria")
+
+[node name="cargar_partida" type="Node" parent="director"]
+script = ExtResource( 24 )
+path_al_diario = NodePath("../../diario")
+path_al_contenedor_de_escena = NodePath("../../contenedor")
+path_a_la_memoria = NodePath("../../memoria")
+
+[node name="nueva_partida" type="Node" parent="director"]
+script = ExtResource( 25 )
+path_a_la_memoria = NodePath("../../memoria")
+
 [node name="contenedor" type="Node2D" parent="."]
 z_index = -10
 script = ExtResource( 17 )
@@ -238,6 +258,7 @@ stretch_mode = 5
 diario_path = NodePath("../../diario")
 
 [node name="eleccion_de_epigrafe" parent="ui" instance=ExtResource( 13 )]
+visible = false
 
 [node name="contenedor_dialogo" type="Position2D" parent="ui"]
 position = Vector2( 981.23, 333.925 )
@@ -299,6 +320,9 @@ polygon = PoolVector2Array( -38.6667, 1044.1, 17.4563, 1017.16, 24.191, 40.6148,
 script = ExtResource( 16 )
 path_al_contenedor_de_la_escena = NodePath("../contenedor")
 path_al_director = NodePath("../director")
+
+[node name="memoria" type="Node" parent="."]
+script = ExtResource( 26 )
 
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]
 [connection signal="pressed" from="ui/menu/boton_camara" to="foco" method="cambiar_modo" binds= [ "sacar_foto" ]]

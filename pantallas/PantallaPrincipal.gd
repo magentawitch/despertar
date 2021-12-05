@@ -21,15 +21,18 @@ func _ready() -> void:
 	$contenedor.connect("una_escena_fue_cargada", self, "_cuando_una_escena_fue_cargada")
 	$ui/vista_diario.connect('solicita_ejecutar_accion', self, "_cuando_la_vista_diario_solicita_ejecutar_una_accion")
 	$diario.connect('hito_fue_registrado', self, "_cuando_un_hito_fue_registrado")
-	
 	var nombre_escena: String
 	if OS.is_debug_build():
 		print("Como estoy en debug arranco con la escena de test: ", nombre_de_la_escena_de_prueba)
 		nombre_escena = nombre_de_la_escena_de_prueba
 	else:
 		nombre_escena = nombre_de_la_escena_inicial
-	$director.encolar("cambio_de_escena", {"escena": nombre_escena})
-
+		
+	if $memoria.hay_una_partida_guardada():
+		$director.encolar("cargar_partida", {})
+	else:
+		$director.encolar("nueva_partida", {})
+	
 func _cuando_el_foco_cambia_de_modo(modo: ModoDeInteraccion):
 	if modo.ocultar_menu_de_acciones_mientras_esta_colocado():
 		ocultar_menu_de_acciones()
@@ -50,7 +53,6 @@ func ocultar_menu_de_acciones():
 func _cuando_una_escena_fue_cargada(escena: Escena):
 	$telon/anim.play("ocultar")
 	mostrar_menu_de_acciones()
-	print("oh, no")
 	
 func mostrar_menu_de_acciones():
 	var escena = $contenedor.obtener_escena_actual()
@@ -65,7 +67,6 @@ func _cuando_un_hito_fue_registrado(nombre_hito: String):
 	$ui/menu/boton_camara.visible = (
 		escena.puede_tomar_fotos and $diario.el_hito_fue_registrado("consiguio_la_camara")
 	)
-	print("oh, no")
 	
 func _cuando_la_vista_diario_solicita_ejecutar_una_accion(accion: String, detalles: Dictionary):
 	print("Vista diario solicito ejecutar la accion: %s detalles: %s" % [accion, detalles])
@@ -79,6 +80,18 @@ func _cuando_la_vista_diario_solicita_ejecutar_una_accion(accion: String, detall
 
 # TODO: Mover esto a la camara
 func _process(delta: float) -> void:
+	
+	if not $director.se_sigue_ejecutando_una_accion() and OS.is_debug_build():
+		if Input.is_action_just_pressed("cargar_partida"):
+			$director.encolar("cargar_partida", {})
+		if Input.is_action_just_pressed("nueva_partida"):
+			$director.encolar("nueva_partida", {})
+		if Input.is_action_just_pressed("guardar_partida"):
+			$director.encolar("guardar_partida", {})
+		if Input.is_action_just_pressed("recargar_diario"):
+			$ui/vista_diario.recargar()
+		
+	
 	var personaje_activo = $foco.obtener_personaje_activo()
 	if not personaje_activo:
 		return
