@@ -119,7 +119,7 @@ _global_script_class_icons={
 "EntradaDeDiario": "res://assets/iconos/menuList.png",
 "Escena": "res://assets/iconos/door.png",
 "Foco": "",
-"Foto": "",
+"Foto": "res://assets/iconos/film.png",
 "Memoria": "",
 "ModoDeInteraccion": "res://assets/iconos/target.png",
 "ObjectoInteractivo": "res://assets/iconos/button1.png",

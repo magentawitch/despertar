@@ -41,7 +41,6 @@ func _on_BustVolk_pressed():
 [node name="pasillo_escuela" type="Node2D"]
 position = Vector2( -124.977, 523.251 )
 script = SubResource( 1 )
-pude_ver_el_menu = null
 
 [node name="FondoPasillo" type="Sprite" parent="."]
 position = Vector2( 2128.01, 15.165 )
