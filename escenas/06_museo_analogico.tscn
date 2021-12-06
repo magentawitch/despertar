@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -19,7 +19,8 @@
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=17]
 [ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=18]
 [ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=19]
-[ext_resource path="res://assets/Sonido/Musica/Sala Analogica.mp3" type="AudioStream" id=20]
+[ext_resource path="res://assets/CartaDoblada2.png" type="Texture" id=20]
+[ext_resource path="res://assets/Sonido/Musica/Sala Analogica.mp3" type="AudioStream" id=21]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -29,12 +30,15 @@ func _ready():
 		dice_a_la_grabadora(\"Entrada 112: Cuando Volk subió al poder, los visitantes dejaron de venir.\")
 		dice_a_la_grabadora(\"Si bien legalmente no era un asunto prohibido, todos sabían qué opinaba el Líder sobre las épocas pasadas.\") 
 		dice_a_la_grabadora(\"Con el tiempo se transformó en el depósito de la escuela y se lo bautizó Museo Analógico como una burla.\")
+		anota_en_el_diario(\"El museo analógico es mi lugar favorito en el colegio. Bah, en el mundo. Tiene tantos objetos de antes... Puede que me quedara con una cámara de fotos vieja\")
+		anota_en_el_diario(\"Se lo que piensan, a veces no se a quien le hablo, en fin… nadie usa la cámara y seguro que Kase no la va a extrañar\")
 	if tiene_la_camara():
 		$Node2D/Kase.visible = false
 		$Cristal1.visible = false
 		$Fondo/Camara.visible = false
 
-
+	if ya_ocurrio_que(\"agarro_carta_2\"):
+		$carta_2.visible = false
 
 func _on_CuadroPicaso_pressed():
 	dice(\"Jade\", \"Se parece al cuadro que Alex tiene escondido en casa. Creo que el pintor era bien famoso o algo.\")
@@ -65,7 +69,7 @@ func _on_Cristal2_pressed():
 
 func _on_Cristal1_pressed():
 	ya_vio_la_camara = true
-	dice(\"Jade\", \"Siempre quise tener una de estas. Podría registrar toda mi vida.\")
+	dice(\"Jade\", \"Wow, eso es lo que creo que es?\")
 
 var ya_vio_la_camara = false
 var habloconkase = false
@@ -82,7 +86,6 @@ func _on_Kase_pressed():
 	elige([
 		['Quién sos?', 'quien_sos'],
 		['Perdón, no quería molestar.', 'no_molestar'],
-		['Me asustaste!', 'me_asustaste'],
 	])
 	habloconkase =true
 	
@@ -99,10 +102,11 @@ func quien_sos():
 	yield(self, \"termino_dialogo\")
 	yield(_1(), \"completed\")
 	respuesta_kase =  \"Puedes usarla, solo recuerda volver a guardarla cuando termines.\"
+	anota_en_el_diario(\"Me contó una historia fascinante, lo mejor de todo es que la antigua dueña de esta cámara, es como un modelo de vida al que me encantaría seguir, evidentemente era mi destino\")
 
 
 func no_molestar():
-	dice(\"Jade\", \"'Perdón, no quería molestar. Este lugar siempre está vacío.\")
+	dice(\"Jade\", \"Perdón, no quería molestar. Este lugar siempre está vacío.\")
 	dice(\"Kase\", \"Soy Kase. Le cuidadore del museo. Te suelo ver seguido por acá, pero siempre estás concentrade viendo la exposición como para notar que hay alguien más\")
 	dice(\"Jade\", \"...\")
 	dice(\"Kase\", \"Te veo interesade en la cámara. Quieres probarla?\")
@@ -110,19 +114,7 @@ func no_molestar():
 	yield(self, \"termino_dialogo\")
 	yield(_1(), \"completed\")
 	respuesta_kase = \"*Se ríe* Solo recuerda volver a guardarla cuando termines.\"
-
-
-func me_asustaste():
-	dice(\"Jade\", \"Me asustaste! Hace cuánto esás ahí?\")
-	dice(\"Kase\", \"No era mi intención. Solo hago mi trabajo.\")
-	dice(\"Jade\", \"No te había visto antes por acá\")
-	dice(\"Kase\", \"Soy Kase, le cuidadore del museo. Te veo interesade en la cámara\")
-	dice(\"Jade\",\"Desde que las estudiamos en Historia Arcaica quise tener una!\")
-	dice(\"Kase\", \"Conocia a alguien que solia usar esta misma cámara para registrar todos sus días\")
-	dice(\"Jade\", \"Puedo probarla?!\")
-	yield(self, \"termino_dialogo\")
-	yield(_1(), \"completed\")
-	respuesta_kase = \"Con cuidado. Y recuerda guardarla cuando termines.\"
+	anota_en_el_diario(\"Kase me dejó sostener la cámara, para mi estaba incitando a que me la llevara. También contó una historia muy interesante de la cámara y su dueña, un auténtico misterio\")
 
 
 func _1():
@@ -133,9 +125,6 @@ func _1():
 	$Animador.play(\"KaseVuelve\")
 	yield($Animador, \"animation_finished\")
 	dice(\"Jade\", \"Quiero probar sacar una foto. No te muevas\")
-
-	
-	
 
 
 func _on_FotoEscritorioKase_pressed():
@@ -150,7 +139,28 @@ func _on_FotoEscritorioKase_pressed():
 
 
 func _on_Puerta_pressed():
-	cambiar_escena_a(\"04_pasillo_escuela2\")
+	if not tiene_la_camara():
+		dice(\"Jade\", \"Deberia continuar explorando, creo que hay objetos que nunca vi por acá\")
+		return
+	if tiene_la_camara():
+		if no_saco_foto(\"escritorio_kase\"):
+			dice(\"Jade\", \"Quiero probar sacar una foto\")
+		else:
+			cambiar_escena_a(\"04_pasillo_escuela2\")
+
+
+func _on_carta_2_pressed():
+	$carta_2.visible = false 
+	ver_carta(\"carta_2\")
+	agregar_carta(\"carta_2\")
+	registrar_hito(\"agarro_carta_2\")
+
+
+func _on_PuertaOxidada_pressed():
+	if ya_saco_foto(\"puerta_oxidada\"):
+		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+	else:
+		agrega_foto_al_diario(\"puerta_oxidada\")
 "
 
 [sub_resource type="Animation" id=2]
@@ -349,6 +359,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PuertaOxidada" type="TextureButton" parent="Fondo/Puerta"]
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 94.0
+margin_bottom = 96.0
+rect_scale = Vector2( 6.68, 6.68 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Node2D" type="Node2D" parent="."]
 z_index = -1
 
@@ -473,8 +494,20 @@ position = Vector2( 937.49, 1059.5 )
 script = SubResource( 5 )
 sprite_path = NodePath("")
 
+[node name="carta_2" type="TextureButton" parent="."]
+margin_left = 1673.5
+margin_top = 841.326
+margin_right = 2241.5
+margin_bottom = 1121.33
+rect_scale = Vector2( 0.280001, 0.280001 )
+texture_normal = ExtResource( 20 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="OSTSalaAnalogica" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 20 )
+stream = ExtResource( 21 )
 volume_db = -5.0
 autoplay = true
 
@@ -483,8 +516,10 @@ autoplay = true
 [connection signal="pressed" from="Fondo/CuadroCompu" to="." method="_on_CuadroCompu_pressed"]
 [connection signal="pressed" from="Fondo/CuadroPicaso" to="." method="_on_CuadroPicaso_pressed"]
 [connection signal="pressed" from="Fondo/Puerta" to="." method="_on_Puerta_pressed"]
+[connection signal="pressed" from="Fondo/Puerta/PuertaOxidada" to="." method="_on_PuertaOxidada_pressed"]
 [connection signal="pressed" from="Node2D/Kase" to="." method="_on_Kase_pressed"]
 [connection signal="pressed" from="EscritorioKase/FotoEscritorioKase" to="." method="_on_FotoEscritorioKase_pressed"]
 [connection signal="pressed" from="Cristal1" to="." method="_on_Cristal1_pressed"]
 [connection signal="pressed" from="Cristal2" to="." method="_on_Cristal2_pressed"]
 [connection signal="pressed" from="Cristal3" to="." method="_on_Cristal3_pressed"]
+[connection signal="pressed" from="carta_2" to="." method="_on_carta_2_pressed"]

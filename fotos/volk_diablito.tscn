@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/Polaroid/ninesjugando.png" type="Texture" id=1]
+[ext_resource path="res://assets/Polaroid/cuadrovolk.png" type="Texture" id=1]
 [ext_resource path="res://fotos/Foto.gd" type="Script" id=3]
 
 [node name="Foto" type="Node2D"]
@@ -14,48 +14,48 @@ texture = ExtResource( 1 )
 [node name="opciones" type="Node2D" parent="."]
 scale = Vector2( 1.67128, 1.67128 )
 
-[node name="inocencia" type="Node2D" parent="opciones"]
+[node name="all_hail" type="Node2D" parent="opciones"]
 visible = false
 position = Vector2( 0.776637, -4.6597 )
 
-[node name="epigrafe" type="Label" parent="opciones/inocencia"]
+[node name="epigrafe" type="Label" parent="opciones/all_hail"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -41.7691
-margin_top = -7.61567
-margin_right = 69.2309
-margin_bottom = 23.3843
+margin_left = -39.6368
+margin_top = -1.75196
+margin_right = 71.3632
+margin_bottom = 29.248
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Cómo volver a la primera vez?"
+text = "All hail Volk"
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta1" type="Label" parent="opciones/inocencia"]
+[node name="vineta1" type="Label" parent="opciones/all_hail"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -136.198
-margin_top = -78.5954
-margin_right = -12.1981
-margin_bottom = -30.5958
+margin_left = -135.132
+margin_top = -59.4051
+margin_right = -11.132
+margin_bottom = -11.4055
 rect_rotation = -26.412
 rect_scale = Vector2( 0.7, 0.7 )
-text = "La inocencia de esa edad"
+text = "No es une diose"
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta2" type="Label" parent="opciones/inocencia"]
+[node name="vineta2" type="Label" parent="opciones/all_hail"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 47.7689
-margin_top = -85.9426
-margin_right = 173.769
-margin_bottom = -37.9426
+margin_left = 60.5624
+margin_top = -90.2071
+margin_right = 186.563
+margin_bottom = -25.2071
 rect_rotation = 33.6088
 rect_scale = Vector2( 0.7, 0.7 )
-text = "No había que decidir
+text = "Quiere que todes seamos igual que elle
 "
 align = 1
 autowrap = true
@@ -63,15 +63,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vineta3" type="Label" parent="opciones/inocencia"]
+[node name="vineta3" type="Label" parent="opciones/all_hail"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -85.6579
+margin_left = -92.0547
 margin_top = 22.0001
-margin_right = 55.3425
+margin_right = 48.9457
 margin_bottom = 53.0001
 rect_rotation = -78.4782
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Quiero esa curiosidad"
+text = "Alguien tiene que hacer algo"
 align = 1
 autowrap = true
 __meta__ = {
@@ -89,7 +89,7 @@ margin_top = -7.66773
 margin_right = 60.6873
 margin_bottom = 29.3323
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Todes con el mismo cuerpo"
+text = "'Gran' Empresario"
 align = 1
 autowrap = true
 __meta__ = {
@@ -104,7 +104,7 @@ margin_right = -25.4452
 margin_bottom = -0.694107
 rect_rotation = -37.2959
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Me gustaba saltar la cuerda"
+text = "Mi cuerpo es su negocio"
 align = 1
 autowrap = true
 __meta__ = {
@@ -119,7 +119,7 @@ margin_right = 169.776
 margin_bottom = -62.1065
 rect_rotation = 25.6643
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Sentir el calor de la soga en mi mano"
+text = "Me daría tantas ventajas tener implantes"
 align = 1
 autowrap = true
 __meta__ = {
@@ -128,13 +128,13 @@ __meta__ = {
 
 [node name="vineta4" type="Label" parent="opciones/mismo_cuerpo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 66.7893
-margin_top = -56.0953
-margin_right = 193.789
-margin_bottom = -8.09531
+margin_left = 52.3966
+margin_top = -48.6324
+margin_right = 179.396
+margin_bottom = -0.632412
 rect_rotation = 46.2038
 rect_scale = Vector2( 0.7, 0.7 )
-text = "Y cansar mis brazos..."
+text = "Pero no quiero ceder.."
 align = 1
 autowrap = true
 __meta__ = {

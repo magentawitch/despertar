@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/HojaCarta.png" type="Texture" id=1]
+[ext_resource path="res://cartas/Carta.gd" type="Script" id=2]
+[ext_resource path="res://assets/CartaDoblada2.png" type="Texture" id=3]
+[ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Position2D
+
+
+# TODO: Podria ser un Control tranquilamente
+"
+
+[node name="carta_1" type="Node2D"]
+script = ExtResource( 2 )
+version_abierta_para_ver = NodePath("VersionAbierta")
+version_cerrada_para_el_diario = NodePath("VersionCerrada")
+
+[node name="diario para referencia" parent="." instance=ExtResource( 4 )]
+modulate = Color( 0.572549, 0.392157, 0.686275, 0.109804 )
+position = Vector2( 323.101, -2.00154 )
+
+[node name="VersionAbierta" type="Position2D" parent="."]
+position = Vector2( 620.795, 534.698 )
+scale = Vector2( 1.77195, 1.77195 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FondoHoja" type="Sprite" parent="VersionAbierta"]
+position = Vector2( 0.422079, 1.99363 )
+scale = Vector2( 0.726731, 0.726731 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1.60986, -0.129898, 565.746, 527.913 )
+
+[node name="Label" type="Label" parent="VersionAbierta"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 121.899
+margin_top = -178.658
+margin_right = 187.899
+margin_bottom = -164.658
+text = "3‌ ‌de‌ abril"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="VersionAbierta"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 164.618
+margin_top = 172.467
+margin_right = 187.618
+margin_bottom = 186.467
+text = "-K"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VersionAbierta"]
+modulate = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+margin_left = -195.0
+margin_top = -163.0
+margin_right = 194.0
+margin_bottom = 169.0
+text = "Amade míe,
+
+Los colores del otoño me transportan a nuestra primera cita, un simple picnic donde compartimos nuestra primera comida juntes, rodeades de la naturaleza.
+
+'Por ti, el sol siempre brillará. Esto es lo que siento cuando estoy contigo. Se que es lo correcto'
+
+Cómo podría superar esas palabras, es imposible. Y quedarán grabadas en mi memoria para siempre. Después de cada escaramuza contra el nuevo régimen, pienso en ti, en esas palabras, donde nuestro amor  y esta guerra estuvieron destinados a chocar, solo me resta decir:
+
+Te amo, te amo, te amo, como nunca antes…
+
+No dejemos que Volk y su ejército robótico nos detengan. ¡Viva la revolución! 
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VersionCerrada" type="TextureButton" parent="."]
+margin_left = 1069.34
+margin_top = 425.563
+margin_right = 1636.34
+margin_bottom = 705.563
+rect_scale = Vector2( 0.718888, 0.718888 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -369,7 +369,7 @@ modulate = Color( 0, 0, 0, 1 )
 margin_top = 57.0
 margin_right = 556.0
 margin_bottom = 88.0
-text = "Según lo dado en clase y los autores trabajados, responda las siguientes preguntas.
+text = "Según lo visto en clase y les autores trabajados, responda las siguientes preguntas.
 "
 autowrap = true
 __meta__ = {
@@ -418,7 +418,7 @@ margin_right = 541.0
 margin_bottom = 82.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-text = "1- Es una sociedad basada en el progreso tecnológico y un gobierno transhumanista democrático, que genera dinero, fama, trabajo e igualdades de condiciones para todos los ciudadanos. Se apunta al crecimiento humano-tecnológico para desafiar la mortalidad de la naturaleza humana.
+text = "1- Es una sociedad basada en el progreso tecnológico y un gobierno transhumanista democrático, que genera dinero, fama, trabajo e igualdades de condiciones para todes les ciudadanes. Se apunta al crecimiento humane-tecnológico para desafiar la mortalidad de la naturaleza humana.
 "
 autowrap = true
 __meta__ = {
@@ -434,7 +434,7 @@ margin_right = 541.0
 margin_bottom = 122.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-text = "2- Es una sociedad que busca mejorar al ser humano.
+text = "2- Es una sociedad que busca mejorar al ser humane.
 "
 autowrap = true
 __meta__ = {
@@ -587,7 +587,7 @@ margin_right = 541.0
 margin_bottom = 48.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-text = "1- Ayudó a los humanos a mejorar su vida a través de la tecnología. Su nivel de vida se vio afectado de forma positiva, erradicando así la pobreza.
+text = "1- Ayudó a les humanes a mejorar su vida a través de la tecnología. Su nivel de vida se vio afectado de forma positiva, erradicando así la pobreza.
 "
 autowrap = true
 __meta__ = {
@@ -603,7 +603,7 @@ margin_right = 541.0
 margin_bottom = 122.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-text = "2- El nuevo gobierno mejoró la calidad de vida humana. Ayudó a combatir las desigualdades existentes en la sociedad antigua, que eran generadas por el rechazo del hombre al avance tecnológico.
+text = "2- El nuevo gobierno mejoró la calidad de vida humana. Ayudó a combatir las desigualdades existentes en la sociedad antigua, que eran generadas por el rechazo del humane al avance tecnológico.
 "
 autowrap = true
 __meta__ = {
@@ -619,7 +619,7 @@ margin_right = 541.0
 margin_bottom = 213.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-text = "3- Gracias al nuevo gobierno vivimos en una sociedad donde todes tenemos las mismas oportunidades de trabajo, sin desigualdades sociales y despojados de las limitaciones físicas y mentales que los humanos tenían que soportar en la antigua sociedad.
+text = "3- Gracias al nuevo gobierno vivimos en una sociedad donde todes tenemos las mismas oportunidades de trabajo, sin desigualdades sociales y despojados de las limitaciones físicas y mentales que les humanes tenían que soportar en la antigua sociedad.
 "
 autowrap = true
 __meta__ = {
