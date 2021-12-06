@@ -11,18 +11,21 @@ func _ready() -> void:
 	
 func mostrar_foto(nombre_foto):
 	print("Mostrando foto para elegir el epigrafe")
+	visible = true
+	modulate.a = 0.1
 	var foto = Foto.cargar(nombre_foto)
 	asnignar_opciones_disponibles(
 		foto.opciones_de_epigrafe_disponibles()
 	)
+	modulate.a = 1
 	$lugar_donde_va_la_foto.add_child(foto)
-	visible = true
 	mover_lapicera($sobre_la_carta)
 
 func asnignar_opciones_disponibles(opciones_disponibles: Dictionary):
 	# Borro las opciones viejas
 	for node in $panel/opciones.get_children():
 		node.queue_free()
+	yield(get_tree(), "idle_frame")
 	# Agrego las que son para esta foto
 	for nombre_opcion in opciones_disponibles.keys():
 		var texto_opcion = opciones_disponibles[nombre_opcion]

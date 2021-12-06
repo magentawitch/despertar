@@ -150,7 +150,7 @@ func _on_Puerta_pressed():
 
 
 func _on_carta_2_pressed():
-	$carta_2.visible = false 
+	$Fondo/carta_2.visible = false 
 	ver_carta(\"carta_2\")
 	agregar_carta(\"carta_2\")
 	registrar_hito(\"agarro_carta_2\")
