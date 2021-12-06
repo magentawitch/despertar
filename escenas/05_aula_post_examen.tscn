@@ -19,7 +19,19 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
+func resultado_con_el_que_aprobo() -> String:
+	return \"excelente\"
 
+func _ready():
+	match resultado_con_el_que_aprobo():
+		\"excelente\":
+			dice(\"Profesore\", \"excelente\")
+		\"nota_buena\":
+			dice(\"Profesore\", \"nota_buena\")
+		\"nota_minima\":
+			dice(\"Profesore\", \"nota_minima\")
+		\"reprobado\":
+			dice(\"Profesore\", \"reprobado\")
 "
 
 [sub_resource type="GDScript" id=2]
