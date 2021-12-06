@@ -135,23 +135,13 @@ position = Vector2( 4286.83, 360.741 )
 scale = Vector2( 0.91809, 0.91809 )
 texture = ExtResource( 8 )
 
-[node name="BancoDer" type="Sprite" parent="."]
-position = Vector2( 2596.27, 360.561 )
-scale = Vector2( 0.91809, 0.91809 )
-texture = ExtResource( 6 )
-
-[node name="BancoDer2" type="Sprite" parent="."]
-position = Vector2( 1914.74, 458.849 )
-scale = Vector2( 0.91809, 0.91809 )
-z_index = 1
-texture = ExtResource( 6 )
-
 [node name="BancoDer3" type="Sprite" parent="."]
-position = Vector2( 1367.23, 357.066 )
+position = Vector2( 1359.67, 336.907 )
 scale = Vector2( 0.91809, 0.91809 )
 texture = ExtResource( 6 )
 
 [node name="examen" type="Node2D" parent="."]
+position = Vector2( -7.55957, -20.1587 )
 
 [node name="contenedor" type="Node2D" parent="examen"]
 position = Vector2( 15.7145, -3.80091 )
@@ -173,6 +163,26 @@ __meta__ = {
 autoplay = "Flota"
 anims/Flota = SubResource( 2 )
 
+[node name="Jade" parent="." instance=ExtResource( 12 )]
+position = Vector2( 616.777, 473.34 )
+
+[node name="BancoDer" type="Sprite" parent="."]
+position = Vector2( 2591.23, 415.998 )
+scale = Vector2( 0.91809, 0.91809 )
+texture = ExtResource( 6 )
+
+[node name="Extra3" type="Sprite" parent="."]
+position = Vector2( 2555.47, 274.965 )
+scale = Vector2( 0.240001, 0.240001 )
+z_index = 1
+texture = ExtResource( 17 )
+
+[node name="BancoDer2" type="Sprite" parent="."]
+position = Vector2( 1914.74, 458.849 )
+scale = Vector2( 0.91809, 0.91809 )
+z_index = 1
+texture = ExtResource( 6 )
+
 [node name="PisoCaminable" type="Area2D" parent="."]
 visible = false
 position = Vector2( -207.373, 468.261 )
@@ -191,9 +201,6 @@ position = Vector2( 4451.04, 106.838 )
 scale = Vector2( 1.83618, 1.83618 )
 input_pickable = true
 
-[node name="Jade" parent="." instance=ExtResource( 12 )]
-position = Vector2( 616.777, 473.34 )
-
 [node name="OSTAula" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = -5.0
@@ -205,13 +212,9 @@ scale = Vector2( 0.240001, 0.240001 )
 z_index = 1
 texture = ExtResource( 16 )
 
-[node name="Extra3" type="Sprite" parent="Extra1"]
-position = Vector2( 2744.31, -258.691 )
-z_index = -1
-texture = ExtResource( 17 )
-
-[node name="Extra4" type="Sprite" parent="Extra1/Extra3"]
-position = Vector2( 4751.03, 434.74 )
+[node name="Extra4" type="Sprite" parent="."]
+position = Vector2( 3700.76, 323.867 )
+scale = Vector2( 0.240001, 0.240001 )
 z_index = 1
 texture = ExtResource( 19 )
 

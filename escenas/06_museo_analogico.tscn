@@ -274,30 +274,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MaquinaDeEscribir" type="TextureButton" parent="Fondo"]
-margin_left = 424.45
-margin_top = 89.8726
-margin_right = 986.45
-margin_bottom = 477.873
-rect_scale = Vector2( 0.280002, 0.280002 )
-texture_normal = ExtResource( 15 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Libros" type="TextureButton" parent="Fondo"]
-margin_left = 1239.05
-margin_top = -10.9185
-margin_right = 1832.05
-margin_bottom = 780.082
-rect_scale = Vector2( 0.199994, 0.199994 )
-texture_normal = ExtResource( 14 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CuadroCamaras" type="TextureButton" parent="Fondo"]
 margin_left = -1315.74
 margin_top = -347.938
@@ -370,6 +346,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="carta_2" type="TextureButton" parent="Fondo"]
+margin_left = 754.605
+margin_top = 288.244
+margin_right = 1322.6
+margin_bottom = 568.248
+rect_scale = Vector2( 0.280001, 0.280001 )
+texture_normal = ExtResource( 20 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Node2D" type="Node2D" parent="."]
 z_index = -1
 
@@ -428,34 +416,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Base2" type="TextureButton" parent="."]
-margin_left = 1310.51
-margin_top = 752.532
-margin_right = 1534.51
-margin_bottom = 1097.53
-texture_normal = ExtResource( 11 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Cristal2" type="TextureButton" parent="."]
-margin_left = 1335.13
-margin_top = 530.296
-margin_right = 1509.13
-margin_bottom = 754.296
-texture_normal = ExtResource( 10 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Base3" type="TextureButton" parent="."]
-margin_left = 2104.31
-margin_top = 698.715
-margin_right = 2328.31
-margin_bottom = 1043.71
+margin_left = 2102.06
+margin_top = 644.837
+margin_right = 2326.06
+margin_bottom = 989.837
 texture_normal = ExtResource( 11 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Libros" type="TextureButton" parent="."]
+margin_left = 2157.95
+margin_top = 486.04
+margin_right = 2750.95
+margin_bottom = 1277.04
+rect_scale = Vector2( 0.199994, 0.199994 )
+texture_normal = ExtResource( 14 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -463,9 +441,9 @@ __meta__ = {
 
 [node name="Cristal3" type="TextureButton" parent="."]
 margin_left = 2128.94
-margin_top = 476.479
+margin_top = 420.356
 margin_right = 2302.94
-margin_bottom = 700.479
+margin_bottom = 644.356
 texture_normal = ExtResource( 10 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -483,28 +461,50 @@ position = Vector2( -1137.67, 593.387 )
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 2952.63, 557.428 )
 
+[node name="Jade" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1020.55, 1030.32 )
+script = SubResource( 5 )
+sprite_path = NodePath("")
+
+[node name="Base2" type="TextureButton" parent="."]
+margin_left = 1310.51
+margin_top = 752.532
+margin_right = 1534.51
+margin_bottom = 1097.53
+texture_normal = ExtResource( 11 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaquinaDeEscribir" type="TextureButton" parent="."]
+margin_left = 1343.34
+margin_top = 642.955
+margin_right = 1905.34
+margin_bottom = 1030.95
+rect_scale = Vector2( 0.280002, 0.280002 )
+texture_normal = ExtResource( 15 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cristal2" type="TextureButton" parent="."]
+margin_left = 1335.13
+margin_top = 530.296
+margin_right = 1509.13
+margin_bottom = 754.296
+texture_normal = ExtResource( 10 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PisoCaminable" type="Area2D" parent="."]
 script = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
 polygon = PoolVector2Array( -1057.35, 1027.9, -1051.36, 1093.82, 2896.64, 1085.76, 2896.64, 924.491, -371.13, 920.018, -404.092, 1018.91 )
-
-[node name="Jade" parent="." instance=ExtResource( 19 )]
-position = Vector2( 937.49, 1059.5 )
-script = SubResource( 5 )
-sprite_path = NodePath("")
-
-[node name="carta_2" type="TextureButton" parent="."]
-margin_left = 1673.5
-margin_top = 841.326
-margin_right = 2241.5
-margin_bottom = 1121.33
-rect_scale = Vector2( 0.280001, 0.280001 )
-texture_normal = ExtResource( 20 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="OSTSalaAnalogica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
@@ -517,9 +517,9 @@ autoplay = true
 [connection signal="pressed" from="Fondo/CuadroPicaso" to="." method="_on_CuadroPicaso_pressed"]
 [connection signal="pressed" from="Fondo/Puerta" to="." method="_on_Puerta_pressed"]
 [connection signal="pressed" from="Fondo/Puerta/PuertaOxidada" to="." method="_on_PuertaOxidada_pressed"]
+[connection signal="pressed" from="Fondo/carta_2" to="." method="_on_carta_2_pressed"]
 [connection signal="pressed" from="Node2D/Kase" to="." method="_on_Kase_pressed"]
 [connection signal="pressed" from="EscritorioKase/FotoEscritorioKase" to="." method="_on_FotoEscritorioKase_pressed"]
 [connection signal="pressed" from="Cristal1" to="." method="_on_Cristal1_pressed"]
-[connection signal="pressed" from="Cristal2" to="." method="_on_Cristal2_pressed"]
 [connection signal="pressed" from="Cristal3" to="." method="_on_Cristal3_pressed"]
-[connection signal="pressed" from="carta_2" to="." method="_on_carta_2_pressed"]
+[connection signal="pressed" from="Cristal2" to="." method="_on_Cristal2_pressed"]
