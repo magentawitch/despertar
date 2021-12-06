@@ -1,0 +1,420 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/images/Jade.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=6]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.38615, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.36188, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.5 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -294.923, -0.25, 0, 0.25, 0, -430.493, -0.25, 0, 0.25, 0, -294.923, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.5 )
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -294.923, -0.25, 0, 0.25, 0, -430.493, -0.25, 0, 0.25, 0, -294.923, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.5 )
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -294.923, -0.25, 0, 0.25, 0, -430.493, -0.25, 0, 0.25, 0, -294.923, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.5 )
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Swoop"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("centro/anim:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 3.0, 1.0, 3.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("petalo_1/anim:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 3.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("petalo_2/anim:playback_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 3.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("petalo_3/anim:playback_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 3.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "spin"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("spinner:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.38615, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.36188, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 1.5 )
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -294.923, -0.25, 0, 0.25, 0, -430.493, -0.25, 0, 0.25, 0, -294.923, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.5 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -294.923, -0.25, 0, 0.25, 0, -430.493, -0.25, 0, 0.25, 0, -294.923, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.5 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "entra_y_sale"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -294.923, -0.25, 0, 0.25, 0, -430.493, -0.25, 0, 0.25, 0, -294.923, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.5 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Swoop"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("centro/anim:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 3.0, 1.0, 3.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("petalo_1/anim:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 3.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("petalo_2/anim:playback_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 3.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("petalo_3/anim:playback_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 3.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "spin"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("spinner:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="spinner_guardado" type="Node2D"]
+
+[node name="sombra_del_coso" type="Node2D" parent="."]
+modulate = Color( 0.0941176, 0.0941176, 0.0941176, 0.356863 )
+rotation = 1.0472
+
+[node name="spinner" type="Node2D" parent="sombra_del_coso"]
+rotation = 5.90358
+
+[node name="centro" type="Node2D" parent="sombra_del_coso/spinner"]
+
+[node name="sprite" type="Sprite" parent="sombra_del_coso/spinner/centro"]
+scale = Vector2( 1.15036, 1.14092 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 49.1238, -0.357727, 223.234, 237.014 )
+
+[node name="anim" type="AnimationPlayer" parent="sombra_del_coso/spinner/centro"]
+autoplay = "entra_y_sale"
+playback_speed = 1.17373
+anims/entra_y_sale = SubResource( 6 )
+
+[node name="petalo_1" type="Node2D" parent="sombra_del_coso/spinner"]
+
+[node name="sprite" type="Sprite" parent="sombra_del_coso/spinner/petalo_1"]
+position = Vector2( 0, -296.301 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
+
+[node name="anim" type="AnimationPlayer" parent="sombra_del_coso/spinner/petalo_1"]
+autoplay = "entra_y_sale"
+playback_speed = 2.03087
+anims/entra_y_sale = SubResource( 7 )
+
+[node name="petalo_2" type="Node2D" parent="sombra_del_coso/spinner"]
+rotation = 2.0944
+
+[node name="sprite" type="Sprite" parent="sombra_del_coso/spinner/petalo_2"]
+position = Vector2( 0, -338.205 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
+
+[node name="anim" type="AnimationPlayer" parent="sombra_del_coso/spinner/petalo_2"]
+autoplay = "entra_y_sale"
+playback_speed = 2.44322
+anims/entra_y_sale = SubResource( 8 )
+
+[node name="petalo_3" type="Node2D" parent="sombra_del_coso/spinner"]
+rotation = 4.18879
+
+[node name="sprite" type="Sprite" parent="sombra_del_coso/spinner/petalo_3"]
+position = Vector2( 0, -421.826 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
+
+[node name="anim" type="AnimationPlayer" parent="sombra_del_coso/spinner/petalo_3"]
+autoplay = "entra_y_sale"
+playback_speed = 2.82627
+anims/entra_y_sale = SubResource( 9 )
+
+[node name="speeds" type="AnimationPlayer" parent="sombra_del_coso/spinner"]
+autoplay = "Swoop"
+anims/Swoop = SubResource( 10 )
+
+[node name="spin" type="AnimationPlayer" parent="sombra_del_coso"]
+autoplay = "spin"
+anims/spin = SubResource( 11 )
+
+[node name="coso" type="Node2D" parent="."]
+position = Vector2( 0, -2.5199 )
+
+[node name="spinner" type="Node2D" parent="coso"]
+rotation = 4.12577
+
+[node name="centro" type="Node2D" parent="coso/spinner"]
+
+[node name="sprite" type="Sprite" parent="coso/spinner/centro"]
+scale = Vector2( 1.0111, 1.0104 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 49.1238, -0.357727, 223.234, 237.014 )
+
+[node name="anim" type="AnimationPlayer" parent="coso/spinner/centro"]
+autoplay = "entra_y_sale"
+playback_speed = 1.73736
+anims/entra_y_sale = SubResource( 4 )
+
+[node name="petalo_1" type="Node2D" parent="coso/spinner"]
+
+[node name="sprite" type="Sprite" parent="coso/spinner/petalo_1"]
+position = Vector2( 0, -298.229 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
+
+[node name="anim" type="AnimationPlayer" parent="coso/spinner/petalo_1"]
+autoplay = "entra_y_sale"
+playback_speed = 2.59451
+anims/entra_y_sale = SubResource( 1 )
+
+[node name="petalo_2" type="Node2D" parent="coso/spinner"]
+rotation = 2.0944
+
+[node name="sprite" type="Sprite" parent="coso/spinner/petalo_2"]
+position = Vector2( 0, -429.413 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
+
+[node name="anim" type="AnimationPlayer" parent="coso/spinner/petalo_2"]
+autoplay = "entra_y_sale"
+playback_speed = 2.76769
+anims/entra_y_sale = SubResource( 2 )
+
+[node name="petalo_3" type="Node2D" parent="coso/spinner"]
+rotation = 4.18879
+
+[node name="sprite" type="Sprite" parent="coso/spinner/petalo_3"]
+position = Vector2( 0, -313.993 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
+
+[node name="anim" type="AnimationPlayer" parent="coso/spinner/petalo_3"]
+autoplay = "entra_y_sale"
+playback_speed = 2.26264
+anims/entra_y_sale = SubResource( 3 )
+
+[node name="speeds" type="AnimationPlayer" parent="coso/spinner"]
+autoplay = "Swoop"
+anims/Swoop = SubResource( 5 )
+
+[node name="spin" type="AnimationPlayer" parent="coso"]
+autoplay = "spin"
+anims/spin = SubResource( 12 )
