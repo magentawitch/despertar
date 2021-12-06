@@ -15,16 +15,15 @@ func _ready():
 		"A la carta % falta asignarle una version cerrada para mostrar en el diario" % name
 	)
 
-func _version_cerrada() -> Control:
+func _version_cerrada() -> TextureButton:
 	var carta_cerrada = get_node(version_cerrada_para_el_diario)
 	assert(
-		carta_cerrada is Control,
-		"La version cerrada de la %s debe ser un nodo verde (Control)" % name
+		carta_cerrada is TextureButton,
+		"La version cerrada de la %s debe ser un TextureButton" % name
 	)
-	carta_cerrada.transform.origin = Vector2()
 	self.remove_child(carta_cerrada)
 	self.queue_free()
-	return carta_cerrada as Control
+	return carta_cerrada as TextureButton
 	
 func _version_abierta() -> Position2D:
 	var carta_abierta = get_node(version_abierta_para_ver)
@@ -41,7 +40,7 @@ static func cargar_carta_abierta(nombre_carta: String) -> Position2D:
 	return _cargar_escena_carta(nombre_carta)._version_abierta()
 	
 
-static func cargar_carta_cerrada(nombre_carta: String) -> Control:
+static func cargar_carta_cerrada(nombre_carta: String) -> TextureButton:
 	return _cargar_escena_carta(nombre_carta)._version_cerrada()
 	
 

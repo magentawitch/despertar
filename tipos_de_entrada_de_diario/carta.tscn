@@ -9,6 +9,12 @@ var nombre_carta: String
 
 func inicializar_con(entrada: Dictionary):
 	nombre_carta = entrada[\"nombre_carta\"] 
+	for node in get_children():
+		node.queue_free()
+	var carta = Carta.cargar_carta_cerrada(nombre_carta)
+	add_child(carta)
+	carta.mouse_default_cursor_shape = CURSOR_POINTING_HAND
+	carta.connect(\"pressed\", self, \"_on_carta_cerrada_pressed\")
 	#$CenterContainer/texto_debug.text = \"{ nombre_carta: %s }\" % [ nombre_carta ]
 	#$CenterContainer/texto_debug.visible = OS.is_debug_build()
 
@@ -18,7 +24,7 @@ func _on_carta_cerrada_pressed() -> void:
 
 [node name="carta" type="MarginContainer"]
 mouse_filter = 1
-size_flags_horizontal = 3
+size_flags_horizontal = 7
 script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

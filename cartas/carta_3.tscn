@@ -89,10 +89,14 @@ __meta__ = {
 [node name="VersionCerrada" type="TextureButton" parent="."]
 margin_left = 1069.34
 margin_top = 425.563
-margin_right = 1636.34
-margin_bottom = 705.563
-rect_scale = Vector2( 0.718888, 0.718888 )
+margin_right = 1469.34
+margin_bottom = 625.563
+rect_min_size = Vector2( 400, 200 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
 texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
