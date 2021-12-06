@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -23,15 +23,39 @@ func resultado_con_el_que_aprobo() -> String:
 	return \"excelente\"
 
 func _ready():
-	match resultado_con_el_que_aprobo():
-		\"excelente\":
-			dice(\"Profesore\", \"excelente\")
-		\"nota_buena\":
-			dice(\"Profesore\", \"nota_buena\")
-		\"nota_minima\":
-			dice(\"Profesore\", \"nota_minima\")
-		\"reprobado\":
-			dice(\"Profesore\", \"reprobado\")
+	if no_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"Ya que estoy acá, voy a ver si está el resultado del examen. No que me importe... pero seguro Milán me lo va a preguntar más tarde.\")
+		yield(self, \"termino_dialogo\")
+		$Animador.play(\"JadeHaciaProfesore\")
+		yield($Animador, \"animation_finished\")
+	
+		match resultado_con_el_que_aprobo():
+			\"excelente\":
+				dice(\"Profesore\", \"Las respuestas del examen fueron excelentes. Estoy sorprendide. Abriremos una investigación para asegurarnos de que no hicieras trampa.\")
+				anota_en_el_diario(\"TRAMPA, lo que me faltaba. Igual no hay mejor venganza que mi excelente nota. En tu robotica cara robotito\")
+			\"nota_buena\":
+				dice(\"Profesore\", \"Aprobaste, pero hay espacio para mejoras. Deberías ser más como tus compañeres si deseas finalizar tus estudios con una buena recomendación\")
+				anota_en_el_diario(\"No necesito ser como mis compañeres con sus estúpidos implantes. Además, fue tremenda nota, en sus caras!\")
+			\"nota_minima\":
+				dice(\"Profesore\", \"Aprobaste con la nota mínima. Deberías ser más como tus compañeres si deseas finalizar tus estudios con una buena recomendación\")
+				anota_en_el_diario(\"Lo que importa es que aprobé  y no va a haber sermón en casa. Y nadie necesita ser como les ridícules con implantes, tengo mi intelecto natural\")
+			\"reprobado\":
+				dice(\"Profesore\", \"No hay palabras para describir la aversión que me resultó leer este examen. De todos modos, no me sorprende este resultado viniendo de ti.\")
+				anota_en_el_diario(\"Bla, bla, bla... A mi me genera aversión tu cara y no digo nada. Lo peor es que en casa se va a venir otra charla de mil horas. Estúpido examen\")
+		yield(self, \"termino_dialogo\")
+		$Animador.play(\"ProfesoreSeVa\")
+		yield($Animador, \"animation_finished\")
+		dice(\"Jade\", \"A qué puedo sacarle foto?\")
+		anota_en_el_diario(\"Me puse a pensar un poco en la vida, en mi futuro, y en el estúpido Despertar. No entiendo el revuelo por el primer implante. Odio esto! La adolescencia es la peor etapa de la vida, ya quiero ser une adulte\")
+
+
+func _on_FotoMesaProfesore_pressed():
+	if ya_saco_foto(\"mesa_profesore\"):
+		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+	else:
+		agrega_foto_al_diario(\"mesa_profesore\")
+
+
 "
 
 [sub_resource type="GDScript" id=2]
@@ -40,6 +64,50 @@ script/source = "extends Personaje
 func _ready():
 	pass 
 "
+
+[sub_resource type="Animation" id=4]
+resource_name = "JadeHaciaProfesore"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Jade:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 354.898, 990.831 ), Vector2( 2419.65, 1030.43 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "ProfesoreSeVa"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Profesore:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2825.24, 266.02 ), Vector2( -574.53, 322.589 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Profesore:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Aula" type="Node2D"]
 script = SubResource( 1 )
@@ -91,6 +159,16 @@ __meta__ = {
 position = Vector2( 2923.69, 726.992 )
 scale = Vector2( 0.755898, 0.755898 )
 texture = ExtResource( 3 )
+
+[node name="FotoMesaProfesore" type="TextureButton" parent="MesaProfesore"]
+margin_left = -238.0
+margin_top = -348.0
+margin_right = 217.0
+margin_bottom = 355.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Banco1" type="TextureButton" parent="."]
 margin_left = 745.665
@@ -198,8 +276,13 @@ stream = ExtResource( 15 )
 volume_db = -5.0
 autoplay = true
 
+[node name="Animador" type="AnimationPlayer" parent="."]
+anims/JadeHaciaProfesore = SubResource( 4 )
+anims/ProfesoreSeVa = SubResource( 3 )
+
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
 [connection signal="pressed" from="Profesore" to="." method="_on_Profesore_pressed"]
+[connection signal="pressed" from="MesaProfesore/FotoMesaProfesore" to="." method="_on_FotoMesaProfesore_pressed"]
 [connection signal="pressed" from="Banco1" to="." method="_on_Banco1_pressed"]
 [connection signal="pressed" from="Node2D/Banco2" to="." method="_on_Banco2_pressed"]
 [connection signal="pressed" from="Banco3" to="." method="_on_Banco3_pressed"]

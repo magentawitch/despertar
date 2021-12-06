@@ -94,6 +94,7 @@ func _on_Carta1_pressed():
 	ver_carta(\"carta_1\")
 	agregar_carta(\"carta_1\")
 	registrar_hito(\"agarro_carta_1\")
+	anota_en_el_diario(\"Esta carta de amor tiene una escritura bastante particular, me hace acordar a los romances que muestran en la películas de antes.. No puedo evitar pensar en que hay un misterio re loco en esta escuela aburrida\")
 "
 
 [node name="Pasillo_Escuela2" type="Node2D"]

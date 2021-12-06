@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -106,7 +106,7 @@ func quien_sos():
 
 
 func no_molestar():
-	dice(\"Jade\", \"'Perdón, no quería molestar. Este lugar siempre está vacío.\")
+	dice(\"Jade\", \"Perdón, no quería molestar. Este lugar siempre está vacío.\")
 	dice(\"Kase\", \"Soy Kase. Le cuidadore del museo. Te suelo ver seguido por acá, pero siempre estás concentrade viendo la exposición como para notar que hay alguien más\")
 	dice(\"Jade\", \"...\")
 	dice(\"Kase\", \"Te veo interesade en la cámara. Quieres probarla?\")
@@ -505,6 +505,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [node name="OSTSalaAnalogica" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
 volume_db = -5.0

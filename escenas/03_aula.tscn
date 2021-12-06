@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=13]
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/Sonido/Musica/Examen.mp3" type="AudioStream" id=15]
+[ext_resource path="res://personajes/Extra1.png" type="Texture" id=16]
+[ext_resource path="res://personajes/Extra3.png" type="Texture" id=17]
+[ext_resource path="res://personajes/Extra2.png" type="Texture" id=18]
+[ext_resource path="res://personajes/Extra4.png" type="Texture" id=19]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -32,11 +36,8 @@ func _on_PuertaPasillo_pressed():
 
 
 func _on_Examen_pressed():
-	anotar_en_el_diario(\"\"\"
-	Llegué unos minutos antes, eso es ser una persona eficiente. 
-	Podría haber repasado antes del examen, pero quién no preferiria escuchar a una de las mejores divas pop de antes.
-	Seguro si apruebo es gracias a Miss Clarkson.
-	\"\"\")
+	anota_en_el_diario(\"Para sorpresa mía, llegué unos minutos antes, lo único es que en nada tenía el examen y la verdad tenía cero ganas de sentarme a escribir y usar mi cerebro\")
+	anota_en_el_diario(\"Ugh, que asco de examen. Realmente son unes chupamedias de este estúpido gobierno y su adoración por la tecnología...\")
 	cambiar_escena_a('03_examen')
 
 var clicks_reloj = 0
@@ -197,6 +198,27 @@ position = Vector2( 616.777, 473.34 )
 stream = ExtResource( 15 )
 volume_db = -5.0
 autoplay = true
+
+[node name="Extra1" type="Sprite" parent="."]
+position = Vector2( 1901.87, 281.615 )
+scale = Vector2( 0.240001, 0.240001 )
+z_index = 1
+texture = ExtResource( 16 )
+
+[node name="Extra3" type="Sprite" parent="Extra1"]
+position = Vector2( 2744.31, -258.691 )
+z_index = -1
+texture = ExtResource( 17 )
+
+[node name="Extra4" type="Sprite" parent="Extra1/Extra3"]
+position = Vector2( 4751.03, 434.74 )
+z_index = 1
+texture = ExtResource( 19 )
+
+[node name="Extra2" type="Sprite" parent="."]
+position = Vector2( 4356.95, 199.416 )
+scale = Vector2( 0.280005, 0.280005 )
+texture = ExtResource( 18 )
 
 [connection signal="pressed" from="Reloj" to="." method="_on_Reloj_pressed"]
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
