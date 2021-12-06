@@ -20,6 +20,7 @@
 [ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=18]
 [ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/CartaDoblada2.png" type="Texture" id=20]
+[ext_resource path="res://assets/Sonido/Musica/Sala Analogica.mp3" type="AudioStream" id=21]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -504,6 +505,10 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[node name="OSTSalaAnalogica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="Fondo/CuadroCamaras" to="." method="_on_CuadroCamaras_pressed"]
 [connection signal="pressed" from="Fondo/CuadroPeriodico" to="." method="_on_CuadroPeriodico_pressed"]

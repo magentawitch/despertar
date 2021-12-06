@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -20,51 +20,49 @@
 [ext_resource path="res://acciones/caminar.gd" type="Script" id=18]
 [ext_resource path="res://acciones/agregar_carta.gd" type="Script" id=19]
 [ext_resource path="res://assets/Museo/camara.png" type="Texture" id=20]
+[ext_resource path="res://herramientas/persistencia/spinner_guardado.tscn" type="PackedScene" id=21]
 [ext_resource path="res://acciones/registrar_hito.gd" type="Script" id=22]
 [ext_resource path="res://acciones/guardar_partida.gd" type="Script" id=23]
 [ext_resource path="res://acciones/cargar_partida.gd" type="Script" id=24]
 [ext_resource path="res://acciones/nueva_partida.gd" type="Script" id=25]
 [ext_resource path="res://herramientas/persistencia/Memoria.gd" type="Script" id=26]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.5, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.19043, 0.19043, 0.19043, 1, 0, 0, 0, 1 )
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-
-[sub_resource type="Animation" id=3]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
+[sub_resource type="Animation" id=11]
+resource_name = "fade_in"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("master_bus:volume_db")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 565.617, 48.3115 ), Vector2( 561.157, 3.71628 ), Vector2( 565.617, 48.3115 ) ]
+"points": PoolRealArray( -72, -0.25, 0, 0.924631, 0.777779, 0, -0.304611, 6.34452, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="GDScript" id=4]
-script/source = "extends Position2D
+[sub_resource type="Animation" id=12]
+resource_name = "fade_out"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("master_bus:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.276415, 14.8889, 0.254067, 6.58211, -74.6944, -0.951884, -0.694443, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
 
-signal presiono_continuar
+[sub_resource type="GDScript" id=10]
+script/source = "extends Node
 
-func mostrar_carta(nombre_carta: String):
-	var carta = Carta.cargar_carta_abierta(nombre_carta)
-	carta.visible = true
-	$contenido.add_child(carta)
-	visible = true
+export(float) var volume_db setget set_volume_db, get_volume_db
 
-func _on_boton_para_cerrar_pressed() -> void:
-	emit_signal(\"presiono_continuar\")
-	visible = false
-	for c in $contenido.get_children():
-		c.queue_free()
-
+func set_volume_db(volume: float):
+	AudioServer.set_bus_volume_db(0, volume)
+	
+func get_volume_db() -> float:
+	return AudioServer.get_bus_volume_db(0)
 "
 
 [sub_resource type="Gradient" id=5]
@@ -97,6 +95,47 @@ tracks/0/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.5825, -0.0105343, 0, -0.9675, 0.0104826, 0.25, 0 ),
 "times": PoolRealArray( 0, 1.2 )
 }
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.19043, 0.19043, 0.19043, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SignoExclamacion:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 48.312 ), Vector2( 0, 3.716 ), Vector2( 0, 48.312 ) ]
+}
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Position2D
+
+signal presiono_continuar
+
+func mostrar_carta(nombre_carta: String):
+	var carta = Carta.cargar_carta_abierta(nombre_carta)
+	carta.visible = true
+	$contenido.add_child(carta)
+	visible = true
+
+func _on_boton_para_cerrar_pressed() -> void:
+	emit_signal(\"presiono_continuar\")
+	visible = false
+	for c in $contenido.get_children():
+		c.queue_free()
+
+"
 
 [sub_resource type="GDScript" id=9]
 script/source = "extends Node2D
@@ -150,6 +189,15 @@ path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
 [node name="cambio_de_escena" type="Node" parent="director"]
 script = ExtResource( 7 )
 path_al_contenedor_de_escena = NodePath("../../contenedor")
+path_al_spinner_de_guardado = NodePath("../../ui/spinner_guardado")
+
+[node name="animador" type="AnimationPlayer" parent="director/cambio_de_escena"]
+anims/fade_in = SubResource( 11 )
+anims/fade_out = SubResource( 12 )
+
+[node name="master_bus" type="Node" parent="director/cambio_de_escena"]
+script = SubResource( 10 )
+volume_db = -59.7525
 
 [node name="dice" type="Node" parent="director"]
 script = ExtResource( 8 )
@@ -205,6 +253,22 @@ script = ExtResource( 17 )
 path_al_director = NodePath("../director")
 path_al_diario = NodePath("../diario")
 
+[node name="telon" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.819833 )
+position = Vector2( 982.756, 554.566 )
+rotation = 1.57396
+scale = Vector2( 0.557886, 1992.89 )
+z_index = 20
+texture = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="anim" type="AnimationPlayer" parent="telon"]
+anims/mostrar = SubResource( 7 )
+anims/ocultar = SubResource( 8 )
+
 [node name="ui" type="Node2D" parent="."]
 
 [node name="oscurecedor_de_fondo" type="Sprite" parent="ui"]
@@ -215,17 +279,17 @@ scale = Vector2( 1, 1293.59 )
 texture = SubResource( 2 )
 
 [node name="menu" type="VBoxContainer" parent="ui"]
-margin_left = 52.818
-margin_top = 59.6786
-margin_right = 843.818
-margin_bottom = 1263.68
+margin_left = 79.0
+margin_top = 60.0
+margin_right = 589.0
+margin_bottom = 1464.0
 rect_scale = Vector2( 0.242848, 0.242848 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="boton_abrir_diario" type="TextureButton" parent="ui/menu"]
-margin_right = 791.0
+margin_right = 510.0
 margin_bottom = 700.0
 rect_min_size = Vector2( 0, 700 )
 mouse_default_cursor_shape = 2
@@ -233,11 +297,14 @@ texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
 expand = true
-stretch_mode = 3
+stretch_mode = 5
 
-[node name="Notificacion" type="Sprite" parent="ui/menu/boton_abrir_diario"]
-position = Vector2( 561.582, 7.9597 )
-scale = Vector2( 4.53789, 4.53789 )
+[node name="Notificacion" type="Node2D" parent="ui/menu/boton_abrir_diario"]
+position = Vector2( 394.225, 28.7239 )
+
+[node name="SignoExclamacion" type="Sprite" parent="ui/menu/boton_abrir_diario/Notificacion"]
+position = Vector2( 0, 48.312 )
+scale = Vector2( 5.61521, 5.61521 )
 texture = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui/menu/boton_abrir_diario/Notificacion"]
@@ -246,9 +313,9 @@ anims/Notificacion = SubResource( 3 )
 
 [node name="boton_camara" type="TextureButton" parent="ui/menu"]
 margin_top = 704.0
-margin_right = 791.0
-margin_bottom = 1204.0
-rect_min_size = Vector2( 0, 500 )
+margin_right = 510.0
+margin_bottom = 1404.0
+rect_min_size = Vector2( 0, 700 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 20 )
 expand = true
@@ -279,20 +346,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="telon" type="Sprite" parent="."]
-visible = false
-position = Vector2( 982.756, 554.566 )
-rotation = 1.57396
-scale = Vector2( 0.557886, 1992.89 )
-z_index = 20
-texture = SubResource( 6 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="anim" type="AnimationPlayer" parent="telon"]
-anims/mostrar = SubResource( 7 )
-anims/ocultar = SubResource( 8 )
+[node name="spinner_guardado" parent="ui" instance=ExtResource( 21 )]
+position = Vector2( 1786.43, 933.562 )
+scale = Vector2( 0.149983, 0.149983 )
 
 [node name="camara" type="Node2D" parent="."]
 position = Vector2( 983.326, 601.667 )
