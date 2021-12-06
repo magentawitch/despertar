@@ -19,9 +19,6 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-func resultado_con_el_que_aprobo() -> String:
-	return \"excelente\"
-
 func _ready():
 	if no_saco_foto(\"mesa_profesore\"):
 		dice(\"Jade\", \"Ya que estoy acá, voy a ver si está el resultado del examen. No que me importe... pero seguro Milán me lo va a preguntar más tarde.\")
