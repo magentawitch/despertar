@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://acciones/caminar.gd" type="Script" id=18]
 [ext_resource path="res://acciones/agregar_carta.gd" type="Script" id=19]
 [ext_resource path="res://assets/Museo/camara.png" type="Texture" id=20]
+[ext_resource path="res://herramientas/persistencia/spinner_guardado.tscn" type="PackedScene" id=21]
 [ext_resource path="res://acciones/registrar_hito.gd" type="Script" id=22]
 [ext_resource path="res://acciones/guardar_partida.gd" type="Script" id=23]
 [ext_resource path="res://acciones/cargar_partida.gd" type="Script" id=24]
@@ -64,6 +65,37 @@ func get_volume_db() -> float:
 	return AudioServer.get_bus_volume_db(0)
 "
 
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.5025, 0.04966, 1, -0.8975, 0.0139928, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=8]
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.5825, -0.0105343, 0, -0.9675, 0.0104826, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.2 )
+}
+
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.5, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.19043, 0.19043, 0.19043, 1, 0, 0, 0, 1 )
@@ -104,37 +136,6 @@ func _on_boton_para_cerrar_pressed() -> void:
 		c.queue_free()
 
 "
-
-[sub_resource type="Gradient" id=5]
-colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
-
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
-
-[sub_resource type="Animation" id=7]
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.5025, 0.04966, 1, -0.8975, 0.0139928, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
-}
-
-[sub_resource type="Animation" id=8]
-length = 1.2
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.5825, -0.0105343, 0, -0.9675, 0.0104826, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.2 )
-}
 
 [sub_resource type="GDScript" id=9]
 script/source = "extends Node2D
@@ -188,6 +189,7 @@ path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
 [node name="cambio_de_escena" type="Node" parent="director"]
 script = ExtResource( 7 )
 path_al_contenedor_de_escena = NodePath("../../contenedor")
+path_al_spinner_de_guardado = NodePath("../../ui/spinner_guardado")
 
 [node name="animador" type="AnimationPlayer" parent="director/cambio_de_escena"]
 anims/fade_in = SubResource( 11 )
@@ -195,6 +197,7 @@ anims/fade_out = SubResource( 12 )
 
 [node name="master_bus" type="Node" parent="director/cambio_de_escena"]
 script = SubResource( 10 )
+volume_db = -59.7525
 
 [node name="dice" type="Node" parent="director"]
 script = ExtResource( 8 )
@@ -250,6 +253,22 @@ script = ExtResource( 17 )
 path_al_director = NodePath("../director")
 path_al_diario = NodePath("../diario")
 
+[node name="telon" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.819833 )
+position = Vector2( 982.756, 554.566 )
+rotation = 1.57396
+scale = Vector2( 0.557886, 1992.89 )
+z_index = 20
+texture = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="anim" type="AnimationPlayer" parent="telon"]
+anims/mostrar = SubResource( 7 )
+anims/ocultar = SubResource( 8 )
+
 [node name="ui" type="Node2D" parent="."]
 
 [node name="oscurecedor_de_fondo" type="Sprite" parent="ui"]
@@ -303,7 +322,6 @@ expand = true
 stretch_mode = 5
 
 [node name="vista_diario" parent="ui" instance=ExtResource( 2 )]
-visible = false
 diario_path = NodePath("../../diario")
 
 [node name="eleccion_de_epigrafe" parent="ui" instance=ExtResource( 13 )]
@@ -328,20 +346,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="telon" type="Sprite" parent="."]
-visible = false
-position = Vector2( 982.756, 554.566 )
-rotation = 1.57396
-scale = Vector2( 0.557886, 1992.89 )
-z_index = 20
-texture = SubResource( 6 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="anim" type="AnimationPlayer" parent="telon"]
-anims/mostrar = SubResource( 7 )
-anims/ocultar = SubResource( 8 )
+[node name="spinner_guardado" parent="ui" instance=ExtResource( 21 )]
+position = Vector2( 1786.43, 933.562 )
+scale = Vector2( 0.149983, 0.149983 )
 
 [node name="camara" type="Node2D" parent="."]
 position = Vector2( 983.326, 601.667 )
