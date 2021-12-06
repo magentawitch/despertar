@@ -79,14 +79,6 @@ func interaccion_con_una_opcion(event, id: String, label: Label):
 func terminar_examen():
 	dice(\"Jade\", \"Terminé\")
 	dice(\"Jade\", \"Espero que todo esté bien\")
-	anotar_en_el_diario(\"\"\"
-	¿No les da vergüenza ser tan obvios?
-	Son unos chupamedias de esta estúpida sociedad.
-	Ven a la tecnología como si fuera algo divino.
-	Hubiera prendido fuego el examen!
-	Por ahora me limito a descargar mis sentimientos acá.
-	Como les adolescentes de antes
-	\"\"\")
 	corregir_examen()
 	
 	cambiar_escena_a('04_pasillo_escuela2')
