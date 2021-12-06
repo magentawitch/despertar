@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
@@ -13,12 +13,14 @@
 [ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=11]
 [ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=12]
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/Museo/PuertaMuseoAbierta.png" type="Texture" id=14]
+[ext_resource path="res://assets/Patio/PuertaPatioAbierta.png" type="Texture" id=15]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
 func _ready():
-	if tiene_la_camara():
+	if ya_ocurrio_que(\"agarro_carta_1\"):
 		$CartaCerrada1.visible = false
 	if not tiene_la_camara():
 		anotar_en_el_diario(\"\"\"
@@ -37,13 +39,13 @@ func _on_PuertaAula_pressed():
 
 
 func _on_PuertaPatio_pressed():
-	dice(\"Jade\", \"Mm, la puerta del patio parece estar cerrada por ahora\")
+	dice(\"Jade\", \"Todavía no quiero ir al patio\")
 
 func _on_PuertaMuseoAnalogico_pressed():
 	if ya_ocurrio_que(\"agarro_carta_1\"):
 		cambiar_escena_a(\"06_museo_analogico\")
 	else:
-		dice(\"Jade\", \"Creo que vi algo al lado del busto de Volk\")
+		dice(\"Jade\", \"Creo que vi algo al lado del busto de Volk. Quizás debería revisarlo antes de ir al museo\")
 
 var clicks_cuadro_volk = 0
 
@@ -125,6 +127,8 @@ margin_right = 2058.22
 margin_bottom = 354.071
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -137,6 +141,8 @@ margin_right = 3335.95
 margin_bottom = 358.893
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false

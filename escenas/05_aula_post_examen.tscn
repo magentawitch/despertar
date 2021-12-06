@@ -18,121 +18,7 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
-func _ready():
-	registrar_hito(\"paso_por_el_agujero\")
-	dice(\"Jade\", \"Uf, atravesar eso fue dificil\")
-	dice(\"Jade\", \"Oh, una cámara!\")
-	agarrar_camara()
-	dice(\"Jade\", \"Ahora no me queda otra que sacarle foto a alguno de estos pupitres\")
-	dice(\"Jade\", \"La pregunta es... cual?\")
 
-func _on_PuertaPasillo_pressed():
-	dice(\"Jade\", \"Adios, me voy al museo\")
-	cambiar_escena_a(\"06_museo_analogico\")
-
-func _on_PuertaArmario_pressed() -> void:
-	if no_ocurrio_que(\"vio_puerta_armario\"):
-		dice(\"Jade\", \"Es el perturbador armario del aula\")
-		registrar_hito(\"vio_puerta_armario\")
-		
-	if no_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"No puedo entrar sin antes haber sacado una foto\")
-		return
-	
-	dice(\"Jade\", \"Entremos\")
-	dice(\"Profesore\", \"Espera jade!\")
-	dice(\"Jade\", \"No Profesore! No podrá detenerme!\")
-	cambiar_escena_a(\"04_pasillo_escuela2\")
-	dice(\"Jade\", \"Wow\")
-	dice(\"Jade\", \"It's bigger on the inside!\")
-
-
-var ya_hablo_con_profesore = false
-
-func _on_Profesore_pressed() -> void:
-	if ya_hablo_con_profesore:
-		dice(\"Profesore\", \"No entiendo que estás haciendo\")
-	else:
-		ya_hablo_con_profesore = true
-		dice(\"Profesore\", \"Jade, a donde vas?\")
-
-
-func _on_Banco1_pressed() -> void:
-	if ya_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
-		return
-	if reconcidero_el_pupitre:
-		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
-		return
-	dice(\"Jade\", \"Este pupitre está muy cerca de la puerta\")
-	
-	if vio_el_pupitre and not reconcidero_el_pupitre:
-		dice(\"Jade\", \"Me gusta mas el que está al lado de la pizarra-monitor\")
-		reconcidero_el_pupitre = true
-
-
-func _on_Banco2_pressed() -> void:
-	if ya_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
-		return
-	if reconcidero_el_pupitre:
-		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
-		return
-	dice(\"Jade\", \"Este pupitre está muy al frente\")
-	
-	if vio_el_pupitre and not reconcidero_el_pupitre:
-		dice(\"Jade\", \"Me gusta mas el que está al lado de la pizarra-monitor\")
-		reconcidero_el_pupitre = true
-
-var vio_el_pupitre = false
-var reconcidero_el_pupitre = false
-func _on_Banco3_pressed() -> void:
-	vio_el_pupitre = true
-	if ya_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Ya le saqué una foto\")
-		match epigrafe_elegido_para(\"mesa_profesore\"):
-			\"oda_uniformidad\":
-				dice(\"Jade\", \"No quiero otra foto de una mesa aburrida\")
-			\"futuro_anicos\":
-				dice(\"Jade\", \"No quiero otra foto que me traiga a este presente\")
-			_:
-				dice(\"Jade\", \"No quiero otra\")
-		return
-		
-	if not reconcidero_el_pupitre:
-		dice(\"Jade\", \"Este me gusta pero, no estoy segure\")
-	elif no_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Serás añadido a la colección de mi diario!\")
-		agrega_foto_al_diario(\"mesa_profesore\")
-
-
-func _on_Banco4_pressed() -> void:
-	if ya_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Ya saqué una foto\")
-		return
-	if reconcidero_el_pupitre:
-		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
-		return
-	dice(\"Jade\", \"Hmmm, este está sucio\")
-	
-	if vio_el_pupitre and not reconcidero_el_pupitre:
-		dice(\"Jade\", \"Para eso le saco foto al que está a la izquierda\")
-		reconcidero_el_pupitre = true
-
-
-func _on_Banco5_pressed() -> void:
-	if ya_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"Ya saqué una foto, no quiero todas\")
-		return
-	if reconcidero_el_pupitre:
-		dice(\"Jade\", \"Me parece que el que está a la izquierda de le profesore es el que va\")
-		return
-		
-	dice(\"Jade\", \"Hmmm, este está escrito y dibujado con laser\")
-	
-	if vio_el_pupitre and not reconcidero_el_pupitre:
-		dice(\"Jade\", \"Prefiero el otro\")
-		reconcidero_el_pupitre = true
 "
 
 [sub_resource type="GDScript" id=2]
@@ -144,22 +30,6 @@ func _ready():
 
 [node name="Aula" type="Node2D"]
 script = SubResource( 1 )
-
-[node name="FondoAula3" type="Sprite" parent="."]
-position = Vector2( 5271.85, 45.4142 )
-texture = ExtResource( 5 )
-offset = Vector2( -929.068, 513.135 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="FondoAula2" type="Sprite" parent="."]
-position = Vector2( 4093.48, 45.1962 )
-texture = ExtResource( 5 )
-offset = Vector2( -929.068, 513.135 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="FondoAula" type="Sprite" parent="."]
 position = Vector2( 2916.71, 45.0662 )
@@ -179,22 +49,6 @@ margin_left = 157.142
 margin_top = 252.228
 margin_right = 563.142
 margin_bottom = 921.228
-rect_pivot_offset = Vector2( -1014.63, -612.778 )
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-on_mouse_entered_cue = ExtResource( 10 )
-
-[node name="PuertaArmario" type="TextureButton" parent="."]
-margin_left = 5596.06
-margin_top = 242.137
-margin_right = 6002.06
-margin_bottom = 911.137
 rect_pivot_offset = Vector2( -1014.63, -612.778 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
@@ -289,10 +143,10 @@ __meta__ = {
 }
 
 [node name="Banco5" type="TextureButton" parent="."]
-margin_left = 4160.73
-margin_top = 764.931
-margin_right = 4431.73
-margin_bottom = 904.931
+margin_left = 3984.73
+margin_top = 772.931
+margin_right = 4255.73
+margin_bottom = 912.931
 rect_scale = Vector2( 1.762, 1.762 )
 rect_pivot_offset = Vector2( 219.226, 21.517 )
 mouse_default_cursor_shape = 2
@@ -313,6 +167,8 @@ scale = Vector2( 1.77176, 1.77176 )
 script = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PisoCaminable"]
+position = Vector2( -205.091, 0 )
+scale = Vector2( 0.740232, 1 )
 polygon = PoolVector2Array( 283.928, -41.6395, 250.239, 63.5817, 3554.31, 48.2253, 3716.1, -21.5582, 2024.96, -31.1514, 1978.51, 3.30963, 1825.69, 0.313049, 1753.77, -35.6464 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 13 )]
@@ -320,12 +176,11 @@ position = Vector2( -67.1872, 643.005 )
 scale = Vector2( 1.77176, 1.77176 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 6408.56, 634.596 )
+position = Vector2( 4046.9, 589.698 )
 scale = Vector2( 1.77176, 1.77176 )
 input_pickable = true
 
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
-[connection signal="pressed" from="PuertaArmario" to="." method="_on_PuertaArmario_pressed"]
 [connection signal="pressed" from="Profesore" to="." method="_on_Profesore_pressed"]
 [connection signal="pressed" from="Banco1" to="." method="_on_Banco1_pressed"]
 [connection signal="pressed" from="Node2D/Banco2" to="." method="_on_Banco2_pressed"]
