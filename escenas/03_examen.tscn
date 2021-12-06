@@ -87,12 +87,16 @@ func terminar_examen():
 func corregir_examen():
 	if opciones_elegidas.has(\"A1\") and opciones_elegidas.has(\"B2\") and opciones_elegidas.has(\"C3\"):
 		guardar_resultado_examen(\"excelente\")
+		anota_en_el_diario(\"Creo que me fue excelente en el examen! En tu cara robotito\")
 	elif opciones_elegidas.has(\"A3\") and opciones_elegidas.has(\"B1\") and opciones_elegidas.has(\"C2\"):
 		guardar_resultado_examen(\"nota_buena\")
+		anota_en_el_diario(\"Creo que me fue bastante bien. Y eso que me dieron ganas de quemar el examen en la pregunta dos\")
 	elif opciones_elegidas.has(\"A2\") and opciones_elegidas.has(\"B3\") and opciones_elegidas.has(\"C1\"):
 		guardar_resultado_examen(\"nota_minima\")
+		anota_en_el_diario(\"Aprender es lo que importa, no con qué nota. Espero haberme sacado el mínimo, aunque ese examen es realmente un chiste\")
 	else:
 		guardar_resultado_examen(\"reprobado\")
+		anota_en_el_diario(\"Siempre es lo mismo con este estúpido examen. No debo haber acertado nada, porque siempre hay que poner exactamente lo que dicen los libros\")
 "
 
 [sub_resource type="Theme" id=2]
