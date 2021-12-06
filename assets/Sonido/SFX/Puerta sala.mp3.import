@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Puerta sala.mp3-a248e9c1dbaee5e81f5a5d9cf7f88410.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/SFX/Puerta sala.mp3"
+dest_files=[ "res://.import/Puerta sala.mp3-a248e9c1dbaee5e81f5a5d9cf7f88410.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

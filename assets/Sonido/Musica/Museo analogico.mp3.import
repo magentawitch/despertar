@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Museo analogico.mp3-89d27e648e6777493020636ae25be216.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/Musica/Museo analogico.mp3"
+dest_files=[ "res://.import/Museo analogico.mp3-89d27e648e6777493020636ae25be216.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

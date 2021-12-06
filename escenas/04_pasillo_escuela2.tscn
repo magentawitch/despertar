@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/Museo/PuertaMuseoAbierta.png" type="Texture" id=14]
 [ext_resource path="res://assets/Patio/PuertaPatioAbierta.png" type="Texture" id=15]
+[ext_resource path="res://assets/Sonido/SFX/Puerta sala.mp3" type="AudioStream" id=16]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -134,6 +135,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+on_mouse_entered_cue = ExtResource( 10 )
 
 [node name="PuertaMuseoAnalogico" type="TextureButton" parent="."]
 margin_left = 2929.95
@@ -148,6 +150,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+on_mouse_entered_cue = ExtResource( 16 )
 
 [node name="Planta" type="Sprite" parent="."]
 position = Vector2( 1051.46, 166.055 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://utileria/ObjetoInteractivo.gd" type="Script" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -20,7 +20,8 @@
 [ext_resource path="res://utileria/PisoCaminable.gd" type="Script" id=18]
 [ext_resource path="res://personajes/Jade.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/CartaDoblada2.png" type="Texture" id=20]
-[ext_resource path="res://assets/Sonido/Musica/Sala Analogica.mp3" type="AudioStream" id=21]
+[ext_resource path="res://assets/Sonido/SFX/Puerta sala.mp3" type="AudioStream" id=21]
+[ext_resource path="res://assets/Sonido/Musica/Museo analogico.mp3" type="AudioStream" id=22]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -334,6 +335,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+on_mouse_entered_cue = ExtResource( 21 )
 
 [node name="PuertaOxidada" type="TextureButton" parent="Fondo/Puerta"]
 margin_left = -9.0
@@ -507,8 +509,8 @@ script = ExtResource( 18 )
 polygon = PoolVector2Array( -1057.35, 1027.9, -1051.36, 1093.82, 2896.64, 1085.76, 2896.64, 924.491, -371.13, 920.018, -404.092, 1018.91 )
 
 [node name="OSTSalaAnalogica" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 21 )
-volume_db = -5.0
+stream = ExtResource( 22 )
+volume_db = -10.244
 autoplay = true
 
 [connection signal="pressed" from="Fondo/CuadroCamaras" to="." method="_on_CuadroCamaras_pressed"]

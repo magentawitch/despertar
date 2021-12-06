@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Polaroid/escritoriokase.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sonido/SFX/BRS_Camera_D50_ShutterClick1.wav" type="AudioStream" id=2]
 [ext_resource path="res://fotos/Foto.gd" type="Script" id=3]
 
 [node name="Foto" type="Node2D"]
@@ -133,3 +134,8 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -5.244
+autoplay = true

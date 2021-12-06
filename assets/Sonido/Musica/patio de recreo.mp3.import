@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/patio de recreo.mp3-37978d91da0a30d5d58c215a98df6437.mp3str"
+
+[deps]
+
+source_file="res://assets/Sonido/Musica/patio de recreo.mp3"
+dest_files=[ "res://.import/patio de recreo.mp3-37978d91da0a30d5d58c215a98df6437.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
