@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/images/Jade.png" type="Texture" id=1]
 
-[sub_resource type="GDScript" id=17]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 func ocultar():
@@ -10,9 +10,14 @@ func ocultar():
 
 func mostrar():
 	$fade_in_and_out.play(\"fade_in\")
+	
+func mostrar_y_ocultar():
+	$fade_in_and_out.play(\"fade_in\")
+	yield($fade_in_and_out, \"animation_finished\")
+	$fade_in_and_out.play(\"fade_out\")
 "
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "entra_y_sale"
 length = 1.5
 loop = true
@@ -37,7 +42,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.9, 1.5 )
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "entra_y_sale"
 length = 1.5
 loop = true
@@ -52,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.8, 1.5 )
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "entra_y_sale"
 length = 1.5
 loop = true
@@ -67,7 +72,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.8, 1.5 )
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 resource_name = "entra_y_sale"
 length = 1.5
 loop = true
@@ -82,7 +87,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.8, 1.5 )
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=6]
 resource_name = "Swoop"
 loop = true
 tracks/0/type = "value"
@@ -134,7 +139,7 @@ tracks/3/keys = {
 "values": [ 1.0, 3.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
 resource_name = "spin"
 length = 4.0
 loop = true
@@ -151,8 +156,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "entra_y_sale"
+[sub_resource type="Animation" id=8]
 length = 1.5
 loop = true
 tracks/0/type = "bezier"
@@ -176,7 +180,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.9, 1.5 )
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=9]
 resource_name = "entra_y_sale"
 length = 1.5
 loop = true
@@ -191,7 +195,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.8, 1.5 )
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 resource_name = "entra_y_sale"
 length = 1.5
 loop = true
@@ -206,7 +210,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.8, 1.5 )
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=11]
 resource_name = "entra_y_sale"
 length = 1.5
 loop = true
@@ -221,7 +225,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.8, 1.5 )
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("centro/anim:playback_speed")
@@ -272,7 +276,7 @@ tracks/3/keys = {
 "values": [ 1.0, 3.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=13]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -288,7 +292,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=14]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("spinner:modulate")
@@ -303,7 +307,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=15]
 length = 1.4
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("spinner:modulate:a")
@@ -317,9 +321,10 @@ tracks/0/keys = {
 }
 
 [node name="spinner_guardado" type="Node2D"]
-script = SubResource( 17 )
+script = SubResource( 1 )
 
 [node name="spinner" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="sombra_del_coso" type="Node2D" parent="spinner"]
 modulate = Color( 0.0941176, 0.0941176, 0.0941176, 0.356863 )
@@ -339,7 +344,7 @@ region_rect = Rect2( 49.1238, -0.357727, 223.234, 237.014 )
 [node name="anim" type="AnimationPlayer" parent="spinner/sombra_del_coso/spinner/centro"]
 autoplay = "entra_y_sale"
 playback_speed = 1.17373
-anims/entra_y_sale = SubResource( 6 )
+anims/entra_y_sale = SubResource( 2 )
 
 [node name="petalo_1" type="Node2D" parent="spinner/sombra_del_coso/spinner"]
 
@@ -352,7 +357,7 @@ region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
 [node name="anim" type="AnimationPlayer" parent="spinner/sombra_del_coso/spinner/petalo_1"]
 autoplay = "entra_y_sale"
 playback_speed = 2.03087
-anims/entra_y_sale = SubResource( 7 )
+anims/entra_y_sale = SubResource( 3 )
 
 [node name="petalo_2" type="Node2D" parent="spinner/sombra_del_coso/spinner"]
 rotation = 2.0944
@@ -366,7 +371,7 @@ region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
 [node name="anim" type="AnimationPlayer" parent="spinner/sombra_del_coso/spinner/petalo_2"]
 autoplay = "entra_y_sale"
 playback_speed = 2.44322
-anims/entra_y_sale = SubResource( 8 )
+anims/entra_y_sale = SubResource( 4 )
 
 [node name="petalo_3" type="Node2D" parent="spinner/sombra_del_coso/spinner"]
 rotation = 4.18879
@@ -380,15 +385,15 @@ region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
 [node name="anim" type="AnimationPlayer" parent="spinner/sombra_del_coso/spinner/petalo_3"]
 autoplay = "entra_y_sale"
 playback_speed = 2.82627
-anims/entra_y_sale = SubResource( 9 )
+anims/entra_y_sale = SubResource( 5 )
 
 [node name="speeds" type="AnimationPlayer" parent="spinner/sombra_del_coso/spinner"]
 autoplay = "Swoop"
-anims/Swoop = SubResource( 10 )
+anims/Swoop = SubResource( 6 )
 
 [node name="spin" type="AnimationPlayer" parent="spinner/sombra_del_coso"]
 autoplay = "spin"
-anims/spin = SubResource( 11 )
+anims/spin = SubResource( 7 )
 
 [node name="coso" type="Node2D" parent="spinner"]
 position = Vector2( 0, -2.5199 )
@@ -407,7 +412,7 @@ region_rect = Rect2( 49.1238, -0.357727, 223.234, 237.014 )
 [node name="anim" type="AnimationPlayer" parent="spinner/coso/spinner/centro"]
 autoplay = "entra_y_sale"
 playback_speed = 1.73736
-anims/entra_y_sale = SubResource( 4 )
+anims/entra_y_sale = SubResource( 8 )
 
 [node name="petalo_1" type="Node2D" parent="spinner/coso/spinner"]
 
@@ -420,7 +425,7 @@ region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
 [node name="anim" type="AnimationPlayer" parent="spinner/coso/spinner/petalo_1"]
 autoplay = "entra_y_sale"
 playback_speed = 2.59451
-anims/entra_y_sale = SubResource( 18 )
+anims/entra_y_sale = SubResource( 9 )
 
 [node name="petalo_2" type="Node2D" parent="spinner/coso/spinner"]
 rotation = 2.0944
@@ -434,7 +439,7 @@ region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
 [node name="anim" type="AnimationPlayer" parent="spinner/coso/spinner/petalo_2"]
 autoplay = "entra_y_sale"
 playback_speed = 2.76769
-anims/entra_y_sale = SubResource( 13 )
+anims/entra_y_sale = SubResource( 10 )
 
 [node name="petalo_3" type="Node2D" parent="spinner/coso/spinner"]
 rotation = 4.18879
@@ -448,16 +453,16 @@ region_rect = Rect2( 0, 236.558, 310.742, 455.517 )
 [node name="anim" type="AnimationPlayer" parent="spinner/coso/spinner/petalo_3"]
 autoplay = "entra_y_sale"
 playback_speed = 2.26264
-anims/entra_y_sale = SubResource( 14 )
+anims/entra_y_sale = SubResource( 11 )
 
 [node name="speeds" type="AnimationPlayer" parent="spinner/coso/spinner"]
 autoplay = "Swoop"
-anims/Swoop = SubResource( 15 )
+anims/Swoop = SubResource( 12 )
 
 [node name="spin" type="AnimationPlayer" parent="spinner/coso"]
 autoplay = "spin"
-anims/spin = SubResource( 16 )
+anims/spin = SubResource( 13 )
 
 [node name="fade_in_and_out" type="AnimationPlayer" parent="."]
-anims/fade_in = SubResource( 19 )
-anims/fade_out = SubResource( 20 )
+anims/fade_in = SubResource( 14 )
+anims/fade_out = SubResource( 15 )

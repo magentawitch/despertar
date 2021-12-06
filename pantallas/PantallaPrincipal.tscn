@@ -193,7 +193,6 @@ path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
 [node name="cambio_de_escena" type="Node" parent="director"]
 script = ExtResource( 7 )
 path_al_contenedor_de_escena = NodePath("../../contenedor")
-path_al_spinner_de_guardado = NodePath("../../ui/spinner_guardado")
 
 [node name="animador" type="AnimationPlayer" parent="director/cambio_de_escena"]
 anims/fade_in = SubResource( 1 )
@@ -240,6 +239,7 @@ script = ExtResource( 23 )
 path_al_diario = NodePath("../../diario")
 path_al_contenedor_de_escena = NodePath("../../contenedor")
 path_a_la_memoria = NodePath("../../memoria")
+path_al_spinner_de_guardado = NodePath("../../ui/spinner_guardado")
 
 [node name="cargar_partida" type="Node" parent="director"]
 script = ExtResource( 24 )
@@ -250,6 +250,8 @@ path_a_la_memoria = NodePath("../../memoria")
 [node name="nueva_partida" type="Node" parent="director"]
 script = ExtResource( 25 )
 path_a_la_memoria = NodePath("../../memoria")
+path_al_diario = NodePath("../../diario")
+path_al_contenedor_de_escena = NodePath("../../contenedor")
 
 [node name="contenedor" type="Node2D" parent="."]
 z_index = -10
@@ -274,6 +276,7 @@ anims/mostrar = SubResource( 6 )
 anims/ocultar = SubResource( 7 )
 
 [node name="ui" type="Node2D" parent="."]
+z_index = 30
 
 [node name="oscurecedor_de_fondo" type="Sprite" parent="ui"]
 visible = false
@@ -352,8 +355,8 @@ __meta__ = {
 
 [node name="spinner_guardado" parent="ui" instance=ExtResource( 21 )]
 pause_mode = 2
-position = Vector2( 1786.43, 933.562 )
-scale = Vector2( 0.149983, 0.149983 )
+position = Vector2( 1793.57, 959.725 )
+scale = Vector2( 0.0988824, 0.0988824 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ui"]
 margin_left = 1731.67

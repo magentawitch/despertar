@@ -24,6 +24,14 @@ func _on_boton_nueva_partida_pressed() -> void:
 	emit_signal(\"solicita_ejecutar_accion\", \"nueva_partida\", {})
 	cerrar()
 
+func _on_boton_guardar_partida_pressed() -> void:
+	emit_signal(\"solicita_ejecutar_accion\", \"guardar_partida\", {})
+	cerrar()
+
+func _on_boton_cargar_partida_pressed() -> void:
+	emit_signal(\"solicita_ejecutar_accion\", \"cargar_partida\", {})
+	cerrar()
+
 
 func _on_boton_pantalla_completa_pressed() -> void:
 	OS.window_fullscreen = !OS.window_fullscreen
@@ -114,36 +122,54 @@ __meta__ = {
 
 [node name="boton_nueva_partida" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 225.0
+margin_top = 143.0
 margin_right = 606.0
-margin_bottom = 303.0
+margin_bottom = 221.0
 custom_fonts/font = SubResource( 2 )
 text = "Nueva Partida"
 flat = true
 
-[node name="boton_pantalla_completa" type="Button" parent="menu_in_game/VBoxContainer"]
+[node name="boton_guardar_partida" type="Button" parent="menu_in_game/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_top = 225.0
+margin_right = 606.0
+margin_bottom = 303.0
+custom_fonts/font = SubResource( 2 )
+text = "Guardar"
+flat = true
+
+[node name="boton_cargar_partida" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
 margin_top = 307.0
 margin_right = 606.0
 margin_bottom = 385.0
+custom_fonts/font = SubResource( 2 )
+text = "Cargar"
+flat = true
+
+[node name="boton_pantalla_completa" type="Button" parent="menu_in_game/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_top = 389.0
+margin_right = 606.0
+margin_bottom = 467.0
 custom_fonts/font = SubResource( 2 )
 text = "Pantalla Completa"
 flat = true
 
 [node name="boton_salir" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 389.0
+margin_top = 471.0
 margin_right = 606.0
-margin_bottom = 467.0
+margin_bottom = 549.0
 custom_fonts/font = SubResource( 2 )
 text = "Salir"
 flat = true
 
 [node name="boton_continuar" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 471.0
+margin_top = 553.0
 margin_right = 606.0
-margin_bottom = 611.0
+margin_bottom = 693.0
 rect_min_size = Vector2( 0, 140 )
 custom_fonts/font = SubResource( 2 )
 text = "Continuar"
@@ -215,6 +241,8 @@ flat = true
 
 [connection signal="pressed" from="boton_cerrar_menu" to="." method="_on_boton_cerrar_menu_pressed"]
 [connection signal="pressed" from="menu_in_game/VBoxContainer/boton_nueva_partida" to="." method="_on_boton_nueva_partida_pressed"]
+[connection signal="pressed" from="menu_in_game/VBoxContainer/boton_guardar_partida" to="." method="_on_boton_guardar_partida_pressed"]
+[connection signal="pressed" from="menu_in_game/VBoxContainer/boton_cargar_partida" to="." method="_on_boton_cargar_partida_pressed"]
 [connection signal="pressed" from="menu_in_game/VBoxContainer/boton_pantalla_completa" to="." method="_on_boton_pantalla_completa_pressed"]
 [connection signal="pressed" from="menu_in_game/VBoxContainer/boton_salir" to="." method="_on_boton_salir_pressed"]
 [connection signal="pressed" from="menu_in_game/VBoxContainer/boton_continuar" to="." method="_on_boton_continuar_pressed"]
