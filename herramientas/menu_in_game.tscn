@@ -1,0 +1,222 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/HojaCarta.png" type="Texture" id=1]
+[ext_resource path="res://assets/fuentes/Storytime.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+signal solicita_ejecutar_accion # String, Dictionary
+signal se_cerro
+
+
+func _ready():
+	if OS.get_name() == \"HTML5\":
+		$menu_in_game/VBoxContainer/boton_salir.visible = false
+
+func mostrar():
+	$menu_in_game.visible = true
+	$confirmacion_salir.visible = false
+	self.visible = true
+
+
+func _on_boton_nueva_partida_pressed() -> void:
+	emit_signal(\"solicita_ejecutar_accion\", \"nueva_partida\", {})
+	cerrar()
+
+
+func _on_boton_pantalla_completa_pressed() -> void:
+	OS.window_fullscreen = !OS.window_fullscreen
+
+
+func _on_boton_salir_pressed() -> void:
+	$menu_in_game.visible = false
+	$confirmacion_salir.visible = true
+
+
+func _on_boton_si_salir_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_boton_no_salir_pressed() -> void:
+	$menu_in_game.visible = true
+	$confirmacion_salir.visible = false
+
+func _on_boton_cerrar_menu_pressed() -> void:
+	cerrar()
+	
+func _on_boton_continuar_pressed() -> void:
+	cerrar()
+
+func cerrar():
+	emit_signal(\"se_cerro\")
+	self.visible = false
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.936523, 0.881676, 0.620996, 1, 0.944336, 0.874117, 0.626176, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[node name="menu_in_game" type="Control"]
+pause_mode = 2
+margin_left = 140.333
+margin_top = 66.9521
+margin_right = 1870.33
+margin_bottom = 1053.95
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boton_cerrar_menu" type="TextureButton" parent="."]
+margin_right = 1705.0
+margin_bottom = 951.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_in_game" type="MarginContainer" parent="."]
+margin_left = 556.516
+margin_top = 64.5914
+margin_right = 1162.52
+margin_bottom = 900.591
+rect_rotation = -5.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fondo" type="TextureRect" parent="menu_in_game"]
+margin_right = 606.0
+margin_bottom = 836.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu_in_game"]
+margin_right = 606.0
+margin_bottom = 836.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boton_nueva_partida" type="Button" parent="menu_in_game/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_top = 225.0
+margin_right = 606.0
+margin_bottom = 303.0
+custom_fonts/font = SubResource( 2 )
+text = "Nueva Partida"
+flat = true
+
+[node name="boton_pantalla_completa" type="Button" parent="menu_in_game/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_top = 307.0
+margin_right = 606.0
+margin_bottom = 385.0
+custom_fonts/font = SubResource( 2 )
+text = "Pantalla Completa"
+flat = true
+
+[node name="boton_salir" type="Button" parent="menu_in_game/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_top = 389.0
+margin_right = 606.0
+margin_bottom = 467.0
+custom_fonts/font = SubResource( 2 )
+text = "Salir"
+flat = true
+
+[node name="boton_continuar" type="Button" parent="menu_in_game/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_top = 471.0
+margin_right = 606.0
+margin_bottom = 611.0
+rect_min_size = Vector2( 0, 140 )
+custom_fonts/font = SubResource( 2 )
+text = "Continuar"
+flat = true
+
+[node name="confirmacion_salir" type="MarginContainer" parent="."]
+visible = false
+margin_left = 476.53
+margin_top = 304.673
+margin_right = 1308.53
+margin_bottom = 529.673
+rect_rotation = 5.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fondo" type="TextureRect" parent="confirmacion_salir"]
+margin_right = 832.0
+margin_bottom = 225.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="confirmacion_salir"]
+margin_right = 832.0
+margin_bottom = 225.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pregunta" type="Label" parent="confirmacion_salir/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_top = 35.0
+margin_right = 832.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 2 )
+text = "Realmente desea salir?"
+align = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="confirmacion_salir/VBoxContainer"]
+margin_top = 111.0
+margin_right = 832.0
+margin_bottom = 189.0
+alignment = 1
+
+[node name="boton_si_salir" type="Button" parent="confirmacion_salir/VBoxContainer/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 322.0
+margin_right = 433.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 2 )
+text = "Si   "
+flat = true
+
+[node name="boton_no_salir" type="Button" parent="confirmacion_salir/VBoxContainer/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 437.0
+margin_right = 509.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 2 )
+text = "No"
+flat = true
+
+[connection signal="pressed" from="boton_cerrar_menu" to="." method="_on_boton_cerrar_menu_pressed"]
+[connection signal="pressed" from="menu_in_game/VBoxContainer/boton_nueva_partida" to="." method="_on_boton_nueva_partida_pressed"]
+[connection signal="pressed" from="menu_in_game/VBoxContainer/boton_pantalla_completa" to="." method="_on_boton_pantalla_completa_pressed"]
+[connection signal="pressed" from="menu_in_game/VBoxContainer/boton_salir" to="." method="_on_boton_salir_pressed"]
+[connection signal="pressed" from="menu_in_game/VBoxContainer/boton_continuar" to="." method="_on_boton_continuar_pressed"]
+[connection signal="pressed" from="confirmacion_salir/VBoxContainer/VBoxContainer/boton_si_salir" to="." method="_on_boton_si_salir_pressed"]
+[connection signal="pressed" from="confirmacion_salir/VBoxContainer/VBoxContainer/boton_no_salir" to="." method="_on_boton_no_salir_pressed"]

@@ -9,6 +9,7 @@ signal la_escena_fue_cambiada
 
 func _ready() -> void:
 	$telon.visible = true
+	$ui/menu_in_game.visible = false
 	#$ui/vista_diario.visible = false
 	$ui/eleccion_de_epigrafe.visible = false
 	$foco.connect("cambio_de_modo", self, '_cuando_el_foco_cambia_de_modo')
@@ -20,6 +21,8 @@ func _ready() -> void:
 	$contenedor.connect("se_procedera_a_cargar_una_escena", self, "_antes_de_cargar_una_escena")
 	$contenedor.connect("una_escena_fue_cargada", self, "_cuando_una_escena_fue_cargada")
 	$ui/vista_diario.connect('solicita_ejecutar_accion', self, "_cuando_la_vista_diario_solicita_ejecutar_una_accion")
+	$ui/menu_in_game.connect('se_cerro', self, "_cuando_se_cerro_el_menu_in_game")
+	$ui/menu_in_game.connect('solicita_ejecutar_accion', self, "_cuando_el_menu_in_game_solicita_ejecutar_una_accion")
 	$diario.connect('hito_fue_registrado', self, "_cuando_un_hito_fue_registrado")
 	var nombre_escena: String
 	if OS.is_debug_build():
@@ -113,5 +116,16 @@ func _process(delta: float) -> void:
 	$contenedor.position += desplazamiento
 	
 func _on_boton_abrir_diario_pressed():
-	
 	$director.encolar("abrir_diario")
+
+func _on_boton_abrir_menu_in_game_pressed() -> void:
+	$ui/menu_in_game.mostrar()
+	get_tree().paused = true
+
+func _cuando_el_menu_in_game_solicita_ejecutar_una_accion(accion: String, detalles: Dictionary):
+	print("Menu in game solicito ejecutar la accion: %s detalles: %s" % [accion, detalles])
+	$director.encolar(accion, detalles)
+	
+func _cuando_se_cerro_el_menu_in_game():
+	get_tree().paused = false
+	

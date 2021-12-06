@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -26,8 +26,12 @@
 [ext_resource path="res://acciones/cargar_partida.gd" type="Script" id=24]
 [ext_resource path="res://acciones/nueva_partida.gd" type="Script" id=25]
 [ext_resource path="res://herramientas/persistencia/Memoria.gd" type="Script" id=26]
+[ext_resource path="res://assets/iconos/barsHorizontal.png" type="Texture" id=27]
+[ext_resource path="res://assets/images/flatLight/flatLight10.png" type="Texture" id=28]
+[ext_resource path="res://assets/iconos/barsHorizontalHl.png" type="Texture" id=29]
+[ext_resource path="res://herramientas/menu_in_game.tscn" type="PackedScene" id=30]
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=1]
 resource_name = "fade_in"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("master_bus:volume_db")
@@ -40,7 +44,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=2]
 resource_name = "fade_out"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("master_bus:volume_db")
@@ -53,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Node
 
 export(float) var volume_db setget set_volume_db, get_volume_db
@@ -65,13 +69,13 @@ func get_volume_db() -> float:
 	return AudioServer.get_bus_volume_db(0)
 "
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=4]
 colors = PoolColorArray( 0, 0, 0, 1, 0.133348, 0, 0.147461, 1 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
 tracks/0/interp = 1
@@ -83,7 +87,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 1.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:a")
@@ -96,14 +100,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.2 )
 }
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.5, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.19043, 0.19043, 0.19043, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("SignoExclamacion:position")
@@ -118,7 +122,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 48.312 ), Vector2( 0, 3.716 ), Vector2( 0, 48.312 ) ]
 }
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=11]
 script/source = "extends Position2D
 
 signal presiono_continuar
@@ -137,7 +141,7 @@ func _on_boton_para_cerrar_pressed() -> void:
 
 "
 
-[sub_resource type="GDScript" id=9]
+[sub_resource type="GDScript" id=12]
 script/source = "extends Node2D
 
 
@@ -192,11 +196,11 @@ path_al_contenedor_de_escena = NodePath("../../contenedor")
 path_al_spinner_de_guardado = NodePath("../../ui/spinner_guardado")
 
 [node name="animador" type="AnimationPlayer" parent="director/cambio_de_escena"]
-anims/fade_in = SubResource( 11 )
-anims/fade_out = SubResource( 12 )
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
 
 [node name="master_bus" type="Node" parent="director/cambio_de_escena"]
-script = SubResource( 10 )
+script = SubResource( 3 )
 volume_db = -59.7525
 
 [node name="dice" type="Node" parent="director"]
@@ -260,14 +264,14 @@ position = Vector2( 982.756, 554.566 )
 rotation = 1.57396
 scale = Vector2( 0.557886, 1992.89 )
 z_index = 20
-texture = SubResource( 6 )
+texture = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="anim" type="AnimationPlayer" parent="telon"]
-anims/mostrar = SubResource( 7 )
-anims/ocultar = SubResource( 8 )
+anims/mostrar = SubResource( 6 )
+anims/ocultar = SubResource( 7 )
 
 [node name="ui" type="Node2D" parent="."]
 
@@ -276,7 +280,7 @@ visible = false
 self_modulate = Color( 1, 1, 1, 0.294118 )
 position = Vector2( 982.512, 563.776 )
 scale = Vector2( 1, 1293.59 )
-texture = SubResource( 2 )
+texture = SubResource( 9 )
 
 [node name="menu" type="VBoxContainer" parent="ui"]
 margin_left = 79.0
@@ -309,7 +313,7 @@ texture = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui/menu/boton_abrir_diario/Notificacion"]
 autoplay = "Notificacion"
-anims/Notificacion = SubResource( 3 )
+anims/Notificacion = SubResource( 10 )
 
 [node name="boton_camara" type="TextureButton" parent="ui/menu"]
 margin_top = 704.0
@@ -332,7 +336,7 @@ position = Vector2( 981.23, 333.925 )
 
 [node name="contenedor_carta" type="Position2D" parent="ui"]
 position = Vector2( 982.512, 519.935 )
-script = SubResource( 4 )
+script = SubResource( 11 )
 
 [node name="contenido" type="Node2D" parent="ui/contenedor_carta"]
 
@@ -347,12 +351,43 @@ __meta__ = {
 }
 
 [node name="spinner_guardado" parent="ui" instance=ExtResource( 21 )]
+pause_mode = 2
 position = Vector2( 1786.43, 933.562 )
 scale = Vector2( 0.149983, 0.149983 )
 
+[node name="MarginContainer" type="MarginContainer" parent="ui"]
+margin_left = 1731.67
+margin_top = 85.2245
+margin_right = 1835.67
+margin_bottom = 187.224
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sombra" type="TextureRect" parent="ui/MarginContainer"]
+self_modulate = Color( 0.32549, 0.32549, 0.32549, 0.188235 )
+margin_right = 104.0
+margin_bottom = 102.0
+texture = ExtResource( 28 )
+expand = true
+
+[node name="boton_abrir_menu_in_game" type="TextureButton" parent="ui/MarginContainer"]
+margin_right = 104.0
+margin_bottom = 102.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 27 )
+texture_hover = ExtResource( 29 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_in_game" parent="ui" instance=ExtResource( 30 )]
+
 [node name="camara" type="Node2D" parent="."]
 position = Vector2( 983.326, 601.667 )
-script = SubResource( 9 )
+script = SubResource( 12 )
 
 [node name="borde_izquierdo" type="Area2D" parent="camara"]
 position = Vector2( -983.91, -590.937 )
@@ -383,6 +418,7 @@ script = ExtResource( 26 )
 [connection signal="pressed" from="ui/menu/boton_abrir_diario" to="." method="_on_boton_abrir_diario_pressed"]
 [connection signal="pressed" from="ui/menu/boton_camara" to="foco" method="cambiar_modo" binds= [ "sacar_foto" ]]
 [connection signal="pressed" from="ui/contenedor_carta/boton_para_cerrar" to="ui/contenedor_carta" method="_on_boton_para_cerrar_pressed"]
+[connection signal="pressed" from="ui/MarginContainer/boton_abrir_menu_in_game" to="." method="_on_boton_abrir_menu_in_game_pressed"]
 [connection signal="body_entered" from="camara/borde_izquierdo" to="camara" method="_on_borde_izquierdo_body_entered"]
 [connection signal="body_exited" from="camara/borde_izquierdo" to="camara" method="_on_borde_izquierdo_body_exited"]
 [connection signal="body_entered" from="camara/borde_derecho" to="camara" method="_on_borde_derecho_body_entered"]
