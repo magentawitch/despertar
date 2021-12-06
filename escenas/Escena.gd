@@ -113,3 +113,12 @@ func elige(opciones):
 func camina(posicion_destino: Vector2):
 	director.encolar('caminar', {"posicion_destino": posicion_destino})
 	
+func guardar_resultado_examen(resultado: String):
+	registrar_hito("el_resultado_del_examen_fue:" + resultado)
+	
+func resultado_con_el_que_aprobo() -> String:
+	var resultados_posibles = ["excelente", "nota_buena", "nota_minima", "reprobado"]
+	for resultado in resultados_posibles:
+		if ya_ocurrio_que("el_resultado_del_examen_fue:" + resultado):
+			return resultado
+	return ""
