@@ -21,7 +21,7 @@
 script/source = "extends Escena
 
 func _ready():
-	registrar_hito(\"volvi_al_aula\")
+	registrar_hito(\"volvio_al_aula\")
 	if ya_ocurrio_que(\"agarro_carta_3\"):
 		$carta_3.visible = false
 		
