@@ -8,6 +8,8 @@ const guardar_partida_automaticamente = false
 func cambio_de_escena(director: Director, detalles: Dictionary) -> void:
 	var nombre_de_la_escena_a_la_que_cambia = detalles['escena']
 	$animador.play("fade_out")
+	if detalles.has('escena_anterior'):
+		contenedor_de_escena.nombre_de_la_escena_actual = detalles['escena_anterior']
 	contenedor_de_escena.cambiar_escena(nombre_de_la_escena_a_la_que_cambia)
 	yield(contenedor_de_escena, "una_escena_fue_cargada")
 	$animador.play("fade_in")

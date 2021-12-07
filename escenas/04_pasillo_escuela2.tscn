@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/Museo/PuertaMuseoAbierta.png" type="Texture" id=14]
 [ext_resource path="res://assets/Patio/PuertaPatioAbierta.png" type="Texture" id=15]
 [ext_resource path="res://utileria/AreaFotografeable.gd" type="Script" id=16]
+[ext_resource path="res://utileria/MarcaDeEntrada.gd" type="Script" id=17]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -258,6 +259,21 @@ script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="marca_de_entrada_del_aula_post_examen" type="Position2D" parent="."]
+position = Vector2( 484.382, 635.854 )
+script = ExtResource( 17 )
+escena_que_conecta = "05_aula_post_examen"
+
+[node name="marca_de_entrada_del_patio" type="Position2D" parent="."]
+position = Vector2( 1852.72, 651.728 )
+script = ExtResource( 17 )
+escena_que_conecta = "07_patio_de_escuela"
+
+[node name="marce_de_entrada_del_museo" type="Position2D" parent="."]
+position = Vector2( 3148.04, 642.204 )
+script = ExtResource( 17 )
+escena_que_conecta = "06_museo_analogico"
 
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
 [connection signal="pressed" from="PuertaPatio" to="." method="_on_PuertaPatio_pressed"]

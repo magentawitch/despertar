@@ -16,7 +16,8 @@ func nueva_partida(director: Director, detalles: Dictionary):
 			"entradas": [],
 			"hitos": [],
 		},
-		"nombre_escena_actual": "00_diario"
+		"nombre_escena_actual": "00_diario",
+		"nombre_escena_anterior": "",
 	}
 	diario.cargar_estado(
 		p['diario']['entradas'],

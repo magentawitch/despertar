@@ -15,5 +15,11 @@ func cargar_partida(director: Director, detalles: Dictionary):
 		p['diario']['entradas'],
 		p['diario']['hitos']
 	)
-	director.encolar("cambio_de_escena", {"escena": p['nombre_escena_actual']})
+	director.encolar(
+		"cambio_de_escena",
+		{
+			"escena": p['nombre_escena_actual'],
+			"escena_anterior": p.get('nombre_escena_anterior', ''),
+		}
+	)
 	director.termino_la_ejecucion_de_la_accion()
