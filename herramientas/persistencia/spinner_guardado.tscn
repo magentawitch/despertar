@@ -7,14 +7,20 @@ script/source = "extends Node2D
 
 func ocultar():
 	$fade_in_and_out.play(\"fade_out\")
+	yield($fade_in_and_out, \"animation_finished\")
+	visible = false
 
 func mostrar():
+	visible = true
 	$fade_in_and_out.play(\"fade_in\")
 	
 func mostrar_y_ocultar():
+	visible = true
 	$fade_in_and_out.play(\"fade_in\")
 	yield($fade_in_and_out, \"animation_finished\")
 	$fade_in_and_out.play(\"fade_out\")
+	yield($fade_in_and_out, \"animation_finished\")
+	visible = false
 "
 
 [sub_resource type="Animation" id=2]
