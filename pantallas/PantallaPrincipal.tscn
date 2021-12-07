@@ -355,6 +355,7 @@ __meta__ = {
 
 [node name="spinner_guardado" parent="ui" instance=ExtResource( 21 )]
 pause_mode = 2
+visible = false
 position = Vector2( 1793.57, 959.725 )
 scale = Vector2( 0.0988824, 0.0988824 )
 

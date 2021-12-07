@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/fuentes/Please write me a song.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/images/Personajes/Profesore.png" type="Texture" id=2]
+[ext_resource path="res://assets/MesaProfesore.png" type="Texture" id=3]
+[ext_resource path="res://herramientas/persistencia/spinner_guardado.tscn" type="PackedScene" id=4]
+[ext_resource path="res://story_tellers_blanco.png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	get_tree().change_scene(\"res://pantallas/Menu.tscn\")
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "Intro"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("acerca_del_guardado:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 4.8, 6.2, 6.5, 7.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("acerca_del_guardado/Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4.1, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 501.056, 831.268 ), Vector2( 436.839, 831.268 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("acerca_del_guardado/MesaProfesore:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.8, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 297.977, 1093.24 ), Vector2( 242.478, 1093.24 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("acerca_del_guardado/Profesore:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3.8, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 172.495, 1089.04 ), Vector2( 152.313, 1089.04 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("story_tellers_blanco:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.7, 1, 2.6, 3.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 49
+font_data = ExtResource( 1 )
+
+[node name="Intro" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Intro"
+anims/Intro = SubResource( 2 )
+
+[node name="fondo_negro" type="Sprite" parent="."]
+position = Vector2( 947.16, 553.04 )
+scale = Vector2( 1, 1191.84 )
+texture = SubResource( 4 )
+
+[node name="acerca_del_guardado" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 7.55957, -37.7976 )
+
+[node name="Profesore" type="Sprite" parent="acerca_del_guardado"]
+position = Vector2( 152.313, 1089.04 )
+scale = Vector2( 0.512072, 0.512072 )
+texture = ExtResource( 2 )
+
+[node name="MesaProfesore" type="Sprite" parent="acerca_del_guardado"]
+position = Vector2( 242.478, 1093.24 )
+rotation = 3.14159
+scale = Vector2( 0.555, -0.555 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="acerca_del_guardado"]
+margin_left = 436.839
+margin_top = 831.268
+margin_right = 1516.84
+margin_bottom = 896.268
+custom_fonts/font = SubResource( 5 )
+text = "Cuando veas este simbolo la partida se guardará automaticamente"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spinner_guardado" parent="acerca_del_guardado" instance=ExtResource( 4 )]
+position = Vector2( 1732.69, 992.203 )
+scale = Vector2( 0.101059, 0.101059 )
+
+[node name="story_tellers_blanco" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 948.327, 577.793 )
+scale = Vector2( 0.57941, 0.57941 )
+texture = ExtResource( 5 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

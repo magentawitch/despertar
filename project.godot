@@ -152,7 +152,7 @@ Display=8
 [application]
 
 config/name="Despertar"
-run/main_scene="res://pantallas/Menu.tscn"
+run/main_scene="res://pantallas/Intro.tscn"
 config/icon="res://assets/images/icon.png"
 
 [display]
