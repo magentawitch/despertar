@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://PuertaPasilloAbierta.png" type="Texture" id=2]
@@ -15,12 +15,16 @@
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=13]
 [ext_resource path="res://utileria/AreaFotografeable.gd" type="Script" id=14]
 [ext_resource path="res://assets/Sonido/Musica/Examen.mp3" type="AudioStream" id=15]
+[ext_resource path="res://assets/CartaDoblada3.png" type="Texture" id=16]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
 
 func _ready():
-	if no_saco_foto(\"mesa_profesore\"):
+	if ya_ocurrio_que(\"agarro_carta_3\"):
+		$carta_3.visible = false
+		
+	if no_ocurrio_que(\"volvio_al_aula\") and tiene_la_camara():
 		dice(\"Jade\", \"Ya que estoy acá, voy a ver si está el resultado del examen. No que me importe... pero seguro Milán me lo va a preguntar más tarde.\")
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"JadeHaciaProfesore\")
@@ -42,8 +46,11 @@ func _ready():
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"ProfesoreSeVa\")
 		yield($Animador, \"animation_finished\")
+		$Profesore.visible = false
 		dice(\"Jade\", \"A qué puedo sacarle foto?\")
 		anota_en_el_diario(\"Me puse a pensar un poco en la vida, en mi futuro, y en el estúpido Despertar. No entiendo el revuelo por el primer implante. Odio esto! La adolescencia es la peor etapa de la vida, ya quiero ser une adulte\")
+	if ya_ocurrio_que(\"volvio_al_aula\"):
+		$Profesore.visible = false
 
 
 func _on_FotoMesaProfesore_pressed():
@@ -53,6 +60,18 @@ func _on_FotoMesaProfesore_pressed():
 		agrega_foto_al_diario(\"mesa_profesore\")
 
 
+func _on_PuertaPasillo_pressed():
+	registrar_hito(\"volvio_al_aula\")
+	cambiar_escena_a(\"04_pasillo_escuela2\")
+	
+
+
+
+func _on_carta_3_pressed():
+	$carta_3.visible = false 
+	ver_carta(\"carta_3\")
+	agregar_carta(\"carta_3\")
+	registrar_hito(\"agarro_carta_3\")
 "
 
 [sub_resource type="GDScript" id=2]
@@ -62,7 +81,7 @@ func _ready():
 	pass 
 "
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "JadeHaciaProfesore"
 length = 3.0
 tracks/0/type = "value"
@@ -78,8 +97,7 @@ tracks/0/keys = {
 "values": [ Vector2( 354.898, 990.831 ), Vector2( 2419.65, 1030.43 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "ProfesoreSeVa"
+[sub_resource type="Animation" id=4]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Profesore:rect_position")
@@ -274,8 +292,20 @@ volume_db = -5.0
 autoplay = true
 
 [node name="Animador" type="AnimationPlayer" parent="."]
-anims/JadeHaciaProfesore = SubResource( 4 )
-anims/ProfesoreSeVa = SubResource( 3 )
+anims/JadeHaciaProfesore = SubResource( 3 )
+anims/ProfesoreSeVa = SubResource( 4 )
+
+[node name="carta_3" type="TextureButton" parent="."]
+margin_left = 3102.35
+margin_top = 872.653
+margin_right = 3670.35
+margin_bottom = 1152.65
+rect_scale = Vector2( 0.240005, 0.240005 )
+texture_normal = ExtResource( 16 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="PuertaPasillo" to="." method="_on_PuertaPasillo_pressed"]
 [connection signal="pressed" from="Profesore" to="." method="_on_Profesore_pressed"]
@@ -285,3 +315,4 @@ anims/ProfesoreSeVa = SubResource( 3 )
 [connection signal="pressed" from="Banco3" to="." method="_on_Banco3_pressed"]
 [connection signal="pressed" from="Banco4" to="." method="_on_Banco4_pressed"]
 [connection signal="pressed" from="Banco5" to="." method="_on_Banco5_pressed"]
+[connection signal="pressed" from="carta_3" to="." method="_on_carta_3_pressed"]

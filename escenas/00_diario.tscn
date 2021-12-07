@@ -82,8 +82,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DiarioAbierto" type="Sprite" parent="."]
+[node name="DiarioAbierto" type="Node2D" parent="."]
 visible = false
+position = Vector2( -0.00012207, -75.5953 )
+
+[node name="fondo" type="Sprite" parent="DiarioAbierto"]
 position = Vector2( 1023.74, 670.184 )
 scale = Vector2( 1.29752, 1.29752 )
 texture = ExtResource( 3 )
@@ -96,11 +99,10 @@ autoplay = true
 [node name="TweenEntradas" type="Tween" parent="DiarioAbierto"]
 
 [node name="izquierda" type="VBoxContainer" parent="DiarioAbierto"]
-margin_left = -387.0
-margin_top = -215.0
-margin_right = 111.0
-margin_bottom = 417.0
-rect_scale = Vector2( 0.7, 0.7 )
+margin_left = 509.0
+margin_top = 388.697
+margin_right = 986.0
+margin_bottom = 992.697
 custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -120,11 +122,10 @@ margin_bottom = 596.0
 script = SubResource( 2 )
 
 [node name="derecha" type="VBoxContainer" parent="DiarioAbierto"]
-margin_left = 33.0
-margin_top = -215.0
-margin_right = 546.0
-margin_bottom = 411.0
-rect_scale = Vector2( 0.7, 0.7 )
+margin_left = 1066.56
+margin_top = 391.217
+margin_right = 1543.56
+margin_bottom = 995.217
 custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -137,10 +138,10 @@ margin_bottom = 476.0
 script = SubResource( 2 )
 
 [node name="BotonInvisibleDelDiarioAbierto" type="TextureButton" parent="DiarioAbierto"]
-margin_left = -410.0
-margin_top = -286.0
-margin_right = 409.0
-margin_bottom = 280.0
+margin_left = 491.757
+margin_top = 299.093
+margin_right = 1310.76
+margin_bottom = 865.093
 mouse_default_cursor_shape = 2
 __meta__ = {
 "_edit_lock_": true,

@@ -19,4 +19,7 @@ static func cargar(nombre_foto: String) -> Foto:
 			nombre_foto, archivo_de_la_escena
 		]
 	)
-	return load(archivo_de_la_escena).instance() as Foto
+	var foto = load(archivo_de_la_escena).instance() as Foto
+	for opcion in foto.get_node('opciones').get_children():
+		opcion.visible = false
+	return foto

@@ -324,7 +324,6 @@ tracks/0/keys = {
 script = SubResource( 1 )
 
 [node name="spinner" type="Node2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="sombra_del_coso" type="Node2D" parent="spinner"]
 modulate = Color( 0.0941176, 0.0941176, 0.0941176, 0.356863 )
