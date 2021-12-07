@@ -28,9 +28,14 @@ script/source = "extends Escena
 func _ready():
 	if ya_ocurrio_que(\"agarro_carta_4\"):
 		$Carta_4.visible = false
-		return
+	verificar_que_tenga_las_fotos_para_aparecer_a_andra()
 	
-
+func verificar_que_tenga_las_fotos_para_aparecer_a_andra():
+	yield (self, \"termino_dialogo\")
+	if saco_todas_las_fotos():
+		$Animador2.play(\"EntraAndra\")
+		yield($Animador2, \"animation_finished\")
+	
 func saco_todas_las_fotos() -> bool:
 	return ya_saco_foto(\"nines_jugando\") and ya_saco_foto(\"adolescentes\")
 
@@ -40,11 +45,7 @@ func _on_FotoNines_pressed():
 		return
 	else:
 		agrega_foto_al_diario(\"nines_jugando\")
-
-	yield (self, \"termino_dialogo\")
-	if saco_todas_las_fotos():
-		$Animador2.play(\"EntraAndra\")
-		yield($Animador2, \"animation_finished\")
+	verificar_que_tenga_las_fotos_para_aparecer_a_andra()
 
 func _on_FotoAdolescentes_pressed():
 	if ya_saco_foto(\"adolescentes\"):
@@ -52,11 +53,7 @@ func _on_FotoAdolescentes_pressed():
 		return
 	else:
 		agrega_foto_al_diario(\"adolescentes\")
-
-	yield (self, \"termino_dialogo\")
-	if saco_todas_las_fotos():
-		$Animador.play(\"EntraAndra\")
-		yield($Animador, \"animation_finished\")
+	verificar_que_tenga_las_fotos_para_aparecer_a_andra()
 
 func _on_Carta_4_pressed():
 	$Carta_4.visible = false 
@@ -92,7 +89,7 @@ func _ready():
 	pass 
 "
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "EntraAndra"
 length = 2.0
 tracks/0/type = "value"
@@ -108,7 +105,7 @@ tracks/0/keys = {
 "values": [ Vector2( -4222.14, 256.361 ), Vector2( -3476.07, 262.711 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Explosion"
 length = 2.0
 tracks/0/type = "value"
@@ -256,8 +253,7 @@ tracks/11/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "SaltarSoga"
+[sub_resource type="Animation" id=5]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -668,9 +664,9 @@ sprite_path = NodePath("")
 [node name="Animador" type="AnimationPlayer" parent="."]
 autoplay = "SaltarSoga"
 playback_speed = 0.5
-anims/EntraAndra = SubResource( 4 )
-anims/Explosion = SubResource( 5 )
-anims/SaltarSoga = SubResource( 3 )
+anims/EntraAndra = SubResource( 3 )
+anims/Explosion = SubResource( 4 )
+anims/SaltarSoga = SubResource( 5 )
 
 [node name="Animador2" type="AnimationPlayer" parent="."]
 playback_speed = 0.5
