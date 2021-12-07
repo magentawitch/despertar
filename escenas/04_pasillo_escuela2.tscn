@@ -32,8 +32,12 @@ func _ready():
 		\"\"\")
 
 func _on_PuertaAula_pressed():
-	if tiene_la_camara():
+	if no_ocurrio_que(\"volvio_al_aula\"):
 		dice(\"Jade\", \"Quiero probar la cámara en el aula\")
+		cambiar_escena_a(\"05_aula_post_examen\")
+		return
+	if ya_ocurrio_que(\"volvio_al_aula\"):
+		dice(\"Jade\", \"Ojalá no vuelva a cruzarme a le profe. Nada nunca es suficiente para elle\")
 		cambiar_escena_a(\"05_aula_post_examen\")
 		return
 		
@@ -219,17 +223,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BotonProvisorio" type="TextureButton" parent="."]
-margin_left = 3961.5
-margin_top = -551.27
-margin_right = 4037.5
-margin_bottom = -511.27
-rect_scale = Vector2( 3.3004, 3.3004 )
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PisoCaminable" type="Area2D" parent="."]
 position = Vector2( -367.669, 455.956 )
 scale = Vector2( 1.87414, 1.87414 )
@@ -281,5 +274,4 @@ escena_que_conecta = "06_museo_analogico"
 [connection signal="pressed" from="CuadroVolk" to="." method="_on_CuadroVolk_pressed"]
 [connection signal="pressed" from="BustVolk" to="." method="_on_BustVolk_pressed"]
 [connection signal="pressed" from="CartaCerrada1" to="." method="_on_Carta1_pressed"]
-[connection signal="pressed" from="BotonProvisorio" to="." method="_on_BotonProvisorio_pressed"]
 [connection signal="pressed" from="FotoVolk" to="." method="_on_FotoVolk_pressed"]

@@ -20,6 +20,7 @@ texture = ExtResource( 1 )
 [node name="opciones" type="Node2D" parent="."]
 
 [node name="distinto" type="Node2D" parent="opciones"]
+visible = false
 position = Vector2( 0.776637, -4.6597 )
 
 [node name="epigrafe" type="Label" parent="opciones/distinto"]
@@ -38,11 +39,10 @@ __meta__ = {
 
 [node name="vineta1" type="Label" parent="opciones/distinto"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -249.95
-margin_top = -146.91
-margin_right = -111.95
-margin_bottom = -98.9099
-rect_rotation = -12.7979
+margin_left = -233.95
+margin_top = -147.91
+margin_right = -95.95
+margin_bottom = -99.9099
 custom_fonts/font = SubResource( 1 )
 text = "Por qué siempre tantas preguntas?"
 align = 1
@@ -53,11 +53,10 @@ __meta__ = {
 
 [node name="vineta2" type="Label" parent="opciones/distinto"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 127.286
-margin_top = -118.918
-margin_right = 178.286
-margin_bottom = -45.9185
-rect_rotation = 18.4587
+margin_left = 90.286
+margin_top = -106.918
+margin_right = 141.286
+margin_bottom = -33.918
 custom_fonts/font = SubResource( 1 )
 text = "Son todos iguales
 "
@@ -69,11 +68,10 @@ __meta__ = {
 
 [node name="vineta3" type="Label" parent="opciones/distinto"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -194.398
-margin_top = -61.0917
-margin_right = -120.398
-margin_bottom = -4.09169
-rect_rotation = -14.576
+margin_left = -167.398
+margin_top = -58.0917
+margin_right = -93.398
+margin_bottom = -1.09169
 custom_fonts/font = SubResource( 1 )
 text = "Déjenme ser así"
 align = 1
@@ -102,11 +100,10 @@ __meta__ = {
 
 [node name="vineta1" type="Label" parent="opciones/distancia"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -214.889
-margin_top = -60.9645
-margin_right = -118.889
-margin_bottom = -12.9645
-rect_rotation = -37.2959
+margin_left = -192.889
+margin_top = -94.9645
+margin_right = -96.889
+margin_bottom = -46.9645
 custom_fonts/font = SubResource( 1 )
 text = "Ahora ya no hay calor"
 align = 1
@@ -117,11 +114,10 @@ __meta__ = {
 
 [node name="vineta2" type="Label" parent="opciones/distancia"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 105.484
-margin_top = -166.152
-margin_right = 214.484
-margin_bottom = -122.152
-rect_rotation = 17.9387
+margin_left = 80.484
+margin_top = -144.152
+margin_right = 189.484
+margin_bottom = -100.152
 custom_fonts/font = SubResource( 1 )
 text = "Todo es por computadoras"
 align = 1
@@ -132,11 +128,10 @@ __meta__ = {
 
 [node name="vineta4" type="Label" parent="opciones/distancia"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 121.258
-margin_top = -81.0
-margin_right = 250.258
-margin_bottom = -30.0
-rect_rotation = 30.9052
+margin_left = 80.258
+margin_top = -59.0
+margin_right = 209.258
+margin_bottom = -8.0
 custom_fonts/font = SubResource( 1 )
 text = "Quiero jugar con mis manos"
 align = 1

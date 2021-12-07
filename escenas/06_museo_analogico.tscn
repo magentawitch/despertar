@@ -39,7 +39,7 @@ func _ready():
 		$Fondo/Camara.visible = false
 
 	if ya_ocurrio_que(\"agarro_carta_2\"):
-		$carta_2.visible = false
+		$Fondo/carta_2.visible = false
 
 func _on_CuadroPicaso_pressed():
 	dice(\"Jade\", \"Se parece al cuadro que Alex tiene escondido en casa. Creo que el pintor era bien famoso o algo.\")
@@ -48,7 +48,7 @@ func _on_CuadroPicaso_pressed():
 
 func _on_CuadroCamaras_pressed():
 	dice(\"Jade\", \"La evolución de las cámaras! Existían tantas tan diferentes\")
-	dice(\"Jade\", \"Es re aburrido que ahora todes saquen fotos con sus implantes. Ni hablar que nunca sabes si te estn fotografiando cada vez que te miran\")
+	dice(\"Jade\", \"Es re aburrido que ahora todes saquen fotos con sus implantes. Ni hablar que nunca sabes si te están fotografiando cada vez que te miran\")
 
 
 func _on_CuadroPeriodico_pressed():

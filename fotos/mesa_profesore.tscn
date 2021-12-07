@@ -20,6 +20,7 @@ texture = ExtResource( 1 )
 [node name="opciones" type="Node2D" parent="."]
 
 [node name="oda_uniformidad" type="Node2D" parent="opciones"]
+visible = false
 
 [node name="epigrafe" type="Label" parent="opciones/oda_uniformidad"]
 modulate = Color( 0, 0, 0, 1 )
@@ -77,6 +78,7 @@ __meta__ = {
 }
 
 [node name="futuro_anicos" type="Node2D" parent="opciones"]
+visible = false
 
 [node name="epigrafe" type="Label" parent="opciones/futuro_anicos"]
 modulate = Color( 0, 0, 0, 1 )
@@ -92,11 +94,10 @@ __meta__ = {
 
 [node name="vineta1" type="Label" parent="opciones/futuro_anicos"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -222.998
-margin_top = -155.576
-margin_right = -126.998
-margin_bottom = -119.576
-rect_rotation = -19.3326
+margin_left = -188.521
+margin_top = -160.621
+margin_right = -92.5213
+margin_bottom = -124.621
 custom_fonts/font = SubResource( 1 )
 text = "No puedo sobresalir"
 align = 1
@@ -107,11 +108,10 @@ __meta__ = {
 
 [node name="vineta2" type="Label" parent="opciones/futuro_anicos"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 122.895
-margin_top = -168.435
-margin_right = 231.895
-margin_bottom = -124.436
-rect_rotation = 13.1749
+margin_left = 84.2137
+margin_top = -154.981
+margin_right = 193.214
+margin_bottom = -110.982
 custom_fonts/font = SubResource( 1 )
 text = "Sobresalir no es la norma"
 align = 1
@@ -122,11 +122,10 @@ __meta__ = {
 
 [node name="vineta3" type="Label" parent="opciones/futuro_anicos"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -198.706
-margin_top = -65.0491
-margin_right = -109.706
-margin_bottom = -4.04908
-rect_rotation = -25.0511
+margin_left = -180.206
+margin_top = -60.8446
+margin_right = -91.2063
+margin_bottom = 0.155403
 custom_fonts/font = SubResource( 1 )
 text = "No se puede soñar"
 align = 1
@@ -137,11 +136,10 @@ __meta__ = {
 
 [node name="vineta4" type="Label" parent="opciones/futuro_anicos"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 119.292
-margin_top = -100.81
-margin_right = 246.292
-margin_bottom = -46.8103
-rect_rotation = 27.8605
+margin_left = 83.1334
+margin_top = -73.0604
+margin_right = 210.133
+margin_bottom = -19.0604
 custom_fonts/font = SubResource( 1 )
 text = "No hay futuro para los soñadores"
 align = 1

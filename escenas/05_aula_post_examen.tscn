@@ -21,11 +21,10 @@
 script/source = "extends Escena
 
 func _ready():
-	registrar_hito(\"volvio_al_aula\")
 	if ya_ocurrio_que(\"agarro_carta_3\"):
 		$carta_3.visible = false
 		
-	if no_saco_foto(\"mesa_profesore\"):
+	if no_ocurrio_que(\"volvio_al_aula\"):
 		dice(\"Jade\", \"Ya que estoy acá, voy a ver si está el resultado del examen. No que me importe... pero seguro Milán me lo va a preguntar más tarde.\")
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"JadeHaciaProfesore\")
@@ -47,8 +46,11 @@ func _ready():
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"ProfesoreSeVa\")
 		yield($Animador, \"animation_finished\")
+		$Profesore.visible = false
 		dice(\"Jade\", \"A qué puedo sacarle foto?\")
 		anota_en_el_diario(\"Me puse a pensar un poco en la vida, en mi futuro, y en el estúpido Despertar. No entiendo el revuelo por el primer implante. Odio esto! La adolescencia es la peor etapa de la vida, ya quiero ser une adulte\")
+	if ya_ocurrio_que(\"volvio_al_aula\"):
+		$Profesore.visible = false
 
 
 func _on_FotoMesaProfesore_pressed():
@@ -59,7 +61,9 @@ func _on_FotoMesaProfesore_pressed():
 
 
 func _on_PuertaPasillo_pressed():
+	registrar_hito(\"volvio_al_aula\")
 	cambiar_escena_a(\"04_pasillo_escuela2\")
+	
 
 
 

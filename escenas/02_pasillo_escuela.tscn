@@ -102,6 +102,7 @@ margin_left = 2277.04
 margin_top = -348.005
 margin_right = 2551.04
 margin_bottom = -22.0053
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,6 +113,7 @@ margin_left = 3702.32
 margin_top = -207.333
 margin_right = 3990.32
 margin_bottom = 372.667
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

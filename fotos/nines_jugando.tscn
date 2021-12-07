@@ -20,6 +20,7 @@ texture = ExtResource( 1 )
 [node name="opciones" type="Node2D" parent="."]
 
 [node name="inocencia" type="Node2D" parent="opciones"]
+visible = false
 
 [node name="epigrafe" type="Label" parent="opciones/inocencia"]
 modulate = Color( 0, 0, 0, 1 )
@@ -37,11 +38,10 @@ __meta__ = {
 
 [node name="vineta1" type="Label" parent="opciones/inocencia"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -237.327
-margin_top = -149.143
-margin_right = -113.327
-margin_bottom = -101.143
-rect_rotation = -13.9689
+margin_left = -207.123
+margin_top = -151.031
+margin_right = -83.123
+margin_bottom = -103.031
 custom_fonts/font = SubResource( 1 )
 text = "La inocencia de esa edad"
 align = 1
@@ -52,11 +52,10 @@ __meta__ = {
 
 [node name="vineta2" type="Label" parent="opciones/inocencia"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 104.133
-margin_top = -134.922
-margin_right = 230.133
-margin_bottom = -80.9218
-rect_rotation = 16.8077
+margin_left = 76.7607
+margin_top = -110.381
+margin_right = 202.761
+margin_bottom = -56.3811
 custom_fonts/font = SubResource( 1 )
 text = "No había que decidir
 "
@@ -68,11 +67,10 @@ __meta__ = {
 
 [node name="vineta3" type="Label" parent="opciones/inocencia"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -228.86
-margin_top = -64.5193
-margin_right = -87.86
-margin_bottom = -29.5193
-rect_rotation = -19.4405
+margin_left = -204.319
+margin_top = -67.3509
+margin_right = -63.3193
+margin_bottom = -32.3509
 custom_fonts/font = SubResource( 1 )
 text = "Quiero esa curiosidad"
 align = 1
@@ -82,6 +80,7 @@ __meta__ = {
 }
 
 [node name="mismo_cuerpo" type="Node2D" parent="opciones"]
+visible = false
 
 [node name="epigrafe" type="Label" parent="opciones/mismo_cuerpo"]
 modulate = Color( 0, 0, 0, 1 )
@@ -99,11 +98,10 @@ __meta__ = {
 
 [node name="vineta1" type="Label" parent="opciones/mismo_cuerpo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -216.0
-margin_top = -120.5
-margin_right = -120.0
-margin_bottom = -43.5
-rect_rotation = -17.8888
+margin_left = -188.628
+margin_top = -125.219
+margin_right = -92.6276
+margin_bottom = -48.2194
 custom_fonts/font = SubResource( 1 )
 text = "Me gustaba saltar la cuerda"
 align = 1
@@ -114,11 +112,10 @@ __meta__ = {
 
 [node name="vineta2" type="Label" parent="opciones/mismo_cuerpo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 113.873
-margin_top = -176.121
-margin_right = 222.872
-margin_bottom = -122.121
-rect_rotation = 16.127
+margin_left = 85.5568
+margin_top = -162.907
+margin_right = 194.556
+margin_bottom = -108.907
 custom_fonts/font = SubResource( 1 )
 text = "Sentir el calor de la soga en mi mano"
 align = 1
@@ -129,11 +126,10 @@ __meta__ = {
 
 [node name="vineta4" type="Label" parent="opciones/mismo_cuerpo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 108.422
-margin_top = -87.5386
-margin_right = 235.421
-margin_bottom = -39.5386
-rect_rotation = 20.4867
+margin_left = 76.3303
+margin_top = -57.3346
+margin_right = 203.329
+margin_bottom = -9.33462
 custom_fonts/font = SubResource( 1 )
 text = "Y cansar mis brazos..."
 align = 1

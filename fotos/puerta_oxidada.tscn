@@ -20,6 +20,7 @@ texture = ExtResource( 1 )
 [node name="opciones" type="Node2D" parent="."]
 
 [node name="olvidada" type="Node2D" parent="opciones"]
+visible = false
 
 [node name="epigrafe" type="Label" parent="opciones/olvidada"]
 modulate = Color( 0, 0, 0, 1 )
@@ -35,11 +36,10 @@ __meta__ = {
 
 [node name="vineta1" type="Label" parent="opciones/olvidada"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -221.776
-margin_top = -168.06
-margin_right = -97.7763
-margin_bottom = -95.06
-rect_rotation = 2.35897
+margin_left = -209.506
+margin_top = -166.172
+margin_right = -85.5059
+margin_bottom = -93.1722
 custom_fonts/font = SubResource( 1 )
 text = "Sin tecnología absorbente de VOLK s.a.
 "
@@ -51,11 +51,10 @@ __meta__ = {
 
 [node name="vineta2" type="Label" parent="opciones/olvidada"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 116.036
-margin_top = -162.832
-margin_right = 221.036
-margin_bottom = -46.8317
-rect_rotation = 8.08698
+margin_left = 78.2809
+margin_top = -157.169
+margin_right = 183.281
+margin_bottom = -41.1684
 custom_fonts/font = SubResource( 1 )
 text = "Este lugar quedó realmente descuidado
 
@@ -68,11 +67,10 @@ __meta__ = {
 
 [node name="vineta3" type="Label" parent="opciones/olvidada"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -215.747
-margin_top = -40.5993
-margin_right = -94.7471
-margin_bottom = 13.4007
-rect_rotation = -10.4094
+margin_left = -201.589
+margin_top = -42.4871
+margin_right = -80.5889
+margin_bottom = 11.5129
 custom_fonts/font = SubResource( 1 )
 text = "Lleno de tierra
 
@@ -85,11 +83,10 @@ __meta__ = {
 
 [node name="vineta4" type="Label" parent="opciones/olvidada"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 101.842
-margin_top = -54.3905
-margin_right = 211.842
-margin_bottom = -23.3905
-rect_rotation = 13.5208
+margin_left = 74.4696
+margin_top = -40.2324
+margin_right = 184.47
+margin_bottom = -9.23236
 custom_fonts/font = SubResource( 1 )
 text = "Relegado"
 align = 1
@@ -99,6 +96,7 @@ __meta__ = {
 }
 
 [node name="sin_reparo" type="Node2D" parent="opciones"]
+visible = false
 
 [node name="epigrafe" type="Label" parent="opciones/sin_reparo"]
 modulate = Color( 0, 0, 0, 1 )
@@ -114,11 +112,10 @@ __meta__ = {
 
 [node name="vineta1" type="Label" parent="opciones/sin_reparo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -225.821
-margin_top = -136.559
-margin_right = -129.82
-margin_bottom = -88.5588
-rect_rotation = -16.4221
+margin_left = -189.01
+margin_top = -142.222
+margin_right = -93.0088
+margin_bottom = -94.2221
 custom_fonts/font = SubResource( 1 )
 text = "Hace un ruido impactante"
 align = 1
@@ -129,11 +126,10 @@ __meta__ = {
 
 [node name="vineta2" type="Label" parent="opciones/sin_reparo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -217.278
-margin_top = -55.6226
-margin_right = -108.279
-margin_bottom = -11.6231
-rect_rotation = -15.9223
+margin_left = -191.793
+margin_top = -57.5104
+margin_right = -82.7943
+margin_bottom = -13.5109
 custom_fonts/font = SubResource( 1 )
 text = "Nadie nunca entra aqui"
 align = 1
@@ -144,11 +140,10 @@ __meta__ = {
 
 [node name="vineta3" type="Label" parent="opciones/sin_reparo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 114.541
-margin_top = -59.6735
-margin_right = 225.541
-margin_bottom = -9.67351
-rect_rotation = 5.325
+margin_left = 89.0563
+margin_top = -62.5051
+margin_right = 200.056
+margin_bottom = -12.5051
 custom_fonts/font = SubResource( 1 )
 text = "Aqui nadie me molesta"
 align = 1
@@ -159,11 +154,10 @@ __meta__ = {
 
 [node name="vineta4" type="Label" parent="opciones/sin_reparo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 117.064
-margin_top = -164.789
-margin_right = 244.065
-margin_bottom = -116.789
-rect_rotation = 10.6959
+margin_left = 79.3089
+margin_top = -140.248
+margin_right = 206.31
+margin_bottom = -92.2482
 custom_fonts/font = SubResource( 1 )
 text = "Podria quedar atrapade"
 align = 1
