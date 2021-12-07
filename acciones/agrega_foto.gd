@@ -18,7 +18,7 @@ onready var oscurecedor_de_fondo = get_node(path_al_oscurededor_de_fondo) as Spr
 
 func agrega_foto(director: Director, detalles: Dictionary):
 	print("Agregando foto")
-	
+	$sonido_click.play()
 	# Mostrar el diario de fondo
 	oscurecedor_de_fondo.show()
 	vista_diario().mostrar_de_forma_no_interactiva()

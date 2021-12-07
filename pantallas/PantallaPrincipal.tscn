@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://herramientas/diario/Diario.gd" type="Script" id=1]
 [ext_resource path="res://herramientas/diario/VistaDiario.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://assets/images/flatLight/flatLight10.png" type="Texture" id=28]
 [ext_resource path="res://assets/iconos/barsHorizontalHl.png" type="Texture" id=29]
 [ext_resource path="res://herramientas/menu_in_game.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/Sonido/SFX/BRS_Camera_D50_ShutterClick1.wav" type="AudioStream" id=31]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -216,6 +217,10 @@ path_al_diario = NodePath("../../diario")
 path_a_la_vista_del_diario = NodePath("../../ui/vista_diario")
 path_a_la_vista_de_eleccion_del_epigrafe = NodePath("../../ui/eleccion_de_epigrafe")
 path_al_oscurededor_de_fondo = NodePath("../../ui/oscurecedor_de_fondo")
+
+[node name="sonido_click" type="AudioStreamPlayer" parent="director/agrega_foto"]
+stream = ExtResource( 31 )
+volume_db = -5.0
 
 [node name="ver_carta" type="Node" parent="director"]
 script = ExtResource( 14 )
