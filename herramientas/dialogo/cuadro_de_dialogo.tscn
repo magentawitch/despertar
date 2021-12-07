@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/images/dialogo.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/Personajes/Kase.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/images/Personajes/Milan.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/Personajes/Profesore.png" type="Texture" id=7]
 [ext_resource path="res://assets/images/recuadros/KEY0.CC-Polaroids-On-The-Hunt-Plantilla-Polaroid-superpuesta-transparente.png" type="Texture" id=8]
+[ext_resource path="res://personajes/Andra.png" type="Texture" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -303,6 +304,89 @@ margin_right = -217.743
 margin_bottom = 290.173
 rect_scale = Vector2( 9.20587, 9.20587 )
 text = "Kase"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Andra" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -433.123, -10.4723 )
+rotation = 0.00879033
+scale = Vector2( 0.179756, 0.179756 )
+
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Andra"]
+position = Vector2( 60.1317, -31.6567 )
+rotation = 1.59648
+scale = Vector2( 0.357176, 713.151 )
+texture = SubResource( 3 )
+
+[node name="cara" type="Sprite" parent="grupo/recuadro/Andra"]
+position = Vector2( 59.7006, -19.5917 )
+rotation = 0.033079
+scale = Vector2( 0.584578, 0.584578 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( -100.837, 14.8887, 1146.42, 1278.24 )
+
+[node name="marco" type="Sprite" parent="grupo/recuadro/Andra"]
+position = Vector2( 63.5175, 35.7242 )
+rotation = 0.0294824
+scale = Vector2( 2.35527, 2.35527 )
+texture = ExtResource( 8 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Andra"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -287.743
+margin_top = 262.173
+margin_right = -217.743
+margin_bottom = 290.173
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "Andra"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Misteriose" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -433.123, -10.4723 )
+rotation = 0.00879033
+scale = Vector2( 0.179756, 0.179756 )
+
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Misteriose"]
+position = Vector2( 60.1317, -31.6567 )
+rotation = 1.59648
+scale = Vector2( 0.357176, 713.151 )
+texture = SubResource( 3 )
+
+[node name="cara" type="Sprite" parent="grupo/recuadro/Misteriose"]
+modulate = Color( 0, 0, 0, 0.141176 )
+position = Vector2( 36.9894, -7.98547 )
+rotation = 0.033079
+scale = Vector2( 1.44913, 1.44913 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 550 )
+
+[node name="marco" type="Sprite" parent="grupo/recuadro/Misteriose"]
+position = Vector2( 63.5175, 35.7242 )
+rotation = 0.0294824
+scale = Vector2( 2.35527, 2.35527 )
+texture = ExtResource( 8 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Misteriose"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -287.743
+margin_top = 262.173
+margin_right = -217.743
+margin_bottom = 290.173
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "???"
 align = 1
 valign = 1
 autowrap = true

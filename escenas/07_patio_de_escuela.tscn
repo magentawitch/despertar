@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/Patio/Banco.png" type="Texture" id=1]
 [ext_resource path="res://assets/Patio/FondoPatio.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/Sonido/SFX/explosion1.ogg" type="AudioStream" id=18]
 [ext_resource path="res://assets/Patio/smoke_PNG55159.png" type="Texture" id=19]
+[ext_resource path="res://assets/Patio/BrilloSalida.png" type="Texture" id=20]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -40,10 +41,10 @@ func _on_FotoNines_pressed():
 	else:
 		agrega_foto_al_diario(\"nines_jugando\")
 
+	yield (self, \"termino_dialogo\")
 	if saco_todas_las_fotos():
-		yield (self, \"termino_dialogo\")
-		$Animador.play(\"EntraAndra\")
-		yield($Animador, \"animation_finished\")
+		$Animador2.play(\"EntraAndra\")
+		yield($Animador2, \"animation_finished\")
 
 func _on_FotoAdolescentes_pressed():
 	if ya_saco_foto(\"adolescentes\"):
@@ -52,8 +53,8 @@ func _on_FotoAdolescentes_pressed():
 	else:
 		agrega_foto_al_diario(\"adolescentes\")
 
+	yield (self, \"termino_dialogo\")
 	if saco_todas_las_fotos():
-		yield (self, \"termino_dialogo\")
 		$Animador.play(\"EntraAndra\")
 		yield($Animador, \"animation_finished\")
 
@@ -73,6 +74,14 @@ func _on_Andra_pressed():
 	dice(\"Andra\", \"Podría venderla por parte. Seguro no paguen demasiado por esta chatarra, pero verte miserable sería pago suficiente para mí\")
 	yield(self, \"termino_dialogo\")
 	$SFXExplosion.play()
+	$Animador.play(\"Explosion\")
+	dice(\"Jade\", \"Qué fue ese ruido?\")
+	dice(\"Misteriose\", \"Viva la revolución!\")
+	
+
+
+func _on_BrilloSalida_pressed():
+	cambiar_escena_a(\"04_pasillo_escuela2\")
 "
 
 [sub_resource type="GDScript" id=2]
@@ -96,6 +105,154 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -4222.14, 256.361 ), Vector2( -3476.07, 262.711 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Explosion"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("humo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("humo2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("humo3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("humo4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("humo5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("humo6:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("humo7:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("humo8:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("humo9:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("humo10:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("humo11:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("humo12:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -139,7 +296,213 @@ tracks/2/keys = {
 "values": [ Vector2( -1677.97, 306.366 ), Vector2( -1681.15, 452.406 ) ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "EntraAndra"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Andra:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -4222.14, 256.361 ), Vector2( -3476.07, 262.711 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Explosion"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("humo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("humo2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("humo3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("humo4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("humo5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("humo6:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("humo7:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("humo8:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("humo9:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("humo10:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("humo11:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("humo12:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "SaltarSoga"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fondo/Soga:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fondo/Soga2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Nine3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1677.97, 306.366 ), Vector2( -1681.15, 452.406 ) ]
+}
+
 [node name="Node2D" type="Node2D"]
+position = Vector2( 184.003, 30.2705 )
 script = SubResource( 1 )
 
 [node name="Fondo" type="Sprite" parent="."]
@@ -297,65 +660,123 @@ __meta__ = {
 }
 
 [node name="Jade" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1791.74, 985.174 )
+position = Vector2( 1587.63, 980.134 )
 script = SubResource( 2 )
 sprite_path = NodePath("")
 
 [node name="Animador" type="AnimationPlayer" parent="."]
 autoplay = "SaltarSoga"
-playback_speed = 2.0
+playback_speed = 0.5
 anims/EntraAndra = SubResource( 4 )
+anims/Explosion = SubResource( 5 )
 anims/SaltarSoga = SubResource( 3 )
+
+[node name="Animador2" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/EntraAndra = SubResource( 6 )
+anims/Explosion = SubResource( 7 )
+anims/SaltarSoga = SubResource( 8 )
 
 [node name="TopeDeCamara" parent="." instance=ExtResource( 17 )]
 position = Vector2( -3963.19, 555.005 )
 scale = Vector2( 1.77176, 1.77176 )
 
 [node name="TopeDeCamara2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1974.9, 507.055 )
+position = Vector2( 1948.2, 501.716 )
 scale = Vector2( 1.77176, 1.77176 )
 input_pickable = true
 
 [node name="SFXExplosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = 8.0
+volume_db = 2.0
 
 [node name="humo" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -92.1216, 622.618 )
 scale = Vector2( 3.35263, 3.37298 )
 texture = ExtResource( 19 )
 
 [node name="humo2" type="Sprite" parent="."]
-position = Vector2( 2154.36, -1718.54 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1303.51, -727.999 )
 scale = Vector2( 3.42579, 3.07636 )
 texture = ExtResource( 19 )
 
 [node name="humo3" type="Sprite" parent="."]
-position = Vector2( -5124.8, 561.862 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -4286.66, 66.5936 )
 scale = Vector2( 3.42579, 3.07636 )
 texture = ExtResource( 19 )
 
 [node name="humo4" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -2542.36, -404.665 )
 scale = Vector2( 3.42579, 3.07636 )
 texture = ExtResource( 19 )
 
 [node name="humo5" type="Sprite" parent="."]
-position = Vector2( -352.575, -600.99 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1355.81, -283.51 )
 scale = Vector2( 3.42579, 3.07636 )
 texture = ExtResource( 19 )
 
 [node name="humo6" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -3176.65, -27.1147 )
 scale = Vector2( 3.42579, 3.07636 )
 texture = ExtResource( 19 )
 
 [node name="humo7" type="Sprite" parent="."]
-position = Vector2( 1443.91, -331.47 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -3191.31, 87.6036 )
 scale = Vector2( 3.42579, 3.07636 )
 texture = ExtResource( 19 )
+
+[node name="humo8" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -3191.31, 87.6036 )
+scale = Vector2( 3.42579, 3.07636 )
+texture = ExtResource( 19 )
+
+[node name="humo9" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1592.33, 6.94993 )
+scale = Vector2( 3.42579, 3.07636 )
+texture = ExtResource( 19 )
+
+[node name="humo10" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -3838.97, 252.693 )
+scale = Vector2( 3.42579, 3.07636 )
+texture = ExtResource( 19 )
+
+[node name="humo11" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -4766.97, 156.693 )
+scale = Vector2( 3.42579, 3.07636 )
+texture = ExtResource( 19 )
+
+[node name="humo12" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -3118.97, 236.693 )
+scale = Vector2( 3.42579, 3.07636 )
+texture = ExtResource( 19 )
+
+[node name="BrilloSalida" type="TextureButton" parent="."]
+margin_left = 1793.0
+margin_top = -225.0
+margin_right = 2059.0
+margin_bottom = 583.0
+rect_scale = Vector2( 1.72, 1.72 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Andra" to="." method="_on_Andra_pressed"]
 [connection signal="pressed" from="Carta_4" to="." method="_on_Carta_4_pressed"]
 [connection signal="pressed" from="FotoAdolescentes" to="." method="_on_FotoAdolescentes_pressed"]
 [connection signal="pressed" from="FotoNines" to="." method="_on_FotoNines_pressed"]
+[connection signal="pressed" from="BrilloSalida" to="." method="_on_BrilloSalida_pressed"]
