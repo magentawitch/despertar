@@ -46,6 +46,7 @@ func _encolar_entrada(entrada):
 	
 func _cuando_termino_de_agregar_entrada(entrada):
 	print("Terime de agregar una entrada")
+	refrescar_pagina_actual()
 	if cola_de_entradas.empty():
 		print("Listo, no hay mas")
 		return # nada que agregar
@@ -60,17 +61,27 @@ func _cuando_cambio_el_estado_del_diario():
 
 func cambiar_pagina_actual(nueva_pagina):
 	print("[cambio la pagina actual]")
+	pagina_actual = nueva_pagina
+	refrescar_pagina_actual()
+
+func refrescar_pagina_actual():
 	for node in $paginas.get_children():
 		node.hide()
-	if nueva_pagina.es_pagina_izquierda():
-		nueva_pagina.show()
-		if nueva_pagina.pagina_siguiente:
-			nueva_pagina.pagina_siguiente.show()
-	elif nueva_pagina.es_pagina_derecha():
-		nueva_pagina.show()
-		if nueva_pagina.pagina_anterior:
-			nueva_pagina.pagina_anterior.show()
-	pagina_actual = nueva_pagina
+	var l
+	var r
+	if pagina_actual.es_pagina_izquierda():
+		l = pagina_actual
+		r = pagina_actual.pagina_siguiente
+	elif pagina_actual.es_pagina_derecha():
+		l = pagina_actual.pagina_anterior
+		r = pagina_actual
+	if l:
+		l.show()
+	if r:
+		r.show()
+	$botones/anterior_pagina.visible = l and l.pagina_anterior
+	$botones/siguiente_pagina.visible = r and r.pagina_siguiente
+	
 
 func botones_habilitados():
 	return interactivo
