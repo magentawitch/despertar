@@ -24,7 +24,7 @@ func _ready():
 	if ya_ocurrio_que(\"agarro_carta_3\"):
 		$carta_3.visible = false
 		
-	if no_ocurrio_que(\"volvio_al_aula\"):
+	if no_ocurrio_que(\"volvio_al_aula\") and tiene_la_camara():
 		dice(\"Jade\", \"Ya que estoy acá, voy a ver si está el resultado del examen. No que me importe... pero seguro Milán me lo va a preguntar más tarde.\")
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"JadeHaciaProfesore\")

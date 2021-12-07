@@ -32,7 +32,7 @@ func _ready():
 		\"\"\")
 
 func _on_PuertaAula_pressed():
-	if no_ocurrio_que(\"volvio_al_aula\"):
+	if no_ocurrio_que(\"volvio_al_aula\") and tiene_la_camara():
 		dice(\"Jade\", \"Quiero probar la cámara en el aula\")
 		cambiar_escena_a(\"05_aula_post_examen\")
 		return
