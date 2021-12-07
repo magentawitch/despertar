@@ -121,7 +121,7 @@ margin_top = 831.268
 margin_right = 1516.84
 margin_bottom = 896.268
 custom_fonts/font = SubResource( 5 )
-text = "Cuando veas este simbolo la partida se guardará automaticamente"
+text = "Cuando la partida se guarde, verás este símbolo"
 __meta__ = {
 "_edit_use_anchors_": false
 }
