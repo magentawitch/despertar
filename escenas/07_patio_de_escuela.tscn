@@ -77,6 +77,7 @@ func _on_Andra_pressed():
 	$Animador.play(\"Explosion\")
 	dice(\"Jade\", \"Qué fue ese ruido?\")
 	dice(\"Misteriose\", \"Viva la revolución!\")
+	cambiar_escena_a(\"Continuara\")
 	
 
 
