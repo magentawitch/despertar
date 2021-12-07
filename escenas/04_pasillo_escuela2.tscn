@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://PuertaCerrada.png" type="Texture" id=1]
 [ext_resource path="res://assets/CuadroVolk.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://utileria/TopeDeCamara.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/Museo/PuertaMuseoAbierta.png" type="Texture" id=14]
 [ext_resource path="res://assets/Patio/PuertaPatioAbierta.png" type="Texture" id=15]
+[ext_resource path="res://utileria/AreaFotografeable.gd" type="Script" id=16]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -39,7 +40,11 @@ func _on_PuertaAula_pressed():
 
 
 func _on_PuertaPatio_pressed():
-	dice(\"Jade\", \"Todavía no quiero ir al patio\")
+	if no_ocurrio_que(\"volvio_al_aula\"):
+		dice(\"Jade\", \"Todavía no quiero ir al patio\")
+		return
+	else:
+		cambiar_escena_a(\"07_patio_de_escuela\")
 
 func _on_PuertaMuseoAnalogico_pressed():
 	if ya_ocurrio_que(\"agarro_carta_1\"):
@@ -95,6 +100,13 @@ func _on_Carta1_pressed():
 	agregar_carta(\"carta_1\")
 	registrar_hito(\"agarro_carta_1\")
 	anota_en_el_diario(\"Esta carta de amor tiene una escritura bastante particular, me hace acordar a los romances que muestran en la películas de antes.. No puedo evitar pensar en que hay un misterio re loco en esta escuela aburrida\")
+
+
+func _on_FotoVolk_pressed():
+	if ya_saco_foto(\"volk_diablito\"):
+		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+	else:
+		agrega_foto_al_diario(\"volk_diablito\")
 "
 
 [node name="Pasillo_Escuela2" type="Node2D"]
@@ -237,6 +249,16 @@ input_pickable = true
 [node name="Jade" parent="." instance=ExtResource( 11 )]
 position = Vector2( 478.908, 449.474 )
 
+[node name="FotoVolk" type="TextureButton" parent="."]
+margin_left = 2253.0
+margin_top = -395.0
+margin_right = 2549.0
+margin_bottom = -45.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="PuertaAula" to="." method="_on_PuertaAula_pressed"]
 [connection signal="pressed" from="PuertaPatio" to="." method="_on_PuertaPatio_pressed"]
 [connection signal="pressed" from="PuertaMuseoAnalogico" to="." method="_on_PuertaMuseoAnalogico_pressed"]
@@ -244,3 +266,4 @@ position = Vector2( 478.908, 449.474 )
 [connection signal="pressed" from="BustVolk" to="." method="_on_BustVolk_pressed"]
 [connection signal="pressed" from="CartaCerrada1" to="." method="_on_Carta1_pressed"]
 [connection signal="pressed" from="BotonProvisorio" to="." method="_on_BotonProvisorio_pressed"]
+[connection signal="pressed" from="FotoVolk" to="." method="_on_FotoVolk_pressed"]
