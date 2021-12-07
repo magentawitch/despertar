@@ -4,6 +4,7 @@ class_name ObjectoInteractivo, "res://assets/iconos/button1.png"
 export var on_pressed_cue: AudioStream
 export var on_mouse_entered_cue: AudioStream
 export var on_mouse_exited_cue: AudioStream
+export(float) var volumen_cues_db = 0.0
 
 const CURSOR_PARA_OBJETOS_INTERACTIVOS = 2#CURSOR_POINTING_HAND
 var player: AudioStreamPlayer
@@ -22,6 +23,7 @@ func play_sound(auidio_stream: AudioStream):
 	if player.playing:
 		player.stop()
 	player.stream = auidio_stream
+	player.volume_db = volumen_cues_db
 	player.play()
 	
 
