@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/images/dialogo.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/Personajes/Kase.png" type="Texture" id=2]
@@ -8,9 +8,6 @@
 [ext_resource path="res://assets/images/Personajes/Milan.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/Personajes/Profesore.png" type="Texture" id=7]
 [ext_resource path="res://assets/images/recuadros/KEY0.CC-Polaroids-On-The-Hunt-Plantilla-Polaroid-superpuesta-transparente.png" type="Texture" id=8]
-[ext_resource path="res://personajes/Andra.png" type="Texture" id=9]
-[ext_resource path="res://assets/fuentes/Please write me a song.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://assets/fuentes/sweet purple.otf" type="DynamicFontData" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -44,23 +41,14 @@ func cuando_termina_la_animacion_de_texto(anim_name):
 	texto_termino_de_aparecer = true
 "
 
-[sub_resource type="DynamicFont" id=2]
-size = 46
-extra_spacing_bottom = -13
-font_data = ExtResource( 10 )
-
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.351852 )
 colors = PoolColorArray( 0.213867, 0.0292397, 0.127684, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 52
-font_data = ExtResource( 11 )
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("grupo/dialogo:percent_visible")
@@ -84,17 +72,17 @@ tracks/1/keys = {
 }
 
 [node name="cuadro_de_dialogo" type="Node2D"]
-position = Vector2( 86.876, -14.8325 )
 script = SubResource( 1 )
 
 [node name="grupo" type="Node2D" parent="."]
 position = Vector2( 110.271, -1.94105 )
+scale = Vector2( 1.64052, 1.64052 )
 
 [node name="fondo_cuadro_de_dialogo" type="TextureButton" parent="grupo"]
-margin_left = -716.044
-margin_top = -97.5992
-margin_right = 502.956
-margin_bottom = 127.401
+margin_left = -439.0
+margin_top = -74.0
+margin_right = 366.0
+margin_bottom = 75.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
 expand = true
@@ -104,64 +92,54 @@ __meta__ = {
 
 [node name="dialogo" type="Label" parent="grupo"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -538.568
-margin_top = -41.7835
-margin_right = 283.432
-margin_bottom = 115.217
-custom_fonts/font = SubResource( 2 )
-text = "But I must expláin to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete..."
+margin_left = -295.0
+margin_top = -31.4657
+margin_right = 42.0
+margin_bottom = 23.5343
+rect_scale = Vector2( 1.5, 1.55 )
+text = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete..."
 align = 1
 autowrap = true
+percent_visible = 0.949397
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="recuadro" type="Position2D" parent="grupo"]
-position = Vector2( -326.581, 7.55099 )
-
-[node name="grabadora" type="Sprite" parent="grupo/recuadro"]
-visible = false
-position = Vector2( -432.371, 7.52979 )
-rotation = -0.112535
-scale = Vector2( 0.540505, 0.556887 )
-texture = ExtResource( 5 )
 
 [node name="Alex" type="Node2D" parent="grupo/recuadro"]
 visible = false
-position = Vector2( -3, 181 )
+position = Vector2( -428.724, -7.37518 )
+scale = Vector2( 0.180112, 0.180112 )
 
-[node name="foto" type="Node2D" parent="grupo/recuadro/Alex"]
-position = Vector2( 178.191, -169.706 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="fondo" type="Sprite" parent="grupo/recuadro/Alex/foto"]
-position = Vector2( -417.894, -13.0769 )
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Alex"]
+position = Vector2( 60.1317, -31.6567 )
 rotation = 1.59648
-scale = Vector2( 0.0643317, 128.447 )
-texture = SubResource( 4 )
+scale = Vector2( 0.357176, 713.151 )
+texture = SubResource( 3 )
 
-[node name="Alex2" type="Sprite" parent="grupo/recuadro/Alex/foto"]
-position = Vector2( -418.454, -9.87761 )
+[node name="Alex" type="Sprite" parent="grupo/recuadro/Alex"]
+position = Vector2( 57.0201, -13.8937 )
 rotation = 0.033079
-scale = Vector2( 0.234715, 0.234715 )
+scale = Vector2( 1.30316, 1.30316 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 400, 550 )
 
-[node name="marco" type="Sprite" parent="grupo/recuadro/Alex/foto"]
-position = Vector2( -417.284, -0.940826 )
+[node name="marco" type="Sprite" parent="grupo/recuadro/Alex"]
+position = Vector2( 63.5175, 35.7242 )
 rotation = 0.0294824
-scale = Vector2( 0.424212, 0.424212 )
+scale = Vector2( 2.35527, 2.35527 )
 texture = ExtResource( 8 )
 
 [node name="nombre" type="Label" parent="grupo/recuadro/Alex"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -480.839
-margin_top = -111.176
-margin_right = -410.839
-margin_bottom = -48.1761
+margin_left = -268.333
+margin_top = 250.173
+margin_right = -198.333
+margin_bottom = 278.173
 rect_rotation = 1.79924
-custom_fonts/font = SubResource( 7 )
+rect_scale = Vector2( 9.20587, 9.20587 )
 text = "Alex"
 align = 1
 valign = 1
@@ -170,176 +148,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Misteriose" type="Node2D" parent="grupo/recuadro"]
+[node name="Jade" type="Node2D" parent="grupo/recuadro"]
 visible = false
-position = Vector2( 15.9816, 30.7013 )
+position = Vector2( -422.968, -12.2002 )
+rotation = 0.0470631
+scale = Vector2( 0.355908, 0.355908 )
 
-[node name="foto" type="Node2D" parent="grupo/recuadro/Misteriose"]
-position = Vector2( 164.234, -16.9897 )
-scale = Vector2( 1.5, 1.5 )
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Jade"]
+position = Vector2( 2.19446, -21.8561 )
+rotation = 1.56319
+scale = Vector2( 0.163738, 328.981 )
+texture = SubResource( 3 )
 
-[node name="fondo" type="Sprite" parent="grupo/recuadro/Misteriose/foto"]
-position = Vector2( -422.264, -16.0675 )
-rotation = 1.60527
-scale = Vector2( 0.0642045, 128.193 )
-texture = SubResource( 4 )
-
-[node name="cara" type="Sprite" parent="grupo/recuadro/Misteriose/foto"]
-modulate = Color( 0, 0, 0, 0.141176 )
-position = Vector2( -426.462, -11.8492 )
-rotation = 0.0418693
-scale = Vector2( 0.26049, 0.26049 )
-texture = ExtResource( 2 )
+[node name="cara" type="Sprite" parent="grupo/recuadro/Jade"]
+position = Vector2( 21.3241, 4.02757 )
+scale = Vector2( 0.814311, 0.814311 )
+texture = ExtResource( 4 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 400, 550 )
+region_rect = Rect2( 0, 0, 400, 400 )
 
-[node name="marco" type="Sprite" parent="grupo/recuadro/Misteriose/foto"]
-position = Vector2( -421.762, -3.95054 )
-rotation = 0.0382727
-scale = Vector2( 0.423374, 0.423374 )
+[node name="marco" type="Sprite" parent="grupo/recuadro/Jade"]
+position = Vector2( 8.27066, 14.7863 )
+rotation = -0.00879033
+scale = Vector2( 1.09175, 1.09175 )
 texture = ExtResource( 8 )
 
-[node name="nombre" type="Label" parent="grupo/recuadro/Misteriose"]
+[node name="nombre" type="Label" parent="grupo/recuadro/Jade"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -506.114
-margin_top = 37.6857
-margin_right = -436.114
-margin_bottom = 100.686
-rect_rotation = 1.79924
-custom_fonts/font = SubResource( 7 )
-text = "???"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Andra" type="Node2D" parent="grupo/recuadro"]
-visible = false
-position = Vector2( 174.616, 17.818 )
-
-[node name="foto" type="Node2D" parent="grupo/recuadro/Andra"]
-scale = Vector2( 1.5, 1.5 )
-
-[node name="fondo" type="Sprite" parent="grupo/recuadro/Andra/foto"]
-position = Vector2( -422.264, -16.0675 )
-rotation = 1.60527
-scale = Vector2( 0.0642045, 128.193 )
-texture = SubResource( 4 )
-
-[node name="cara" type="Sprite" parent="grupo/recuadro/Andra/foto"]
-position = Vector2( -422.361, -13.8996 )
-rotation = 0.0418693
-scale = Vector2( 0.105081, 0.105081 )
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( -100.837, 14.8887, 1146.42, 1278.24 )
-
-[node name="marco" type="Sprite" parent="grupo/recuadro/Andra/foto"]
-position = Vector2( -421.762, -3.95054 )
-rotation = 0.0382727
-scale = Vector2( 0.423374, 0.423374 )
-texture = ExtResource( 8 )
-
-[node name="nombre" type="Label" parent="grupo/recuadro/Andra"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -704.671
-margin_top = 52.2544
-margin_right = -572.671
-margin_bottom = 115.254
-rect_rotation = 1.79924
-rect_scale = Vector2( 0.999783, 0.99572 )
-custom_fonts/font = SubResource( 7 )
-text = "Andra"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Kase" type="Node2D" parent="grupo/recuadro"]
-visible = false
-
-[node name="foto" type="Node2D" parent="grupo/recuadro/Kase"]
-position = Vector2( 179.962, 15.1453 )
-scale = Vector2( 1.5, 1.5 )
-
-[node name="fondo" type="Sprite" parent="grupo/recuadro/Kase/foto"]
-position = Vector2( -422.264, -16.0675 )
-rotation = 1.60527
-scale = Vector2( 0.0642045, 128.193 )
-texture = SubResource( 4 )
-
-[node name="cara" type="Sprite" parent="grupo/recuadro/Kase/foto"]
-position = Vector2( -426.462, -11.8492 )
-rotation = 0.0418693
-scale = Vector2( 0.26049, 0.26049 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 400, 550 )
-
-[node name="marco" type="Sprite" parent="grupo/recuadro/Kase/foto"]
-position = Vector2( -421.762, -3.95054 )
-rotation = 0.0382727
-scale = Vector2( 0.423374, 0.423374 )
-texture = ExtResource( 8 )
-
-[node name="nombre" type="Label" parent="grupo/recuadro/Kase"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -518.473
-margin_top = 66.5087
-margin_right = -386.473
-margin_bottom = 129.509
-rect_rotation = 1.79924
-rect_scale = Vector2( 0.999783, 0.99572 )
-custom_fonts/font = SubResource( 7 )
-text = "Kase"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Milan" type="Node2D" parent="grupo/recuadro"]
-visible = false
-position = Vector2( 176.389, 16.379 )
-
-[node name="foto" type="Node2D" parent="grupo/recuadro/Milan"]
-scale = Vector2( 1.5, 1.5 )
-
-[node name="fondo" type="Sprite" parent="grupo/recuadro/Milan/foto"]
-position = Vector2( -422.264, -16.0675 )
-rotation = 1.60527
-scale = Vector2( 0.0642045, 128.193 )
-texture = SubResource( 4 )
-
-[node name="cara" type="Sprite" parent="grupo/recuadro/Milan/foto"]
-position = Vector2( -416.129, -9.266 )
-rotation = 0.0418693
-scale = Vector2( 0.26049, 0.26049 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 400, 550 )
-
-[node name="marco" type="Sprite" parent="grupo/recuadro/Milan/foto"]
-position = Vector2( -421.762, -3.95054 )
-rotation = 0.0382727
-scale = Vector2( 0.423374, 0.423374 )
-texture = ExtResource( 8 )
-
-[node name="nombre" type="Label" parent="grupo/recuadro/Milan"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = -704.941
-margin_top = 53.9096
-margin_right = -572.941
-margin_bottom = 116.91
-rect_rotation = 1.79924
-rect_scale = Vector2( 0.999783, 0.99572 )
-custom_fonts/font = SubResource( 7 )
-text = "Milán"
+margin_left = -135.546
+margin_top = 116.533
+margin_right = -65.5456
+margin_bottom = 144.533
+rect_scale = Vector2( 4.04699, 4.04699 )
+text = "Jade"
 align = 1
 valign = 1
 autowrap = true
@@ -349,41 +190,36 @@ __meta__ = {
 
 [node name="Profesore" type="Node2D" parent="grupo/recuadro"]
 visible = false
-position = Vector2( 178.909, 25.1984 )
-
-[node name="foto" type="Node2D" parent="grupo/recuadro/Profesore"]
-position = Vector2( 61.7362, -5.03964 )
-scale = Vector2( 1.65, 1.65 )
-
-[node name="fondo" type="Sprite" parent="grupo/recuadro/Profesore/foto"]
-position = Vector2( -421.822, -19.9336 )
-rotation = 1.61025
-scale = Vector2( 0.0582757, 117.087 )
-texture = SubResource( 4 )
-
-[node name="cara" type="Sprite" parent="grupo/recuadro/Profesore/foto"]
-position = Vector2( -414.8, -21.4698 )
+position = Vector2( -422.968, -12.2002 )
 rotation = 0.0470631
-scale = Vector2( 0.279791, 0.279791 )
+scale = Vector2( 0.355908, 0.355908 )
+
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Profesore"]
+position = Vector2( 2.19446, -21.8561 )
+rotation = 1.56319
+scale = Vector2( 0.163738, 328.981 )
+texture = SubResource( 3 )
+
+[node name="cara" type="Sprite" parent="grupo/recuadro/Profesore"]
+position = Vector2( 21.6989, -27.0957 )
+scale = Vector2( 0.786133, 0.786133 )
 texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 400, 400 )
 
-[node name="marco" type="Sprite" parent="grupo/recuadro/Profesore/foto"]
-position = Vector2( -420.275, -6.80498 )
-rotation = 0.0382728
-scale = Vector2( 0.388563, 0.388563 )
+[node name="marco" type="Sprite" parent="grupo/recuadro/Profesore"]
+position = Vector2( 8.27066, 14.7863 )
+rotation = -0.00879033
+scale = Vector2( 1.09175, 1.09175 )
 texture = ExtResource( 8 )
 
 [node name="nombre" type="Label" parent="grupo/recuadro/Profesore"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -715.079
-margin_top = 40.1409
-margin_right = -553.079
-margin_bottom = 103.141
-rect_rotation = 1.79924
-rect_scale = Vector2( 0.999783, 0.99572 )
-custom_fonts/font = SubResource( 7 )
+margin_left = -144.245
+margin_top = 119.895
+margin_right = -74.2441
+margin_bottom = 147.895
+rect_scale = Vector2( 4.04699, 4.04699 )
 text = "Profesore"
 align = 1
 valign = 1
@@ -392,42 +228,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Jade" type="Node2D" parent="grupo/recuadro"]
-position = Vector2( 238.125, 18.8988 )
+[node name="Milan" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -433.123, -10.4723 )
+rotation = 0.00879033
+scale = Vector2( 0.179756, 0.179756 )
 
-[node name="foto" type="Node2D" parent="grupo/recuadro/Jade"]
-scale = Vector2( 1.65, 1.65 )
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Milan"]
+position = Vector2( 60.1317, -31.6567 )
+rotation = 1.59648
+scale = Vector2( 0.357176, 713.151 )
+texture = SubResource( 3 )
 
-[node name="fondo" type="Sprite" parent="grupo/recuadro/Jade/foto"]
-position = Vector2( -421.822, -19.9336 )
-rotation = 1.61025
-scale = Vector2( 0.0582757, 117.087 )
-texture = SubResource( 4 )
-
-[node name="cara" type="Sprite" parent="grupo/recuadro/Jade/foto"]
-position = Vector2( -415.454, -10.4113 )
-rotation = 0.0470631
-scale = Vector2( 0.28982, 0.28982 )
-texture = ExtResource( 4 )
+[node name="cara" type="Sprite" parent="grupo/recuadro/Milan"]
+position = Vector2( 94.5967, 5.87949 )
+rotation = 0.033079
+scale = Vector2( 1.44913, 1.44913 )
+texture = ExtResource( 6 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 400, 400 )
+region_rect = Rect2( 0, 0, 400, 550 )
 
-[node name="marco" type="Sprite" parent="grupo/recuadro/Jade/foto"]
-position = Vector2( -420.275, -6.80498 )
-rotation = 0.0382728
-scale = Vector2( 0.388563, 0.388563 )
+[node name="marco" type="Sprite" parent="grupo/recuadro/Milan"]
+position = Vector2( 63.5175, 35.7242 )
+rotation = 0.0294824
+scale = Vector2( 2.35527, 2.35527 )
 texture = ExtResource( 8 )
 
-[node name="nombre" type="Label" parent="grupo/recuadro/Jade"]
+[node name="nombre" type="Label" parent="grupo/recuadro/Milan"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -783.115
-margin_top = 47.7004
-margin_right = -621.115
-margin_bottom = 110.7
-rect_rotation = 1.79924
-rect_scale = Vector2( 0.999783, 0.99572 )
-custom_fonts/font = SubResource( 7 )
-text = "Jade"
+margin_left = -287.743
+margin_top = 262.173
+margin_right = -217.743
+margin_bottom = 290.173
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "Milán"
 align = 1
 valign = 1
 autowrap = true
@@ -435,9 +269,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Kase" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -433.123, -10.4723 )
+rotation = 0.00879033
+scale = Vector2( 0.179756, 0.179756 )
+
+[node name="fondo" type="Sprite" parent="grupo/recuadro/Kase"]
+position = Vector2( 60.1317, -31.6567 )
+rotation = 1.59648
+scale = Vector2( 0.357176, 713.151 )
+texture = SubResource( 3 )
+
+[node name="cara" type="Sprite" parent="grupo/recuadro/Kase"]
+position = Vector2( 36.9894, -7.98547 )
+rotation = 0.033079
+scale = Vector2( 1.44913, 1.44913 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 550 )
+
+[node name="marco" type="Sprite" parent="grupo/recuadro/Kase"]
+position = Vector2( 63.5175, 35.7242 )
+rotation = 0.0294824
+scale = Vector2( 2.35527, 2.35527 )
+texture = ExtResource( 8 )
+
+[node name="nombre" type="Label" parent="grupo/recuadro/Kase"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -287.743
+margin_top = 262.173
+margin_right = -217.743
+margin_bottom = 290.173
+rect_scale = Vector2( 9.20587, 9.20587 )
+text = "Kase"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grabadora" type="Sprite" parent="grupo/recuadro"]
+visible = false
+position = Vector2( -436.146, -4.74059 )
+rotation = -0.0898275
+scale = Vector2( 0.361085, 0.361085 )
+texture = ExtResource( 5 )
+
 [node name="animacion_transiciones" type="AnimationPlayer" parent="."]
 autoplay = "aparece"
-anims/aparece = SubResource( 6 )
+anims/aparece = SubResource( 4 )
 
 [connection signal="pressed" from="grupo/fondo_cuadro_de_dialogo" to="." method="_on_fondo_cuadro_de_dialogo_pressed"]
 [connection signal="animation_finished" from="animacion_transiciones" to="." method="cuando_termina_la_animacion_de_texto"]

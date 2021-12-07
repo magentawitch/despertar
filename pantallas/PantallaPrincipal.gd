@@ -2,7 +2,6 @@ extends Node2D
 
 export var velocidad_de_la_camara: float = 450.0
 export var distancia_foco: float = 50.0
-export var distancia_lejos: float = 800.0
 export var nombre_de_la_escena_de_prueba: String = "02_pasillo_escuela"
 export var nombre_de_la_escena_inicial: String = "00_diario"
 
@@ -57,17 +56,6 @@ func ocultar_menu_de_acciones():
 func _cuando_una_escena_fue_cargada(escena: Escena):
 	$telon/anim.play("ocultar")
 	mostrar_menu_de_acciones()
-	_ubicar_personaje()
-	
-func _ubicar_personaje():
-	var nombre_de_la_escena_anterior = $contenedor.nombre_de_la_escena_anterior
-	if nombre_de_la_escena_anterior:
-		print("Debo tratar de ubicar a jade en %s" % nombre_de_la_escena_anterior)
-		get_tree().call_group("MarcasDeEntrada", "teleportar_jade_si_venia_de", nombre_de_la_escena_anterior, self)
-
-func teleportar_jade(marca: Position2D):
-	var personaje = $foco.obtener_personaje_activo()
-	personaje.global_position.x = marca.global_position.x
 	
 func mostrar_menu_de_acciones():
 	var escena = $contenedor.obtener_escena_actual()
@@ -119,13 +107,10 @@ func _process(delta: float) -> void:
 		desplazamiento.x += 1
 	if personaje_esta_a_la_derecha and $camara.hay_lugar_a_la_derecha:
 		desplazamiento.x -= 1
-	if desplazamiento.length() > 0.1:
+	if desplazamiento.length() > 0:
 		if abs(dist_personaje) < distancia_foco:
 			desplazamiento = Vector2(dist_personaje / 2, 0)
-		elif abs(dist_personaje) > distancia_lejos:
-			desplazamiento = Vector2(dist_personaje / 2, 0)
 		else:
-			#desplazamiento = Vector2(dist_personaje / 8, 0)
 			desplazamiento = desplazamiento.normalized() * velocidad_de_la_camara * delta 
 	
 	$contenedor.position += desplazamiento

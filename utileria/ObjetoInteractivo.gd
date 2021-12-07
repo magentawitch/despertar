@@ -5,7 +5,7 @@ export var on_pressed_cue: AudioStream
 export var on_mouse_entered_cue: AudioStream
 export var on_mouse_exited_cue: AudioStream
 
-const CURSOR_PARA_OBJETOS_INTERACTIVOS = 2#CURSOR_POINTING_HAND
+onready var _forma_de_cursor_guardada = mouse_default_cursor_shape
 var player: AudioStreamPlayer
 
 func _ready():
@@ -28,7 +28,7 @@ func play_sound(auidio_stream: AudioStream):
 func rehabilitar_interaccion():
 	disabled = false
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	mouse_default_cursor_shape = CURSOR_PARA_OBJETOS_INTERACTIVOS
+	mouse_default_cursor_shape = _forma_de_cursor_guardada
 
 func deshabilitar_interaccion():
 	disabled = true

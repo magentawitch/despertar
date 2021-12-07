@@ -28,8 +28,8 @@ func _ready():
 		Me sorprende cada dia mas cuántos implantes tiene Milán en el brazo.
 	\"\"\")
 	anotar_en_el_diario(\"\"\"
-	Tuve la charla de siempre en el auto con mis viejis: hay que aparentar en público, pero después está bien que seas tu misme. 
-	Bla, bla, bla. Hablamos del reloj de mi abuele (mi reliquia preciada) y creo que discutieron. 
+	Tuve la charla de siempre en el auto con mis padres: hay que aparentar en público, pero después está bien que seas tu misme. 
+	Bla, bla, bla. Hablamos del reloj de mi abuela (mi reliquia preciada) y creo que discutieron. 
 	Milán tiende a exagerar todo.
 	\"\"\")
 	

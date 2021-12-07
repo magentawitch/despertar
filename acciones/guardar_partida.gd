@@ -19,8 +19,7 @@ func guardar_partida(director: Director, detalles: Dictionary):
 			"entradas": diario.entradas,
 			"hitos": diario.hitos,
 		},
-		"nombre_escena_actual": contenedor_de_escena.nombre_de_la_escena_actual,
-		"nombre_escena_anterior": contenedor_de_escena.nombre_de_la_escena_anterior,
+		"nombre_escena_actual": contenedor_de_escena.nombre_de_la_escena_actual
 	})
 	spinner_de_guardado.mostrar_y_ocultar()
 	director.termino_la_ejecucion_de_la_accion()

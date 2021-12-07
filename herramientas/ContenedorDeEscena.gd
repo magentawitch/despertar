@@ -5,7 +5,6 @@ class_name ContenedorDeEscena
 const DELAY_ANTES_DE_CARGAR_ESCENA = 1.0
 
 var nombre_de_la_escena_actual: String
-var nombre_de_la_escena_anterior: String = ""
 
 export(NodePath) var path_al_director
 onready var director = get_node(path_al_director) as Director
@@ -32,7 +31,6 @@ func cambiar_escena(nombre_de_escena_nueva):
 		escena_previa.queue_free()
 		yield(escena_previa, "tree_exited")
 	
-	nombre_de_la_escena_anterior = nombre_de_la_escena_actual
 	nombre_de_la_escena_actual = nombre_de_escena_nueva
 	cargar_escena_actual()
 
@@ -51,7 +49,6 @@ func cargar_escena_actual():
 	
 	call_deferred('_avisar_que_la_escena_fue_cargada', escena)
 	
-
 func obtener_escena_actual() -> Escena:
 	return get_child(0) as Escena
 	

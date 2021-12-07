@@ -355,7 +355,6 @@ __meta__ = {
 
 [node name="spinner_guardado" parent="ui" instance=ExtResource( 21 )]
 pause_mode = 2
-visible = false
 position = Vector2( 1793.57, 959.725 )
 scale = Vector2( 0.0988824, 0.0988824 )
 
@@ -371,13 +370,13 @@ __meta__ = {
 [node name="sombra" type="TextureRect" parent="ui/MarginContainer"]
 self_modulate = Color( 0.32549, 0.32549, 0.32549, 0.188235 )
 margin_right = 104.0
-margin_bottom = 101.0
+margin_bottom = 102.0
 texture = ExtResource( 28 )
 expand = true
 
 [node name="boton_abrir_menu_in_game" type="TextureButton" parent="ui/MarginContainer"]
 margin_right = 104.0
-margin_bottom = 101.0
+margin_bottom = 102.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 27 )
 texture_hover = ExtResource( 29 )
@@ -400,7 +399,7 @@ collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_izquierdo"]
 position = Vector2( -17.3218, -0.655685 )
-polygon = PoolVector2Array( -4.08509, 996.205, 454.515, 1187.77, 454.515, -113.309, 0.404747, 37.6224 )
+polygon = PoolVector2Array( -4.08509, 996.205, 65.5075, 1050.08, 62.2196, 8.82083, 0.404747, 37.6224 )
 
 [node name="borde_derecho" type="Area2D" parent="camara"]
 position = Vector2( 944.481, -581.957 )
@@ -409,7 +408,7 @@ collision_mask = 2
 
 [node name="poligono" type="CollisionPolygon2D" parent="camara/borde_derecho"]
 position = Vector2( 15.0154, 0.841827 )
-polygon = PoolVector2Array( -399.501, 1163.06, 17.4563, 1017.16, 24.191, 40.6148, -407.977, -131.603 )
+polygon = PoolVector2Array( -38.6667, 1044.1, 17.4563, 1017.16, 24.191, 40.6148, -43.1567, 20.4105 )
 
 [node name="foco" type="Node2D" parent="."]
 script = ExtResource( 16 )

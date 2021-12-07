@@ -40,9 +40,6 @@ func _cuando_se_acabaron_las_acciones_pendientes():
 # API para scripting de escenas
 ###############################
 
-func abrir_diario():
-	director.encolar("abrir_diario", {})
-
 func anota_en_el_diario(algo: String):
 	var renglones = algo.strip_edges().split('\n')
 	var texto = ''
