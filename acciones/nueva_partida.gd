@@ -11,12 +11,15 @@ onready var contenedor_de_escena = get_node(path_al_contenedor_de_escena) as Con
 
 
 func nueva_partida(director: Director, detalles: Dictionary):
+	var escena_inicial = detalles.get(
+		"escena_inicial", "00_diario"
+	)
 	var p = {
 		"diario": {
 			"entradas": [],
 			"hitos": [],
 		},
-		"nombre_escena_actual": "00_diario",
+		"nombre_escena_actual": escena_inicial,
 		"nombre_escena_anterior": "",
 	}
 	diario.cargar_estado(

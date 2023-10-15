@@ -25,17 +25,12 @@ func _ready() -> void:
 	$ui/menu_in_game.connect('se_cerro', self, "_cuando_se_cerro_el_menu_in_game")
 	$ui/menu_in_game.connect('solicita_ejecutar_accion', self, "_cuando_el_menu_in_game_solicita_ejecutar_una_accion")
 	$diario.connect('hito_fue_registrado', self, "_cuando_un_hito_fue_registrado")
-	var nombre_escena: String
+	var parametros_de_inicio: Dictionary
 	if OS.is_debug_build():
 		print("Como estoy en debug arranco con la escena de test: ", nombre_de_la_escena_de_prueba)
-		nombre_escena = nombre_de_la_escena_de_prueba
-	else:
-		nombre_escena = nombre_de_la_escena_inicial
+		parametros_de_inicio["escena_inicial"] = nombre_de_la_escena_de_prueba
 		
-	if $memoria.hay_una_partida_guardada():
-		$director.encolar("nueva_partida", {})
-	else:
-		$director.encolar("nueva_partida", {})
+	$director.encolar("nueva_partida", parametros_de_inicio)
 	
 func _cuando_el_foco_cambia_de_modo(modo: ModoDeInteraccion):
 	if modo.ocultar_menu_de_acciones_mientras_esta_colocado():
