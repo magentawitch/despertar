@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/images/DiarioCerrado.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/FondoEscritorio.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://tipos_de_entrada_de_diario/texto_ejemplo_primer_parrafo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tipos_de_entrada_de_diario/texto_ejemplo_tercer_parrafo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tipos_de_entrada_de_diario/texto_ejemplo_segundo_parrafo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tipos_de_entrada_de_diario/texto_fuente.tres" type="DynamicFont" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Escena
@@ -17,6 +18,7 @@ func _on_diario_cerrado_pressed() -> void:
 	$DiarioAbierto.visible = true
 	$diario_cerrado.visible = false
 	#abrir_diario()
+	Translator.translate_tree($DiarioAbierto)
 
 var cantidad_de_clicks_sobre_el_diario_abierto = 0
 
@@ -25,7 +27,7 @@ func _on_BotonInvisibleDelDiarioAbierto_pressed() -> void:
 		$DiarioAbierto/TweenEntradas.seek(10)
 		return  # No continuo, solo termino de mostrar
 				# el texto que se esté mostrando
-		
+
 	cantidad_de_clicks_sobre_el_diario_abierto += 1
 	if cantidad_de_clicks_sobre_el_diario_abierto == 1:
 		mostrar_y_anotar_label($DiarioAbierto/izquierda/texto_ejemplo_primer_parrafo/texto)
@@ -104,22 +106,33 @@ margin_top = 388.697
 margin_right = 986.0
 margin_bottom = 992.697
 custom_constants/separation = 4
+
+[node name="texto_ejemplo_primer_parrafo" parent="DiarioAbierto/izquierda" instance=ExtResource( 6 )]
+visible = false
+margin_right = 477.0
+margin_bottom = 28.0
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="texto_ejemplo_primer_parrafo" parent="DiarioAbierto/izquierda" instance=ExtResource( 6 )]
-visible = false
-margin_right = 498.0
-margin_bottom = 316.0
-script = SubResource( 2 )
+[node name="Label" type="Label" parent="DiarioAbierto/izquierda"]
+margin_top = 32.0
+margin_right = 477.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 9 )
+text = " 
+"
 
 [node name="texto_ejemplo_segundo_parrafo" parent="DiarioAbierto/izquierda" instance=ExtResource( 8 )]
 visible = false
-margin_top = 320.0
-margin_right = 498.0
-margin_bottom = 596.0
+margin_top = 64.0
+margin_right = 477.0
+margin_bottom = 92.0
 script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="derecha" type="VBoxContainer" parent="DiarioAbierto"]
 margin_left = 1066.56
@@ -133,9 +146,12 @@ __meta__ = {
 
 [node name="texto_ejemplo_tercer_parrafo" parent="DiarioAbierto/derecha" instance=ExtResource( 7 )]
 visible = false
-margin_right = 513.0
-margin_bottom = 476.0
+margin_right = 477.0
+margin_bottom = 28.0
 script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BotonInvisibleDelDiarioAbierto" type="TextureButton" parent="DiarioAbierto"]
 margin_left = 491.757

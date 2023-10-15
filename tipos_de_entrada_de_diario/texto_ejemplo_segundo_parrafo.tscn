@@ -9,5 +9,4 @@ margin_bottom = 276.0
 [node name="texto" parent="." index="0"]
 margin_right = 546.0
 margin_bottom = 276.0
-text = "Busqué por toda esta maldita ciudad tecnológica hasta que une amable señore me vendió este diario.. .Bah, es un cuaderno medio viejo, pero puedo escribir con un lápiz y tiene hojas. Básicamente no es una pantalla.
-"
+text = "bought_a_diary"

@@ -102,7 +102,7 @@ __meta__ = {
 
 [node name="fondo" type="TextureRect" parent="menu_in_game"]
 margin_right = 606.0
-margin_bottom = 836.0
+margin_bottom = 835.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
@@ -114,7 +114,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="menu_in_game"]
 margin_right = 606.0
-margin_bottom = 836.0
+margin_bottom = 835.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -122,54 +122,54 @@ __meta__ = {
 
 [node name="boton_nueva_partida" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 143.0
+margin_top = 142.0
 margin_right = 606.0
-margin_bottom = 221.0
+margin_bottom = 220.0
 custom_fonts/font = SubResource( 2 )
 text = "Nueva Partida"
 flat = true
 
 [node name="boton_guardar_partida" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 225.0
+margin_top = 224.0
 margin_right = 606.0
-margin_bottom = 303.0
+margin_bottom = 302.0
 custom_fonts/font = SubResource( 2 )
 text = "Guardar"
 flat = true
 
 [node name="boton_cargar_partida" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 307.0
+margin_top = 306.0
 margin_right = 606.0
-margin_bottom = 385.0
+margin_bottom = 384.0
 custom_fonts/font = SubResource( 2 )
 text = "Cargar"
 flat = true
 
 [node name="boton_pantalla_completa" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 389.0
+margin_top = 388.0
 margin_right = 606.0
-margin_bottom = 467.0
+margin_bottom = 466.0
 custom_fonts/font = SubResource( 2 )
 text = "Pantalla Completa"
 flat = true
 
 [node name="boton_salir" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 471.0
+margin_top = 470.0
 margin_right = 606.0
-margin_bottom = 549.0
+margin_bottom = 548.0
 custom_fonts/font = SubResource( 2 )
 text = "Salir"
 flat = true
 
 [node name="boton_continuar" type="Button" parent="menu_in_game/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_top = 553.0
+margin_top = 552.0
 margin_right = 606.0
-margin_bottom = 693.0
+margin_bottom = 692.0
 rect_min_size = Vector2( 0, 140 )
 custom_fonts/font = SubResource( 2 )
 text = "Continuar"
@@ -188,7 +188,7 @@ __meta__ = {
 
 [node name="fondo" type="TextureRect" parent="confirmacion_salir"]
 margin_right = 832.0
-margin_bottom = 225.0
+margin_bottom = 224.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource( 4 )
@@ -200,7 +200,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="confirmacion_salir"]
 margin_right = 832.0
-margin_bottom = 225.0
+margin_bottom = 224.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false

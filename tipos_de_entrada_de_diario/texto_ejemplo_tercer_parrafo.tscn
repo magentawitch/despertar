@@ -9,5 +9,4 @@ margin_bottom = 316.0
 [node name="texto" parent="." index="0"]
 margin_right = 850.0
 margin_bottom = 316.0
-text = "En fin, hoy tengo examen. Estudié...  Algo estudié, no mucho, pero estudié. Ahora bien, estoy llegando tarde, pero Alex va a trabajar a la oficina, así que seguro me dejan en la escuela. Saben que odio los bondis tecnológicos (sí, odio todo lo que se refiera a lo tecnológico. Bah, no lo odio, bah sí). Como sea, me llevan a la escuela así que todo bajo control, mi querido Watson? Una buena saga antigua de detectives que nunca vi.
-"
+text = "did_not_study"
