@@ -19,51 +19,46 @@ func _ready():
 	mechón teñido de rojo y está vestide con ropa vintage. Sus padres no 
 	binaries, Alex y Milán, están en los asientos delanteros del auto.
 	\"\"\")
-	dice('Alex', 'Te queda muy lindo el reloj que te regalamos.')
+	dice('Alex', 'your_watch_is_nice')
 	# Jade mira su muñeca derecha, tiene un reloj analógico circular con
 	# una correa de color madera.
 	# El brazo derecho de Milán es robótico y el resto de su cuerpo visible
 	# aparenta ser humano.
-	anotar_en_el_diario(\"\"\"
-		Me sorprende cada dia mas cuántos implantes tiene Milán en el brazo.
-	\"\"\")
-	anotar_en_el_diario(\"\"\"
-	Tuve la charla de siempre en el auto con mis viejis: hay que aparentar en público, pero después está bien que seas tu misme. 
-	Bla, bla, bla. Hablamos del reloj de mi abuele (mi reliquia preciada) y creo que discutieron. 
-	Milán tiende a exagerar todo.
-	\"\"\")
+	anotar_en_el_diario(\"tatoos_amaze_me\")
+	anotar_en_el_diario(\"car_chat_summary\")
 	
-	dice('Milan', 'Suficiente con esa grabadora que le regalamos para sus quince.')
-	dice_a_la_grabadora('Nota: Milán no tiene sentido de la moda.')
+	dice('Milan', 'enough_of_the_recorder')
+	dice_a_la_grabadora('milan_doesnt_have_sense_of_fashion')
 	# Alex se ríe. Tiene una sonrisa cómplice mientras mira a Jade.
-	dice('Milan', 'Pero, ¿qué te dicen tus compañeres del reloj?')
+	dice('Milan', 'what_classmates_say_about_watch')
 	elige([
-		['No me importa.', 'no_me_importa'],
-		['Ya sé. (Se quita el reloj)', 'ya_se'],
-		['No les importa. (Miente)', 'no_les_importa'],
+		# La primera es el texto que se muestra, la segunda es la función de continuación
+		['i_dont_care', 'no_me_importa'],
+		['i_know', 'ya_se'],
+		['they_dont_care', 'no_les_importa'],
 	])
 	
 func no_me_importa():
-	dice('Milan', 'No nos hagas tener problemas, Jade.')
+	dice('Milan', 'dont_get_us_trouble')
 	_1()
 
 func ya_se():
-	dice('Milan', 'Sabes que esas son cosas para usar en casa.')
+	dice('Milan', 'this_things_meant_at_home')
 	_1()
 	
 func no_les_importa():
-	dice('Milan', '*Milán mira mal a Jade desde el espejo retrovisor.*')
+	dice('Milan', '__glares_at_jade__')
 	_1()
 	
 func _1():
 	se_rie('Alex')
-	dice('Alex', 'Seguro que elles están muy ocupades con sus implantes.')
+	dice('Alex', 'sure_theyre_busy')
 	se_rie('Milan')
-	dice('Milan', 'Hoy en día tienen una computadora ahí.')
+	dice('Milan', 'they_have_a_computer_right_there')
 	# Jade se cruza de brazos y pone los ojos en blanco al
 	# mirar hacia arriba, fastidiade.
 	dice('Jade', '...')
-	dice('Alex', 'Llegamos.')
+	dice('Alex', 'wevearrived')
 	cambiar_escena_a('02_pasillo_escuela')
 
 # Notas:

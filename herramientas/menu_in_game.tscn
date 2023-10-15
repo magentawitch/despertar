@@ -13,6 +13,7 @@ signal se_cerro
 func _ready():
 	if OS.get_name() == \"HTML5\":
 		$menu_in_game/VBoxContainer/boton_salir.visible = false
+	Translator.translate_tree(self)
 
 func mostrar():
 	$menu_in_game.visible = true
@@ -126,7 +127,7 @@ margin_top = 142.0
 margin_right = 606.0
 margin_bottom = 220.0
 custom_fonts/font = SubResource( 2 )
-text = "Nueva Partida"
+text = "new_game"
 flat = true
 
 [node name="boton_guardar_partida" type="Button" parent="menu_in_game/VBoxContainer"]
@@ -135,7 +136,7 @@ margin_top = 224.0
 margin_right = 606.0
 margin_bottom = 302.0
 custom_fonts/font = SubResource( 2 )
-text = "Guardar"
+text = "save"
 flat = true
 
 [node name="boton_cargar_partida" type="Button" parent="menu_in_game/VBoxContainer"]
@@ -144,7 +145,7 @@ margin_top = 306.0
 margin_right = 606.0
 margin_bottom = 384.0
 custom_fonts/font = SubResource( 2 )
-text = "Cargar"
+text = "load"
 flat = true
 
 [node name="boton_pantalla_completa" type="Button" parent="menu_in_game/VBoxContainer"]
@@ -153,7 +154,7 @@ margin_top = 388.0
 margin_right = 606.0
 margin_bottom = 466.0
 custom_fonts/font = SubResource( 2 )
-text = "Pantalla Completa"
+text = "full_screen"
 flat = true
 
 [node name="boton_salir" type="Button" parent="menu_in_game/VBoxContainer"]
@@ -162,7 +163,7 @@ margin_top = 470.0
 margin_right = 606.0
 margin_bottom = 548.0
 custom_fonts/font = SubResource( 2 )
-text = "Salir"
+text = "exit"
 flat = true
 
 [node name="boton_continuar" type="Button" parent="menu_in_game/VBoxContainer"]
@@ -172,7 +173,7 @@ margin_right = 606.0
 margin_bottom = 692.0
 rect_min_size = Vector2( 0, 140 )
 custom_fonts/font = SubResource( 2 )
-text = "Continuar"
+text = "continue"
 flat = true
 
 [node name="confirmacion_salir" type="MarginContainer" parent="."]
@@ -212,7 +213,7 @@ margin_top = 35.0
 margin_right = 832.0
 margin_bottom = 107.0
 custom_fonts/font = SubResource( 2 )
-text = "Realmente desea salir?"
+text = "really_want_to_exit"
 align = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="confirmacion_salir/VBoxContainer"]
@@ -223,20 +224,27 @@ alignment = 1
 
 [node name="boton_si_salir" type="Button" parent="confirmacion_salir/VBoxContainer/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 322.0
-margin_right = 433.0
+margin_left = 289.0
+margin_right = 378.0
 margin_bottom = 78.0
 custom_fonts/font = SubResource( 2 )
-text = "Si   "
+text = "yes"
 flat = true
+
+[node name="spacer" type="Label" parent="confirmacion_salir/VBoxContainer/VBoxContainer"]
+margin_left = 382.0
+margin_top = 32.0
+margin_right = 474.0
+margin_bottom = 46.0
+text = "                       "
 
 [node name="boton_no_salir" type="Button" parent="confirmacion_salir/VBoxContainer/VBoxContainer"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 437.0
-margin_right = 509.0
+margin_left = 478.0
+margin_right = 542.0
 margin_bottom = 78.0
 custom_fonts/font = SubResource( 2 )
-text = "No"
+text = "no"
 flat = true
 
 [connection signal="pressed" from="boton_cerrar_menu" to="." method="_on_boton_cerrar_menu_pressed"]

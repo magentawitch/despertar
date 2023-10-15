@@ -27,5 +27,3 @@ diario_path = NodePath("../Diario")
 
 [node name="Diario" type="Node" parent="."]
 script = ExtResource( 2 )
-
-[connection signal="request_close" from="VistaDiario" to="." method="_on_VistaDiario_request_close"]

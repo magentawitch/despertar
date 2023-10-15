@@ -7,7 +7,7 @@ script/source = "extends EntradaDeDiario
 
 
 func inicializar_con(entrada: Dictionary):
-	$texto.text = entrada[\"texto\"]
+	$texto.text = Translator.translate(entrada[\"texto\"]) + \"\\n\\n\"
 "
 
 [node name="texto" type="MarginContainer"]

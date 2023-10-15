@@ -43,12 +43,8 @@ func _cuando_se_acabaron_las_acciones_pendientes():
 func abrir_diario():
 	director.encolar("abrir_diario", {})
 
-func anota_en_el_diario(algo: String):
-	var renglones = algo.strip_edges().split('\n')
-	var texto = ''
-	for renglon in renglones:
-		texto += renglon.strip_edges() + '\n'
-	director.encolar("anotar", {"texto": texto + "\n"})
+func anota_en_el_diario(texto: String):
+	director.encolar("anotar", {"texto": texto})
 	
 func agregar_un_salto_de_linea_en_el_diario():
 	director.encolar("anotar", {"texto": ""})

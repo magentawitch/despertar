@@ -15,7 +15,7 @@ func _ready():
 
 func agregar_opcion(texto: String, mensaje: String):
 	var label = $grupo/opciones/ejemplo.duplicate()
-	label.text = texto
+	label.text = Translator.translate(texto)
 	label.connect(\"mouse_entered\", self, 'resaltar_label', [label])
 	label.connect(\"mouse_exited\", self, 'desresaltar_label', [label])
 	label.connect(\"gui_input\", self, '_on_option_gui_input_event', [mensaje])

@@ -2,19 +2,19 @@ ID	Escena	Path	Linea	Descripción	SPANISH	ENGLISH
 xxx	00 Diario	escenas/00_diario.tscn		No hay texto		
 your_watch_is_nice	01 Autopista	escenas/01_autopista.tscn	22	dice('Alex', )	Te queda muy lindo el reloj que te regalamos.	The watch we gave you looks really nice on you.
 tatoos_amaze_me	01 Autopista	escenas/01_autopista.tscn	28	anotar_en_el_diario(      	Me sorprende cada dia mas cuántos implantes tiene Milán en el brazo.	I'm increasingly surprised by how many implants Milán has in their arm day after day.
-car_chat_summary	01 Autopista	escenas/01_autopista.tscn	31-33	anotar_en_el_diario(      	       Tuve la charla de siempre en el auto con mis viejis: hay que aparentar en público, pero después está bien que seas tu misme.          Bla, bla, bla. Hablamos del reloj de mi abuele (mi reliquia preciada) y creo que discutieron.          Milán tiende a exagerar todo.	I had the usual talk in the car with my parents: you have to appear a certain way in public, but it's okay to be yourself afterward. Bla, bla, bla. We talked about my grandma's watch (my precious heirloom) and I think they argued. Milán tends to exaggerate everything.
+car_chat_summary	01 Autopista	escenas/01_autopista.tscn	31-33	anotar_en_el_diario(      	Tuve la charla de siempre en el auto con mis viejis: hay que aparentar en público, pero después está bien que seas tu misme.  Bla, bla, bla. Hablamos del reloj de mi abuele (mi reliquia preciada) y creo que discutieron.  Milán tiende a exagerar todo.	I had the usual talk in the car with my parents: you have to appear a certain way in public, but it's okay to be yourself afterward. Bla, bla, bla. We talked about my grandma's watch (my precious heirloom) and I think they argued. Milán tends to exaggerate everything.
 enough_of_the_recorder	01 Autopista	escenas/01_autopista.tscn	36	dice('Milan', '')	Suficiente con esa grabadora que le regalamos para sus quince	That recorder we gave them for their fifteenth birthday was enough already.
-doesnt_have_sense_of_fashion	01 Autopista	escenas/01_autopista.tscn	37	dice_a_la_grabadora('')	Nota: Milán no tiene sentido de la moda.	Note to self: Milán has no sense of fashion.
-	01 Autopista	escenas/01_autopista.tscn	39	dice('Milan', '')	Pero, ¿qué te dicen tus compañeres del reloj?	But what do your classmates say about the watch?
-	01 Autopista	escenas/01_autopista.tscn	41	elige(['no_me_importa']	No me importa.	I don't care.
-	01 Autopista	escenas/01_autopista.tscn	42	elige(['ya_se'])	Ya sé. (Se quita el reloj)	I know... (Takes off the watch)
-	01 Autopista	escenas/01_autopista.tscn	43	elige(['no_les_importa']	No les importa. (Miente)	They don't care. (Lies)
-	01 Autopista	escenas/01_autopista.tscn	47	dice('Milan', '')	No nos hagas tener problemas, Jade.	Don't get us in trouble, Jade.
-	01 Autopista	escenas/01_autopista.tscn	51	dice('Milan', '')	Sabes que esas son cosas para usar en casa.	You know those things are meant to only be on display at home.
-	01 Autopista	escenas/01_autopista.tscn	55	dice('Milan', ')	*Milán mira mal a Jade desde el espejo retrovisor.*'	*Milán glares at Jade in the rearview mirror.*
-	01 Autopista	escenas/01_autopista.tscn	60	dice('Alex', '')	Seguro que elles están muy ocupades con sus implantes.	I'm sure they're very busy with their implants.
-	01 Autopista	escenas/01_autopista.tscn	62	dice('Milan', '')	Hoy en día tienen una computadora ahí.	These days they have a computer right in there.
-	01 Autopista	escenas/01_autopista.tscn	66	dice('Alex', '')	Llegamos.	We've arrived.
+milan_doesnt_have_sense_of_fashion	01 Autopista	escenas/01_autopista.tscn	37	dice_a_la_grabadora('')	Nota: Milán no tiene sentido de la moda.	Note to self: Milán has no sense of fashion.
+what_classmates_say_about_watch	01 Autopista	escenas/01_autopista.tscn	39	dice('Milan', '')	Pero, ¿qué te dicen tus compañeres del reloj?	But what do your classmates say about the watch?
+i_dont_care	01 Autopista	escenas/01_autopista.tscn	41	elige(['no_me_importa']	No me importa.	I don't care.
+i_know	01 Autopista	escenas/01_autopista.tscn	42	elige(['ya_se'])	Ya sé. (Se quita el reloj)	I know... (Takes off the watch)
+they_dont_care	01 Autopista	escenas/01_autopista.tscn	43	elige(['no_les_importa']	No les importa. (Miente)	They don't care. (Lies)
+dont_get_us_trouble	01 Autopista	escenas/01_autopista.tscn	47	dice('Milan', '')	No nos hagas tener problemas, Jade.	Don't get us in trouble, Jade.
+this_things_meant_at_home	01 Autopista	escenas/01_autopista.tscn	51	dice('Milan', '')	Sabes que esas son cosas para usar en casa.	You know those things are meant to only be on display at home.
+__glares_at_jade__	01 Autopista	escenas/01_autopista.tscn	55	dice('Milan', ')	*Milán mira mal a Jade desde el espejo retrovisor.*'	*Milán glares at Jade in the rearview mirror.*
+sure_theyre_busy	01 Autopista	escenas/01_autopista.tscn	60	dice('Alex', '')	Seguro que elles están muy ocupades con sus implantes.	I'm sure they're very busy with their implants.
+they_have_a_computer_right_there	01 Autopista	escenas/01_autopista.tscn	62	dice('Milan', '')	Hoy en día tienen una computadora ahí.	These days they have a computer right in there.
+wevearrived	01 Autopista	escenas/01_autopista.tscn	66	dice('Alex', '')	Llegamos.	We've arrived.
 	02 Pasillo Escuela	escenas/02_pasillo_escuela.tscn	27,30	dice(  Jade  ,     )	Mm, esta puerta parece estar cerrada por ahora	Mm, this door seems to be locked for now.
 	02 Pasillo Escuela	escenas/02_pasillo_escuela.tscn	34,38	dice(  Jade  ,     )	No tengo tiempo de explorar, tengo que rendir el examen	I don't have time to explore this, I have to go to class and take the exam.
 	03 Aula	escenas/03_aula.tscn	32	dice(  Jade  ,     )	Tengo que completar este estúpido examen.	I have to complete this stupid exam.
@@ -189,12 +189,12 @@ did_not_study	Texto Ejemplo 3	tipos_de_entrada_de_diario/texto_ejemplo_tercer_pa
 	Volk Diablito	fotos/volk_diablito.tscn	105		No es une diose	They are not a god
 	Volk Diablito	fotos/volk_diablito.tscn	119		Quiere que todes seamos igual que elle	They want everyone to be just like them
 	Volk Diablito	fotos/volk_diablito.tscn	134		Alguien tiene que hacer algo	Someone has to do something
-	Herramientas	herramientas/menu_in_game.tscn	129		Nueva Partida	New game
-	Herramientas	herramientas/menu_in_game.tscn	138		Guardar	Save
-	Herramientas	herramientas/menu_in_game.tscn	147		Cargar	Load
-	Herramientas	herramientas/menu_in_game.tscn	156		Pantalla Completa	Full Screen
-	Herramientas	herramientas/menu_in_game.tscn	165		Salir	Exit
-	Herramientas	herramientas/menu_in_game.tscn	175		Continuar	Resume
-	Herramientas	herramientas/menu_in_game.tscn	215		Realmente desea salir?	Are you sure you want to exit the game?
-	Herramientas	herramientas/menu_in_game.tscn	230		Sí	Yes
-	Herramientas	herramientas/menu_in_game.tscn	239		No	No
+new_game	Herramientas	herramientas/menu_in_game.tscn	129		Nueva Partida	New game
+save	Herramientas	herramientas/menu_in_game.tscn	138		Guardar	Save
+load	Herramientas	herramientas/menu_in_game.tscn	147		Cargar	Load
+full_screen	Herramientas	herramientas/menu_in_game.tscn	156		Pantalla Completa	Full Screen
+exit	Herramientas	herramientas/menu_in_game.tscn	165		Salir	Exit
+continue	Herramientas	herramientas/menu_in_game.tscn	175		Continuar	Resume
+really_want_to_exit	Herramientas	herramientas/menu_in_game.tscn	215		Realmente desea salir?	Are you sure you want to exit the game?
+yes	Herramientas	herramientas/menu_in_game.tscn	230		Sí	Yes
+no	Herramientas	herramientas/menu_in_game.tscn	239		No	No

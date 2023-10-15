@@ -18,7 +18,6 @@ func _on_diario_cerrado_pressed() -> void:
 	$DiarioAbierto.visible = true
 	$diario_cerrado.visible = false
 	#abrir_diario()
-	Translator.translate_tree($DiarioAbierto)
 
 var cantidad_de_clicks_sobre_el_diario_abierto = 0
 
@@ -39,6 +38,8 @@ func _on_BotonInvisibleDelDiarioAbierto_pressed() -> void:
 		cambiar_escena_a(\"01_autopista\")
 
 func mostrar_y_anotar_label(label: Label):
+		anotar_texto_de_label_en_el_diario(label)
+		Translator.translate_tree(label)
 		label.get_parent().visible = true 
 		print(\"MOSTRANDO\")
 		$DiarioAbierto/TweenEntradas.interpolate_property(
@@ -46,7 +47,6 @@ func mostrar_y_anotar_label(label: Label):
 			10, Tween.TRANS_LINEAR
 		)
 		$DiarioAbierto/TweenEntradas.start()
-		anotar_texto_de_label_en_el_diario(label)
 
 func anotar_texto_de_label_en_el_diario(label: Label):
 	anota_en_el_diario(label.text)

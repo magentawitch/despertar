@@ -50,12 +50,12 @@ es_izquierda = true
 
 [node name="texto_ejemplo_primer_parrafo" parent="paginas_ejemplo/izquierda" instance=ExtResource( 8 )]
 margin_right = 477.0
-margin_bottom = 252.0
+margin_bottom = 28.0
 
 [node name="texto_ejemplo_segundo_parrafo" parent="paginas_ejemplo/izquierda" instance=ExtResource( 9 )]
-margin_top = 256.0
+margin_top = 32.0
 margin_right = 477.0
-margin_bottom = 476.0
+margin_bottom = 60.0
 
 [node name="derecha" type="VBoxContainer" parent="paginas_ejemplo"]
 margin_left = 1032.0
@@ -70,7 +70,7 @@ __meta__ = {
 
 [node name="texto_ejemplo_tercer_parrafo" parent="paginas_ejemplo/derecha" instance=ExtResource( 7 )]
 margin_right = 464.0
-margin_bottom = 380.0
+margin_bottom = 28.0
 
 [node name="botones" type="Control" parent="."]
 margin_right = 40.0
