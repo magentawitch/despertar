@@ -39,9 +39,6 @@ margin_bottom = 24.0636
 custom_fonts/font = SubResource( 1 )
 text = "r"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="vineta1" type="Label" parent="opciones/r"]
 visible = false
@@ -51,7 +48,7 @@ margin_top = -137.844
 margin_right = -110.051
 margin_bottom = -89.8444
 custom_fonts/font = SubResource( 1 )
-text = "Así seré yo en el futuro?"
+text = "a_letter_r"
 align = 1
 autowrap = true
 __meta__ = {
@@ -66,7 +63,7 @@ margin_top = -94.5397
 margin_right = 220.979
 margin_bottom = -29.5397
 custom_fonts/font = SubResource( 1 )
-text = "Quiero ser joven para siempre
+text = "stickers
 "
 align = 1
 autowrap = true
@@ -82,7 +79,7 @@ margin_top = -50.3304
 margin_right = -101.59
 margin_bottom = -1.33035
 custom_fonts/font = SubResource( 1 )
-text = "Se puede ser joven sin implantes?"
+text = "no_meaning"
 align = 1
 autowrap = true
 __meta__ = {
@@ -99,7 +96,7 @@ margin_top = -10.7093
 margin_right = 99.6696
 margin_bottom = 26.2907
 custom_fonts/font = SubResource( 1 )
-text = "Un buho!!!"
+text = "owl"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -143,7 +140,7 @@ margin_right = 217.535
 margin_bottom = -72.2915
 rect_rotation = 13.2559
 custom_fonts/font = SubResource( 1 )
-text = "No limita mi curiosidad"
+text = "what_happened_owl"
 align = 1
 autowrap = true
 __meta__ = {

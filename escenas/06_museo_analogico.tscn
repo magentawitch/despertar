@@ -29,11 +29,11 @@ script/source = "extends Escena
 
 func _ready():
 	if not tiene_la_camara():
-		dice_a_la_grabadora(\"Entrada 112: Cuando Volk subió al poder, los visitantes dejaron de venir.\")
-		dice_a_la_grabadora(\"Si bien legalmente no era un asunto prohibido, todos sabían qué opinaba el Líder sobre las épocas pasadas.\") 
-		dice_a_la_grabadora(\"Con el tiempo se transformó en el depósito de la escuela y se lo bautizó Museo Analógico como una burla.\")
-		anota_en_el_diario(\"El museo analógico es mi lugar favorito en el colegio. Bah, en el mundo. Tiene tantos objetos de antes... Puede que me quedara con una cámara de fotos vieja\")
-		anota_en_el_diario(\"Se lo que piensan, a veces no se a quien le hablo, en fin… nadie usa la cámara y seguro que Kase no la va a extrañar\")
+		dice_a_la_grabadora(\"log_112\")
+		dice_a_la_grabadora(\"no_talk_of_past\") 
+		dice_a_la_grabadora(\"analog_museum_joke\")
+		anota_en_el_diario(\"analog_museum_favorite_place\")
+		anota_en_el_diario(\"stolen_camera\")
 	if tiene_la_camara():
 		$Node2D/Kase.visible = false
 		$Cristal1.visible = false
@@ -43,80 +43,80 @@ func _ready():
 		$Fondo/carta_2.visible = false
 
 func _on_CuadroPicaso_pressed():
-	dice(\"Jade\", \"Se parece al cuadro que Alex tiene escondido en casa. Creo que el pintor era bien famoso o algo.\")
+	dice(\"Jade\", \"similar_portrait_alex\")
 	
 
 
 func _on_CuadroCamaras_pressed():
-	dice(\"Jade\", \"La evolución de las cámaras! Existían tantas tan diferentes\")
-	dice(\"Jade\", \"Es re aburrido que ahora todes saquen fotos con sus implantes. Ni hablar que nunca sabes si te están fotografiando cada vez que te miran\")
+	dice(\"Jade\", \"camera_evolution\")
+	dice(\"Jade\", \"creepy_implants\")
 
 
 func _on_CuadroPeriodico_pressed():
-	dice(\"Jade\", \"Leer las noticias desde el celular me parece ridículo cuando podríamos tener esto.\") 
-	dice(\"Jade\", \"Como en las películas antiguas, que se levantan a desayunar mientras leen las noticias.\")
+	dice(\"Jade\", \"newspaper\") 
+	dice(\"Jade\", \"breakfast_and_news\")
 
 
 func _on_CuadroCompu_pressed():
-	dice(\"Jade\", \"Un cuadro de la evolución de las computadoras\")
+	dice(\"Jade\", \"computer_evolution\")
 
 
 func _on_Cristal3_pressed():
-	dice(\"Jade\", \"Siempre me dan ganas de leer estos libros, pero son tan viejos que seguro me darían alergia\")
+	dice(\"Jade\", \"old_books_alergy\")
 
 
 func _on_Cristal2_pressed():
-	dice(\"Jade\", \"Me gusta escribir mi diario a mano, pero me encantaría también tener una de estas en casa.\")
+	dice(\"Jade\", \"typewriter\")
 
 
 func _on_Cristal1_pressed():
 	ya_vio_la_camara = true
-	dice(\"Jade\", \"Wow, eso es lo que creo que es?\")
+	dice(\"Jade\", \"is_that_what_i_think\")
 
 var ya_vio_la_camara = false
 var habloconkase = false
 
 func _on_Kase_pressed():
 	if not ya_vio_la_camara:
-		dice(\"Jade\", \"Mejor sigo explorando antes de molestarle\")
+		dice(\"Jade\", \"continue_exploring\")
 		return
 	
 	if habloconkase: 
-		dice(\"Kase\", \"Con la cámara en mano, apunta al escenario que quieras capturar y hace click\")
+		dice(\"Kase\", \"camera_instructions\")
 		return
 		
 	elige([
-		['Quién sos?', 'quien_sos'],
-		['Perdón, no quería molestar.', 'no_molestar'],
+		['choice_who_you', 'quien_sos'],
+		['choice_sorry_disturb', 'no_molestar'],
 	])
 	habloconkase =true
 	
 var respuesta_kase = \"\"
 
 func quien_sos():
-	dice(\"Jade\", \"Quién sos? Nunca te vi por acá.\")
-	dice(\"Kase\", \"Soy Kase. Le cuidadore del museo. te veo bastante interesade en este polvoriento y viejo lugar.\")
-	dice(\"Jade\", \"Siempre vengo por acá cuando quiero estar sole\")
-	dice(\"Kase\", \"Veo que te atrae la cámara. Sabes para que sirve?\")
-	dice(\"Jade\", \"Sí, desde que lo estudiamos en las clases de Historia Arcaica quise una para registrar todo lo que veo\")
-	dice(\"Kase\", \"Hace varios años atrás había une joven obsesionade con dejar documentada la historia para el futuro, pasaba largos ratos escribiendo y fotografiando todo lo que...\")
-	dice(\"Jade\", \"Es su cámara? Puedo verla?\")
+	dice(\"Jade\", \"who_are_you\")
+	dice(\"Kase\", \"im_kase\")
+	dice(\"Jade\", \"wanting_solitude\")
+	dice(\"Kase\", \"you_like_camera\")
+	dice(\"Jade\", \"i_like_camera\")
+	dice(\"Kase\", \"remembers_young_journalist\")
+	dice(\"Jade\", \"can_see_camera\")
 	yield(self, \"termino_dialogo\")
 	yield(_1(), \"completed\")
-	respuesta_kase =  \"Puedes usarla, solo recuerda volver a guardarla cuando termines.\"
-	anota_en_el_diario(\"Me contó una historia fascinante, lo mejor de todo es que la antigua dueña de esta cámara, es como un modelo de vida al que me encantaría seguir, evidentemente era mi destino\")
+	respuesta_kase =  \"yes_but_put_it_back_after\"
+	anota_en_el_diario(\"incredible_story_role_model\")
 
 
 func no_molestar():
-	dice(\"Jade\", \"Perdón, no quería molestar. Este lugar siempre está vacío.\")
-	dice(\"Kase\", \"Soy Kase. Le cuidadore del museo. Te suelo ver seguido por acá, pero siempre estás concentrade viendo la exposición como para notar que hay alguien más\")
+	dice(\"Jade\", \"sorry_to_disturb\")
+	dice(\"Kase\", \"im_kase_observer\")
 	dice(\"Jade\", \"...\")
-	dice(\"Kase\", \"Te veo interesade en la cámara. Quieres probarla?\")
-	dice(\"Jade\", \"SI! Muero por probar una desde que las estudiamos en Historia Arcaica\")
+	dice(\"Kase\", \"want_try_camera\")
+	dice(\"Jade\", \"yes_since_history\")
 	yield(self, \"termino_dialogo\")
 	yield(_1(), \"completed\")
-	respuesta_kase = \"*Se ríe* Solo recuerda volver a guardarla cuando termines.\"
-	anota_en_el_diario(\"Kase me dejó sostener la cámara, para mi estaba incitando a que me la llevara. También contó una historia muy interesante de la cámara y su dueña, un auténtico misterio\")
+	respuesta_kase = \"laughs_reminds_camera\"
+	anota_en_el_diario(\"kase_wanted_me_to_take_it\")
 
 
 func _1():
@@ -126,12 +126,12 @@ func _1():
 	$Fondo/Camara.visible = false 
 	$Animador.play(\"KaseVuelve\")
 	yield($Animador, \"animation_finished\")
-	dice(\"Jade\", \"Quiero probar sacar una foto. No te muevas\")
+	dice(\"Jade\", \"try_pic_kase\")
 
 
 func _on_FotoEscritorioKase_pressed():
 	if ya_saco_foto(\"escritorio_kase\"):
-		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+		dice(\"Jade\", \"no_double_pic_3\")
 	else:
 		agrega_foto_al_diario(\"escritorio_kase\")
 		dice(\"Kase\", respuesta_kase)
@@ -142,11 +142,11 @@ func _on_FotoEscritorioKase_pressed():
 
 func _on_Puerta_pressed():
 	if not tiene_la_camara():
-		dice(\"Jade\", \"Deberia continuar explorando, creo que hay objetos que nunca vi por acá\")
+		dice(\"Jade\", \"continue_exploring_again\")
 		return
 	if tiene_la_camara():
 		if no_saco_foto(\"escritorio_kase\"):
-			dice(\"Jade\", \"Quiero probar sacar una foto\")
+			dice(\"Jade\", \"try_pic_something\")
 		else:
 			cambiar_escena_a(\"04_pasillo_escuela2\")
 
@@ -160,7 +160,7 @@ func _on_carta_2_pressed():
 
 func _on_PuertaOxidada_pressed():
 	if ya_saco_foto(\"puerta_oxidada\"):
-		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+		dice(\"Jade\", \"no_double_pic_4\")
 	else:
 		agrega_foto_al_diario(\"puerta_oxidada\")
 "

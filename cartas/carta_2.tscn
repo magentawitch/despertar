@@ -47,10 +47,7 @@ margin_top = -339.201
 margin_right = 374.225
 margin_bottom = -311.201
 custom_fonts/font = SubResource( 2 )
-text = "3‌ ‌de‌ abril"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "date_two"
 
 [node name="Label2" type="Label" parent="VersionAbierta"]
 modulate = Color( 0, 0, 0, 1 )
@@ -71,18 +68,7 @@ margin_top = -301.378
 margin_right = 398.378
 margin_bottom = 388.622
 custom_fonts/normal_font = SubResource( 2 )
-text = "Amade míe,
-
-Los colores del otoño me transportan a nuestra primera cita, un simple picnic donde compartimos nuestra primera comida juntes, rodeades de la naturaleza.
-
-'Por ti, el sol siempre brillará. Esto es lo que siento cuando estoy contigo. Se que es lo correcto'
-
-Cómo podría superar esas palabras, es imposible. Y quedarán grabadas en mi memoria para siempre. Después de cada escaramuza contra el nuevo régimen, pienso en ti, en esas palabras, donde nuestro amor  y esta guerra estuvieron destinados a chocar, solo me resta decir:
-
-Te amo, te amo, te amo, como nunca antes…
-
-No dejemos que Volk y su ejército robótico nos detengan. ¡Viva la revolución! 
-"
+text = "letter_two"
 __meta__ = {
 "_edit_use_anchors_": false
 }

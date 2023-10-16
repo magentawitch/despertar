@@ -45,10 +45,7 @@ margin_top = -430.983
 margin_right = 312.915
 margin_bottom = -405.983
 custom_fonts/font = SubResource( 2 )
-text = "3‌ ‌de‌ ‌septiembre‌"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "date_one"
 
 [node name="Label2" type="Label" parent="VersionAbierta"]
 modulate = Color( 0, 0, 0, 1 )
@@ -69,25 +66,7 @@ margin_top = -409.189
 margin_right = 341.35
 margin_bottom = 452.811
 custom_fonts/normal_font = SubResource( 2 )
-text = "Amade míe,
-
-La brisa y su aroma de estación solían recordarme a nuestro primer baile bajo la estrellada noche de primavera. Recuerdo le nerviose que estaba, hasta que escuché tu cautivadora voz…
-
-'Ven, toma mi mano, yo tomaré el liderazgo, y en cada giro estarás a salvo junto a mi', me dijiste.
-
-Nunca había bailado y, como cualquier adolscente, tenía miedo de caerme o tropezar…
-
-'No tengas miedo de caer, sabes que siempre estaré para atraparte', susurraste en mi oído.
-
-Me tomaste de la cintura, rodeaste mi cuello con tus suaves manos, y nos fundimos en una mirada profunda que nunca olvidaré. Y bailamos. Nosotres, las estrellas y la cálida brisa de una noche de primavera.
-
-En estas noches de batalla, cuando miro al cielo estrellado, no logro concebir que sea el mismo que presenció nuestro primer encuentro. La brisa cálida -ahora por el constante bombardeo- no puede reconfortarme. 
-
-Anhelo un futuro en el que podamos bailar nuevamente, tocarnos nuevamente, lejos de las preocupaciones y la incertidumbre de esta guerra. 
-
-Volk y su ejército robótico no podrán detenernos.
-
-¡Viva la revolución! "
+text = "letter_one"
 __meta__ = {
 "_edit_use_anchors_": false
 }

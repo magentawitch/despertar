@@ -25,37 +25,37 @@ func _ready():
 		$carta_3.visible = false
 		
 	if no_ocurrio_que(\"volvio_al_aula\") and tiene_la_camara():
-		dice(\"Jade\", \"Ya que estoy acá, voy a ver si está el resultado del examen. No que me importe... pero seguro Milán me lo va a preguntar más tarde.\")
+		dice(\"Jade\", \"exam_result\")
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"JadeHaciaProfesore\")
 		yield($Animador, \"animation_finished\")
 	
 		match resultado_con_el_que_aprobo():
 			\"excelente\":
-				dice(\"Profesore\", \"Las respuestas del examen fueron excelentes. Estoy sorprendide. Abriremos una investigación para asegurarnos de que no hicieras trampa.\")
-				anota_en_el_diario(\"TRAMPA, lo que me faltaba. Igual no hay mejor venganza que mi excelente nota. En tu robotica cara robotito\")
+				dice(\"Profesore\", \"excelent_exam\")
+				anota_en_el_diario(\"cheating_exam\")
 			\"nota_buena\":
-				dice(\"Profesore\", \"Aprobaste, pero hay espacio para mejoras. Deberías ser más como tus compañeres si deseas finalizar tus estudios con una buena recomendación\")
-				anota_en_el_diario(\"No necesito ser como mis compañeres con sus estúpidos implantes. Además, fue tremenda nota, en sus caras!\")
+				dice(\"Profesore\", \"approved_exam\")
+				anota_en_el_diario(\"be_like_classmates\")
 			\"nota_minima\":
-				dice(\"Profesore\", \"Aprobaste con la nota mínima. Deberías ser más como tus compañeres si deseas finalizar tus estudios con una buena recomendación\")
-				anota_en_el_diario(\"Lo que importa es que aprobé  y no va a haber sermón en casa. Y nadie necesita ser como les ridícules con implantes, tengo mi intelecto natural\")
+				dice(\"Profesore\", \"minimum_exam\")
+				anota_en_el_diario(\"im_happy_with_exam\")
 			\"reprobado\":
-				dice(\"Profesore\", \"No hay palabras para describir la aversión que me resultó leer este examen. De todos modos, no me sorprende este resultado viniendo de ti.\")
-				anota_en_el_diario(\"Bla, bla, bla... A mi me genera aversión tu cara y no digo nada. Lo peor es que en casa se va a venir otra charla de mil horas. Estúpido examen\")
+				dice(\"Profesore\", \"failed_exam\")
+				anota_en_el_diario(\"suck_it_exam\")
 		yield(self, \"termino_dialogo\")
 		$Animador.play(\"ProfesoreSeVa\")
 		yield($Animador, \"animation_finished\")
 		$Profesore.visible = false
-		dice(\"Jade\", \"A qué puedo sacarle foto?\")
-		anota_en_el_diario(\"Me puse a pensar un poco en la vida, en mi futuro, y en el estúpido Despertar. No entiendo el revuelo por el primer implante. Odio esto! La adolescencia es la peor etapa de la vida, ya quiero ser une adulte\")
+		dice(\"Jade\", \"what_to_take_pic_of\")
+		anota_en_el_diario(\"remembering_awakening\")
 	if ya_ocurrio_que(\"volvio_al_aula\"):
 		$Profesore.visible = false
 
 
 func _on_FotoMesaProfesore_pressed():
 	if ya_saco_foto(\"mesa_profesore\"):
-		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+		dice(\"Jade\", \"no_double_pic_2\")
 	else:
 		agrega_foto_al_diario(\"mesa_profesore\")
 

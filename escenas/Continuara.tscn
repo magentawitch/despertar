@@ -9,15 +9,7 @@ script/source = "extends Escena
 
 func _ready() -> void:
 	anota_en_el_diario(\"\"\"
-	{{ --- }}
-	
-	Y fue así como terminó la historia?
-	Quién es ese extrañe misteriose???
-	Qué le pasa a Andra?
-	Y cómo prosigue la historia de esos años inocentes redactados en las cartas de un tal -K?
-	Y la revolución...
-	
-	{{ --- }}
+	to_be_continued
 	\"\"\")
 	abrir_diario()
 
@@ -50,15 +42,11 @@ texture = SubResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
-margin_left = 461.912
-margin_top = 397.136
-margin_right = 1518.91
-margin_bottom = 785.136
+margin_top = 337.0
+margin_right = 2826.0
+margin_bottom = 725.0
 custom_fonts/font = SubResource( 4 )
-text = "Continuará..."
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "text_screen_to_be_continued"
 
 [node name="Bark" type="TextureButton" parent="."]
 margin_left = 1233.0

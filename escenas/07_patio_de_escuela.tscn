@@ -42,7 +42,7 @@ func saco_todas_las_fotos() -> bool:
 
 func _on_FotoNines_pressed():
 	if ya_saco_foto(\"nines_jugando\"):
-		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+		dice(\"Jade\", \"no_double_pic_5\")
 		return
 	else:
 		agrega_foto_al_diario(\"nines_jugando\")
@@ -50,7 +50,7 @@ func _on_FotoNines_pressed():
 
 func _on_FotoAdolescentes_pressed():
 	if ya_saco_foto(\"adolescentes\"):
-		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+		dice(\"Jade\", \"no_double_pic_6\")
 		return
 	else:
 		agrega_foto_al_diario(\"adolescentes\")
@@ -65,18 +65,18 @@ func _on_Carta_4_pressed():
 
 
 func _on_Andra_pressed():
-	dice(\"Andra\", \"Qué es esa antigüedad? Puedo verla?\")
-	dice(\"Jade\", \"No sé de qué hablas\")
-	dice(\"Andra\", \"Te piensas que soy estúpide?\")
+	dice(\"Andra\", \"whats_that_antique\")
+	dice(\"Jade\", \"dont_know_what_you_talking\")
+	dice(\"Andra\", \"think_im_stupid\")
 	dice(\"Jade\", \"...\")
-	dice(\"Andra\", \"Podría venderla por parte. Seguro no paguen demasiado por esta chatarra, pero verte miserable sería pago suficiente para mí\")
+	dice(\"Andra\", \"sell_for_parts\")
 	yield(self, \"termino_dialogo\")
 	$Animador.play(\"Silencio\")
 	yield($Animador, \"animation_finished\")
 	$SFXExplosion.play()
 	$Animador.play(\"Explosion\")
-	dice(\"Jade\", \"Qué fue ese ruido?\")
-	dice(\"Misteriose\", \"Viva la revolución!\")
+	dice(\"Jade\", \"what_is_noise\")
+	dice(\"Misteriose\", \"long_live_revolution\")
 	cambiar_escena_a(\"Continuara\")
 	
 

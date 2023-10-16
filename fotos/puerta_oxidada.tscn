@@ -29,7 +29,7 @@ margin_top = -18.1913
 margin_right = 34.9439
 margin_bottom = 12.8087
 custom_fonts/font = SubResource( 1 )
-text = "Olvidada"
+text = "forgotten"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,8 +41,7 @@ margin_top = -166.172
 margin_right = -85.5059
 margin_bottom = -93.1722
 custom_fonts/font = SubResource( 1 )
-text = "Sin tecnología absorbente de VOLK s.a.
-"
+text = "no_volk_tech"
 align = 1
 autowrap = true
 __meta__ = {
@@ -56,7 +55,7 @@ margin_top = -157.169
 margin_right = 183.281
 margin_bottom = -41.1684
 custom_fonts/font = SubResource( 1 )
-text = "Este lugar quedó realmente descuidado
+text = "neglected_place
 
 "
 align = 1
@@ -72,7 +71,7 @@ margin_top = -42.4871
 margin_right = -80.5889
 margin_bottom = 11.5129
 custom_fonts/font = SubResource( 1 )
-text = "Lleno de tierra
+text = "filled_with_dust
 
 "
 align = 1
@@ -88,7 +87,7 @@ margin_top = -40.2324
 margin_right = 184.47
 margin_bottom = -9.23236
 custom_fonts/font = SubResource( 1 )
-text = "Relegado"
+text = "relegated"
 align = 1
 autowrap = true
 __meta__ = {
@@ -105,7 +104,7 @@ margin_top = -18.9107
 margin_right = 45.6403
 margin_bottom = 17.0893
 custom_fonts/font = SubResource( 1 )
-text = "Sin reparo"
+text = "unattended"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,7 +116,7 @@ margin_top = -142.222
 margin_right = -93.0088
 margin_bottom = -94.2221
 custom_fonts/font = SubResource( 1 )
-text = "Hace un ruido impactante"
+text = "makes_noise"
 align = 1
 autowrap = true
 __meta__ = {
@@ -131,7 +130,7 @@ margin_top = -57.5104
 margin_right = -82.7943
 margin_bottom = -13.5109
 custom_fonts/font = SubResource( 1 )
-text = "Nadie nunca entra aqui"
+text = "no_one_comes_here"
 align = 1
 autowrap = true
 __meta__ = {
@@ -145,7 +144,7 @@ margin_top = -62.5051
 margin_right = 200.056
 margin_bottom = -12.5051
 custom_fonts/font = SubResource( 1 )
-text = "Aqui nadie me molesta"
+text = "no_one_bothers_me_here"
 align = 1
 autowrap = true
 __meta__ = {
@@ -159,7 +158,7 @@ margin_top = -140.248
 margin_right = 206.31
 margin_bottom = -92.2482
 custom_fonts/font = SubResource( 1 )
-text = "Podria quedar atrapade"
+text = "trapped"
 align = 1
 autowrap = true
 __meta__ = {

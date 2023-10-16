@@ -45,10 +45,7 @@ margin_top = -463.118
 margin_right = 329.893
 margin_bottom = -438.118
 custom_fonts/font = SubResource( 2 )
-text = "3‌ ‌de‌ julio"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "date_four"
 
 [node name="Label2" type="Label" parent="VersionAbierta"]
 modulate = Color( 0, 0, 0, 1 )
@@ -69,24 +66,7 @@ margin_top = -432.986
 margin_right = 352.481
 margin_bottom = 484.014
 custom_fonts/normal_font = SubResource( 2 )
-text = "Amade míe,
-
-El cruel invierno puede ser solitario y oscuro, pero el pasado generalmente es mi mejor aliade en esta época. Siendo completamente sincere, son tus recuerdos y palabras las que me ayudaron a librar tantas batallas, y hacerle frente a un enemigue tan poderose en esta guerra infernal.
-
-Por eso, solo puedo darte las gracias por haberme amado, respetado y cuidado. Espero haber logrado lo mismo para ti. Y me es inevitable pensar en nuestra primera vez, cuando éramos jóvenes, intrépides y un poco irresponsables.
-
-Aquel invierno, en aquella cabaña, junto al cálido abrigo del fuego, fui la persona más feliz del mundo.
-
-'Dejame amarte, hasta que aprendas a amarte a ti misme. No tengas miedo, te amaré. Me encantaría mostrarte lo que el amor verdadero puede hacer', me dijiste.
-
-Acto seguido, nuestro cuerpos se fundieron en una noche de amor, pasión y sensualidad. Mentiría si dijera que no puedo seguir sin ti. Al principio parecía imposible. Pero si algo aprendí de nuestra unión, de nuestro amor, es que la lucha y la búsqueda de la verdad nunca terminan. 
-
-Hoy en día me encuentro junte a otros humanes, volviendo a organizarnos para luchar, para volver a levantar las armas, por una sociedad más justa, inclusiva y por un futuro mejor para todes.
-
-Volk y su ejército robótico no saben lo que les espera. 
-
-¡Viva la revolución! 
-"
+text = "letter_four"
 __meta__ = {
 "_edit_use_anchors_": false
 }

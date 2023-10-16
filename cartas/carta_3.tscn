@@ -47,10 +47,7 @@ margin_top = -376.448
 margin_right = 300.062
 margin_bottom = -362.448
 custom_fonts/font = SubResource( 2 )
-text = "3‌ ‌de‌ enero"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "date_three"
 
 [node name="Label2" type="Label" parent="VersionAbierta"]
 modulate = Color( 0, 0, 0, 1 )
@@ -71,24 +68,7 @@ margin_top = -337.656
 margin_right = 357.665
 margin_bottom = 407.344
 custom_fonts/normal_font = SubResource( 2 )
-text = "Amade míe,
-
-No hago más que vivir de recuerdos.  El aplastante calor del verano me transporta a aquella vez donde cambiaste mi vida para siempre.
-
-Nos encontramos en una heladería y con todos tus dotes actorales, me mostraste un pequeño anillo. Me dejaste sin palabras, cómo era de costumbre.
-
-'Mis lágrimas de amor son una pérdida de tiempo sino te tengo a ti. No quiero a nadie mas amor mie'
-
-Una pequeña y pícara risa se te escapó, te sentías algo cursi. Para mi fue el momento más lindo de mi vida. Vi como te sonrojaste y solo puede decir:
-
-“Sí, acepto”. Siempre fuiste mejor con las palabras.
-
-Cada vez perdemos más territorios, escondites, bases, mientras el régimen transhumanista gana autoridad y credibilidad. Solo espero que el poder de tus palabras nos de una ventaja para el futuro.
-
-Espero que podamos detener a Volk y su ejército robótico.
-
-¡Viva la revolución! 
-"
+text = "letter_three"
 __meta__ = {
 "_edit_use_anchors_": false
 }
