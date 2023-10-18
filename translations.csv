@@ -1,0 +1,336 @@
+ID,Escena,Path,Linea,Descripción,SPANISH,ENGLISH
+xxx,00 Diario,escenas/00_diario.tscn,,No hay texto,,
+your_watch_is_nice,01 Autopista,escenas/01_autopista.tscn,22,"dice('Alex', )",Te queda muy lindo el reloj que te regalamos.,The watch we gave you looks really nice on you.
+tatoos_amaze_me,01 Autopista,escenas/01_autopista.tscn,28,anotar_en_el_diario(      ,Me sorprende cada dia mas cuántos implantes tiene Milán en el brazo.,I'm increasingly surprised by how many implants Milán has in their arm day after day.
+car_chat_summary,01 Autopista,escenas/01_autopista.tscn,31-33,anotar_en_el_diario(      ,"Tuve la charla de siempre en el auto con mis viejis: hay que aparentar en público, pero después está bien que seas tu misme. 
+Bla, bla, bla. Hablamos del reloj de mi abuele (mi reliquia preciada) y creo que discutieron. 
+Milán tiende a exagerar todo.","I had the usual talk in the car with my parents: you have to appear a certain way in public, but it's okay to be yourself afterward.
+Bla, bla, bla. We talked about my grandma's watch (my precious heirloom) and I think they argued.
+Milán tends to exaggerate everything."
+enough_of_the_recorder,01 Autopista,escenas/01_autopista.tscn,36,"dice('Milan', '')",Suficiente con esa grabadora que le regalamos para sus quince,That recorder we gave them for their fifteenth birthday was enough already.
+milan_doesnt_have_sense_of_fashion,01 Autopista,escenas/01_autopista.tscn,37,dice_a_la_grabadora(''),Nota: Milán no tiene sentido de la moda.,Note to self: Milán has no sense of fashion.
+what_classmates_say_about_watch,01 Autopista,escenas/01_autopista.tscn,39,"dice('Milan', '')","Pero, ¿qué te dicen tus compañeres del reloj?",But what do your classmates say about the watch?
+i_dont_care,01 Autopista,escenas/01_autopista.tscn,41,elige(['no_me_importa'],No me importa.,I don't care.
+i_know,01 Autopista,escenas/01_autopista.tscn,42,elige(['ya_se']),Ya sé. (Se quita el reloj),I know... (Takes off the watch)
+they_dont_care,01 Autopista,escenas/01_autopista.tscn,43,elige(['no_les_importa'],No les importa. (Miente),They don't care. (Lies)
+dont_get_us_trouble,01 Autopista,escenas/01_autopista.tscn,47,"dice('Milan', '')","No nos hagas tener problemas, Jade.","Don't get us in trouble, Jade."
+this_things_meant_at_home,01 Autopista,escenas/01_autopista.tscn,51,"dice('Milan', '')",Sabes que esas son cosas para usar en casa.,You know those things are meant to only be on display at home.
+__glares_at_jade__,01 Autopista,escenas/01_autopista.tscn,55,"dice('Milan', ')",*Milán mira mal a Jade desde el espejo retrovisor.*',*Milán glares at Jade in the rearview mirror.*
+sure_theyre_busy,01 Autopista,escenas/01_autopista.tscn,60,"dice('Alex', '')",Seguro que elles están muy ocupades con sus implantes.,I'm sure they're very busy with their implants.
+they_have_a_computer_right_there,01 Autopista,escenas/01_autopista.tscn,62,"dice('Milan', '')",Hoy en día tienen una computadora ahí.,These days they have a computer right in there.
+wevearrived,01 Autopista,escenas/01_autopista.tscn,66,"dice('Alex', '')",Llegamos.,We've arrived.
+closed_door,02 Pasillo Escuela,escenas/02_pasillo_escuela.tscn,"27,30","dice(  Jade  ,     )","Mm, esta puerta parece estar cerrada por ahora","Mm, this door seems to be locked for now."
+no_time_to_explore,02 Pasillo Escuela,escenas/02_pasillo_escuela.tscn,"34,38","dice(  Jade  ,     )","No tengo tiempo de explorar, tengo que rendir el examen","I don't have time to explore this, I have to go to class and take the exam."
+complete_exam,03 Aula,escenas/03_aula.tscn,32,"dice(  Jade  ,     )",Tengo que completar este estúpido examen.,I have to complete this stupid exam.
+profesor_complete_exam,03 Aula,escenas/03_aula.tscn,34," Profesore  ,     )","Dónde crees que vas, Jade? Completa tu examen como el resto de la clase.","Where do you think you're going, Jade? Finish your exam like the rest of the class."
+arrived_early,03 Aula,escenas/03_aula.tscn,39,anota_en_el_diario(    ),"Para sorpresa mía, llegué unos minutos antes, pero en nada tenía que rendir el examen y la verdad tenía cero ganas de sentarme a escribir y usar mi cerebro","To my surprise, I arrived a few minutes early to schooll, but I had to do the exam, and honestly, I had zero desire to sit down and write and use my brain"
+disgusting_exam,03 Aula,escenas/03_aula.tscn,40,anota_en_el_diario(    ),"Ugh, que asco de examen. Realmente son unes chupamedias de este estúpido gobierno y su adoración por la tecnología...","Ugh, I hate this exam. They're really just bootlickers of this stupid government and their obsession with technology..."
+broken_clock,03 Aula,escenas/03_aula.tscn,47,"dice(  Jade  ,     )","El reloj no funciona desde que estudio acá. Para ser una sociedad que está tan atada a la tecnología, a veces dejan mucho que desear","The clock hasn't been working since I started studying here. t's ironic how, in a society so reliant on technology, there are still significant shortcomings."
+implant_equals_no_clock,03 Aula,escenas/03_aula.tscn,49,"dice(  Jade  ,     )","Claro que si todes tienen un implante que les indica siempre la hora, no necesitan este viejo reloj de pared...","Although thinking about it, when everyone has an implant telling them the time constantly, this old wall clock becomes obsolete..."
+reminder_of_implants,03 Aula,escenas/03_aula.tscn,50,"dice(  Jade  ,     )",Se siente como un recordatorio para les que no tenemos implantes. Quieren que seamos conscientes de que esta sociedad no está pensada para nosotres,It feels like a reminder for those of us without implants. They want us to be aware that this society isn't designed for us.
+exam_handout,03 Aula,escenas/03_aula.tscn,54,"dice(  Profesore  ,     )",El examen ya fue repartido. Llegaste con el tiempo justo.,The exam has already been handed out. You barely made it on time.
+remember_times,03 Aula,escenas/03_aula.tscn,55,"dice(  Profesore  ,     )","Recuerda, llegar temprano es estar a tiempo. Llegar a tiempo es llegar tarde, y llegar tarde es inaceptable.","Remember, being early is being on time. Being on time is being late, and being late is unacceptable."
+finished,03 Examen,escenas/03_examen.tscn,80,"dice(  Jade  ,     )",Terminé,I'm done.
+hope_its_ok,03 Examen,escenas/03_examen.tscn,81,"dice(  Jade  ,     )",Espero que todo esté bien,I hope everything is right.
+believe_it_went_well,03 Examen,escenas/03_examen.tscn,90,anota_en_el_diario(    ),Creo que me fue excelente en el examen! En tu cara robotito,"I think I did excellent on the exam! In your face, robocop."
+believe_it_went_pretty_well,03 Examen,escenas/03_examen.tscn,93,anota_en_el_diario(    ),Creo que me fue bastante bien. Y eso que me dieron ganas de quemar el examen en la pregunta dos,"I think I did pretty well, considering I felt like burning the exam on question number two."
+numbers_arent_important,03 Examen,escenas/03_examen.tscn,96,anota_en_el_diario(    ),"Aprender es lo que importa, no con qué nota. Espero haberme sacado la nota mínima al menos, aunque ese examen realmente es un chiste","Learning is what matters, not the grade. I hope I just passed, although that exam is really a joke."
+dumb_exam,03 Examen,escenas/03_examen.tscn,99,anota_en_el_diario(    ),"Siempre es lo mismo con ese estúpido examen. No debo haber acertado nada, porque siempre hay que poner exactamente lo que dicen los libros",It's always the same with that stupid exam. I must have gotten everything wrong because you always have to put exactly what the books say.
+history_exam,03 Examen,escenas/03_examen.tscn,363,,Examen de Historia,History Exam
+according_to_the_classes,03 Examen,escenas/03_examen.tscn,376,,"Según lo visto en clase y les autores trabajados, responda las siguientes preguntas.","Based on the material and authos covered in class, answer the following questions."
+answer_exam_a,03 Examen,escenas/03_examen.tscn,397,,A) Describa la sociedad transhumanista en la que vivimos.,A) Describe the transhumanist society we live in.
+question_a_option_1,03 Examen,escenas/03_examen.tscn,425,,"1- Es una sociedad basada en el progreso tecnológico y un gobierno transhumanista democrático, que genera dinero, fama, trabajo e igualdades de condiciones para todes les ciudadanes. Se apunta al crecimiento humane-tecnológico para desafiar la mortalidad de la naturaleza humana.","1- It's a society driven by technological advancement and governed democratically under transhumanist principles. This society generates wealth, fame, employment, and equal opportunities for all its citizens. Its goal is to foster the symbiosis of humanity and technology, pushing the boundaries of human mortality."
+question_a_option_2,03 Examen,escenas/03_examen.tscn,441,,2- Es una sociedad que busca mejorar al ser humane.,2- It's a society that seeks to improve the human being.
+question_a_option_3,03 Examen,escenas/03_examen.tscn,457,,"3- Es una sociedad que, gracias al avance tecnológico, mejora la condición humana y busca expandirse más allá de sus limitaciones físicas y mentales.","3- It's a society where technological progress enhances the human condition, pushing the boundaries of physical and mental limitations. "
+answer_exam_b,03 Examen,escenas/03_examen.tscn,478,,B) ¿Cuáles son las grandes metas de la sociedad transhumanista?,B) What are the primary objectives of this transhumanist society?
+question_b_option_1,03 Examen,escenas/03_examen.tscn,505,,"1- Eterna juventud, androginia y biotecnología.","1- Eternal youth, androgyny, and biotechnology."
+question_b_option_2,03 Examen,escenas/03_examen.tscn,518,,"2- Criogenia, modificaciones corporales, super-inteligencia y eliminación del género.","2- Cryonics, body enhancements, achieving superintelligence, and the eradication of gender."
+question_b_option_3,03 Examen,escenas/03_examen.tscn,531,,3- Post-Humanidad y reproducción asistida.,3- Post-humanity and assisted reproduction.
+answer_exam_c,03 Examen,escenas/03_examen.tscn,566,,C) ¿Qué cambios generó el nuevo gobierno a través del progreso tecnológico en la sociedad humana?,C) What transformations did the new government introduce through technological advancement in human society?
+question_c_option_1,03 Examen,escenas/03_examen.tscn,594,,"1- Ayudó a les humanes a mejorar su vida a través de la tecnología. Su nivel de vida se vio afectado de forma positiva, erradicando así la pobreza.","1- It helped humans improve their lives through technology. Their standard of living was positively impacted, thus eradicating poverty."
+question_c_option_2,03 Examen,escenas/03_examen.tscn,610,,"2- El nuevo gobierno mejoró la calidad de vida humana. Ayudó a combatir las desigualdades existentes en la sociedad antigua, que eran generadas por el rechazo del humane al avance tecnológico.","2- The new government elevated the quality of human life, addressing the pre-existing inequalities in the old society that stemmed from human resistance to technological progress"
+question_c_option_3,03 Examen,escenas/03_examen.tscn,626,,"3- Gracias al nuevo gobierno vivimos en una sociedad donde todes tenemos las mismas oportunidades de trabajo, sin desigualdades sociales y despojados de las limitaciones físicas y mentales que les humanes tenían que soportar en la antigua sociedad.","3- Thanks to the new government, we now live a society where every individual enjoys equal employment opportunities, devoid of social disparities and liberated from the physical and mental constraints that burdened humans in the past."
+empty_corridors,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,29-33,"anotar_en_el_diario(      
+      )",Los pasillos de esta escuela siempre están vacíos. Pero lo que nunca faltan son esas figuras perturbadoras del estúpido de Volk. Todos lo alaban y a su super-sociedad de mierda.,The hallways of this school are always empty. But what's never lacking are those disturbing figures of Volk -- What an idiot. Everyone praises him and his damn super-society.
+try_camera_classroom,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,37,"dice(  Jade  ,     )",Quiero probar la cámara en el aula,I want to try the camera in the classroom.
+wish_no_professor,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,41,"dice(  Jade  ,     )",Ojalá no vuelva a cruzarme a le profe. Nada nunca es suficiente para elle.,I hope I don't run into the teacher again. Nothing is ever enough for them.
+finished_exam_explore,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,45,"dice(  Jade  ,     )",Ya terminé el examen. Quiero explorar el pasillo antes de volver,I've finished the exam. I want to explore the hallway before going back.
+dont_want_patio,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,50,"dice(  Jade  ,     )",Todavía no quiero ir al patio,I don't want to go to the schoolyard yet.
+volk_bust,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,59,"dice(  Jade  ,     )",Creo que vi algo al lado del busto de Volk. Quizás debería revisarlo antes de ir al museo,I think I saw something next to Volk's bust. Maybe I should check it out before going to the museum.
+can_take_pic,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,65,"dice(  Jade  ,     )",Puedo sacarle una foto?,Can I take a photo of this?
+log_42,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,70,dice_a_la_grabadora(            ),"Bitácora número 42: En el pasillo tenemos un cuadro de Volk, principal exponente del movimiento transhumanista.","Log Entry Number 42: In the hallway, we can observe a painting of Volk, the main proponent of the transhumanist movement."
+transhumanist_movement,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,71,dice_a_la_grabadora(            ),"Cuando el movimiento transhumanista recién estaba iniciando, Volk procramabla que con los implantes","When the transhumanist movement was just starting, Volk proclaimed that with implants,"
+better_selves,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,72,dice_a_la_grabadora(             ),todos podríamos alcanzar la mejor versión de nosotres mismes., we could all achieve the best versions of ourselves.
+no_difference,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,74,dice_a_la_grabadora(              ),"Volk aseguraba que cuando ascendiera al poder, no habría diferencias entre nosotres, todes seríamos iguales:","Volk promised that once he seized power, there woudn't be differences among us; "
+horizontal_society,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,75,dice_a_la_grabadora(              ),"no habría personas ricas, pobres, ni en cargos de poder. Una sociedad horizontal, clamaba.","there would be no rich, no poor, and no individuals in positions of authority. He advocated for a society of complete equality, a vision he passionately championed."
+promised_land,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,81-85,"anotar_en_el_diario(       
+      )","Lo peor de todo es que su campaña fue para llevarnos a la tierra prometida. La verdad que si es esto, devolveme a la época anterior.","The worst part is, his campaign was to lead us to the promised land. Frankly, if this is it, take me back to the old times."
+log_316,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,86,dice_a_la_grabadora(            ),"Bitácora número 316: Un mes después de que Volk ascendiera al poder,","Log Entry Number 316: A month after Volk rose to power,"
+volk_asked_portrait,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,88,"dice_a_la_grabadora(        
+               )","exigió que todos los ámbitos educativos, religiosos y comerciales exhibieran al menos un cuadro o escultura suya.","he demanded that all educational, religious, and commercial institutions display at least one painting or sculpture of himself."
+closed_schools,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,91,dice_a_la_grabadora(              ),Varias instituciones fueron clausuradas por no hacerlo.,Several institutions were shut down for not complying.
+cosmic_triangle,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,97,"dice(  Jade  ,     )",La pertubación triangular cósmica desapareció,The cosmic triangular disturbance disappeared.
+luck_camera,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,98,"dice(  Jade  ,     )",Que suerte que me llevé la cámara,Luckyly I brought the camera.
+whats_that,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,100,"dice(  Jade  ,     )",Qué es eso en la esquina?,What's that in the corner?
+nice_love_letter,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,108,"anota_en_el_diario(    )
+","Esta carta de amor tiene una escritura bastante particular, me hace acordar a los romances que muestran en la películas de antes... No puedo evitar pensar en que hay un misterio re loco en esta escuela aburrida",This love letter has a very peculiar handwriting; it reminds me of the romances they show in old movies. I can't help but think there's a crazy mystery in this boring school.
+no_double_pic,04 Pasillo Escuela,escenas/04_pasillo_escuela2.tscn,113,"dice(  Jade  ,     )",No quiero gastar otra foto en lo mismo.,I'd rather not waste another photo on the same subject
+exam_result,05 Aula Post Examen,/05_aula_post_examen.tscn,28,"dice(  Jade  ,     )","Ya que estoy acá, voy a ver si está el resultado del examen. No que me importe... pero seguro Milán me lo va a preguntar más tarde.","Now that I'm here, I'll check if the exam results are out. Not that I care... but Milán will surely ask me about it later."
+excelent_exam,05 Aula Post Examen,/05_aula_post_examen.tscn,35,"dice(  Profesore  ,    )",Las respuestas del examen fueron excelentes. Estoy sorprendide. Abriremos una investigación para asegurarnos de que no hiciste trampa.,The exam answers were excellent. I'm surprised. We'll conduct an investigation to ensure you didn't cheat.
+cheating_exam,05 Aula Post Examen,/05_aula_post_examen.tscn,36,anota_en_el_diario(    ),"TRAMPA, lo que me faltaba. Igual no hay mejor venganza que mi excelente nota. En tu robotica cara robotito","CHEATING, just what I needed. Still, there's no better revenge than my excellent grade. In your robotic face, robocop."
+approved_exam,05 Aula Post Examen,/05_aula_post_examen.tscn,38,"dice(  Profesore  ,     )","Aprobaste, pero hay espacio para mejoras. Deberías ser más como tus compañeres si deseas finalizar tus estudios con una buena recomendación","You passed, but there's room for improvement. You should be more like your peers if you want to finish your studies with a good recommendation."
+be_like_classmates,05 Aula Post Examen,/05_aula_post_examen.tscn,39,anota_en_el_diario(    ),"No necesito ser como mis compañeres con sus estúpidos implantes. Además, fue tremenda nota, en sus caras!","I don't need to be like my peers with their stupid implants. Besides, it was an amazing grade, take that!"
+minimum_exam,05 Aula Post Examen,/05_aula_post_examen.tscn,41,"dice(  Profesore  ,    )",Aprobaste con la nota mínima. Deberías ser más como tus compañeres si deseas finalizar tus estudios con una buena recomendación,You passed with the minimum grade. You should be more like your peers if you want to finish your studies with a good recommendation.
+im_happy_with_exam,05 Aula Post Examen,/05_aula_post_examen.tscn,42,anota_en_el_diario(    ),"Lo que importa es que aprobé y no va a haber sermón en casa. Y nadie necesita ser como les ridícules con implantes, tengo mi intelecto natural","What matters is that I passed, and there won't be a lecture at home. No one needs to be like those ridiculous people with implants; I have my natural intellect."
+failed_exam,05 Aula Post Examen,/05_aula_post_examen.tscn,44,"dice(  Profesore  ,     )","No hay palabras para describir la aversión que me resultó leer este examen. De todos modos, no me sorprende este resultado viniendo de ti.","I can't find the words to express how repulsed I felt reading this exam. But then again, I'm not surprised by this outcome, considering it's from you."
+suck_it_exam,05 Aula Post Examen,/05_aula_post_examen.tscn,45,anota_en_el_diario(   ),"Bla, bla, bla... A mi me genera aversión tu cara y no digo nada. Lo peor es que en casa se va a venir otra charla de mil horas. Estúpido examen","Blah, blah, blah... Your face disgusts me, and I don't say anything. The worst part is, there will be another endless lecture at home. Stupid exam."
+what_to_take_pic_of,05 Aula Post Examen,/05_aula_post_examen.tscn,50,"dice(  Jade  ,     )",A qué puedo sacarle foto?,What should I take a picture of?
+remembering_awakening,05 Aula Post Examen,/05_aula_post_examen.tscn,51,anota_en_el_diario(   ),"Me puse a pensar un poco en la vida, en mi futuro, y en el estúpido Despertar. No entiendo el revuelo por el primer implante. Odio esto! La adolescencia es la peor etapa de la vida, ya quiero ser une adulte","I started thinking a bit about life, my future, and the stupid Awakening. I don't understand the fuss about the first implant. I hate this! Adolescence is the worst stage of life; I can't wait to be an adult."
+no_double_pic_2,05 Aula Post Examen,/05_aula_post_examen.tscn,58,"dice(  Jade  ,     )",No quiero gastar otra foto en lo mismo.,I don't want to waste another photo on the same thing.
+log_112,06 Museo Analógico,escenas/06_museo_analogico.tscn,32,dice_a_la_grabadora(    ),"Entrada 112: Cuando Volk subió al poder, los visitantes dejaron de venir.","Entry 112: When Volk came to power, visitors stopped coming. "
+no_talk_of_past,06 Museo Analógico,escenas/06_museo_analogico.tscn,33,dice_a_la_grabadora(    ),"Si bien legalmente no era un asunto prohibido, todos sabían qué opinaba el Líder sobre las épocas pasadas.","Although legally it wasn't forbidden, everyone knew the Leader's stance on past eras. "
+analog_museum_joke,06 Museo Analógico,escenas/06_museo_analogico.tscn,34,dice_a_la_grabadora(    ),Con el tiempo se transformó en el depósito de la escuela y se lo bautizó Museo Analógico como una burla.,"As time passed, it was transformed into the school's storage room, sarcastically dubbed the Analog Museum."
+analog_museum_favorite_place,06 Museo Analógico,escenas/06_museo_analogico.tscn,35,anota_en_el_diario(   ),"El museo analógico es mi lugar favorito en el colegio. Bah, en el mundo. Tiene tantos objetos de antes... Puede que me quedara con una cámara de fotos vieja","The analog museum is my favorite place in school. Well, in the world. It has so many things from before... I might have stolen an old camera."
+stolen_camera,06 Museo Analógico,escenas/06_museo_analogico.tscn,36,anota_en_el_diario(    ),"Sé lo que piensan... A veces no se a quien le hablo, pero en fin… Nadie usa la cámara y seguro que Kase no la va a extrañar","I know what you're thinking... Sometimes I don't know who I'm talking to, but anyway... No one uses the camera, and I'm sure Kase won't miss it."
+similar_portrait_alex,06 Museo Analógico,escenas/06_museo_analogico.tscn,46,"dice(  Jade  ,     )",Se parece al cuadro que Alex tiene escondido en casa. Creo que el pintor era bien famoso o algo.,It looks like the painting Alex has hidden at home. I think the artist was quite famous or something.
+camera_evolution,06 Museo Analógico,escenas/06_museo_analogico.tscn,51,"dice(  Jade  ,     )",La evolución de las cámaras! Existían tantas tan diferentes,"The evolution of cameras! There were so many, all so different."
+creepy_implants,06 Museo Analógico,escenas/06_museo_analogico.tscn,52,"dice(  Jade  ,     )",Es re aburrido que ahora todes saquen fotos con sus implantes. Ni hablar que nunca sabes si te están fotografiando cada vez que te miran,"It's really boring that now everyone takes pictures with their implants. Not to mention, you never know if they're photographing you every time they look at you."
+newspaper,06 Museo Analógico,escenas/06_museo_analogico.tscn,56,"dice(  Jade  ,     )",Leer las noticias desde el celular me parece ridículo cuando podríamos tener esto.,Reading the news on a phone seems ridiculous when we could have this.
+breakfast_and_news,06 Museo Analógico,escenas/06_museo_analogico.tscn,57,"dice(  Jade  ,     )","Como en las películas antiguas, donde se levantan a desayunar mientras leen las noticias.","Like in the old movies, where they get up and get breakfast while reading the news."
+computer_evolution,06 Museo Analógico,escenas/06_museo_analogico.tscn,61,"dice(  Jade  ,     )",Un cuadro de la evolución de las computadoras,A painting depicting the evolution of computers.
+old_books_alergy,06 Museo Analógico,escenas/06_museo_analogico.tscn,65,"dice(  Jade  ,     )","Siempre me dan ganas de leer estos libros, pero son tan viejos que seguro me darían alergia","I always want to read these books, but they're so old that they'd probably trigger my allergies."
+typewriter,06 Museo Analógico,escenas/06_museo_analogico.tscn,69,"dice(  Jade  ,     )","Me gusta escribir mi diario a mano, pero me encantaría también tener una de estas en casa.","I enjoy writing my diary by hand, but having one of these at home would be amazing too."
+is_that_what_i_think,06 Museo Analógico,escenas/06_museo_analogico.tscn,74,"dice(  Jade  ,     )","Wow, eso es lo que creo que es?","Wow, is that what I think it is?"
+continue_exploring,06 Museo Analógico,escenas/06_museo_analogico.tscn,81,"dice(  Jade  ,     )",Mejor sigo explorando antes de molestarle,I better keep exploring before bothering them.
+camera_instructions,06 Museo Analógico,escenas/06_museo_analogico.tscn,85,"dice(  Kase  ,     )","Con la cámara en mano, apunta al escenario que quieras capturar y hace click","Hold the camera steady, frame the scene you want to capture, and press the shutter button."
+choice_who_you,06 Museo Analógico,escenas/06_museo_analogico.tscn,,,Quién sos?,Who are you?
+choice_sorry_disturb,06 Museo Analógico,escenas/06_museo_analogico.tscn,,,"Perdón, no quería molestar.","Sorry, I didn't mean to disturb."
+who_are_you,06 Museo Analógico,escenas/06_museo_analogico.tscn,97,"dice(  Jade  ,     )",Quién sos? Nunca te vi por acá.,Who are you? I've never seen you around here.
+im_kase,06 Museo Analógico,escenas/06_museo_analogico.tscn,98,"dice(  Kase  ,     )",Soy Kase. Le cuidadore del museo. te veo bastante interesade en este polvoriento y viejo lugar.,I'm Kase. The museum caretaker. I see you're quite interested in this dusty old place.
+wanting_solitude,06 Museo Analógico,escenas/06_museo_analogico.tscn,99,"dice(  Jade  ,     )",Siempre vengo por acá cuando quiero estar sole,I always come here when I want to be alone.
+you_like_camera,06 Museo Analógico,escenas/06_museo_analogico.tscn,100,"dice(  Kase  ,     )",Veo que te atrae la cámara. Sabes para que sirve?,I see you're drawn to the camera. Do you know what it's used for?
+i_like_camera,06 Museo Analógico,escenas/06_museo_analogico.tscn,101,"dice(  Jade  ,     )","Sí, desde que lo estudiamos en las clases de Historia Arcaica quise una para registrar todo lo que veo","Absolutely, ever since we covered it in our Ancient History class, I've been eager to have one to document everything I see."
+remembers_young_journalist,06 Museo Analógico,escenas/06_museo_analogico.tscn,102,"dice(  Kase  ,     )","Hace varios años atrás había une joven obsesionade con dejar documentada la historia para el futuro, pasaba largos ratos escribiendo y fotografiando todo lo que...","Years back, there was a young person cobsessed with documenting history for the future, dedicating countless hours to writing and photographing everything..."
+can_see_camera,06 Museo Analógico,escenas/06_museo_analogico.tscn,103,"dice(  Jade  ,     )",Es su cámara? Puedo verla?,Is this their camera? Can I see it?
+yes_but_put_it_back_after,06 Museo Analógico,escenas/06_museo_analogico.tscn,106,respuesta_kase =      ,Puedes usarla. Solo recuerda volver a guardarla cuando termines.,You can use it. Just remember to put it back when you're done.
+incredible_story_role_model,06 Museo Analógico,escenas/06_museo_analogico.tscn,107,anota_en_el_diario(    ),Me contó una historia fascinante! Lo mejor de todo es que le antigüe dueñe de esta cámara tenía un modelo de vida que me encantaría seguir! Evidentemente es el destino,"Kase told me a fascinating story! Best of all, the camera's previous owner is like a role model I'd love to follow. This feels like destiny"
+sorry_to_disturb,06 Museo Analógico,escenas/06_museo_analogico.tscn,111,"dice(  Jade  ,     )","Perdón, no quería molestar. Este lugar siempre está vacío.","Sorry, I didn't mean to disturb. This place is always empty."
+im_kase_observer,06 Museo Analógico,escenas/06_museo_analogico.tscn,112,"dice(  Kase  ,     )","Soy Kase. Le cuidadore del museo. Te suelo ver seguido por acá, pero siempre estás concentrade viendo la exposición como para notar que hay alguien más","I'm Kase. The museum caretaker. I often see you here, but you're always so focused on the exhibition that you don't notice anyone else."
+...,06 Museo Analógico,escenas/06_museo_analogico.tscn,113,"dice(  Jade  ,     )",...,...
+want_try_camera,06 Museo Analógico,escenas/06_museo_analogico.tscn,114,"dice(  Kase  ,     )",Te veo interesade en la cámara. Quieres probarla?,I see you're interested in the camera. Do you want to try it?
+yes_since_history,06 Museo Analógico,escenas/06_museo_analogico.tscn,115,"dice(  Jade  ,     )",SI! Muero por probar una desde que las estudiamos en Historia Arcaica,YES! I've been dying to try one ever since we studied them in Ancient History.
+laughs_reminds_camera,06 Museo Analógico,escenas/06_museo_analogico.tscn,118,respuesta_kase =     ,*Se ríe* Solo recuerda volver a guardarla cuando termines.,*Laughs* Just remember to put it back when you're done.
+kase_wanted_me_to_take_it,06 Museo Analógico,escenas/06_museo_analogico.tscn,119,anota_en_el_diario(    ),"Kase me dejó sostener la cámara, para mi estaba incitando a que me la llevara. También contó una historia muy interesante de la cámara y su dueñe, un auténtico misterio","Kase let me hold the camera; it felt like he was encouraging me to take it. He also told a very interesting story about the camera and its previous owner, a true mystery."
+try_pic_kase,06 Museo Analógico,escenas/06_museo_analogico.tscn,129,"dice(  Jade  ,     )",Quiero probar sacar una foto. No te muevas,I want to try taking a photo. Don't move.
+no_double_pic_3,06 Museo Analógico,escenas/06_museo_analogico.tscn,134,"dice(  Jade  ,     )",No quiero gastar otra foto en lo mismo.,I don't want to waste another photo on the same thing.
+continue_exploring_again,06 Museo Analógico,escenas/06_museo_analogico.tscn,145,"dice(  Jade  ,     )","Deberia continuar explorando, creo que hay objetos que nunca vi por acá",I should keep exploring; I think there are things here I've never seen before.
+try_pic_something,06 Museo Analógico,escenas/06_museo_analogico.tscn,149,"dice(  Jade  ,     )",Quiero probar sacar una foto,I want to try taking a photo.
+no_double_pic_4,06 Museo Analógico,escenas/06_museo_analogico.tscn,163,"dice(  Jade  ,     )",No quiero gastar otra foto en lo mismo.,I don't want to waste another photo on the same thing.
+no_double_pic_5,07 Patio,escenas/07_patio_de_escuela.tscn,45,"dice(  Jade  ,     )",No quiero gastar otra foto en lo mismo.,I don't want to waste another photo on the same thing.
+no_double_pic_6,07 Patio,escenas/07_patio_de_escuela.tscn,53,"dice(  Jade  ,     )",No quiero gastar otra foto en lo mismo.,I don't want to waste another photo on the same thing.
+whats_that_antique,07 Patio,escenas/07_patio_de_escuela.tscn,68,"dice(  Andra  ,     )",Qué es esa antigüedad? Puedo verla?,What's that antique? Can I see it?
+dont_know_what_you_talking,07 Patio,escenas/07_patio_de_escuela.tscn,69,"dice(  Jade  ,     )",No sé de qué hablas,I have no idea what you're talking about.
+think_im_stupid,07 Patio,escenas/07_patio_de_escuela.tscn,70,"dice(  Andra  ,     )",Te piensas que soy estúpide?,Do you think I'm stupid?
+...,07 Patio,escenas/07_patio_de_escuela.tscn,71,"dice(  Jade  ,   ...  )",...,...
+sell_for_parts,07 Patio,escenas/07_patio_de_escuela.tscn,72,"dice(  Andra  ,    )","Podría venderla por parte. Seguro no paguen demasiado por esta chatarra, pero verte miserable sería pago suficiente para mí","I could sell it for parts. They probably won't pay much for this junk, but seeing you miserable would be payment enough for me."
+what_is_noise,07 Patio,escenas/07_patio_de_escuela.tscn,78,"dice(  Jade  ,     )",Qué fue ese ruido?,What was that noise?
+long_live_revolution,07 Patio,escenas/07_patio_de_escuela.tscn,79,"dice(  Misteriose  ,     )",Viva la revolución!,Long live the revolution!
+letter_one,Carta 1,cartas/carta_1.tscn,72-90,,"Amade míe,
+
+La brisa y el aroma que traía solían recordarme a nuestro primer baile bajo la estrellada noche de primavera. Recuerdo le nerviose que estaba, hasta que escuché tu cautivadora voz…
+
+'Ven, toma mi mano. Yo te lideraré, y en cada giro haré que estés a salvo junto a mi', me dijiste.
+
+Nunca había bailado y, como cualquier adolescente, tenía miedo de caerme o tropezar…
+
+'No tengas miedo, siempre estaré para atraparte', susurraste en mi oído.
+
+Me tomaste de la cintura, rodeaste mi cuello con tus suaves manos, y nos fundimos en una mirada profunda que nunca olvidaré. Bailamos… nosotres, las estrellas y la cálida brisa de la noche de primavera.
+
+En estas noches de batalla, cuando miro al cielo estrellado, no logro concebir que sea el mismo que presenció nuestro primer encuentro. La brisa cálida -ahora por el constante bombardeo- no puede reconfortarme. 
+
+Anhelo un futuro en el que podamos bailar nuevamente, tocarnos nuevamente, lejos de las preocupaciones y la incertidumbre de esta guerra. 
+
+Volk y su ejército robótico no podrán detenernos.
+
+¡Viva la revolución! ","My dearest, 
+
+The breeze and the scent it carried used to remind me of our first dance under that starlit spring night. I remember how nervous I was until I heard your captivating voice...
+
+'Come, take my hand. I'll lead, and with every spin, I'll make sure you're safe with me,' you said.
+
+I had never danced before, and like any teenager, I was afraid of falling or stumbling...
+
+'Don't be afraid; I'll always be here to catch you,' you whispered in my ear.
+
+You held me by the waist, your gentle hands encircling my neck, and we locked into a deep gaze that I'll never forget. We danced with the stars, and the warm breeze of the spring night.
+
+On these battle-filled nights, when I gaze at the starry sky, I can't fathom it's the same one that witnessed our first encounter. The warm breeze - now a sign of the constant bombardment - cannot comfort me anymore.
+
+I long for a future where we can dance again, touch each other again, far from the worries and uncertainties of this war.
+
+Volk and his robotic army cannot stop us.
+
+Long live the revolution!"
+date_one,Carta 1,cartas/carta_1.tscn,,,3 de septiembre,September 3rd
+letter_two,Carta 2,cartas/carta_2.tscn,74-84,,"Amade míe,
+
+Los colores del otoño siempre me transportan a nuestra primera cita, a ese simple picnic donde compartimos nuestra primera comida juntes, rodeades de la naturaleza.
+
+'Por ti, el sol siempre brillará. Esto es lo que siento cuando estoy contigo. Me hace saber que esto es lo que está bien’
+
+Cómo podría superar esas palabras, es imposible. Y quedarán grabadas en mi memoria para siempre. Después de cada escaramuza contra el nuevo régimen, pienso en ti, en esas palabras. Sabiendo que nuestro amor  y esta guerra estuvieron destinados a chocar, solo me resta decir:
+
+Te amo, te amo, te amo, como nunca antes…
+
+No dejemos que Volk y su ejército robótico nos detengan. ¡Viva la revolución!","My dearest, 
+
+The colors of the fall always transport me back to our first date, to that simple picnic where we shared our first meal together, surrounded by nature.
+
+'For you, the sun will always shine. This is what I feel when I'm with you. It makes me know that this is the way.'
+
+How could I ever get over those words? I can't. They are impossible to forget. After every skirmish against the new regime, I think of you, of those words. Knowing that our love and this war were destined to collide, all I have left to say is:
+
+I love you, I love you, I love you, like never before...
+
+Let's not allow Volk and his robotic army to stop us. Long live the revolution!"
+date_two,Carta 2,cartas/carta_2.tscn,,,3 de abril,April 3rd
+letter_three,Carta 3,cartas/carta_3.tscn,74-90,,"Amade míe,
+
+No hago más que vivir de recuerdos.  El aplastante calor del verano me transporta a aquella vez donde cambiaste mi vida para siempre.
+
+Nos encontramos en una heladería y con todos tus dotes actorales, me mostraste un pequeño anillo. Me dejaste sin palabras, cómo era de costumbre.
+
+'Mis lágrimas de amor son una pérdida de tiempo si no te tengo a ti. No quiero a nadie más, amor mie'
+
+Una pequeña y pícara risa se te escapó, te sentías algo cursi. Para mi fue el momento más lindo de mi vida. Vi como te sonrojaste y solo puede decir:
+
+“Sí, acepto”. Siempre fuiste mejor con las palabras.
+
+Cada vez perdemos más territorios, escondites, bases, mientras el régimen transhumanista gana autoridad y credibilidad. Solo espero que el poder de tus palabras nos de una ventaja para el futuro.
+
+Espero que podamos detener a Volk y su ejército robótico.
+
+¡Viva la revolución!","My dearest,
+
+I find myself living in memories. The overwhelming summer heat takes me back to that time when you changed my life forever. 
+We met at an ice cream parlor, and with all your acting skills, you showed me a small ring. You left me speechless, as usual. 
+'My love, tears are a waste of time if I don't have you. I want no one else, my love,' you said. 
+A small, playful laugh escaped you; you felt a bit cheesy. But to me, it was the most beautiful moment of my life. I watched you blush, and all I could say was: 
+'Yes, I do.' You were always better with words. 
+With every passing day, we lose more territories, hideouts, bases, while the transhumanist regime gains authority and credibility. I only hope the power of your words gives us an advantage for the future. 
+I hope we can stop Volk and his robotic army. 
+Long live the revolution!"
+date_three,Carta 3,cartas/carta_3.tscn,,,3 de enero,January 3rd
+letter_four,Carta 4,cartas/carta_4.tscn,72-88,,"Amade míe,
+
+El cruel invierno puede ser solitario y oscuro, pero el pasado generalmente es mi mejor aliade en esta época. Tus recuerdos y palabras son las que me ayudan a librar tantas batallasy hacerle frente a un enemigue tan poderose. Por eso, solo puedo darte las gracias por haberme amado, respetado y cuidado. Espero haber logrado lo mismo para ti.   Me es inevitable pensar en nuestra primera vez, cuando éramos jóvenes, intrépides y un poco irresponsables. Ese invierno, en aquella cabaña junto al cálido abrigo del fuego, fui la persona más feliz del mundo.
+
+'Dejame amarte, hasta que aprendas a amarte a ti misme. No tengas miedo. Me encantaría mostrarte lo que el amor verdadero puede hacer', me dijiste.
+
+Acto seguido, nuestro cuerpos se fundieron en una noche de amor, pasión y sensualidad. Mentiría si dijera que no puedo seguir sin ti. Al principio parecía imposible. Pero si algo aprendí de nuestra unión, de nuestro amor, es que la lucha y la búsqueda de la verdad nunca terminan. 
+
+Hoy en día me encuentro junte a otros humanes, volviendo a organizarnos para luchar, para volver a levantar las armas, por una sociedad más justa, inclusiva y por un futuro mejor para todes.
+
+Volk y su ejército robótico no saben lo que les espera. 
+
+¡Viva la revolución! ","My dearest,  The harsh winter can be lonely and dark, but the past is usually my best ally during this time. Your memories and words are what help me fight so many battles and face such a powerful enemy. I can only thank you for having loved me, respected me, and taken care of me. I hope I have achieved the same for you.
+
+I can't help but think of our first time, when we were young, fearless, and a bit irresponsible. That winter, in that cabin beside the warm embrace of the fire, I was the happiest person in the world.
+
+'Let me love you until you learn to love yourself. Don't be afraid. I'd love to show you what true love can do,' you said.
+
+And then, our bodies merged in a night of love, passion, and sensuality. I'd be lying if I said I can’t go on without you. At first, it seemed impossible. But if there's one thing I learned from our union, from our love, it's that the struggle and the search for truth never ends.
+
+Nowadays, I find myself with other humans, regrouping to fight, to lift our arms again, for a fairer, more inclusive society, and for a better future for all.
+
+Volk and his robotic army have no idea what awaits them.
+
+Long live the revolution!"
+date_four,Carta 4,cartas/carta_4.tscn,,,3 de julio,July 3rd
+woke_up_late,Texto Ejemplo 1,tipos_de_entrada_de_diario/texto_ejemplo_primer_parrafo.tscn,12,,"Hoy nuevamente me levanté tarde… Bah, no diría tarde, tarde. Simplemente me dormí un rato más. Convengamos que esta casa inteligente es demasiado estructurada como para que une pueda dormir mil horas más...","Today, I woke up late again... Well, not exactly late, late. Let's just say I slept in a bit. I mean, this smart house is way too structured for anyone to sleep for an extra thousand hours..."
+bought_a_diary,Texto Ejemplo 2,tipos_de_entrada_de_diario/texto_ejemplo_segundo_parrafo.tscn,12,,"Busqué por toda esta maldita ciudad tecnológica hasta que une amable señore me vendió este diario.. .Bah, es un cuaderno medio viejo, pero puedo escribir con un lápiz y tiene hojas. Básicamente no es una pantalla.","I scoured this damn tech city until a kind person sold me this diary... Well, it's a kinda old notebook, but I can write with a pencil, and it has pages. Basically, it's not a screen."
+did_not_study,Texto Ejemplo 3,tipos_de_entrada_de_diario/texto_ejemplo_tercer_parrafo.tscn,12,," Estudié... bueno, algo estudié, no mucho, pero al menos me preparé un poco. Ahora bien, estoy llegando tarde, pero Alex va a trabajar a la oficina, así que seguro me dejan en la escuela. Saben que odio los bondis tecnológicos (sí, odio todo lo que se refiera a lo tecnológico. En realidad no lo odio... bah, sí). Como sea, me llevan a la escuela así que todo bajo control, mi querido Watson? Una buena saga antigua de detectives que nunca leí.","Anyway, I have an exam today. I studied... Well, I studied something, not much, but I did study. Now, I'm running late, but Alex is heading to the office, so they'll probably drop me off at school. They know I hate those techy buses (yes, I hate anything tech-related. Well, maybe not hate... well, yeah). Either way, they'll give me a ride to school, so everything's under control, my dear Watson? A good old detective series I've never read."
+text_screen_to_be_continued,Continuará,escenas/Continuara.tscn,,,Continuará,To be continued
+to_be_continued,Continuará,escenas/Continuara.tscn,14-18,,"Y así, la historia se desenvuelve, dejando a su paso un rastro de preguntas sin respuesta.
+
+¿Quién es ese misteriose extrañe?
+
+¿Qué le sucede a Andra?
+
+¿Cómo progresa el relato de esos años inocentes, tal como se detallaba en las cartas de -K?
+
+Y la revolución... ¿continua avanzando, siendo un faro de esperanza en medio del caos?","And so, the story unfolded, leaving behind a trail of unanswered questions.
+
+Who was that mysterious stranger?
+
+What was happening to Andra?
+
+How did the tale of those innocent years, as chronicled in the letters of a certain -K, progress?
+
+And the revolution... does it continued to surge forward, a beacon of hope amidst the chaos?"
+everything_is_different,Adolescentes,fotos/adolescentes.tscn,33,,Ahora es tan distinto,Now everything is so different
+why_many_questions,Adolescentes,fotos/adolescentes.tscn,47,,Por qué siempre tantas preguntas?,Why are there always so many questions?
+everyone_is_the_same,Adolescentes,fotos/adolescentes.tscn,61,,Son todos iguales,Everyone looks the same
+let_me_be,Adolescentes,fotos/adolescentes.tscn,76,,Déjenme ser así,Let me be this way!
+hate_distances,Adolescentes,fotos/adolescentes.tscn,94,,ODIO ESTA DISTANCIA,I HATE THIS DISTANCE
+no_warmth,Adolescentes,fotos/adolescentes.tscn,108,,Ahora ya no hay calor,Now there's no warmth anymore
+everything_is_on_computers,Adolescentes,fotos/adolescentes.tscn,122,,Todo es por computadoras,Everything happens on computers
+play_with_hands,Adolescentes,fotos/adolescentes.tscn,136,,Quiero jugar con mis manos,I want to play with my hands
+a_letter_r,Buho,fotos/buho.tscn,54,,Una letra,A letter 
+stickers,Buho,fotos/buho.tscn,69,,stickerrrrrs,"There was a joke here, but it relied on how the word in spanish looks like"
+no_meaning,Buho,fotos/buho.tscn,85,,No significa nada sola,It doesn't mean anything by itself
+owl,Buho,fotos/buho.tscn,102,,Un buho!!!,An owl!!!
+what_happened_owl,Buho,fotos/buho.tscn,146,,uuuu... uuuu... pasó algo malo?,"There was a joke here, but it relied on how the word in spanish looks like"
+weird_wrinkles,Escritorio Kase,fotos/escritorio_kase.tscn,33,,Que raras las arrugas,"How strange, the wrinkles."
+future_me,Escritorio Kase,fotos/escritorio_kase.tscn,45,,Así seré yo en el futuro?,Is this how I will be in the future?
+forever_young,Escritorio Kase,fotos/escritorio_kase.tscn,59,,Quiero ser joven para siempre,I want to be young forever.
+no_implant_youth,Escritorio Kase,fotos/escritorio_kase.tscn,74,,Se puede ser joven sin implantes?,Can one be young without implants?
+where_are_implants,Escritorio Kase,fotos/escritorio_kase.tscn,92,,Y sus implantes?,Where are their implants?
+different_other_adults,Escritorio Kase,fotos/escritorio_kase.tscn,104,,Es tan distinte a les otres adultes.,They're so different from the other adults
+takes_care_of_me,Escritorio Kase,fotos/escritorio_kase.tscn,118,,Me trata bien,They treat me well
+curiosity,Escritorio Kase,fotos/escritorio_kase.tscn,132,,No limita mi curiosidad,They don't limit my curiosity
+ode_to_uniformity,Mesa Profesore,fotos/mesa_profesore.tscn,32,,Oda a la uniformidad,Ode to uniformity
+last_to_hand_exam,Mesa Profesore,fotos/mesa_profesore.tscn,44,,Siempre soy le últime en entregar el examen,I'm always the last one to turn in the exam
+always_same_exam,Mesa Profesore,fotos/mesa_profesore.tscn,58,,Siempre tenemos el mismo tipo de examen,We always have the same type of exam
+never_question,Mesa Profesore,fotos/mesa_profesore.tscn,73,,Nunca hay margen para cuestionar,There's never room to question
+shattered_future,Mesa Profesore,fotos/mesa_profesore.tscn,90,,Futuro en añicos,Future shattered into pieces
+no_stand_out,Mesa Profesore,fotos/mesa_profesore.tscn,102,,No puedo sobresalir,I can't stand out
+not_the_norm,Mesa Profesore,fotos/mesa_profesore.tscn,116,,Sobresalir no es la norma,Standing out isn't the norm
+no_dreaming,Mesa Profesore,fotos/mesa_profesore.tscn,130,,No se puede soñar,You can't dream
+no_future_for_dreamers,Mesa Profesore,fotos/mesa_profesore.tscn,144,,No hay futuro para los soñadores,There's no future for dreamers
+first_time,Nines Jugando,fotos/nines_jugando.tscn,32,,Cómo volver a la primera vez?,How to return to the first time?
+inocence,Nines Jugando,fotos/nines_jugando.tscn,46,,La inocencia de esa edad,The innocence of that age
+no_decision,Nines Jugando,fotos/nines_jugando.tscn,60,,No había que decidir,No need to decide
+want_curiosity,Nines Jugando,fotos/nines_jugando.tscn,75,,Quiero esa curiosidad,I want that curiosity
+same_body,Nines Jugando,fotos/nines_jugando.tscn,92,,Todes con el mismo cuerpo,Everyone with the same body
+skip_rope,Nines Jugando,fotos/nines_jugando.tscn,106,,Me gustaba saltar la cuerda,I enjoyed skipping rope
+warm_rope,Nines Jugando,fotos/nines_jugando.tscn,120,,Sentir el calor de la soga en mi mano,Feeling the warmth of the rope in my hand
+tired_arm,Nines Jugando,fotos/nines_jugando.tscn,134,,Y cansar mis brazos...,And tiring my arms...
+forgotten,Puerta Oxidada,fotos/puerta_oxidada.tscn,32,,Olvidada,Forgotten
+no_volk_tech,Puerta Oxidada,fotos/puerta_oxidada.tscn,44,,Sin tecnología de protección de VOLK s.a.,Without VOLK Inc.'s protection technology
+neglected_place,Puerta Oxidada,fotos/puerta_oxidada.tscn,59,,Este lugar quedó realmente descuidado,This place has truly been neglected
+filled_with_dust,Puerta Oxidada,fotos/puerta_oxidada.tscn,75,,Lleno de tierra,Filled with dust
+relegated,Puerta Oxidada,fotos/puerta_oxidada.tscn,91,,Relegado,Relegated
+unattended,Puerta Oxidada,fotos/puerta_oxidada.tscn,108,,Sin reparo,Unattended
+makes_noise,Puerta Oxidada,fotos/puerta_oxidada.tscn,120,,Hace un ruido impactante,It makes a startling noise
+no_one_comes_here,Puerta Oxidada,fotos/puerta_oxidada.tscn,134,,Nadie nunca entra aqui,No one ever enters here
+no_one_bothers_me_here,Puerta Oxidada,fotos/puerta_oxidada.tscn,148,,Aqui nadie me molesta,No one bothers me here
+trapped,Puerta Oxidada,fotos/puerta_oxidada.tscn,162,,Podria quedar atrapade,I could get trapped
+entrepreneur,Volk Diablito,fotos/volk_diablito.tscn,32,, 'Gran' Empresario, 'Great' Entrepreneur
+my_body_their_business,Volk Diablito,fotos/volk_diablito.tscn,46,,Mi cuerpo es su negocio,My body is their business
+advantage_implants,Volk Diablito,fotos/volk_diablito.tscn,60,,Me daría tantas ventajas tener implantes,Having implants would give me so many advantages
+dont_want_implants,Volk Diablito,fotos/volk_diablito.tscn,74,,Pero no quiero ceder...,But I don't want to give in...
+hail_volk,Volk Diablito,fotos/volk_diablito.tscn,91,,All hail Volk,All hail Volk
+not_god,Volk Diablito,fotos/volk_diablito.tscn,105,,No es une diose,They are not a god
+everyone_like_them,Volk Diablito,fotos/volk_diablito.tscn,119,,Quiere que todes seamos igual que elle,They want everyone to be just like them
+someone_do_something,Volk Diablito,fotos/volk_diablito.tscn,134,,Alguien tiene que hacer algo,Someone has to do something
+new_game,Herramientas,herramientas/menu_in_game.tscn,129,,Nueva Partida,New game
+save,Herramientas,herramientas/menu_in_game.tscn,138,,Guardar,Save
+load,Herramientas,herramientas/menu_in_game.tscn,147,,Cargar,Load
+full_screen,Herramientas,herramientas/menu_in_game.tscn,156,,Pantalla Completa,Full Screen
+exit,Herramientas,herramientas/menu_in_game.tscn,165,,Salir,Exit
+continue,Herramientas,herramientas/menu_in_game.tscn,175,,Continuar,Resume
+really_want_to_exit,Herramientas,herramientas/menu_in_game.tscn,215,,Realmente desea salir?,Are you sure you want to exit the game?
+yes,Herramientas,herramientas/menu_in_game.tscn,230,,Sí,Yes
+no,Herramientas,herramientas/menu_in_game.tscn,239,,No,No

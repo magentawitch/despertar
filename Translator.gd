@@ -1,7 +1,7 @@
 extends Node
 
-var records = preload("res://translations.tsv").records
-var current_lang = "ENGLISH"
+var records = preload("res://translations.csv").records
+var current_lang = "SPANISH"
 
 func set_current_lang(lang):
 	current_lang = lang
@@ -23,12 +23,16 @@ func translate_node(node: Node):
 	if node.is_in_group("already_translated"):
 		return
 	node.add_to_group("already_translated")
-	
+
 	if node is Label:
 		node.text = translate(node.text)
-		
+
 	if node is Button:
 		node.text = translate(node.text)
+
+	if node is RichTextLabel:
+		node.text = translate(node.text)
+
 
 # Traduce todo un arbol o una escena, yendo por cada nodo y traduciendo su contenido.
 func translate_tree(node: Node):

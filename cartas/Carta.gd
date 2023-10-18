@@ -23,6 +23,7 @@ func _version_cerrada() -> TextureButton:
 	)
 	self.remove_child(carta_cerrada)
 	self.queue_free()
+	Translator.translate_tree(carta_cerrada)
 	return carta_cerrada as TextureButton
 	
 func _version_abierta() -> Position2D:
@@ -34,6 +35,7 @@ func _version_abierta() -> Position2D:
 	carta_abierta.transform.origin = Vector2()
 	self.remove_child(carta_abierta)
 	self.queue_free()
+	Translator.translate_tree(carta_abierta)
 	return carta_abierta as Position2D
 
 static func cargar_carta_abierta(nombre_carta: String) -> Position2D:

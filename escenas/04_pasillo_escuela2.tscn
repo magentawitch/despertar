@@ -25,10 +25,10 @@ script/source = "extends Escena
 func _ready():
 	if ya_ocurrio_que(\"agarro_carta_1\"):
 		$CartaCerrada1.visible = false
-	if not tiene_la_camara():
-		anotar_en_el_diario(\"\"\"
-		empty_corridors
-		\"\"\")
+		
+	if no_ocurrio_que(\"salio_del_examen_y_reflexiono\"):
+		anotar_en_el_diario(\"\"\"empty_corridors\"\"\")
+		registrar_hito(\"salio_del_examen_y_reflexiono\")
 
 func _on_PuertaAula_pressed():
 	if no_ocurrio_que(\"volvio_al_aula\") and tiene_la_camara():
@@ -92,12 +92,12 @@ func _on_Carta1_pressed():
 	ver_carta(\"carta_1\")
 	agregar_carta(\"carta_1\")
 	registrar_hito(\"agarro_carta_1\")
-	anota_en_el_diario(\"Esta carta de amor tiene una escritura bastante particular, me hace acordar a los romances que muestran en la películas de antes.. No puedo evitar pensar en que hay un misterio re loco en esta escuela aburrida\")
+	anota_en_el_diario(\"nice_love_letter\")
 
 
 func _on_FotoVolk_pressed():
 	if ya_saco_foto(\"volk_diablito\"):
-		dice(\"Jade\", \"No quiero gastar otra foto en lo mismo.\")
+		dice(\"Jade\", \"no_double_pic\")
 	else:
 		agrega_foto_al_diario(\"volk_diablito\")
 "

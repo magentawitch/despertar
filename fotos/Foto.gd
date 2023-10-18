@@ -22,4 +22,5 @@ static func cargar(nombre_foto: String) -> Foto:
 	var foto = load(archivo_de_la_escena).instance() as Foto
 	for opcion in foto.get_node('opciones').get_children():
 		opcion.visible = false
+	Translator.translate_tree(foto)
 	return foto
