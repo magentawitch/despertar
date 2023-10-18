@@ -29,30 +29,30 @@ func _on_PuertaPasillo_pressed():
 	var d2 = randi() % 2
 	match d2:
 		0:
-			dice(\"Jade\", \"Tengo que completar este estúpido examen.\")
+			dice(\"Jade\", \"complete_exam\")
 		1:
-			dice(\"Profesore\", \"Dónde crees que vas, Jade? Completa tu examen como el resto de la clase.\")
+			dice(\"Profesore\", \"profesor_complete_exam\")
 
 
 
 func _on_Examen_pressed():
-	anota_en_el_diario(\"Para sorpresa mía, llegué unos minutos antes, lo único es que en nada tenía el examen y la verdad tenía cero ganas de sentarme a escribir y usar mi cerebro\")
-	anota_en_el_diario(\"Ugh, que asco de examen. Realmente son unes chupamedias de este estúpido gobierno y su adoración por la tecnología...\")
+	anota_en_el_diario(\"arrived_early\")
+	anota_en_el_diario(\"disgusting_exam\")
 	cambiar_escena_a('03_examen')
 
 var clicks_reloj = 0
 func _on_Reloj_pressed():
 	clicks_reloj += 1
 	if clicks_reloj == 1:
-		dice(\"Jade\", \"El reloj no funciona desde que estudio acá. Para ser una sociedad que está tan atada a la tecnología, a veces dejan mucho que desear\")
+		dice(\"Jade\", \"broken_clock\")
 	if clicks_reloj >= 2:
-		dice(\"Jade\", \"Claro que si todes tienen un implante que les indica siempre la hora, no necesitan este viejo reloj de pared...\")
-		dice(\"Jade\", \"Se siente como un recordatorio para les que no tenemos implantes. Quieren que seamos conscientes de que esta sociedad no está pensada para nosotres\")
+		dice(\"Jade\", \"implant_equals_no_clock\")
+		dice(\"Jade\", \"reminder_of_implants\")
 
 
 func _on_Profesore_pressed():
-	dice(\"Profesore\", \"El examen ya fue repartido. Llegaste con el tiempo justo.\")
-	dice(\"Profesore\", \"Recuerda, llegar temprano es estar a tiempo. Llegar a tiempo es llegar tarde, y llegar tarde es inaceptable\")
+	dice(\"Profesore\", \"exam_handout\")
+	dice(\"Profesore\", \"remember_times\")
 "
 
 [sub_resource type="Animation" id=2]

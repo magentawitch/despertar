@@ -11,12 +11,13 @@ func set_current_lang(lang):
 # Ej:
 #  translate("hello_world") -> "Hola mundirijillo :)"
 #  translate("Cualquier otra string random") -> "Cualquier otra string random"
-func translate(translation_id: String) -> String:
+func translate(text: String) -> String:
+	var translation_id = text.strip_edges()
 	for r in records:
 		if r["ID"] == translation_id and r.has(current_lang):
-			return r[current_lang]
+			return text.replace(translation_id, r[current_lang])
 	push_error("Translation not found for: %s" % translation_id)
-	return translation_id
+	return text
 
 func translate_node(node: Node):
 	if node.is_in_group("already_translated"):

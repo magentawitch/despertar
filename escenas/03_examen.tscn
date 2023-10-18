@@ -16,6 +16,7 @@ var opciones_elegidas = []
 var bloqueado = true
 
 func _ready() -> void:
+	Translator.translate_tree($contenido/examen)
 	$animacion.connect(\"animation_finished\", self, \"_cuando_una_animacion_termina\")
 	for label in get_tree().get_nodes_in_group(\"opciones_examen\"):
 		label.mouse_default_cursor_shape = Control.CURSOR_ARROW
@@ -77,8 +78,8 @@ func interaccion_con_una_opcion(event, id: String, label: Label):
 			terminar_examen()
 			
 func terminar_examen():
-	dice(\"Jade\", \"Terminé\")
-	dice(\"Jade\", \"Espero que todo esté bien\")
+	dice(\"Jade\", \"finished\")
+	dice(\"Jade\", \"hope_its_ok\")
 	corregir_examen()
 	
 	cambiar_escena_a('04_pasillo_escuela2')
@@ -87,16 +88,16 @@ func terminar_examen():
 func corregir_examen():
 	if opciones_elegidas.has(\"A1\") and opciones_elegidas.has(\"B2\") and opciones_elegidas.has(\"C3\"):
 		guardar_resultado_examen(\"excelente\")
-		anota_en_el_diario(\"Creo que me fue excelente en el examen! En tu cara robotito\")
+		anota_en_el_diario(\"believe_it_went_well\")
 	elif opciones_elegidas.has(\"A3\") and opciones_elegidas.has(\"B1\") and opciones_elegidas.has(\"C2\"):
 		guardar_resultado_examen(\"nota_buena\")
-		anota_en_el_diario(\"Creo que me fue bastante bien. Y eso que me dieron ganas de quemar el examen en la pregunta dos\")
+		anota_en_el_diario(\"believe_it_went_pretty_well\")
 	elif opciones_elegidas.has(\"A2\") and opciones_elegidas.has(\"B3\") and opciones_elegidas.has(\"C1\"):
 		guardar_resultado_examen(\"nota_minima\")
-		anota_en_el_diario(\"Aprender es lo que importa, no con qué nota. Espero haberme sacado el mínimo, aunque ese examen es realmente un chiste\")
+		anota_en_el_diario(\"numbers_arent_important\")
 	else:
 		guardar_resultado_examen(\"reprobado\")
-		anota_en_el_diario(\"Siempre es lo mismo con este estúpido examen. No debo haber acertado nada, porque siempre hay que poner exactamente lo que dicen los libros\")
+		anota_en_el_diario(\"dumb_exam\")
 "
 
 [sub_resource type="Theme" id=2]
